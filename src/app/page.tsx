@@ -6,6 +6,7 @@ import Image from "next/image";
 import {
   ShieldCheck,
   Award,
+  Pill,
   TrendingUp,
   FileCheck,
   CheckCircle2,
@@ -20,17 +21,27 @@ import {
   FileText,
   Search,
   Check,
-  ChevronRight
+  ChevronRight,
+  Globe2,
+  FlaskConical,
 } from "lucide-react";
 import {
   COMPANY_INFO,
   ANNUAL_CAPACITIES,
   DIVISIONS,
   TESTIMONIALS,
-  BLOG_POSTS
+  BLOG_POSTS,
 } from "@/data/company";
 import { PRODUCTS, Product } from "@/data/products";
 import EnquiryModal from "@/components/EnquiryModal";
+
+const ACCREDITATION_ICONS: (React.ComponentType<{ className?: string; strokeWidth?: number }> | "iso")[] = [
+  Globe2,
+  "iso",
+  FlaskConical,
+  FileCheck,
+  ShieldCheck,
+];
 
 export default function HomePage() {
   const [enquiryModalOpen, setEnquiryModalOpen] = useState(false);
@@ -43,7 +54,7 @@ export default function HomePage() {
     "Pain Management & Orthopaedics",
     "Gastroenterology & Antacids",
     "Nutraceuticals & Haematinic",
-    "Dermatology & Skin Care"
+    "Dermatology & Skin Care",
   ];
 
   const filteredProducts =
@@ -59,39 +70,52 @@ export default function HomePage() {
   return (
     <div className="w-full bg-white text-slate-900">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-sky-50/30 to-white py-16 sm:py-24 border-b border-slate-200">
-        <div className="hero-pattern absolute inset-0 opacity-40 pointer-events-none"></div>
+      <section className="relative isolate overflow-hidden border-b border-slate-200 bg-[#f4f8fd]">
+        {/* Background image, fading into the copy on the left */}
+        <div className="absolute inset-y-0 right-0 -z-10 w-full lg:w-[64%]">
+          <Image
+            src="/herobg.png"
+            alt="Cleanroom vial filling line at Incredible Medicare"
+            fill
+            priority
+            sizes="(min-width: 1024px) 64vw, 100vw"
+            className="object-cover object-[65%_center] opacity-25 lg:opacity-100 lg:[mask-image:linear-gradient(to_right,transparent_0%,black_38%)]"
+          />
+        </div>
+        <div className="absolute inset-0 -z-10 bg-linear-to-r from-[#f4f8fd] via-[#f4f8fd]/80 to-transparent lg:from-[#f4f8fd] lg:via-[#f4f8fd]/55 lg:to-transparent lg:w-[55%]" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid min-h-0 grid-cols-1 lg:min-h-[740px] lg:grid-cols-12">
             {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-100/80 border border-sky-200 text-sky-900 text-xs font-bold tracking-wide">
-                <ShieldCheck className="w-4 h-4 text-sky-700" />
-                <span>WHO-GMP &amp; ISO 9001:2015 CERTIFIED PHARMACEUTICAL ENTERPRISE</span>
+            <div className="flex flex-col justify-center py-14 sm:py-20 lg:col-span-7 lg:py-16 lg:pr-10">
+              <div className="flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500 sm:text-xs">
+                <span>WHO-GMP &amp; ISO 9001:2015 Certified</span>
+                <span className="hidden h-px w-24 bg-slate-300 sm:block" />
               </div>
 
-              {/* Main Heading */}
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15]">
+              <h1 className="mt-6 font-serif text-4xl font-medium leading-[1.08] tracking-tight text-[#0b1b3b] sm:text-5xl lg:text-[54px] xl:text-[60px]">
                 Delivering Excellence in{" "}
-                <span className="text-sky-700">Pharmaceutical</span>{" "}
+                <span className="text-[#1a5fb4]">Pharmaceutical</span>{" "}
                 Manufacturing &amp; PCD Franchise.
               </h1>
 
-              {/* Description */}
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-normal">
-                <strong>Incredible Medicare</strong> delivers high-standard, bioequivalent medicines across India. Backed by state-of-the-art cleanrooms, 650+ approved DCGI formulations, and nationwide franchise monopoly rights.
+              <p className="mt-7 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
+                <strong className="font-semibold text-slate-700">
+                  Incredible Medicare
+                </strong>{" "}
+                delivers high-standard, bioequivalent medicines across India.
+                Backed by state-of-the-art cleanrooms, 650+ approved DCGI
+                formulations, and nationwide franchise monopoly rights.
               </p>
 
-              {/* CTAs */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Link
                   href="/products"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-sky-700 hover:bg-sky-800 text-white font-bold text-sm rounded-xl shadow-md hover:shadow-lg transition-all"
+                  className="inline-flex items-center gap-3 rounded-lg bg-[#0b4a99] px-6 py-3.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-[#093d80] hover:shadow-lg"
                 >
-                  <Package className="w-4 h-4" />
+                  <Package className="h-4 w-4" />
                   <span>Browse 650+ Products</span>
+                  <ArrowRight className="h-4 w-4" />
                 </Link>
 
                 <button
@@ -100,163 +124,144 @@ export default function HomePage() {
                     setSelectedProduct("");
                     setEnquiryModalOpen(true);
                   }}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-slate-50 text-slate-800 hover:text-sky-800 font-bold text-sm rounded-xl border border-slate-300 shadow-xs hover:border-sky-300 transition-all cursor-pointer"
+                  className="inline-flex cursor-pointer items-center gap-3 rounded-lg border border-slate-300 bg-white/70 px-6 py-3.5 text-sm font-semibold text-slate-800 backdrop-blur-sm transition-all hover:border-[#0b4a99] hover:bg-white hover:text-[#0b4a99]"
                 >
-                  <FileText className="w-4 h-4 text-sky-700" />
+                  <FileText className="h-4 w-4 text-[#0b4a99]" />
                   <span>Request Franchise Terms</span>
+                  <ArrowRight className="h-4 w-4" />
                 </button>
               </div>
 
               {/* Trust Indicators */}
-              <div className="pt-6 border-t border-slate-200/80 grid grid-cols-3 gap-4 sm:gap-6 text-slate-700">
-                <div>
-                  <div className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                    15+
+              <div className="mt-12 flex flex-wrap items-center gap-y-5 sm:flex-nowrap">
+                {[
+                  { icon: ShieldCheck, title: "WHO-GMP", sub: "Certified" },
+                  { icon: Award, title: "ISO 9001:2015", sub: "Certified" },
+                  { icon: Pill, title: "650+", sub: "Approved Products" },
+                ].map(({ icon: Icon, title, sub }, i) => (
+                  <div
+                    key={title}
+                    className={`flex items-center gap-3 pr-5 sm:pr-6 xl:pr-8 ${
+                      i > 0
+                        ? "sm:border-l sm:border-slate-300/80 sm:pl-5 xl:pl-8"
+                        : ""
+                    }`}
+                  >
+                    <Icon
+                      className="h-9 w-9 shrink-0 text-[#0b4a99]"
+                      strokeWidth={1.4}
+                    />
+                    <div>
+                      <div className="text-base font-bold leading-tight text-[#0b1b3b]">
+                        {title}
+                      </div>
+                      <div className="mt-0.5 text-[10px] font-medium uppercase tracking-[0.2em] text-slate-500">
+                        {sub}
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-xs text-slate-500 font-medium">Years Experience</div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Floating glass cards (desktop) */}
+        <div className="pointer-events-none absolute inset-0 hidden lg:block">
+          {/* Tagline */}
+          <div className="absolute right-[4%] top-14 hidden text-[11px] font-medium uppercase leading-relaxed tracking-[0.3em] text-white [text-shadow:0_1px_6px_rgba(11,27,59,0.6)] xl:block">
+            <div>Better</div>
+            <div>Medicines</div>
+            <div>Bigger</div>
+            <div>Possibilities</div>
+            <div className="mt-3 h-0.5 w-10 bg-white" />
+          </div>
+
+          {/* 650+ card */}
+          <div className="pointer-events-auto absolute left-[54%] top-[26%] w-[300px] rounded-xl border border-white/70 bg-white/70 p-6 shadow-xl backdrop-blur-md">
+            <div className="flex items-center gap-4">
+              <Pill
+                className="h-12 w-12 shrink-0 text-[#0b4a99]"
+                strokeWidth={1.3}
+              />
+              <div>
+                <div className="font-serif text-5xl font-medium leading-none text-[#0b1b3b]">
+                  650+
                 </div>
-                <div>
-                  <div className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                    650+
-                  </div>
-                  <div className="text-xs text-slate-500 font-medium">Approved Products</div>
-                </div>
-                <div>
-                  <div className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                    850+
-                  </div>
-                  <div className="text-xs text-slate-500 font-medium">Franchise Partners</div>
+                <div className="mt-1.5 text-sm font-medium text-[#0b1b3b]">
+                  Approved Products
                 </div>
               </div>
             </div>
-
-            {/* Right Card / Visual Showcase */}
-            <div className="lg:col-span-5">
-              <div className="relative bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-200">
-                {/* Decorative highlight */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-sky-100 rounded-bl-full -z-10 opacity-50"></div>
-
-                <div className="flex items-center justify-between pb-6 border-b border-slate-100">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center p-2 shadow-xs">
-                      <Image
-                        src="/logo.png"
-                        alt="Incredible Medicare Logo"
-                        width={40}
-                        height={40}
-                        className="object-contain"
-                      />
-                    </div>
-                    <div>
-                      <h2 className="font-bold text-slate-900 text-base">Incredible Medicare</h2>
-                      <p className="text-xs text-slate-500">Corporate Headquarters</p>
-                    </div>
-                  </div>
-                  <span className="px-2.5 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-semibold rounded-md">
-                    Verified Plant
-                  </span>
-                </div>
-
-                <div className="py-6 space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-sky-50 text-sky-700 flex items-center justify-center shrink-0 mt-0.5">
-                      <Building2 className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wide">
-                        Head Office Location
-                      </h3>
-                      <p className="text-xs text-slate-600 mt-0.5">
-                        {COMPANY_INFO.address}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-sky-50 text-sky-700 flex items-center justify-center shrink-0 mt-0.5">
-                      <ShieldCheck className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wide">
-                        Quality Certifications
-                      </h3>
-                      <p className="text-xs text-slate-600 mt-0.5">
-                        WHO-GMP, ISO 9001:2015, GLP &amp; cGMP Compliant Facility
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-sky-50 text-sky-700 flex items-center justify-center shrink-0 mt-0.5">
-                      <Compass className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wide">
-                        Commercial Channels
-                      </h3>
-                      <p className="text-xs text-slate-600 mt-0.5">
-                        PCD Pharma Franchise, Third-Party Contract Manufacturing, Global Exports
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Instant Quote Callout */}
-                <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <div className="text-xs font-bold text-slate-900">
-                        Need Instant Price List?
-                      </div>
-                      <div className="text-[11px] text-slate-500">
-                        Available on email: {COMPANY_INFO.email}
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setSelectedProduct("Full Product Price List");
-                        setEnquiryModalOpen(true);
-                      }}
-                      className="px-3.5 py-1.5 bg-sky-700 hover:bg-sky-800 text-white text-xs font-semibold rounded-lg transition"
-                    >
-                      Get PDF
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div className="my-4 h-px w-8 bg-slate-300" />
+            <ul className="space-y-2.5 text-sm text-slate-700">
+              {[
+                "Wide Therapeutic Range",
+                "DCGI Approved Formulations",
+                "Consistent Quality Standards",
+              ].map((t) => (
+                <li key={t} className="flex items-center gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-[#0b4a99]" />
+                  {t}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
       {/* 2. ACCREDITATIONS & QUALITY STANDARDS BANNER */}
-      <section className="bg-slate-900 text-white py-10 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-8">
-            <span className="text-sky-400 text-xs font-bold tracking-widest uppercase">
-              Regulatory Standards &amp; Certifications
-            </span>
-            <h2 className="text-xl sm:text-2xl font-bold text-white mt-1">
-              Engineered Under Stringent Regulatory Benchmarks
+      <section className="relative overflow-hidden bg-[#f4f8fd] py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <Image
+          src="/bg2.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-center pointer-events-none select-none"
+        />
+        <div className="relative max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+            <div className="flex items-center justify-center gap-4">
+              <span className="hidden sm:block h-px w-16 bg-gradient-to-r from-transparent to-[#0b4a99]/50" />
+              <span className="text-[#0b5bd3] text-[11px] sm:text-xs font-bold tracking-[0.22em] uppercase">
+                Regulatory Standards &amp; Certifications
+              </span>
+              <span className="hidden sm:block h-px w-16 bg-gradient-to-l from-transparent to-[#0b4a99]/50" />
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#0a1f44] mt-4 leading-[1.15]">
+              Engineered Under Stringent{" "}
+              <span className="block">Regulatory Benchmarks</span>
             </h2>
+            <p className="text-slate-600 text-sm sm:text-base mt-5 max-w-2xl mx-auto leading-relaxed">
+              Our manufacturing processes and quality systems comply with global
+              regulatory standards, ensuring safe, effective and reliable
+              medicines for a healthier world.
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {COMPANY_INFO.accreditations.map((item) => (
-              <div
-                key={item.title}
-                className="bg-slate-800/80 p-4 rounded-xl border border-slate-700/80 text-center hover:border-sky-500 transition-colors"
-              >
-                <div className="w-10 h-10 bg-sky-950 text-sky-400 rounded-lg flex items-center justify-center mx-auto mb-2 border border-sky-800/40">
-                  <Award className="w-5 h-5" />
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-5 lg:mt-24">
+            {COMPANY_INFO.accreditations.map((item, i) => {
+              const Icon = ACCREDITATION_ICONS[i] ?? Award;
+              return (
+                <div
+                  key={item.title}
+                  className="group bg-white/60 backdrop-blur-md p-5 sm:p-6 rounded-2xl border border-white/80 shadow-[0_8px_30px_rgba(30,80,160,0.08)] text-center hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(30,80,160,0.16)] transition-all last:col-span-2 md:last:col-span-1"
+                >
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#dbe8fb] text-[#0b5bd3] rounded-full flex items-center justify-center mx-auto mb-4">
+                    {Icon === "iso" ? (
+                      <span className="text-sm font-black tracking-tight">ISO</span>
+                    ) : (
+                      <Icon className="w-7 h-7 sm:w-8 sm:h-8" strokeWidth={1.6} />
+                    )}
+                  </div>
+                  <div className="font-bold text-[#0a1f44] text-base">{item.title}</div>
+                  <div className="h-[3px] w-9 rounded-full bg-gradient-to-r from-[#0b4a99] to-[#3b8ff0] mx-auto my-3" />
+                  <div className="text-[13px] text-slate-600 leading-snug">
+                    {item.desc}
+                  </div>
                 </div>
-                <div className="font-bold text-white text-sm">{item.title}</div>
-                <div className="text-[11px] text-slate-400 mt-1 leading-tight">
-                  {item.desc}
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -283,7 +288,10 @@ export default function HomePage() {
                 </div>
 
                 <div className="p-4 bg-white rounded-2xl border border-slate-200/80 text-xs text-slate-600 leading-relaxed">
-                  Strategically located in the Chandigarh Tricity industrial corridor, our corporate headquarters coordinates pan-India distribution, partner logistics, regulatory documentation, and strategic expansions.
+                  Strategically located in the Chandigarh Tricity industrial
+                  corridor, our corporate headquarters coordinates pan-India
+                  distribution, partner logistics, regulatory documentation, and
+                  strategic expansions.
                 </div>
 
                 <div className="flex items-center gap-3 pt-2">
@@ -301,7 +309,9 @@ export default function HomePage() {
                 </div>
 
                 <div className="p-4 bg-white rounded-2xl border border-slate-200/80 text-xs text-slate-600 leading-relaxed">
-                  Operates under WHO-GMP compliance, equipped with high-speed automated blister packing, liquid bottle lines, Class 10,000 cleanrooms, and dedicated QA/QC analytical suites.
+                  Operates under WHO-GMP compliance, equipped with high-speed
+                  automated blister packing, liquid bottle lines, Class 10,000
+                  cleanrooms, and dedicated QA/QC analytical suites.
                 </div>
               </div>
             </div>
@@ -313,20 +323,31 @@ export default function HomePage() {
                   About Incredible Medicare
                 </span>
                 <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                  From Punjab to Nationwide Markets — Expanding with Clinical Integrity.
+                  From Punjab to Nationwide Markets — Expanding with Clinical
+                  Integrity.
                 </h2>
                 <div className="accent-bar"></div>
               </div>
 
               <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
                 <p>
-                  <strong>Incredible Medicare</strong> is a distinguished Indian pharmaceutical enterprise specializing in the development, manufacture, and distribution of high-grade ethical formulations across multiple therapeutic segments.
+                  <strong>Incredible Medicare</strong> is a distinguished Indian
+                  pharmaceutical enterprise specializing in the development,
+                  manufacture, and distribution of high-grade ethical
+                  formulations across multiple therapeutic segments.
                 </p>
                 <p>
-                  Built on a foundation of precision, regulatory compliance, and uncompromising quality benchmarks, we serve hospitals, clinics, medical institutions, and retail chemists through our dedicated network of PCD franchise associates and wholesale partners.
+                  Built on a foundation of precision, regulatory compliance, and
+                  uncompromising quality benchmarks, we serve hospitals,
+                  clinics, medical institutions, and retail chemists through our
+                  dedicated network of PCD franchise associates and wholesale
+                  partners.
                 </p>
                 <p>
-                  Our extensive portfolio covers tablets, capsules, sterile injectables, oral syrups, topical ointments, and advanced nutraceuticals formulated to satisfy current DCGI guidelines and international pharmacopeial standards.
+                  Our extensive portfolio covers tablets, capsules, sterile
+                  injectables, oral syrups, topical ointments, and advanced
+                  nutraceuticals formulated to satisfy current DCGI guidelines
+                  and international pharmacopeial standards.
                 </p>
               </div>
 
@@ -338,9 +359,12 @@ export default function HomePage() {
                   "Over 650+ DCGI Approved Formulations",
                   "Complete Promotional Support & Visual Aids",
                   "Turnkey Third-Party Contract Manufacturing",
-                  "Prompt Dispatch & Real-Time Consignment Tracking"
+                  "Prompt Dispatch & Real-Time Consignment Tracking",
                 ].map((feat) => (
-                  <div key={feat} className="flex items-center gap-2 text-xs font-semibold text-slate-800">
+                  <div
+                    key={feat}
+                    className="flex items-center gap-2 text-xs font-semibold text-slate-800"
+                  >
                     <CheckCircle2 className="w-4 h-4 text-sky-700 shrink-0" />
                     <span>{feat}</span>
                   </div>
@@ -380,7 +404,8 @@ export default function HomePage() {
             </h2>
             <div className="accent-bar mx-auto"></div>
             <p className="text-sm sm:text-base text-slate-600">
-              Built for scale, consistency, and prompt batch delivery to support both domestic distribution and third-party corporate partnerships.
+              Built for scale, consistency, and prompt batch delivery to support
+              both domestic distribution and third-party corporate partnerships.
             </p>
           </div>
 
@@ -394,11 +419,15 @@ export default function HomePage() {
                   <span className="inline-block px-2.5 py-1 rounded-md text-[11px] font-semibold bg-sky-50 text-sky-800 border border-sky-100 mb-4">
                     {cap.badge}
                   </span>
-                  <h3 className="font-bold text-slate-900 text-lg mb-1">{cap.form}</h3>
+                  <h3 className="font-bold text-slate-900 text-lg mb-1">
+                    {cap.form}
+                  </h3>
                   <div className="text-2xl sm:text-3xl font-extrabold text-sky-800 my-2">
                     {cap.metric}
                   </div>
-                  <p className="text-xs text-slate-500 font-medium">{cap.subtext}</p>
+                  <p className="text-xs text-slate-500 font-medium">
+                    {cap.subtext}
+                  </p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-slate-100 text-[11px] text-slate-400 font-medium">
                   Automated High-Speed Lines
@@ -422,7 +451,8 @@ export default function HomePage() {
               </h2>
               <div className="accent-bar mt-2"></div>
               <p className="text-sm text-slate-600 mt-2 max-w-xl">
-                High-efficacy medicines produced in accordance with IP/BP/USP standards, offering dependable clinical relief and doctor trust.
+                High-efficacy medicines produced in accordance with IP/BP/USP
+                standards, offering dependable clinical relief and doctor trust.
               </p>
             </div>
 
@@ -539,7 +569,9 @@ export default function HomePage() {
             </h2>
             <div className="accent-bar mx-auto"></div>
             <p className="text-sm sm:text-base text-slate-600">
-              Whether you are an aspiring pharma entrepreneur looking for an exclusive PCD franchise or an established brand requiring reliable contract manufacturing, Incredible Medicare delivers.
+              Whether you are an aspiring pharma entrepreneur looking for an
+              exclusive PCD franchise or an established brand requiring reliable
+              contract manufacturing, Incredible Medicare delivers.
             </p>
           </div>
 
@@ -554,24 +586,35 @@ export default function HomePage() {
                   PCD Pharma Franchise Business
                 </h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Join our nationwide franchise network with genuine monopoly rights, attractive net rates, high profit margins, and zero internal competition in your designated territory.
+                  Join our nationwide franchise network with genuine monopoly
+                  rights, attractive net rates, high profit margins, and zero
+                  internal competition in your designated territory.
                 </p>
                 <div className="space-y-2 pt-2 text-xs text-slate-700">
                   <div className="flex items-center gap-2 font-medium">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Exclusive district-wise monopoly marketing agreements</span>
+                    <span>
+                      Exclusive district-wise monopoly marketing agreements
+                    </span>
                   </div>
                   <div className="flex items-center gap-2 font-medium">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Free promotional inputs: Visual aids, LBLs, catch covers, MR bags</span>
+                    <span>
+                      Free promotional inputs: Visual aids, LBLs, catch covers,
+                      MR bags
+                    </span>
                   </div>
                   <div className="flex items-center gap-2 font-medium">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Fast pan-India dispatch with stock availability assurance</span>
+                    <span>
+                      Fast pan-India dispatch with stock availability assurance
+                    </span>
                   </div>
                   <div className="flex items-center gap-2 font-medium">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Continuous new DCGI approved formulation launches</span>
+                    <span>
+                      Continuous new DCGI approved formulation launches
+                    </span>
                   </div>
                 </div>
               </div>
@@ -607,24 +650,37 @@ export default function HomePage() {
                   Third-Party Contract Manufacturing
                 </h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Leverage our WHO-GMP certified production units for turnkey manufacturing of your private label medicines with strict quality control and predictable timelines.
+                  Leverage our WHO-GMP certified production units for turnkey
+                  manufacturing of your private label medicines with strict
+                  quality control and predictable timelines.
                 </p>
                 <div className="space-y-2 pt-2 text-xs text-slate-700">
                   <div className="flex items-center gap-2 font-medium">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Cost-effective contract production without capex investment</span>
+                    <span>
+                      Cost-effective contract production without capex
+                      investment
+                    </span>
                   </div>
                   <div className="flex items-center gap-2 font-medium">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Custom packaging: Alu-Alu, Blister, Amber Glass, Lyophilized Vials</span>
+                    <span>
+                      Custom packaging: Alu-Alu, Blister, Amber Glass,
+                      Lyophilized Vials
+                    </span>
                   </div>
                   <div className="flex items-center gap-2 font-medium">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Comprehensive regulatory documentation &amp; analytical release</span>
+                    <span>
+                      Comprehensive regulatory documentation &amp; analytical
+                      release
+                    </span>
                   </div>
                   <div className="flex items-center gap-2 font-medium">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Flexible batch sizes with guaranteed delivery schedules</span>
+                    <span>
+                      Flexible batch sizes with guaranteed delivery schedules
+                    </span>
                   </div>
                 </div>
               </div>
@@ -665,7 +721,9 @@ export default function HomePage() {
             </h2>
             <div className="accent-bar mx-auto"></div>
             <p className="text-sm sm:text-base text-slate-600">
-              Each division at Incredible Medicare operates with dedicated formulation expertise, tailored promotional inputs, and specialized clinical focus.
+              Each division at Incredible Medicare operates with dedicated
+              formulation expertise, tailored promotional inputs, and
+              specialized clinical focus.
             </p>
           </div>
 
@@ -684,7 +742,9 @@ export default function HomePage() {
                       {div.productCount}
                     </span>
                   </div>
-                  <h3 className="font-bold text-slate-900 text-lg mb-1">{div.name}</h3>
+                  <h3 className="font-bold text-slate-900 text-lg mb-1">
+                    {div.name}
+                  </h3>
                   <div className="text-xs font-semibold text-sky-700 mb-2">
                     {div.tagline}
                   </div>
@@ -694,7 +754,10 @@ export default function HomePage() {
 
                   <div className="space-y-1.5 pt-2 border-t border-slate-200/80">
                     {div.highlights.map((h) => (
-                      <div key={h} className="text-xs text-slate-700 flex items-center gap-1.5">
+                      <div
+                        key={h}
+                        className="text-xs text-slate-700 flex items-center gap-1.5"
+                      >
                         <div className="w-1.5 h-1.5 rounded-full bg-sky-600"></div>
                         <span>{h}</span>
                       </div>
@@ -729,7 +792,8 @@ export default function HomePage() {
             </h2>
             <div className="accent-bar mx-auto"></div>
             <p className="text-sm sm:text-base text-slate-600">
-              Delivering verifiable quality, ethical supply assurance, and long-term collaborative value across the healthcare ecosystem.
+              Delivering verifiable quality, ethical supply assurance, and
+              long-term collaborative value across the healthcare ecosystem.
             </p>
           </div>
 
@@ -742,7 +806,9 @@ export default function HomePage() {
                 <div>
                   <div className="flex items-center gap-1 text-amber-500 mb-4">
                     {[...Array(t.rating)].map((_, i) => (
-                      <span key={i} className="text-lg">★</span>
+                      <span key={i} className="text-lg">
+                        ★
+                      </span>
                     ))}
                   </div>
                   <p className="text-xs sm:text-sm text-slate-700 leading-relaxed italic mb-6">
@@ -750,9 +816,15 @@ export default function HomePage() {
                   </p>
                 </div>
                 <div className="pt-4 border-t border-slate-100">
-                  <div className="font-bold text-slate-900 text-sm">{t.name}</div>
-                  <div className="text-xs text-sky-700 font-medium">{t.designation}</div>
-                  <div className="text-[11px] text-slate-400 mt-0.5">{t.location}</div>
+                  <div className="font-bold text-slate-900 text-sm">
+                    {t.name}
+                  </div>
+                  <div className="text-xs text-sky-700 font-medium">
+                    {t.designation}
+                  </div>
+                  <div className="text-[11px] text-slate-400 mt-0.5">
+                    {t.location}
+                  </div>
                 </div>
               </div>
             ))}
@@ -829,7 +901,9 @@ export default function HomePage() {
             Ready to Partner With Incredible Medicare?
           </h2>
           <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            Contact our business development team today to inquire about available district monopoly rights for PCD franchise or discuss third-party contract manufacturing schedules.
+            Contact our business development team today to inquire about
+            available district monopoly rights for PCD franchise or discuss
+            third-party contract manufacturing schedules.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
@@ -860,7 +934,8 @@ export default function HomePage() {
             >
               {COMPANY_INFO.email}
             </a>{" "}
-            | Head Office: Unicity Business Park, Dhakoli, Zirakpur, Punjab 160104
+            | Head Office: Unicity Business Park, Dhakoli, Zirakpur, Punjab
+            160104
           </div>
         </div>
       </section>

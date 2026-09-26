@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@theme inline {
+  --font-serif: var(--font-serif-display), Georgia, serif;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #0f172a;
