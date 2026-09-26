@@ -15,7 +15,10 @@ import {
   ArrowRight,
   Sparkles,
   PhoneCall,
-  Check
+  Check,
+  Globe2,
+  FlaskConical,
+  Handshake,
 } from "lucide-react";
 import { COMPANY_INFO, DIVISIONS } from "@/data/company";
 import EnquiryModal from "@/components/EnquiryModal";
@@ -26,26 +29,98 @@ export default function AboutPage() {
   return (
     <div className="w-full bg-white text-slate-900">
       {/* Page Header Banner */}
-      <section className="bg-gradient-to-b from-slate-50 to-white py-14 sm:py-20 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <nav className="flex items-center justify-center gap-2 text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
-            <Link href="/" className="hover:text-sky-700">Home</Link>
-            <span>/</span>
-            <span className="text-sky-800">About Us</span>
-          </nav>
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#f7faff] via-[#eef4fc] to-[#e3edfb]">
+        <Image
+          src="/bg3.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="pointer-events-none select-none object-cover object-right opacity-30 lg:opacity-100"
+        />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16 min-h-[560px] lg:min-h-[620px] flex items-center">
+          <div className="max-w-2xl lg:max-w-[46%] xl:max-w-[50%]">
+            <div className="flex items-center gap-4">
+              <span className="h-px w-12 bg-[#0b5bd3]" />
+              <span className="text-[#0b5bd3] text-sm font-bold uppercase tracking-[0.12em]">
+                About Us
+              </span>
+            </div>
+            <h1 className="mt-5 text-4xl sm:text-5xl xl:text-6xl font-extrabold text-[#0a1f44] tracking-tight leading-[1.08]">
+              Driving Pharmaceutical Excellence &amp; Ethical{" "}
+              <span className="text-[#0b5bd3]">Healthcare</span>
+            </h1>
+            <p className="mt-6 text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl">
+              Incredible Medicare is an ISO 9001:2015 &amp; WHO-GMP accredited
+              pharmaceutical company based in Zirakpur, Punjab. Founded on the
+              principles of therapeutic bioequivalence, scientific rigor, and
+              partner trust.
+            </p>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Driving Pharmaceutical Excellence &amp; Ethical Healthcare
-          </h1>
-          <div className="accent-bar mx-auto"></div>
-          <p className="max-w-3xl mx-auto text-slate-600 text-sm sm:text-base leading-relaxed">
-            Incredible Medicare is an ISO 9001:2015 &amp; WHO-GMP accredited pharmaceutical company based in Zirakpur, Punjab. Founded on principles of therapeutic bioequivalence, scientific rigor, and partner trust.
-          </p>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <a
+                href="#corporate-overview"
+                className="inline-flex items-center gap-3 rounded-[4px] bg-[#0b5bd3] hover:bg-[#0a4db3] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(11,91,211,0.35)] transition"
+              >
+                Our Corporate Journey
+                <ArrowRight className="w-4 h-4" />
+              </a>
+              <Link
+                href="/infrastructure"
+                className="inline-flex items-center gap-3 rounded-[4px] border border-[#0b5bd3] bg-white/70 hover:bg-white px-7 py-3.5 text-sm font-semibold text-[#0b5bd3] transition"
+              >
+                Our Infrastructure
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-5 sm:flex sm:flex-wrap sm:items-center sm:gap-y-4">
+              {[
+                { icon: ShieldCheck, a: "WHO-GMP", b: "Accredited" },
+                { icon: FileText, a: "ISO 9001:2015", b: "Certified" },
+                { icon: Users, a: "650+", b: "Approved Formulations" },
+                { icon: Globe2, a: "Pan-India & Global", b: "Distribution Network" },
+              ].map((f, i) => (
+                <div
+                  key={f.a}
+                  className={`flex items-center gap-3 ${i > 0 ? "sm:border-l sm:border-[#cfe0f7] sm:pl-5" : ""}`}
+                >
+                  <f.icon className="w-8 h-8 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                  <div className="leading-tight">
+                    <div className="text-sm font-bold text-[#0a1f44]">{f.a}</div>
+                    <div className="text-xs text-slate-500">{f.b}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Floating cards (desktop) */}
+          <div className="hidden lg:block absolute inset-0 pointer-events-none">
+            {[
+              { icon: FlaskConical, a: "High-Quality Formulations", b: "For a healthier tomorrow", pos: "right-[4%] top-[12%]" },
+              { icon: Handshake, a: "Trusted by Healthcare Partners", b: "Across India & Global Markets", pos: "right-[26%] top-[48%]" },
+              { icon: Users, a: "Ethical & Patient-Centric", b: "Committed to Better Lives", pos: "right-[2%] bottom-[10%]" },
+            ].map((c) => (
+              <div
+                key={c.a}
+                className={`absolute ${c.pos} w-[260px] xl:w-[290px] flex items-center gap-4 rounded-[4px] border border-white bg-white/80 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(30,80,160,0.15)]`}
+              >
+                <span className="w-14 h-14 shrink-0 rounded-full bg-[#e3edfb] text-[#0b5bd3] flex items-center justify-center">
+                  <c.icon className="w-7 h-7" strokeWidth={1.5} />
+                </span>
+                <div className="leading-snug">
+                  <div className="text-sm font-bold text-[#0a1f44]">{c.a}</div>
+                  <div className="text-xs text-slate-500 mt-0.5">{c.b}</div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Corporate Profile Details */}
-      <section className="py-20 bg-white border-b border-slate-200">
+      <section id="corporate-overview" className="py-20 bg-white border-b border-slate-200 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
