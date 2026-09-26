@@ -24,6 +24,13 @@ import {
   ChevronRight,
   Globe2,
   FlaskConical,
+  Tablets,
+  Pill as PillIcon,
+  PillBottle,
+  Pipette,
+  Wheat,
+  Settings,
+  Factory,
 } from "lucide-react";
 import {
   COMPANY_INFO,
@@ -42,6 +49,8 @@ const ACCREDITATION_ICONS: (React.ComponentType<{ className?: string; strokeWidt
   FileCheck,
   ShieldCheck,
 ];
+
+const CAPACITY_ICONS = [Tablets, PillIcon, PillBottle, Pipette, Wheat];
 
 export default function HomePage() {
   const [enquiryModalOpen, setEnquiryModalOpen] = useState(false);
@@ -247,7 +256,7 @@ export default function HomePage() {
                   key={item.title}
                   className="group bg-white/60 backdrop-blur-md p-5 sm:p-6 rounded-2xl border border-white/80 shadow-[0_8px_30px_rgba(30,80,160,0.08)] text-center hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(30,80,160,0.16)] transition-all last:col-span-2 md:last:col-span-1"
                 >
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#dbe8fb] text-[#0b5bd3] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 text-[#0b5bd3] flex items-center justify-center mx-auto mb-4">
                     {Icon === "iso" ? (
                       <span className="text-sm font-black tracking-tight">ISO</span>
                     ) : (
@@ -267,71 +276,111 @@ export default function HomePage() {
       </section>
 
       {/* 3. ABOUT INCREDIBLE MEDICARE SNAPSHOT */}
-      <section className="py-20 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden py-16 lg:py-20 bg-gradient-to-br from-white via-[#f6f9fe] to-[#eaf1fb] border-b border-slate-200">
+        <div className="pointer-events-none absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/50 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-40 left-1/3 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/40 blur-3xl" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Visual Box */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="bg-slate-50 p-6 rounded-3xl border border-slate-200 space-y-5">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-sky-700 text-white flex items-center justify-center font-bold">
-                    HQ
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-slate-900 text-base">
-                      Corporate Headquarters
-                    </h3>
-                    <p className="text-xs text-slate-500">
-                      Unicity Business Park, Dhakoli, Zirakpur, Punjab 160104
-                    </p>
-                  </div>
-                </div>
+            <div className="lg:col-span-6 relative space-y-4 lg:space-y-0 lg:h-[640px]">
+              {/* Photo 1 */}
+              <div className="relative h-56 sm:h-72 lg:absolute lg:left-0 lg:top-0 lg:h-[58%] lg:w-[74%] overflow-hidden rounded-3xl lg:rounded-tl-none lg:rounded-br-none lg:rounded-tr-[3rem] lg:rounded-bl-[3rem] shadow-[0_10px_40px_rgba(30,80,160,0.15)]">
+                <Image
+                  src="/herobg.png"
+                  alt="Pharmaceutical cleanroom technician"
+                  fill
+                  sizes="(min-width:1024px) 40vw, 100vw"
+                  className="object-cover scale-125 origin-[45%_35%]"
+                  style={{ objectPosition: "45% 35%" }}
+                />
+              </div>
 
-                <div className="p-4 bg-white rounded-2xl border border-slate-200/80 text-xs text-slate-600 leading-relaxed">
-                  Strategically located in the Chandigarh Tricity industrial
-                  corridor, our corporate headquarters coordinates pan-India
-                  distribution, partner logistics, regulatory documentation, and
-                  strategic expansions.
-                </div>
-
-                <div className="flex items-center gap-3 pt-2">
-                  <div className="w-10 h-10 rounded-xl bg-slate-800 text-white flex items-center justify-center font-bold">
-                    PLANT
+              {/* Cards */}
+              <div className="lg:absolute lg:right-0 lg:top-[19%] lg:w-[70%] lg:z-10 space-y-3">
+                {[
+                  {
+                    tag: "HQ",
+                    tagClass: "bg-[#0b4a99]",
+                    title: "Corporate Headquarters",
+                    addr: "Unicity Business Park, Dhakoli, Zirakpur, Punjab 160104",
+                    body: "Strategically located in the Chandigarh Tricity industrial corridor, our corporate headquarters coordinates pan-India distribution, partner logistics, regulatory documentation, and strategic expansions.",
+                    href: "/contact",
+                  },
+                  {
+                    tag: "PLAN",
+                    tagClass: "bg-[#0a1f44]",
+                    title: "Manufacturing Unit",
+                    addr: "SIDCO Industrial Complex, Ghatti, Kathua, J&K 184143",
+                    body: "Operates under WHO-GMP compliance, equipped with high-speed automated blister packing, liquid bottle lines, Class 10,000 cleanrooms, and dedicated QA/QC analytical suites.",
+                    href: "/infrastructure",
+                  },
+                ].map((c) => (
+                  <div
+                    key={c.title}
+                    className="bg-white/95 backdrop-blur rounded-2xl border border-white p-5 shadow-[0_10px_40px_rgba(30,80,160,0.14)]"
+                  >
+                    <div className="flex items-center gap-3 pb-3 border-b border-slate-200/80">
+                      <div className={`w-11 h-11 shrink-0 rounded-xl ${c.tagClass} text-white flex items-center justify-center font-bold text-xs`}>
+                        {c.tag}
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="font-bold text-[#0a1f44] text-base">{c.title}</h3>
+                        <p className="text-xs text-slate-500">{c.addr}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-end gap-3 pt-3">
+                      <p className="text-[13px] text-slate-600 leading-relaxed">{c.body}</p>
+                      <Link
+                        href={c.href}
+                        aria-label={c.title}
+                        className="shrink-0 w-9 h-9 rounded-full bg-[#e6effc] text-[#0b4a99] border border-[#cfe0f7] flex items-center justify-center hover:bg-[#0b4a99] hover:text-white transition"
+                      >
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-bold text-slate-900 text-base">
-                      Manufacturing Unit
-                    </h3>
-                    <p className="text-xs text-slate-500">
-                      SIDCO Industrial Complex, Ghatti, Kathua, J&amp;K 184143
-                    </p>
-                  </div>
-                </div>
+                ))}
+              </div>
 
-                <div className="p-4 bg-white rounded-2xl border border-slate-200/80 text-xs text-slate-600 leading-relaxed">
-                  Operates under WHO-GMP compliance, equipped with high-speed
-                  automated blister packing, liquid bottle lines, Class 10,000
-                  cleanrooms, and dedicated QA/QC analytical suites.
+              {/* Photo 2 */}
+              <div className="relative h-56 sm:h-72 lg:absolute lg:left-[3%] lg:bottom-0 lg:h-[36%] lg:w-[80%] overflow-hidden rounded-3xl shadow-[0_10px_40px_rgba(30,80,160,0.15)]">
+                <Image
+                  src="/herobg.png"
+                  alt="Vial filling line"
+                  fill
+                  sizes="(min-width:1024px) 40vw, 100vw"
+                  className="object-cover"
+                  style={{ objectPosition: "85% 90%" }}
+                />
+                <div className="absolute left-4 bottom-4 flex items-center gap-3 rounded-2xl bg-white/85 backdrop-blur px-4 py-2.5 shadow-lg">
+                  <div className="w-9 h-9 rounded-xl bg-[#e6effc] text-[#0b4a99] flex items-center justify-center">
+                    <Building2 className="w-5 h-5" />
+                  </div>
+                  <span className="text-xs font-medium text-[#0a1f44] leading-tight">
+                    State-of-the-Art
+                    <br />
+                    Manufacturing Facility
+                  </span>
                 </div>
               </div>
             </div>
 
             {/* Content Box */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="space-y-2">
-                <span className="text-sky-700 text-xs font-bold uppercase tracking-wider">
+            <div className="lg:col-span-6 space-y-6">
+              <div className="space-y-4">
+                <span className="inline-block rounded-lg border border-[#cfe0f7] bg-white/70 px-4 py-1.5 text-[#0b4a99] text-xs font-bold uppercase tracking-wider">
                   About Incredible Medicare
                 </span>
-                <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                  From Punjab to Nationwide Markets — Expanding with Clinical
-                  Integrity.
+                <h2 className="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0a1f44] tracking-tight leading-[1.1]">
+                  From Punjab to Nationwide Markets — Expanding with{" "}
+                  <span className="text-[#0b5bd3]">Clinical Integrity.</span>
                 </h2>
                 <div className="accent-bar"></div>
               </div>
 
               <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
                 <p>
-                  <strong>Incredible Medicare</strong> is a distinguished Indian
+                  <strong className="text-[#0a1f44]">Incredible Medicare</strong> is a distinguished Indian
                   pharmaceutical enterprise specializing in the development,
                   manufacture, and distribution of high-grade ethical
                   formulations across multiple therapeutic segments.
@@ -352,7 +401,7 @@ export default function HomePage() {
               </div>
 
               {/* Core Feature Points */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3.5 pt-2">
                 {[
                   "100% WHO-GMP & ISO 9001:2015 Compliance",
                   "Monopoly-Backed PCD Pharma Franchise Rights",
@@ -363,18 +412,18 @@ export default function HomePage() {
                 ].map((feat) => (
                   <div
                     key={feat}
-                    className="flex items-center gap-2 text-xs font-semibold text-slate-800"
+                    className="flex items-center gap-2.5 text-[13px] font-medium text-[#0a1f44]"
                   >
-                    <CheckCircle2 className="w-4 h-4 text-sky-700 shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#0b5bd3] shrink-0" strokeWidth={1.8} />
                     <span>{feat}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="pt-4 flex items-center gap-4">
+              <div className="pt-4 flex flex-wrap items-center gap-4">
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-xl transition"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#0b4a99] hover:bg-[#093d80] text-white text-sm font-semibold rounded-xl shadow-[0_8px_24px_rgba(11,74,153,0.3)] transition"
                 >
                   <span>Learn More About Us</span>
                   <ArrowRight className="w-4 h-4" />
@@ -382,7 +431,7 @@ export default function HomePage() {
 
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 text-sm font-semibold rounded-xl transition"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/80 hover:bg-white text-[#0a1f44] text-sm font-semibold rounded-xl border border-[#cfe0f7] transition"
                 >
                   <span>Contact Headquarters</span>
                 </Link>
@@ -393,47 +442,63 @@ export default function HomePage() {
       </section>
 
       {/* 4. ANNUAL MANUFACTURING CAPACITY */}
-      <section className="py-20 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <span className="text-sky-700 text-xs font-bold uppercase tracking-wider">
+      <section className="relative overflow-hidden py-16 lg:py-20 bg-gradient-to-b from-white via-[#f5f9ff] to-[#edf3fc] border-b border-slate-200">
+        <div className="pointer-events-none absolute -top-40 -right-40 h-[460px] w-[460px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
+        <div className="pointer-events-none absolute top-40 -left-40 h-[380px] w-[380px] rounded-full bg-[#cfe0f7]/50 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 left-1/3 h-[300px] w-[600px] rounded-full bg-[#dbe8fb]/40 blur-3xl" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-14">
+            <span className="inline-flex items-center gap-2.5 rounded-full border border-[#e3ecfa] bg-white px-5 py-2 text-[#0b5bd3] text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] shadow-[0_4px_16px_rgba(30,80,160,0.10)]">
+              <Factory className="w-4 h-4" strokeWidth={2} />
               High-Volume Infrastructure
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Annual Manufacturing Capacity
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f44] tracking-tight mt-5">
+              Annual Manufacturing{" "}
+              <span className="text-[#0b5bd3]">Capacity</span>
             </h2>
-            <div className="accent-bar mx-auto"></div>
-            <p className="text-sm sm:text-base text-slate-600">
+            <div className="accent-bar mx-auto mt-4"></div>
+            <p className="text-sm sm:text-base text-slate-600 mt-5 leading-relaxed">
               Built for scale, consistency, and prompt batch delivery to support
               both domestic distribution and third-party corporate partnerships.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {ANNUAL_CAPACITIES.map((cap) => (
-              <div
-                key={cap.form}
-                className="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs hover:shadow-md transition-all text-center flex flex-col justify-between"
-              >
-                <div>
-                  <span className="inline-block px-2.5 py-1 rounded-md text-[11px] font-semibold bg-sky-50 text-sky-800 border border-sky-100 mb-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-5">
+            {ANNUAL_CAPACITIES.map((cap, i) => {
+              const Icon = CAPACITY_ICONS[i] ?? Package;
+              return (
+                <div
+                  key={cap.form}
+                  className="bg-white/85 backdrop-blur rounded-2xl p-5 border border-white shadow-[0_10px_40px_rgba(30,80,160,0.10)] hover:-translate-y-1 hover:shadow-[0_14px_44px_rgba(30,80,160,0.18)] transition-all flex flex-col items-center text-center"
+                >
+                  <span className="inline-block whitespace-nowrap px-3 py-1 rounded-md text-[11px] font-semibold bg-[#eaf1fd] text-[#0b5bd3]">
                     {cap.badge}
                   </span>
-                  <h3 className="font-bold text-slate-900 text-lg mb-1">
+                  <div className="w-[72px] h-[72px] rounded-full bg-[#e9f1fc] text-[#0b5bd3] flex items-center justify-center mt-4">
+                    <Icon className="w-8 h-8" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-bold text-[#0a1f44] text-base mt-4 min-h-[1.5rem] leading-snug">
                     {cap.form}
                   </h3>
-                  <div className="text-2xl sm:text-3xl font-extrabold text-sky-800 my-2">
+                  <div className="text-3xl font-extrabold text-[#0b5bd3] mt-2 tracking-tight">
                     {cap.metric}
                   </div>
-                  <p className="text-xs text-slate-500 font-medium">
-                    {cap.subtext}
-                  </p>
+                  <p className="text-sm text-slate-500 mt-1">{cap.subtext}</p>
+                  <div className="w-full mt-auto pt-5">
+                    <div className="border-t border-slate-200/80 pt-4 flex items-center justify-center gap-3 text-xs text-slate-500 font-medium text-left">
+                      <div className="w-9 h-9 shrink-0 rounded-full bg-[#e9f1fc] text-[#0b5bd3] flex items-center justify-center">
+                        <Settings className="w-4 h-4" />
+                      </div>
+                      <span className="leading-tight">
+                        Automated
+                        <br />
+                        High-Speed Lines
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <div className="mt-6 pt-4 border-t border-slate-100 text-[11px] text-slate-400 font-medium">
-                  Automated High-Speed Lines
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
