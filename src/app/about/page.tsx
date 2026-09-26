@@ -19,6 +19,18 @@ import {
   Globe2,
   FlaskConical,
   Handshake,
+  Box,
+  BarChart3,
+  ChevronRight,
+  Leaf,
+  Gem,
+  Scale,
+  Lightbulb,
+  LayoutGrid,
+  Settings,
+  Microscope,
+  QrCode,
+  MapPin,
 } from "lucide-react";
 import { COMPANY_INFO, DIVISIONS } from "@/data/company";
 import EnquiryModal from "@/components/EnquiryModal";
@@ -29,7 +41,7 @@ export default function AboutPage() {
   return (
     <div className="w-full bg-white text-slate-900">
       {/* Page Header Banner */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#f7faff] via-[#eef4fc] to-[#e3edfb]">
+      <section className="relative flex items-center overflow-hidden bg-gradient-to-br from-[#f7faff] via-[#eef4fc] to-[#e3edfb] lg:min-h-[max(600px,42vw)]">
         <Image
           src="/bg3.png"
           alt=""
@@ -38,26 +50,26 @@ export default function AboutPage() {
           sizes="100vw"
           className="pointer-events-none select-none object-cover object-right opacity-30 lg:opacity-100"
         />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16 min-h-[560px] lg:min-h-[620px] flex items-center">
-          <div className="max-w-2xl lg:max-w-[46%] xl:max-w-[50%]">
+        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-14">
+          <div className="max-w-2xl lg:max-w-[52%]">
             <div className="flex items-center gap-4">
               <span className="h-px w-12 bg-[#0b5bd3]" />
               <span className="text-[#0b5bd3] text-sm font-bold uppercase tracking-[0.12em]">
                 About Us
               </span>
             </div>
-            <h1 className="mt-5 text-4xl sm:text-5xl xl:text-6xl font-extrabold text-[#0a1f44] tracking-tight leading-[1.08]">
+            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-[2.6rem] xl:text-[3.25rem] font-extrabold text-[#0a1f44] tracking-tight leading-[1.08]">
               Driving Pharmaceutical Excellence &amp; Ethical{" "}
               <span className="text-[#0b5bd3]">Healthcare</span>
             </h1>
-            <p className="mt-6 text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl">
+            <p className="mt-5 text-slate-600 text-base leading-relaxed max-w-xl">
               Incredible Medicare is an ISO 9001:2015 &amp; WHO-GMP accredited
               pharmaceutical company based in Zirakpur, Punjab. Founded on the
               principles of therapeutic bioequivalence, scientific rigor, and
               partner trust.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-7 flex flex-wrap items-center gap-4">
               <a
                 href="#corporate-overview"
                 className="inline-flex items-center gap-3 rounded-[4px] bg-[#0b5bd3] hover:bg-[#0a4db3] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(11,91,211,0.35)] transition"
@@ -74,7 +86,7 @@ export default function AboutPage() {
               </Link>
             </div>
 
-            <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-5 sm:flex sm:flex-wrap sm:items-center sm:gap-y-4">
+            <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-5 sm:flex sm:flex-wrap sm:items-center sm:gap-y-4 lg:flex-nowrap lg:w-[min(58vw,54rem)]">
               {[
                 { icon: ShieldCheck, a: "WHO-GMP", b: "Accredited" },
                 { icon: FileText, a: "ISO 9001:2015", b: "Certified" },
@@ -83,11 +95,11 @@ export default function AboutPage() {
               ].map((f, i) => (
                 <div
                   key={f.a}
-                  className={`flex items-center gap-3 ${i > 0 ? "sm:border-l sm:border-[#cfe0f7] sm:pl-5" : ""}`}
+                  className={`flex items-center gap-2.5 whitespace-nowrap ${i > 0 ? "sm:border-l sm:border-[#cfe0f7] sm:pl-4" : ""}`}
                 >
-                  <f.icon className="w-8 h-8 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                  <f.icon className="w-7 h-7 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
                   <div className="leading-tight">
-                    <div className="text-sm font-bold text-[#0a1f44]">{f.a}</div>
+                    <div className="text-[13px] font-bold text-[#0a1f44]">{f.a}</div>
                     <div className="text-xs text-slate-500">{f.b}</div>
                   </div>
                 </div>
@@ -95,23 +107,171 @@ export default function AboutPage() {
             </div>
           </div>
 
+        </div>
           {/* Floating cards (desktop) */}
-          <div className="hidden lg:block absolute inset-0 pointer-events-none">
-            {[
-              { icon: FlaskConical, a: "High-Quality Formulations", b: "For a healthier tomorrow", pos: "right-[4%] top-[12%]" },
-              { icon: Handshake, a: "Trusted by Healthcare Partners", b: "Across India & Global Markets", pos: "right-[26%] top-[48%]" },
-              { icon: Users, a: "Ethical & Patient-Centric", b: "Committed to Better Lives", pos: "right-[2%] bottom-[10%]" },
-            ].map((c) => (
-              <div
-                key={c.a}
-                className={`absolute ${c.pos} w-[260px] xl:w-[290px] flex items-center gap-4 rounded-[4px] border border-white bg-white/80 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(30,80,160,0.15)]`}
-              >
-                <span className="w-14 h-14 shrink-0 rounded-full bg-[#e3edfb] text-[#0b5bd3] flex items-center justify-center">
-                  <c.icon className="w-7 h-7" strokeWidth={1.5} />
+        <div className="hidden lg:block absolute inset-0 pointer-events-none">
+          {[
+            { icon: FlaskConical, a: "High-Quality Formulations", b: "For a healthier tomorrow", pos: "right-[5%] top-[13%]" },
+            { icon: Handshake, a: "Trusted by Healthcare Partners", b: "Across India & Global Markets", pos: "left-[57%] top-[55%]" },
+            { icon: Users, a: "Ethical & Patient-Centric", b: "Committed to Better Lives", pos: "right-[3%] bottom-[12%]" },
+          ].map((c) => (
+            <div
+              key={c.a}
+              className={`absolute ${c.pos} w-[260px] xl:w-[290px] flex items-center gap-4 rounded-[4px] border border-white bg-white/80 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(30,80,160,0.15)]`}
+            >
+              <span className="w-14 h-14 shrink-0 rounded-full bg-[#e3edfb] text-[#0b5bd3] flex items-center justify-center">
+                <c.icon className="w-7 h-7" strokeWidth={1.5} />
+              </span>
+              <div className="leading-snug">
+                <div className="text-sm font-bold text-[#0a1f44]">{c.a}</div>
+                <div className="text-xs text-slate-500 mt-0.5">{c.b}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Corporate Profile Details */}
+      <section
+        id="corporate-overview"
+        className="relative overflow-hidden bg-gradient-to-br from-[#f7faff] via-[#eef4fc] to-[#e3edfb] py-16 lg:py-20 scroll-mt-24"
+      >
+        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[52%] lg:block [mask-image:linear-gradient(to_right,transparent,black_40%)]">
+          <Image
+            src="/bg3.png"
+            alt=""
+            fill
+            sizes="52vw"
+            className="select-none object-cover object-right"
+          />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Left Content */}
+            <div className="lg:col-span-7">
+              <div className="flex items-center gap-4">
+                <span className="h-px w-10 bg-[#0b5bd3]" />
+                <span className="text-[#0b5bd3] text-xs font-bold uppercase tracking-[0.12em]">
+                  Corporate Overview
                 </span>
-                <div className="leading-snug">
-                  <div className="text-sm font-bold text-[#0a1f44]">{c.a}</div>
-                  <div className="text-xs text-slate-500 mt-0.5">{c.b}</div>
+              </div>
+              <h2 className="mt-4 text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0a1f44] tracking-tight leading-[1.1]">
+                Pioneering High-Quality Formulations for{" "}
+                <span className="text-[#0b5bd3]">Pan-India &amp; Global Healthcare</span>
+              </h2>
+
+              <div className="mt-6 space-y-4 text-slate-600 text-[15px] leading-relaxed max-w-2xl">
+                <p>
+                  At <strong className="text-[#0a1f44]">Incredible Medicare</strong>, we believe that access to high-potency, safe, and cost-effective pharmaceutical formulations is fundamental to advancing human health. Our corporate journey has evolved from a targeted regional distributor to a full-spectrum formulation enterprise commanding over 650+ DCGI-approved formulations.
+                </p>
+                <p>
+                  Headquartered at <strong className="text-[#0a1f44]">Unicity Business Park, Dhakoli, Zirakpur (Punjab)</strong>, our executive leadership oversees a multidisciplinary supply chain, rigorous quality audits, pan-India franchise enablement, and international export dossiers.
+                </p>
+                <p>
+                  Our primary manufacturing facility operates at the <strong className="text-[#0a1f44]">SIDCO Industrial Complex, Ghatti, Kathua (J&amp;K)</strong>, in strict compliance with current Good Manufacturing Practices (cGMP), ISO 9001:2015, and WHO-GMP specifications.
+                </p>
+              </div>
+
+              <div className="mt-7 flex flex-wrap items-center gap-4">
+                <a
+                  href="#strategic-foundation"
+                  className="inline-flex items-center gap-3 rounded-[4px] bg-[#0b5bd3] hover:bg-[#0a4db3] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(11,91,211,0.35)] transition"
+                >
+                  Explore Our Journey
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+                <Link
+                  href="/infrastructure"
+                  className="inline-flex items-center gap-3 rounded-[4px] border border-[#0b5bd3] bg-white/70 hover:bg-white px-7 py-3.5 text-sm font-semibold text-[#0b5bd3] transition"
+                >
+                  Our Infrastructure
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Card */}
+            <div className="lg:col-span-5">
+              <div className="rounded-[4px] border border-white bg-white/85 backdrop-blur p-6 shadow-[0_16px_50px_rgba(30,80,160,0.14)] space-y-4">
+                <div className="flex items-center gap-3">
+                  <Image
+                    src="/logo.png"
+                    alt="Incredible Medicare Logo"
+                    width={48}
+                    height={48}
+                    className="object-contain"
+                  />
+                  <div className="leading-tight">
+                    <h3 className="font-extrabold text-[#0a1f44] text-xl">
+                      Incredible <span className="text-[#0b5bd3]">Medicare</span>
+                    </h3>
+                    <p className="text-sm text-slate-500">Quality Assured Healthcare</p>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  {[
+                    {
+                      icon: ShieldCheck,
+                      title: "WHO-GMP & ISO 9001:2015",
+                      desc: "Every batch is validated with analytical certificates, dissolution testing, and assay documentation.",
+                    },
+                    {
+                      icon: Building2,
+                      title: "Dual Strategic Locations",
+                      desc: "Commercial HQ in Zirakpur (Punjab) + High-capacity Manufacturing Complex in Kathua (J&K).",
+                    },
+                    {
+                      icon: Users,
+                      title: "Partner-Centric Growth",
+                      desc: "Monopoly marketing rights, transparent billing, and dedicated relationship managers for all associates.",
+                    },
+                  ].map((f) => (
+                    <div
+                      key={f.title}
+                      className="flex items-start gap-4 rounded-[4px] border border-slate-100 bg-white px-4 py-4"
+                    >
+                      <f.icon className="mt-1 w-8 h-8 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="text-sm font-bold text-[#0a1f44]">{f.title}</div>
+                          <ChevronRight className="w-4 h-4 shrink-0 text-[#0b5bd3]" />
+                        </div>
+                        <p className="mt-1 text-xs leading-relaxed text-slate-500">{f.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setModalOpen(true)}
+                  className="flex w-full items-center justify-center gap-3 rounded-[4px] bg-[#0b4a99] hover:bg-[#093d80] py-3.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(11,74,153,0.3)] transition cursor-pointer"
+                >
+                  <FileText className="w-4 h-4" />
+                  Download Corporate Profile &amp; Product List
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Stats bar */}
+          <div className="mt-12 grid grid-cols-2 gap-y-6 rounded-[4px] border border-white bg-white/85 backdrop-blur px-4 py-6 shadow-[0_10px_40px_rgba(30,80,160,0.10)] lg:grid-cols-4 lg:gap-y-0">
+            {[
+              { icon: Box, a: "650+", b: "Approved Products" },
+              { icon: Users, a: "850+", b: "Franchise Associates" },
+              { icon: BarChart3, a: "120M+", b: "Annual Units" },
+              { icon: Globe2, a: "Pan-India & Global", b: "Serving 20+ Countries" },
+            ].map((st, i) => (
+              <div
+                key={st.a}
+                className={`flex items-center justify-center gap-4 px-3 ${i > 0 ? "lg:border-l lg:border-slate-200" : ""}`}
+              >
+                <st.icon className="w-10 h-10 shrink-0 text-[#0b5bd3]" strokeWidth={1.4} />
+                <div className="leading-tight">
+                  <div className="text-2xl font-extrabold text-[#0b5bd3]">{st.a}</div>
+                  <div className="mt-1 text-sm text-slate-500">{st.b}</div>
                 </div>
               </div>
             ))}
@@ -119,169 +279,116 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Corporate Profile Details */}
-      <section id="corporate-overview" className="py-20 bg-white border-b border-slate-200 scroll-mt-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="space-y-2">
-                <span className="text-sky-700 text-xs font-bold uppercase tracking-wider">
-                  Corporate Overview
-                </span>
-                <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                  Pioneering High-Quality Formulations for Pan-India &amp; Global Healthcare
-                </h2>
-                <div className="accent-bar"></div>
-              </div>
-
-              <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
-                <p>
-                  At <strong>Incredible Medicare</strong>, we believe that access to high-potency, safe, and cost-effective pharmaceutical formulations is fundamental to advancing human health. Our corporate journey has evolved from a targeted regional distributor to a full-spectrum formulation enterprise commanding over 650+ DCGI-approved formulations.
-                </p>
-                <p>
-                  Headquartered at <strong>Unicity Business Park, Dhakoli, Zirakpur (Punjab)</strong>, our executive leadership oversees a multidisciplinary supply chain, rigorous quality audits, pan-India franchise enablement, and international export dossiers.
-                </p>
-                <p>
-                  Our primary manufacturing facility operates at the <strong>SIDCO Industrial Complex, Ghatti, Kathua (J&amp;K)</strong>, in strict compliance with current Good Manufacturing Practices (cGMP), ISO 9001:2015, and WHO-GMP specifications.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-100">
-                <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center">
-                  <div className="text-xl sm:text-2xl font-extrabold text-sky-800">650+</div>
-                  <div className="text-xs text-slate-500 font-medium mt-0.5">Approved Products</div>
-                </div>
-                <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center">
-                  <div className="text-xl sm:text-2xl font-extrabold text-sky-800">850+</div>
-                  <div className="text-xs text-slate-500 font-medium mt-0.5">Franchise Associates</div>
-                </div>
-                <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center">
-                  <div className="text-xl sm:text-2xl font-extrabold text-sky-800">120M+</div>
-                  <div className="text-xs text-slate-500 font-medium mt-0.5">Annual Units</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Card */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="bg-slate-50 rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-white p-2 shadow-xs border border-slate-200 flex items-center justify-center">
-                    <Image
-                      src="/logo.png"
-                      alt="Incredible Medicare Logo"
-                      width={44}
-                      height={44}
-                      className="object-contain"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-slate-900 text-lg">Incredible Medicare</h3>
-                    <p className="text-xs text-slate-500">Quality Assured Healthcare</p>
-                  </div>
-                </div>
-
-                <div className="space-y-3 text-xs text-slate-700">
-                  <div className="p-4 bg-white rounded-xl border border-slate-200 space-y-1">
-                    <div className="font-bold text-slate-900 flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                      <span>WHO-GMP &amp; ISO 9001:2015</span>
-                    </div>
-                    <p className="text-slate-500 leading-relaxed">
-                      Every batch is validated with analytical certificates, dissolution testing, and assay documentation.
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-white rounded-xl border border-slate-200 space-y-1">
-                    <div className="font-bold text-slate-900 flex items-center gap-2">
-                      <Building2 className="w-4 h-4 text-sky-700" />
-                      <span>Dual Strategic Locations</span>
-                    </div>
-                    <p className="text-slate-500 leading-relaxed">
-                      Commercial HQ in Zirakpur (Punjab) + High-capacity Manufacturing Complex in Kathua (J&amp;K).
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-white rounded-xl border border-slate-200 space-y-1">
-                    <div className="font-bold text-slate-900 flex items-center gap-2">
-                      <Users className="w-4 h-4 text-sky-700" />
-                      <span>Partner-Centric Growth</span>
-                    </div>
-                    <p className="text-slate-500 leading-relaxed">
-                      Monopoly marketing rights, transparent billing, and dedicated relationship managers for all associates.
-                    </p>
-                  </div>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => setModalOpen(true)}
-                  className="w-full py-3 bg-sky-700 hover:bg-sky-800 text-white font-semibold text-xs rounded-xl shadow-xs transition"
-                >
-                  Download Corporate Profile &amp; Product List
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Mission, Vision, and Values */}
-      <section className="py-20 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <span className="text-sky-700 text-xs font-bold uppercase tracking-wider">
-              Strategic Foundation
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Mission, Vision &amp; Core Philosophy
+      <section
+        id="strategic-foundation"
+        className="relative overflow-hidden bg-gradient-to-b from-[#f7faff] via-[#f1f6fd] to-[#eaf1fb] py-16 lg:py-20 scroll-mt-24"
+      >
+        <div className="pointer-events-none absolute inset-x-0 top-0 hidden h-[460px] overflow-hidden lg:block [mask-image:linear-gradient(to_right,black_0,black_28%,transparent_44%,transparent_62%,black_82%)]">
+          <Image
+            src="/bg3.png"
+            alt=""
+            fill
+            sizes="100vw"
+            className="select-none object-cover object-top"
+          />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-14">
+            <div className="flex items-center justify-center gap-4">
+              <span className="hidden sm:block h-px w-14 bg-[#0b4a99]/40" />
+              <span className="text-[#0b5bd3] text-xs font-bold uppercase tracking-[0.18em]">
+                Strategic Foundation
+              </span>
+              <span className="hidden sm:block h-px w-14 bg-[#0b4a99]/40" />
+            </div>
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f44] tracking-tight">
+              Mission, Vision &amp;{" "}
+              <span className="text-[#0b5bd3]">Core Philosophy</span>
             </h2>
-            <div className="accent-bar mx-auto"></div>
+            <div className="accent-bar mx-auto mt-4"></div>
+            <p className="mt-5 text-slate-600 text-sm sm:text-base leading-relaxed">
+              Guided by a commitment to quality, integrity, and innovation, we
+              strive to create better health outcomes and build a healthier
+              tomorrow.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Mission */}
-            <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-xs space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-sky-100 text-sky-800 flex items-center justify-center font-bold">
-                <Target className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900">Our Mission</h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <div className="relative overflow-hidden rounded-[4px] border border-white bg-white/75 backdrop-blur p-7 shadow-[0_10px_40px_rgba(30,80,160,0.10)] flex flex-col">
+              <span className="absolute right-6 top-5 text-5xl font-extrabold text-[#0b5bd3]/10">01</span>
+              <Target className="w-10 h-10 text-[#0b5bd3]" strokeWidth={1.5} />
+              <h3 className="mt-5 text-2xl font-extrabold text-[#0a1f44]">Our Mission</h3>
+              <div className="mt-2 h-[3px] w-8 rounded-full bg-[#0b5bd3]" />
+              <p className="mt-4 text-sm text-slate-600 leading-relaxed lg:max-w-[62%] xl:max-w-[66%]">
                 To formulate, manufacture, and distribute globally compliant, cost-effective, and therapeutically superior medicines through structured quality systems, ethical commercial practices, and robust nationwide logistics.
               </p>
+              <span className="relative z-10 mt-auto pt-6 self-start inline-flex items-center gap-2 text-xs font-semibold text-[#0b4a99]">
+                <span className="inline-flex items-center gap-2 rounded-full border border-[#cfe0f7] bg-white/80 px-4 py-2">
+                  Quality Medicines for a Healthier World
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </span>
+              </span>
+              <div
+                className="pointer-events-none absolute bottom-0 right-0 hidden h-[230px] w-[230px] rounded-tl-full opacity-90 lg:block"
+                style={{
+                  backgroundImage: "url(/bg3.png)",
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "912px auto",
+                  backgroundPosition: "-575px -115px",
+                }}
+              />
             </div>
 
             {/* Vision */}
-            <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-xs space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center font-bold">
-                <Eye className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900">Our Vision</h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <div className="relative overflow-hidden rounded-[4px] border border-white bg-white/75 backdrop-blur p-7 shadow-[0_10px_40px_rgba(30,80,160,0.10)] flex flex-col">
+              <span className="absolute right-6 top-5 text-5xl font-extrabold text-[#0b5bd3]/10">02</span>
+              <Eye className="w-10 h-10 text-[#0b5bd3]" strokeWidth={1.5} />
+              <h3 className="mt-5 text-2xl font-extrabold text-[#0a1f44]">Our Vision</h3>
+              <div className="mt-2 h-[3px] w-8 rounded-full bg-[#0b5bd3]" />
+              <p className="mt-4 text-sm text-slate-600 leading-relaxed lg:max-w-[62%] xl:max-w-[66%]">
                 To emerge as one of India&apos;s most reputable and scientifically dependable pharmaceutical corporations, recognized across domestic and emerging international markets for unyielding formulation integrity.
               </p>
+              <span className="relative z-10 mt-auto pt-6 self-start inline-flex items-center gap-2 text-xs font-semibold text-[#0b4a99]">
+                <span className="inline-flex items-center gap-2 rounded-full border border-[#cfe0f7] bg-white/80 px-4 py-2">
+                  A Trusted Name in Global Healthcare
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </span>
+              </span>
+              <div
+                className="pointer-events-none absolute bottom-0 right-0 hidden h-[230px] w-[230px] rounded-tl-full opacity-90 lg:block"
+                style={{
+                  backgroundImage: "url(/bg2.png)",
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "890px auto",
+                  backgroundPosition: "-650px -10px",
+                }}
+              />
             </div>
 
             {/* Values */}
-            <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-xs space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
-                <ShieldCheck className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900">Our Values</h3>
-              <ul className="text-xs sm:text-sm text-slate-600 space-y-2">
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span><strong>Quality First:</strong> Zero compromise on testing.</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span><strong>Integrity:</strong> Honest batch pricing &amp; monopoly.</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span><strong>Innovation:</strong> Contemporary drug delivery systems.</span>
-                </li>
+            <div className="relative overflow-hidden rounded-[4px] border border-white bg-gradient-to-br from-white/75 to-emerald-50/80 backdrop-blur p-7 shadow-[0_10px_40px_rgba(30,80,160,0.10)] flex flex-col">
+              <span className="absolute right-6 top-5 text-5xl font-extrabold text-emerald-600/10">03</span>
+              <ShieldCheck className="w-10 h-10 text-emerald-600" strokeWidth={1.5} />
+              <h3 className="mt-5 text-2xl font-extrabold text-[#0a1f44]">Our Values</h3>
+              <div className="mt-2 h-[3px] w-8 rounded-full bg-emerald-500" />
+              <Leaf className="pointer-events-none absolute -bottom-6 -right-4 h-48 w-48 text-emerald-300/30" strokeWidth={1} />
+              <ul className="relative mt-5 space-y-4">
+                {[
+                  { icon: Gem, tone: "text-[#0b5bd3]", a: "Quality First", b: "Zero compromise on testing." },
+                  { icon: Scale, tone: "text-emerald-600", a: "Integrity", b: "Honest batch pricing & monopoly." },
+                  { icon: Lightbulb, tone: "text-amber-500", a: "Innovation", b: "Contemporary drug delivery systems." },
+                ].map((v) => (
+                  <li key={v.a} className="flex items-center gap-4">
+                    <v.icon className={`w-8 h-8 shrink-0 ${v.tone}`} strokeWidth={1.5} />
+                    <div className="leading-snug">
+                      <div className="text-sm font-bold text-[#0a1f44]">{v.a}</div>
+                      <div className="text-sm text-slate-600">{v.b}</div>
+                    </div>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -289,63 +396,120 @@ export default function AboutPage() {
       </section>
 
       {/* Quality Policy & Analytical Assurance */}
-      <section className="py-20 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="space-y-2">
-                <span className="text-sky-700 text-xs font-bold uppercase tracking-wider">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f7faff] to-[#eef4fc] py-16 lg:py-20">
+        <div className="pointer-events-none absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
+        <div className="pointer-events-none absolute top-1/3 -left-40 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/50 blur-3xl" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+            {/* Left */}
+            <div className="lg:col-span-7">
+              <div className="flex items-center gap-4">
+                <span className="h-px w-10 bg-[#0b5bd3]" />
+                <span className="text-[#0b5bd3] text-xs font-bold uppercase tracking-[0.12em]">
                   Quality Infrastructure
                 </span>
-                <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                  Comprehensive Analytical &amp; Quality Control Systems
-                </h2>
-                <div className="accent-bar"></div>
               </div>
-
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              <h2 className="mt-4 text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0a1f44] tracking-tight leading-[1.1]">
+                Comprehensive Analytical &amp;{" "}
+                <span className="block text-[#0b5bd3]">Quality Control Systems</span>
+              </h2>
+              <p className="mt-5 text-slate-600 text-[15px] leading-relaxed max-w-2xl">
                 Quality at Incredible Medicare is not merely an inspection step—it is integrated into every phase of our manufacturing cycle. From active pharmaceutical ingredient (API) vendor qualification to in-process compression checks and finished batch stability analysis.
               </p>
 
-              <div className="space-y-3 pt-2">
+              <div className="mt-6 space-y-3">
                 {[
-                  "Raw Material & API Assay Verification via High Performance Liquid Chromatography (HPLC)",
-                  "Controlled Cleanroom Environments with HEPA Air Handling Units (AHU) Class 10,000 & 100,000",
-                  "Automated Blister & Alu-Alu Leak Detection with Microprocessor Controls",
-                  "Dedicated Microbiological Testing Lab for Sterility & Bacterial Endotoxin Testing (BET)",
-                  "Accelerated & Real-time Stability Chamber Studies as per ICH Guidelines",
-                  "Full Batch Traceability with Unique Serialized QR Codes and Tamper-evident Holograms"
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-sky-700 shrink-0 mt-1" />
-                    <span className="text-xs sm:text-sm font-medium text-slate-800">{item}</span>
+                  { icon: FlaskConical, a: "Raw Material & API Assay Verification", b: "Via High Performance Liquid Chromatography (HPLC)" },
+                  { icon: LayoutGrid, a: "Controlled Cleanroom Environments", b: "With HEPA Air Handling Units (AHU) Class 10,000 & 100,000" },
+                  { icon: Settings, a: "Automated Blister & Alu-Alu Leak Detection", b: "With Microprocessor Controls" },
+                  { icon: Microscope, a: "Dedicated Microbiological Testing Lab", b: "For Sterility & Bacterial Endotoxin Testing (BET)" },
+                  { icon: ShieldCheck, a: "Accelerated & Real-time Stability Studies", b: "As per ICH Guidelines" },
+                  { icon: QrCode, a: "Full Batch Traceability", b: "With Unique Serialized QR Codes and Tamper-evident Holograms" },
+                ].map((r) => (
+                  <div
+                    key={r.a}
+                    className="flex items-center gap-4 rounded-[4px] border border-white bg-white/80 px-5 py-3.5 shadow-[0_6px_24px_rgba(30,80,160,0.07)]"
+                  >
+                    <r.icon className="w-7 h-7 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                    <div className="min-w-0 flex-1">
+                      <div className="text-sm font-bold text-[#0a1f44]">{r.a}</div>
+                      <div className="text-xs text-slate-500 mt-0.5">{r.b}</div>
+                    </div>
+                    <ChevronRight className="w-4 h-4 shrink-0 text-[#0b5bd3]" />
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="bg-slate-900 text-white rounded-3xl p-8 sm:p-10 space-y-6">
-              <div className="space-y-2">
-                <span className="text-sky-400 text-xs font-bold uppercase tracking-widest">
+            {/* Right */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative">
+                <div className="relative h-[280px] sm:h-[340px] overflow-hidden rounded-[4px] shadow-[0_16px_50px_rgba(30,80,160,0.18)]">
+                  <Image
+                    src="/herobg.png"
+                    alt="Quality control laboratory"
+                    fill
+                    sizes="(min-width:1024px) 40vw, 100vw"
+                    className="object-cover origin-right scale-125"
+                    style={{ objectPosition: "90% 45%" }}
+                  />
+                </div>
+                <div className="absolute top-6 -right-2 lg:-right-6 flex items-center gap-4 rounded-[4px] border border-white bg-white/90 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(30,80,160,0.18)]">
+                  <ShieldCheck className="w-9 h-9 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                  <div className="leading-snug">
+                    <div className="text-sm font-bold text-[#0a1f44]">Quality You Can Trust</div>
+                    <div className="text-xs text-slate-500">Backed by global standards and scientific rigor.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative -mt-10 mx-0 lg:-mr-4 rounded-[4px] bg-[#0a1a33] text-white p-7 sm:p-8 shadow-[0_20px_50px_rgba(10,26,51,0.4)]">
+                <span className="text-sky-400 text-xs font-bold uppercase tracking-[0.14em]">
                   Leadership Philosophy
                 </span>
-                <h3 className="text-2xl font-bold text-white">
-                  &ldquo;A Patient-First Commitment Behind Every Dose&rdquo;
+                <h3 className="mt-3 text-2xl sm:text-[1.7rem] font-bold leading-snug">
+                  &ldquo;A Patient-First Commitment Behind{" "}
+                  <span className="text-sky-400">Every Dose</span>&rdquo;
                 </h3>
-              </div>
-
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                When a doctor prescribes an Incredible Medicare medicine, they place their clinical trust in our science. We honor that trust through unyielding consistency, absolute bio-equivalence, and honest commercial partnerships with every distributor across the nation.
-              </p>
-
-              <div className="pt-6 border-t border-slate-800 flex items-center justify-between">
-                <div>
-                  <div className="font-bold text-white text-sm">Commercial Directorate</div>
-                  <div className="text-xs text-sky-400">Incredible Medicare</div>
+                <p className="mt-4 text-slate-300 text-sm leading-relaxed">
+                  When a doctor prescribes an Incredible Medicare medicine, they place their clinical trust in our science. We honor that trust through unyielding consistency, absolute bio-equivalence, and honest commercial partnerships with every distributor across the nation.
+                </p>
+                <div className="mt-6 pt-5 border-t border-white/10 flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <Image src="/logo.png" alt="Incredible Medicare" width={40} height={40} className="object-contain" />
+                    <div>
+                      <div className="font-bold text-white text-sm">Commercial Directorate</div>
+                      <div className="text-xs text-sky-400">Incredible Medicare</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs text-slate-300">
+                    <MapPin className="w-4 h-4 text-sky-400" />
+                    Zirakpur, Punjab
+                  </div>
                 </div>
-                <div className="text-xs text-slate-400">Zirakpur, Punjab</div>
               </div>
             </div>
+          </div>
+
+          {/* Stats bar */}
+          <div className="mt-10 grid grid-cols-2 gap-y-6 rounded-[4px] border border-white bg-white/85 backdrop-blur px-4 py-6 shadow-[0_10px_40px_rgba(30,80,160,0.10)] lg:grid-cols-4 lg:gap-y-0">
+            {[
+              { icon: Building2, a: "6+", b: "Analytical Labs" },
+              { icon: Users, a: "100+", b: "Quality Experts" },
+              { icon: ShieldCheck, a: "100%", b: "cGMP Compliant" },
+              { icon: FileText, a: "ICH", b: "Guideline Based Stability Studies" },
+            ].map((st, i) => (
+              <div
+                key={st.a}
+                className={`flex items-center justify-center gap-4 px-3 ${i > 0 ? "lg:border-l lg:border-slate-200" : ""}`}
+              >
+                <st.icon className="w-10 h-10 shrink-0 text-[#0b5bd3]" strokeWidth={1.4} />
+                <div className="leading-tight">
+                  <div className="text-2xl font-extrabold text-[#0b5bd3]">{st.a}</div>
+                  <div className="mt-1 text-sm text-slate-500">{st.b}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
