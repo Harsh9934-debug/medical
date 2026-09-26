@@ -1065,7 +1065,7 @@ export default function HomePage() {
               return (
                 <Link
                   key={post.slug}
-                  href="/blogs"
+                  href={`/blogs/${post.slug}`}
                   className={`group cursor-pointer bg-white/90 rounded-[4px] p-6 border border-white shadow-[0_10px_40px_rgba(30,80,160,0.09)] flex flex-col justify-between focus-visible:outline-2 focus-visible:outline-[#0b5bd3] ${i < 3 ? "lg:col-span-2" : "lg:col-span-3"}`}
                 >
                   <div>
