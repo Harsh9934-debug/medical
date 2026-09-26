@@ -2,19 +2,54 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
-  Layers,
-  Sparkles,
-  Award,
-  CheckCircle2,
-  Package,
-  Building2,
   ArrowRight,
-  Send,
-  Check
+  CheckCircle2,
+  Pill,
+  Droplets,
+  Brain,
+  HeartPulse,
+  Leaf,
+  Layers,
+  Boxes,
+  Users,
+  MapPinned,
+  Handshake,
+  ShieldCheck,
+  FileText,
+  Stethoscope,
+  MessageSquareText,
 } from "lucide-react";
-import { DIVISIONS, COMPANY_INFO } from "@/data/company";
+import { DIVISIONS } from "@/data/company";
 import EnquiryModal from "@/components/EnquiryModal";
+
+const PRIMARY_BTN =
+  "inline-flex items-center justify-center gap-3 rounded-[4px] bg-[#0b5bd3] hover:bg-[#0a4db3] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(11,91,211,0.35)] transition cursor-pointer";
+const OUTLINE_BTN =
+  "inline-flex items-center justify-center gap-3 rounded-[4px] border border-[#0b5bd3] bg-white/70 hover:bg-white px-7 py-3.5 text-sm font-semibold text-[#0b5bd3] transition cursor-pointer";
+const GLASS =
+  "rounded-[4px] border border-white bg-white/80 backdrop-blur shadow-[0_10px_40px_rgba(30,80,160,0.10)]";
+
+const THEMES = [
+  { icon: Pill, tone: "text-[#0b5bd3]", pill: "bg-[#eaf1fd] text-[#0b5bd3]", card: "from-white/90 to-[#eaf1fd]/70", deco: "text-[#0b5bd3]/10", check: "text-[#0b5bd3]" },
+  { icon: Droplets, tone: "text-emerald-600", pill: "bg-emerald-50 text-emerald-700", card: "from-white/90 to-emerald-50/70", deco: "text-emerald-500/10", check: "text-emerald-600" },
+  { icon: Brain, tone: "text-violet-600", pill: "bg-violet-50 text-violet-700", card: "from-white/90 to-violet-50/70", deco: "text-violet-500/10", check: "text-violet-600" },
+  { icon: HeartPulse, tone: "text-orange-600", pill: "bg-orange-100/70 text-orange-700", card: "from-orange-50/80 to-rose-50/60", deco: "text-orange-500/10", check: "text-orange-500" },
+  { icon: Leaf, tone: "text-[#0b5bd3]", pill: "bg-[#eaf1fd] text-[#0b5bd3]", card: "from-white/90 to-sky-50/70", deco: "text-[#0b5bd3]/10", check: "text-[#0b5bd3]" },
+];
+
+function Eyebrow({ children, center }: { children: React.ReactNode; center?: boolean }) {
+  return (
+    <div className={`flex items-center gap-4 ${center ? "justify-center" : ""}`}>
+      <span className="h-px w-10 bg-[#0b5bd3]" />
+      <span className="text-[#0b5bd3] text-xs font-bold uppercase tracking-[0.14em]">
+        {children}
+      </span>
+      {center && <span className="h-px w-10 bg-[#0b5bd3]" />}
+    </div>
+  );
+}
 
 export default function DivisionsPage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -27,129 +62,307 @@ export default function DivisionsPage() {
 
   return (
     <div className="w-full bg-white text-slate-900">
-      {/* Page Header */}
-      <section className="bg-gradient-to-b from-slate-50 to-white py-14 sm:py-20 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <nav className="flex items-center justify-center gap-2 text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
-            <Link href="/" className="hover:text-sky-700">Home</Link>
-            <span>/</span>
-            <span className="text-sky-800">Specialized Divisions</span>
-          </nav>
+      {/* Hero */}
+      <section className="relative flex items-center overflow-hidden bg-gradient-to-br from-[#f7faff] via-[#eef4fc] to-[#e3edfb] lg:min-h-[max(580px,40vw)]">
+        <div className="pointer-events-none absolute -top-32 -left-32 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Specialized Pharmaceutical Divisions
-          </h1>
-          <div className="accent-bar mx-auto"></div>
-          <p className="max-w-3xl mx-auto text-slate-600 text-sm sm:text-base leading-relaxed">
-            Incredible Medicare features targeted business divisions, each built with deep therapeutic focus, dedicated promotional inputs, and clinical efficacy to empower franchise associates and prescribing clinicians.
-          </p>
+        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[46%] overflow-hidden rounded-bl-[9rem] shadow-[0_20px_60px_rgba(30,80,160,0.25)] lg:block">
+          <Image
+            src="/infra-packs.jpg"
+            alt="Pharmaceutical tablets and capsules in blister packs"
+            fill
+            priority
+            sizes="46vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0b5bd3]/25 via-transparent to-transparent" />
         </div>
-      </section>
+        <div className="pointer-events-none absolute right-[42%] top-[18%] hidden h-24 w-24 rounded-full border-[10px] border-[#cfe0f7]/70 lg:block" />
 
-      {/* Divisions Showcase */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          {DIVISIONS.map((div, index) => (
+        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-14">
+          <div className="max-w-2xl lg:max-w-[50%]">
+            <Eyebrow>Specialized Divisions</Eyebrow>
+            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-[2.6rem] xl:text-[3.25rem] font-extrabold text-[#0a1f44] tracking-tight leading-[1.08]">
+              Specialized{" "}
+              <span className="text-[#0b5bd3]">Pharmaceutical Divisions</span>
+            </h1>
+            <p className="mt-5 text-slate-600 text-base leading-relaxed max-w-xl">
+              Incredible Medicare features targeted business divisions, each built with deep therapeutic focus, dedicated promotional inputs, and clinical efficacy to empower franchise associates and prescribing clinicians.
+            </p>
+            <div className="mt-7 flex flex-wrap items-center gap-4">
+              <button
+                type="button"
+                onClick={() => handleEnquireDivision("Multi-Division Franchise Partnership")}
+                className={PRIMARY_BTN}
+              >
+                Request Multi-Division Portfolio
+                <ArrowRight className="w-4 h-4" />
+              </button>
+              <a href="#divisions" className={OUTLINE_BTN}>
+                Explore Divisions
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+
+            <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-5 sm:flex sm:flex-wrap sm:items-center sm:gap-y-4">
+              {[
+                { icon: Layers, a: "5", b: "Focused Divisions" },
+                { icon: Boxes, a: "650+", b: "Formulations" },
+                { icon: MapPinned, a: "District-Wise", b: "Monopoly Rights" },
+              ].map((f, i) => (
+                <div
+                  key={f.a}
+                  className={`flex items-center gap-2.5 whitespace-nowrap ${i > 0 ? "sm:border-l sm:border-[#cfe0f7] sm:pl-5" : ""}`}
+                >
+                  <f.icon className="w-7 h-7 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                  <div className="leading-tight">
+                    <div className="text-[13px] font-bold text-[#0a1f44]">{f.a}</div>
+                    <div className="text-xs text-slate-500">{f.b}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="hidden lg:block absolute inset-0 pointer-events-none">
+          {[
+            { icon: Pill, a: "250+ Formulations", b: "General Medicine", pos: "right-[5%] top-[12%]" },
+            { icon: HeartPulse, a: "85+ Formulations", b: "Cardio & Diabetes", pos: "left-[52%] top-[52%]" },
+            { icon: Brain, a: "75+ Formulations", b: "Neuro-Psychiatry", pos: "right-[3%] bottom-[11%]" },
+          ].map((c) => (
             <div
-              key={div.id}
-              className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-xs hover:shadow-md transition-all grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+              key={c.a}
+              className={`absolute ${c.pos} w-[250px] xl:w-[280px] flex items-center gap-4 rounded-[4px] border border-white bg-white/85 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(30,80,160,0.18)]`}
             >
-              {/* Left Column: Info */}
-              <div className="lg:col-span-8 space-y-4">
-                <div className="flex flex-wrap items-center gap-3">
-                  <span className="text-xs font-extrabold text-sky-800 bg-sky-50 px-3 py-1 rounded-md border border-sky-200 uppercase tracking-wider">
-                    {div.category}
-                  </span>
-                  <span className="text-xs font-semibold text-slate-500">
-                    {div.productCount}
-                  </span>
-                </div>
-
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  {div.name}
-                </h2>
-                <div className="text-sm font-semibold text-sky-700">
-                  {div.tagline}
-                </div>
-
-                <p className="text-sm text-slate-600 leading-relaxed max-w-3xl">
-                  {div.description}
-                </p>
-
-                {/* Key Formulations / Highlights */}
-                <div className="pt-2">
-                  <div className="text-xs font-bold text-slate-800 uppercase tracking-wide mb-2">
-                    Key Therapeutic Focus Areas:
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700">
-                    {div.highlights.map((item) => (
-                      <div key={item} className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Actions */}
-              <div className="lg:col-span-4 bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-4 text-center">
-                <div className="text-xs font-bold text-slate-800 uppercase tracking-wide">
-                  Franchise &amp; Product Inquiry
-                </div>
-                <p className="text-xs text-slate-500 leading-relaxed">
-                  Monopoly marketing rights and promotional material kits currently available for this division.
-                </p>
-                <div className="space-y-2 pt-2">
-                  <button
-                    type="button"
-                    onClick={() => handleEnquireDivision(`${div.name} (Franchise Monopoly)`)}
-                    className="w-full py-2.5 bg-sky-700 hover:bg-sky-800 text-white font-bold text-xs rounded-xl shadow-xs transition"
-                  >
-                    Apply for Division Franchise
-                  </button>
-                  <Link
-                    href="/products"
-                    className="w-full flex items-center justify-center gap-1.5 py-2.5 bg-white hover:bg-slate-100 text-slate-800 font-semibold text-xs rounded-xl border border-slate-300 transition"
-                  >
-                    <span>View Division Products</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
+              <c.icon className="w-9 h-9 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+              <div className="leading-snug">
+                <div className="text-sm font-bold text-[#0a1f44]">{c.a}</div>
+                <div className="text-xs text-slate-500 mt-0.5">{c.b}</div>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Division Advantage Callout */}
-      <section className="py-20 bg-white border-t border-slate-200">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <span className="text-sky-700 text-xs font-bold uppercase tracking-wider">
-            Operational Synergy
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Why Multi-Division Strategy Accelerates Your ROI
-          </h2>
-          <div className="accent-bar mx-auto"></div>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            By segmenting specialized therapies into focused divisions, Incredible Medicare allows distributors to establish deep doctor-prescriber relationships with distinct promotional material, visual aids, and tailored clinical monographs.
-          </p>
+      {/* Divisions Showcase */}
+      <section
+        id="divisions"
+        className="relative overflow-hidden bg-gradient-to-b from-[#f7faff] via-[#f1f6fd] to-[#eaf1fb] py-16 lg:py-20 scroll-mt-24"
+      >
+        <div className="pointer-events-none absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 -left-40 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/50 blur-3xl" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-14">
+            <Eyebrow center>Focused Market Verticals</Eyebrow>
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f44] tracking-tight">
+              Five Divisions, One{" "}
+              <span className="text-[#0b5bd3]">Trusted Partner</span>
+            </h2>
+            <div className="accent-bar mx-auto mt-4"></div>
+          </div>
 
-          <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
+          <div className="space-y-6">
+            {DIVISIONS.map((div, index) => {
+              const t = THEMES[index % THEMES.length];
+              const Icon = t.icon;
+              const flip = index % 2 === 1;
+              return (
+                <div key={div.id} className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                  {/* Info */}
+                  <div
+                    className={`relative overflow-hidden lg:col-span-8 rounded-[4px] border border-white bg-gradient-to-br ${t.card} p-7 sm:p-9 shadow-[0_10px_40px_rgba(30,80,160,0.10)] ${flip ? "lg:order-2" : ""}`}
+                  >
+                    <Icon
+                      className={`pointer-events-none absolute -bottom-8 -right-8 h-56 w-56 ${t.deco}`}
+                      strokeWidth={1}
+                    />
+                    <span className="absolute right-7 top-5 text-5xl font-extrabold text-[#0b5bd3]/10">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+
+                    <div className="relative">
+                      <div className="flex flex-wrap items-center gap-3">
+                        <Icon className={`w-10 h-10 ${t.tone}`} strokeWidth={1.5} />
+                        <span className={`rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-wider ${t.pill}`}>
+                          {div.category}
+                        </span>
+                        <span className="text-xs font-semibold text-slate-500">
+                          {div.productCount}
+                        </span>
+                      </div>
+
+                      <h3 className="mt-5 text-2xl sm:text-3xl font-extrabold text-[#0a1f44] tracking-tight">
+                        {div.name}
+                      </h3>
+                      <div className="mt-1.5 text-sm font-semibold text-[#0b5bd3]">
+                        {div.tagline}
+                      </div>
+                      <div className="mt-3 h-[3px] w-8 rounded-full bg-[#0b5bd3]" />
+
+                      <p className="mt-4 text-[15px] text-slate-600 leading-relaxed max-w-2xl">
+                        {div.description}
+                      </p>
+
+                      <div className="mt-6 border-t border-slate-200/70 pt-5">
+                        <div className="text-xs font-bold text-[#0a1f44] uppercase tracking-[0.12em] mb-3">
+                          Key Therapeutic Focus Areas
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                          {div.highlights.map((item) => (
+                            <div key={item} className="flex items-center gap-2.5 text-sm text-slate-700">
+                              <CheckCircle2 className={`w-[18px] h-[18px] shrink-0 ${t.check}`} strokeWidth={1.8} />
+                              <span>{item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Actions */}
+                  <div
+                    className={`lg:col-span-4 relative overflow-hidden rounded-[4px] bg-gradient-to-br from-[#04142f] via-[#08234b] to-[#0a2d5e] text-white p-7 sm:p-8 shadow-[0_20px_50px_rgba(10,26,51,0.3)] flex flex-col ${flip ? "lg:order-1" : ""}`}
+                  >
+                    <Handshake className="pointer-events-none absolute -bottom-8 -right-8 h-48 w-48 text-white/5" strokeWidth={1} />
+                    <div className="relative flex flex-col h-full">
+                      <span className="text-sky-400 text-xs font-bold uppercase tracking-[0.14em]">
+                        Franchise &amp; Product Inquiry
+                      </span>
+                      <h4 className="mt-3 text-xl font-bold leading-snug">
+                        Partner with the <span className="text-sky-400">{div.category}</span> division
+                      </h4>
+                      <p className="mt-3 text-sm text-slate-300 leading-relaxed">
+                        Monopoly marketing rights and promotional material kits currently available for this division.
+                      </p>
+                      <div className="mt-auto pt-6 space-y-3">
+                        <button
+                          type="button"
+                          onClick={() => handleEnquireDivision(`${div.name} (Franchise Monopoly)`)}
+                          className="flex w-full items-center justify-center gap-3 rounded-[4px] bg-[#0b5bd3] hover:bg-[#1a6de0] px-6 py-3.5 text-sm font-semibold text-white transition cursor-pointer"
+                        >
+                          Apply for Division Franchise
+                          <ArrowRight className="w-4 h-4" />
+                        </button>
+                        <Link
+                          href="/products"
+                          className="flex w-full items-center justify-center gap-3 rounded-[4px] border border-white/25 hover:bg-white/10 px-6 py-3.5 text-sm font-semibold text-white transition"
+                        >
+                          View Division Products
+                          <ArrowRight className="w-4 h-4" />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Operational Synergy */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#eaf1fb] to-[#f1f6fd] py-16 lg:py-20">
+        <div className="pointer-events-none absolute -top-24 left-1/3 h-72 w-[500px] rounded-full bg-[#dbe8fb]/50 blur-3xl" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <div className="lg:col-span-6">
+              <Eyebrow>Operational Synergy</Eyebrow>
+              <h2 className="mt-4 text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0a1f44] tracking-tight leading-[1.1]">
+                Why Multi-Division Strategy{" "}
+                <span className="block text-[#0b5bd3]">Accelerates Your ROI</span>
+              </h2>
+              <p className="mt-5 text-slate-600 text-[15px] leading-relaxed max-w-xl">
+                By segmenting specialized therapies into focused divisions, Incredible Medicare allows distributors to establish deep doctor-prescriber relationships with distinct promotional material, visual aids, and tailored clinical monographs.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <button
+                  type="button"
+                  onClick={() => handleEnquireDivision("Multi-Division Franchise Partnership")}
+                  className={PRIMARY_BTN}
+                >
+                  Request Multi-Division Portfolio
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                <Link href="/contact" className={OUTLINE_BTN}>
+                  Contact Commercial Desk
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { icon: Stethoscope, a: "Deep Doctor Relationships", b: "Distinct promotional material for every prescriber segment." },
+                { icon: FileText, a: "Tailored Clinical Monographs", b: "Division-specific literature and visual aids." },
+                { icon: Users, a: "Focused Franchise Teams", b: "Build specialist field teams around a single therapy." },
+                { icon: ShieldCheck, a: "One Quality Standard", b: "Every division backed by WHO-GMP & ISO 9001:2015." },
+              ].map((r) => (
+                <div key={r.a} className={`${GLASS} p-5`}>
+                  <r.icon className="w-8 h-8 text-[#0b5bd3]" strokeWidth={1.5} />
+                  <h4 className="mt-3 text-sm font-bold text-[#0a1f44]">{r.a}</h4>
+                  <p className="mt-1.5 text-xs text-slate-500 leading-relaxed">{r.b}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f1f6fd] via-[#f4f8fe] to-[#eaf1fb] py-16 lg:py-20">
+        <div className="pointer-events-none absolute -left-32 top-4 hidden h-[420px] w-[420px] overflow-hidden rounded-full border-[14px] border-[#cfe0f7]/70 lg:block xl:-left-20">
+          <Image src="/infra-micro.jpg" alt="" fill sizes="420px" className="object-cover" style={{ objectPosition: "50% 40%" }} />
+        </div>
+        <div className="pointer-events-none absolute -right-32 top-10 hidden h-[420px] w-[420px] overflow-hidden rounded-full border-[14px] border-[#cfe0f7]/70 lg:block xl:-right-20">
+          <Image src="/infra-lab.jpg" alt="" fill sizes="420px" className="object-cover" style={{ objectPosition: "40% 50%" }} />
+        </div>
+        <div className="relative max-w-3xl mx-auto px-4 text-center">
+          <Eyebrow center>Partner for a Healthier Tomorrow</Eyebrow>
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f44] tracking-tight leading-[1.1]">
+            Build Your Franchise Across{" "}
+            <span className="block text-[#0b5bd3]">Every Therapeutic Division</span>
+          </h2>
+          <p className="mt-5 text-slate-600 text-sm sm:text-base leading-relaxed">
+            Talk to our commercial desk about territory availability, division-wise portfolios, and promotional support for your district.
+          </p>
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
             <button
               type="button"
               onClick={() => handleEnquireDivision("Multi-Division Franchise Partnership")}
-              className="px-8 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm rounded-xl transition"
+              className={PRIMARY_BTN}
             >
+              <Handshake className="w-5 h-5" />
               Request Multi-Division Portfolio
+              <ArrowRight className="w-4 h-4" />
             </button>
-            <Link
-              href="/contact"
-              className="px-8 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-sm rounded-xl transition"
-            >
+            <Link href="/contact" className={OUTLINE_BTN}>
+              <MessageSquareText className="w-5 h-5" />
               Contact Commercial Desk
+              <ArrowRight className="w-4 h-4" />
             </Link>
+          </div>
+        </div>
+
+        <div className="relative max-w-5xl mx-auto px-4 mt-12">
+          <div className="grid grid-cols-2 gap-y-6 lg:grid-cols-4 lg:gap-y-0">
+            {[
+              { icon: Layers, a: "5", b: "Specialized Divisions", blue: true },
+              { icon: Boxes, a: "650+", b: "Approved Formulations" },
+              { icon: Users, a: "850+", b: "Franchise Associates", blue: true },
+              { icon: MapPinned, a: "28+", b: "States Covered" },
+            ].map((f, i) => (
+              <div
+                key={f.b}
+                className={`flex items-center justify-center gap-3 px-3 ${i > 0 ? "lg:border-l lg:border-[#cfe0f7]" : ""}`}
+              >
+                <f.icon className="w-9 h-9 shrink-0 text-[#0b5bd3]" strokeWidth={1.4} />
+                <div className="leading-tight">
+                  <div className={`text-xl font-extrabold ${f.blue ? "text-[#0b5bd3]" : "text-[#0a1f44]"}`}>{f.a}</div>
+                  <div className="mt-0.5 text-xs text-slate-500">{f.b}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
