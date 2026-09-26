@@ -31,6 +31,8 @@ import {
   Microscope,
   QrCode,
   MapPin,
+  Boxes,
+  MessageSquareText,
 } from "lucide-react";
 import { COMPANY_INFO, DIVISIONS } from "@/data/company";
 import EnquiryModal from "@/components/EnquiryModal";
@@ -515,27 +517,83 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Box */}
-      <section className="py-16 bg-slate-50">
-        <div className="max-w-4xl mx-auto px-4 text-center space-y-6">
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
-            Explore Opportunities with Incredible Medicare
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f7faff] via-[#f1f6fd] to-[#eaf1fb] py-16 lg:py-20">
+        {/* Left art */}
+        <div
+          className="pointer-events-none absolute -left-32 top-4 hidden h-[420px] w-[420px] rounded-full border-[14px] border-[#cfe0f7]/70 lg:block xl:-left-20"
+          style={{
+            backgroundImage: "url(/herobg.png)",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "1053px auto",
+            backgroundPosition: "-630px -239px",
+          }}
+        />
+        {/* Right art */}
+        <div
+          className="pointer-events-none absolute -right-32 top-10 hidden h-[420px] w-[420px] rounded-full border-[14px] border-[#cfe0f7]/70 lg:block xl:-right-20"
+          style={{
+            backgroundImage: "url(/bg3.png)",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "1666px auto",
+            backgroundPosition: "-1050px -126px",
+          }}
+        />
+        <div className="pointer-events-none absolute -bottom-24 left-1/4 h-64 w-96 rounded-full bg-[#dbe8fb]/50 blur-3xl" />
+
+        <div className="relative max-w-3xl mx-auto px-4 text-center">
+          <div className="flex items-center justify-center gap-4">
+            <span className="hidden sm:block h-px w-12 bg-[#0b4a99]/40" />
+            <span className="text-[#0b5bd3] text-xs font-bold uppercase tracking-[0.22em]">
+              Partner for a Healthier Tomorrow
+            </span>
+            <span className="hidden sm:block h-px w-12 bg-[#0b4a99]/40" />
+          </div>
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f44] tracking-tight leading-[1.1]">
+            Explore Opportunities with{" "}
+            <span className="block text-[#0b5bd3]">Incredible Medicare</span>
           </h2>
-          <p className="text-slate-600 text-sm max-w-xl mx-auto">
-            Discover our complete product directory or connect with our corporate team at Unicity Business Park, Zirakpur.
+          <p className="mt-5 text-slate-600 text-sm sm:text-base leading-relaxed">
+            Discover our complete product directory or connect with our corporate team at Unicity Business Park, Zirakpur for business collaborations, distribution partnerships, and global healthcare solutions.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/products"
-              className="px-6 py-3 bg-sky-700 hover:bg-sky-800 text-white text-xs font-bold rounded-xl transition"
+              className="inline-flex items-center gap-3 rounded-[4px] bg-[#0b5bd3] hover:bg-[#0a4db3] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(11,91,211,0.35)] transition"
             >
+              <Box className="w-5 h-5" />
               View Products (650+)
+              <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/contact"
-              className="px-6 py-3 bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 text-xs font-bold rounded-xl transition"
+              className="inline-flex items-center gap-3 rounded-[4px] border border-[#0b5bd3] bg-white/80 hover:bg-white px-7 py-3.5 text-sm font-semibold text-[#0b5bd3] transition"
             >
+              <MessageSquareText className="w-5 h-5" />
               Contact Us Directly
+              <ArrowRight className="w-4 h-4" />
             </Link>
+          </div>
+        </div>
+
+        <div className="relative max-w-5xl mx-auto px-4 mt-12">
+          <div className="grid grid-cols-2 gap-y-6 lg:grid-cols-4 lg:gap-y-0">
+            {[
+              { icon: Boxes, a: "650+", b: "Approved Products", blue: true },
+              { icon: Globe2, a: "Pan-India", b: "Distribution Network" },
+              { icon: Handshake, a: "Global", b: "Business Partnerships", blue: true },
+              { icon: ShieldCheck, a: "Quality Assured", b: "WHO-GMP & ISO 9001:2015" },
+            ].map((f, i) => (
+              <div
+                key={f.a}
+                className={`flex items-center justify-center gap-3 px-3 ${i > 0 ? "lg:border-l lg:border-[#cfe0f7]" : ""}`}
+              >
+                <f.icon className="w-9 h-9 shrink-0 text-[#0b5bd3]" strokeWidth={1.4} />
+                <div className="leading-tight">
+                  <div className={`text-base font-bold ${f.blue ? "text-[#0b5bd3]" : "text-[#0a1f44]"}`}>{f.a}</div>
+                  <div className="mt-0.5 text-xs text-slate-500">{f.b}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
