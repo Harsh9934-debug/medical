@@ -1,22 +1,109 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Search,
-  Filter,
   Package,
   Layers,
   CheckCircle2,
-  FileText,
   RotateCcw,
-  Sparkles,
-  Info,
   X,
-  ArrowRight
+  ArrowRight,
+  Box,
+  Landmark,
+  FileText,
+  ShieldCheck,
+  Boxes,
+  Handshake,
+  MessageSquareText,
 } from "lucide-react";
 import { PRODUCTS, PRODUCT_CATEGORIES, PRODUCT_FORMS, Product } from "@/data/products";
 import EnquiryModal from "@/components/EnquiryModal";
+
+const PRIMARY_BTN =
+  "inline-flex items-center justify-center gap-3 rounded-[4px] bg-[#0b5bd3] hover:bg-[#0a4db3] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(11,91,211,0.35)] transition cursor-pointer";
+const OUTLINE_BTN =
+  "inline-flex items-center justify-center gap-3 rounded-[4px] border border-[#0b5bd3] bg-white/70 hover:bg-white px-7 py-3.5 text-sm font-semibold text-[#0b5bd3] transition cursor-pointer";
+const GLASS =
+  "rounded-[4px] border border-white bg-white/85 backdrop-blur shadow-[0_10px_40px_rgba(30,80,160,0.10)]";
+
+const TINTS = [
+  "bg-sky-200/60",
+  "bg-emerald-200/50",
+  "bg-violet-200/50",
+  "bg-orange-200/50",
+  "bg-blue-200/60",
+  "bg-rose-200/50",
+];
+
+function Eyebrow({ children, center }: { children: React.ReactNode; center?: boolean }) {
+  return (
+    <div className={`flex items-center gap-4 ${center ? "justify-center" : ""}`}>
+      <span className="h-px w-10 bg-[#0b5bd3]" />
+      <span className="text-[#0b5bd3] text-xs font-bold uppercase tracking-[0.14em]">
+        {children}
+      </span>
+      {center && <span className="h-px w-10 bg-[#0b5bd3]" />}
+    </div>
+  );
+}
+
+function FilterList({
+  title,
+  icon: Icon,
+  items,
+  value,
+  allLabel,
+  onChange,
+  maxH,
+}: {
+  title: string;
+  icon: React.ElementType;
+  items: string[];
+  value: string;
+  allLabel: string;
+  onChange: (v: string) => void;
+  maxH: string;
+}) {
+  return (
+    <div className={`${GLASS} p-5`}>
+      <div className="flex items-center justify-between border-b border-slate-200/70 pb-3">
+        <h3 className="flex items-center gap-2.5 text-sm font-bold text-[#0a1f44]">
+          <Icon className="h-5 w-5 text-[#0b5bd3]" strokeWidth={1.6} />
+          {title}
+        </h3>
+        {value !== allLabel && (
+          <button
+            type="button"
+            onClick={() => onChange(allLabel)}
+            className="text-[11px] font-semibold text-[#0b5bd3] hover:underline cursor-pointer"
+          >
+            Clear
+          </button>
+        )}
+      </div>
+      <div className={`mt-3 space-y-1 overflow-y-auto pr-1 ${maxH}`}>
+        {items.map((item) => (
+          <button
+            key={item}
+            type="button"
+            onClick={() => onChange(item)}
+            className={`flex w-full items-center justify-between rounded-[4px] border px-3 py-2.5 text-left text-[13px] transition cursor-pointer ${
+              value === item
+                ? "border-[#cfe0f7] bg-[#eaf1fd] font-bold text-[#0b4a99]"
+                : "border-transparent font-medium text-slate-600 hover:bg-[#f1f6fd] hover:text-[#0a1f44]"
+            }`}
+          >
+            <span>{item}</span>
+            {value === item && <CheckCircle2 className="h-4 w-4 shrink-0 text-[#0b5bd3]" />}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function ProductsPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -26,26 +113,32 @@ export default function ProductsPage() {
   const [selectedProductForQuote, setSelectedProductForQuote] = useState("");
   const [activeProductDetail, setActiveProductDetail] = useState<Product | null>(null);
 
-  // Filter logic
   const filteredProducts = useMemo(() => {
+    const q = searchQuery.toLowerCase();
     return PRODUCTS.filter((item) => {
       const matchesSearch =
-        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.genericName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.indications.some((ind) =>
-          ind.toLowerCase().includes(searchQuery.toLowerCase())
-        );
-
+        item.name.toLowerCase().includes(q) ||
+        item.genericName.toLowerCase().includes(q) ||
+        item.description.toLowerCase().includes(q) ||
+        item.indications.some((ind) => ind.toLowerCase().includes(q));
       const matchesCategory =
         selectedCategory === "All Categories" || item.category === selectedCategory;
-
-      const matchesForm =
-        selectedForm === "All Forms" || item.form === selectedForm;
-
+      const matchesForm = selectedForm === "All Forms" || item.form === selectedForm;
       return matchesSearch && matchesCategory && matchesForm;
     });
   }, [searchQuery, selectedCategory, selectedForm]);
+
+  const isFiltered =
+    searchQuery !== "" || selectedCategory !== "All Categories" || selectedForm !== "All Forms";
+
+  useEffect(() => {
+    if (!activeProductDetail) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActiveProductDetail(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [activeProductDetail]);
 
   const handleEnquire = (prodName: string) => {
     setSelectedProductForQuote(prodName);
@@ -59,349 +152,431 @@ export default function ProductsPage() {
   };
 
   return (
-    <div className="w-full bg-slate-50 min-h-screen text-slate-900 pb-20">
-      {/* Top Banner */}
-      <section className="bg-gradient-to-b from-white to-slate-100/70 py-12 sm:py-16 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <nav className="flex items-center justify-center gap-2 text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
-            <Link href="/" className="hover:text-sky-700">Home</Link>
-            <span>/</span>
-            <span className="text-sky-800">Product Portfolio</span>
-          </nav>
+    <div className="w-full bg-white text-slate-900">
+      {/* Hero */}
+      <section className="relative flex items-center overflow-hidden bg-gradient-to-br from-[#f7faff] via-[#eef4fc] to-[#e3edfb] lg:min-h-[max(520px,36vw)]">
+        <div className="pointer-events-none absolute -top-32 -left-32 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Complete Pharmaceutical Formulations
-          </h1>
-          <div className="accent-bar mx-auto"></div>
-          <p className="max-w-3xl mx-auto text-slate-600 text-sm sm:text-base leading-relaxed">
-            Explore Incredible Medicare&apos;s comprehensive DCGI-approved formulation range. Designed to deliver superior clinical outcomes with strict WHO-GMP quality assurance.
-          </p>
+        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] overflow-hidden rounded-bl-[9rem] shadow-[0_20px_60px_rgba(30,80,160,0.25)] lg:block">
+          <Image
+            src="/infra-vial.jpg"
+            alt="Pipette over a pharmaceutical vial"
+            fill
+            priority
+            sizes="42vw"
+            className="object-cover"
+            style={{ objectPosition: "30% 50%" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0b5bd3]/25 via-transparent to-transparent" />
         </div>
-      </section>
+        <div className="pointer-events-none absolute right-[38%] top-[18%] hidden h-24 w-24 rounded-full border-[10px] border-[#cfe0f7]/70 lg:block" />
 
-      {/* Main Container with Search & Filters */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-        {/* Search Bar & Stats Header */}
-        <div className="bg-white p-4 sm:p-6 rounded-2xl border border-slate-200 shadow-xs mb-8">
-          <div className="flex flex-col md:flex-row items-center gap-4 justify-between">
-            {/* Search Input */}
-            <div className="relative w-full md:max-w-xl">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+        <div className="relative mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-14">
+          <div className="max-w-2xl lg:max-w-[54%]">
+            <Eyebrow>Product Portfolio</Eyebrow>
+            <h1 className="mt-4 text-4xl font-extrabold leading-[1.08] tracking-tight text-[#0a1f44] sm:text-5xl lg:text-[2.6rem] xl:text-[3.25rem]">
+              Complete{" "}
+              <span className="text-[#0b5bd3]">Pharmaceutical Formulations</span>
+            </h1>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600">
+              Explore Incredible Medicare&apos;s comprehensive DCGI-approved formulation range. Designed to deliver superior clinical outcomes with strict WHO-GMP quality assurance.
+            </p>
+
+            <div className={`${GLASS} mt-7 flex items-center gap-3 p-2 pl-4`}>
+              <Search className="h-5 w-5 shrink-0 text-[#0b5bd3]" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search by brand name, active salt, or therapeutic indication..."
-                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 text-sm border border-slate-300 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-sky-600 focus:bg-white transition"
+                placeholder="Search by brand name, active salt, or indication..."
+                aria-label="Search products"
+                className="min-w-0 flex-1 bg-transparent py-2 text-sm text-slate-800 outline-none placeholder:text-slate-400"
               />
-              {searchQuery && (
+              {searchQuery ? (
                 <button
                   type="button"
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                  aria-label="Clear search"
+                  className="rounded-[4px] p-2 text-slate-400 transition hover:text-slate-700 cursor-pointer"
                 >
-                  <X className="w-4 h-4" />
+                  <X className="h-4 w-4" />
                 </button>
-              )}
+              ) : null}
+              <a
+                href="#catalogue"
+                className="hidden shrink-0 rounded-[4px] bg-[#0b5bd3] px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0a4db3] sm:block"
+              >
+                Search
+              </a>
             </div>
 
-            {/* Quick Action Buttons */}
-            <div className="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end">
-              <div className="text-xs font-semibold text-slate-600">
-                Showing <span className="font-bold text-sky-800">{filteredProducts.length}</span> of {PRODUCTS.length} Formulations
-              </div>
-              {(searchQuery || selectedCategory !== "All Categories" || selectedForm !== "All Forms") && (
-                <button
-                  type="button"
-                  onClick={handleResetFilters}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-lg transition"
+            <div className="mt-6 flex flex-wrap items-center gap-y-4">
+              {[
+                { icon: Boxes, a: "650+", b: "Formulations" },
+                { icon: ShieldCheck, a: "DCGI", b: "Approved Range" },
+                { icon: Package, a: "WHO-GMP", b: "Quality Assured" },
+              ].map((f, i) => (
+                <div
+                  key={f.a}
+                  className={`flex items-center gap-2.5 whitespace-nowrap pr-5 ${i > 0 ? "border-l border-[#cfe0f7] pl-5" : ""}`}
                 >
-                  <RotateCcw className="w-3.5 h-3.5" />
-                  <span>Reset Filters</span>
-                </button>
-              )}
+                  <f.icon className="h-7 w-7 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                  <div className="leading-tight">
+                    <div className="text-[13px] font-bold text-[#0a1f44]">{f.a}</div>
+                    <div className="text-xs text-slate-500">{f.b}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Layout: Sidebar Filters + Products Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
-          {/* Sidebar Filters */}
-          <div className="lg:col-span-1 space-y-6">
-            {/* Filter by Dosage Form */}
-            <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs space-y-3">
-              <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-                <h3 className="font-bold text-slate-900 text-sm flex items-center gap-2">
-                  <Package className="w-4 h-4 text-sky-700" />
-                  <span>Dosage Form</span>
-                </h3>
-                {selectedForm !== "All Forms" && (
-                  <button
-                    type="button"
-                    onClick={() => setSelectedForm("All Forms")}
-                    className="text-[11px] text-sky-700 font-semibold hover:underline"
-                  >
-                    Clear
-                  </button>
-                )}
-              </div>
-
-              <div className="space-y-1 max-h-72 overflow-y-auto pr-1">
-                {PRODUCT_FORMS.map((form) => (
-                  <button
-                    key={form}
-                    type="button"
-                    onClick={() => setSelectedForm(form)}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition flex items-center justify-between cursor-pointer ${
-                      selectedForm === form
-                        ? "bg-sky-50 text-sky-800 font-bold border border-sky-200"
-                        : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
-                    }`}
-                  >
-                    <span>{form}</span>
-                    {selectedForm === form && (
-                      <CheckCircle2 className="w-3.5 h-3.5 text-sky-700" />
-                    )}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Filter by Therapeutic Category */}
-            <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs space-y-3">
-              <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-                <h3 className="font-bold text-slate-900 text-sm flex items-center gap-2">
-                  <Layers className="w-4 h-4 text-sky-700" />
-                  <span>Therapeutic Area</span>
-                </h3>
-                {selectedCategory !== "All Categories" && (
-                  <button
-                    type="button"
-                    onClick={() => setSelectedCategory("All Categories")}
-                    className="text-[11px] text-sky-700 font-semibold hover:underline"
-                  >
-                    Clear
-                  </button>
-                )}
-              </div>
-
-              <div className="space-y-1 max-h-80 overflow-y-auto pr-1">
-                {PRODUCT_CATEGORIES.map((cat) => (
-                  <button
-                    key={cat}
-                    type="button"
-                    onClick={() => setSelectedCategory(cat)}
-                    className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition flex items-center justify-between cursor-pointer ${
-                      selectedCategory === cat
-                        ? "bg-sky-50 text-sky-800 font-bold border border-sky-200"
-                        : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
-                    }`}
-                  >
-                    <span>{cat}</span>
-                    {selectedCategory === cat && (
-                      <CheckCircle2 className="w-3.5 h-3.5 text-sky-700" />
-                    )}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Price list request callout */}
-            <div className="bg-gradient-to-br from-slate-900 to-sky-950 p-5 rounded-2xl text-white space-y-3">
-              <h4 className="font-bold text-sm">Need Full Product Price List?</h4>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                Download complete PDF catalog with net rates, packaging types, and minimum batch orders.
-              </p>
-              <button
-                type="button"
-                onClick={() => handleEnquire("Complete PDF Price List")}
-                className="w-full py-2 bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold rounded-lg transition"
-              >
-                Request Product List
-              </button>
+        <div className="pointer-events-none absolute inset-0 hidden lg:block">
+          <div className="absolute right-[5%] top-[14%] flex w-[260px] items-center gap-4 rounded-[4px] border border-white bg-white/85 px-5 py-4 shadow-[0_12px_40px_rgba(30,80,160,0.18)] backdrop-blur">
+            <Boxes className="h-9 w-9 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+            <div className="leading-snug">
+              <div className="text-sm font-bold text-[#0a1f44]">{PRODUCTS.length} Products Listed</div>
+              <div className="mt-0.5 text-xs text-slate-500">Browse by form or therapy area</div>
             </div>
           </div>
+          <div className="absolute bottom-[12%] right-[3%] flex w-[260px] items-center gap-4 rounded-[4px] border border-white bg-white/85 px-5 py-4 shadow-[0_12px_40px_rgba(30,80,160,0.18)] backdrop-blur">
+            <FileText className="h-9 w-9 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+            <div className="leading-snug">
+              <div className="text-sm font-bold text-[#0a1f44]">Price List on Request</div>
+              <div className="mt-0.5 text-xs text-slate-500">Net rates & batch orders</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          {/* Products Grid */}
-          <div className="lg:col-span-3">
-            {filteredProducts.length === 0 ? (
-              <div className="bg-white rounded-2xl p-12 text-center border border-slate-200 shadow-xs space-y-4">
-                <div className="w-12 h-12 bg-slate-100 text-slate-400 rounded-full flex items-center justify-center mx-auto">
-                  <Search className="w-6 h-6" />
-                </div>
-                <h3 className="text-lg font-bold text-slate-900">No matching products found</h3>
-                <p className="text-xs sm:text-sm text-slate-500 max-w-md mx-auto">
-                  Try adjusting your search criteria or reset filters to explore all available formulations.
-                </p>
-                <button
-                  type="button"
-                  onClick={handleResetFilters}
-                  className="px-4 py-2 bg-sky-700 hover:bg-sky-800 text-white text-xs font-bold rounded-lg transition"
-                >
-                  View All Products
-                </button>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {filteredProducts.map((product) => (
-                  <div
-                    key={product.id}
-                    className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:shadow-md hover:border-sky-300 transition-all flex flex-col justify-between group"
+      {/* Catalogue */}
+      <section
+        id="catalogue"
+        className="relative overflow-hidden bg-gradient-to-b from-[#f7faff] via-[#f1f6fd] to-[#eaf1fb] py-14 lg:py-16 scroll-mt-24"
+      >
+        <div className="pointer-events-none absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 -left-40 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/50 blur-3xl" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
+            <div className="text-sm font-semibold text-slate-600">
+              Showing <span className="font-extrabold text-[#0b5bd3]">{filteredProducts.length}</span> of{" "}
+              {PRODUCTS.length} Formulations
+            </div>
+            {isFiltered && (
+              <button
+                type="button"
+                onClick={handleResetFilters}
+                className="inline-flex items-center gap-2 rounded-[4px] border border-[#cfe0f7] bg-white/80 px-4 py-2 text-xs font-semibold text-[#0b4a99] transition hover:bg-white cursor-pointer"
+              >
+                <RotateCcw className="h-3.5 w-3.5" />
+                Reset Filters
+              </button>
+            )}
+          </div>
+
+          <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-4">
+            {/* Sidebar */}
+            <aside className="space-y-6 lg:col-span-1">
+              <FilterList
+                title="Dosage Form"
+                icon={Package}
+                items={PRODUCT_FORMS}
+                value={selectedForm}
+                allLabel="All Forms"
+                onChange={setSelectedForm}
+                maxH="max-h-72"
+              />
+              <FilterList
+                title="Therapeutic Area"
+                icon={Layers}
+                items={PRODUCT_CATEGORIES}
+                value={selectedCategory}
+                allLabel="All Categories"
+                onChange={setSelectedCategory}
+                maxH="max-h-80"
+              />
+
+              <div className="relative overflow-hidden rounded-[4px] bg-gradient-to-br from-[#04142f] via-[#08234b] to-[#0a2d5e] p-6 text-white shadow-[0_20px_50px_rgba(10,26,51,0.3)]">
+                <FileText className="pointer-events-none absolute -bottom-6 -right-6 h-32 w-32 text-white/5" strokeWidth={1} />
+                <div className="relative">
+                  <h4 className="text-lg font-bold leading-snug">Need Full Product Price List?</h4>
+                  <p className="mt-2 text-xs leading-relaxed text-slate-300">
+                    Download complete PDF catalog with net rates, packaging types, and minimum batch orders.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => handleEnquire("Complete PDF Price List")}
+                    className="mt-5 flex w-full items-center justify-center gap-3 rounded-[4px] bg-[#0b5bd3] py-3 text-sm font-semibold text-white transition hover:bg-[#1a6de0] cursor-pointer"
                   >
-                    <div>
-                      {/* Top Badges */}
-                      <div className="flex items-center justify-between gap-2 mb-3">
-                        <span className="text-[11px] font-bold text-sky-800 bg-sky-50 px-2.5 py-1 rounded-md border border-sky-100">
-                          {product.form}
-                        </span>
-                        <span className="text-[11px] font-semibold text-slate-500 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-200">
-                          {product.packingType}
-                        </span>
-                      </div>
+                    Request Product List
+                    <ArrowRight className="h-4 w-4" />
+                  </button>
+                </div>
+              </div>
+            </aside>
 
-                      {/* Brand Name */}
-                      <h3 className="text-lg font-extrabold text-slate-900 group-hover:text-sky-700 transition-colors">
-                        {product.name}
-                      </h3>
-
-                      {/* Generic Name */}
-                      <div className="text-xs font-semibold text-sky-900 mt-1 line-clamp-2">
-                        {product.genericName}
-                      </div>
-
-                      {/* Description */}
-                      <p className="text-xs text-slate-500 mt-3 leading-relaxed line-clamp-3">
-                        {product.description}
-                      </p>
-
-                      {/* Indications Pills */}
-                      <div className="flex flex-wrap gap-1.5 mt-4">
-                        {product.indications.slice(0, 3).map((ind) => (
-                          <span
-                            key={ind}
-                            className="text-[10px] font-medium bg-slate-100 text-slate-700 px-2 py-0.5 rounded-md"
-                          >
-                            {ind}
+            {/* Grid */}
+            <div className="lg:col-span-3">
+              {filteredProducts.length === 0 ? (
+                <div className={`${GLASS} space-y-4 p-12 text-center`}>
+                  <Search className="mx-auto h-12 w-12 text-[#0b5bd3]/40" strokeWidth={1.4} />
+                  <h3 className="text-lg font-bold text-[#0a1f44]">No matching products found</h3>
+                  <p className="mx-auto max-w-md text-sm text-slate-500">
+                    Try adjusting your search criteria or reset filters to explore all available formulations.
+                  </p>
+                  <button type="button" onClick={handleResetFilters} className={PRIMARY_BTN}>
+                    View All Products
+                  </button>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                  {filteredProducts.map((product, i) => (
+                    <div
+                      key={product.id}
+                      className={`${GLASS} group relative flex flex-col justify-between overflow-hidden p-6`}
+                    >
+                      <div
+                        className={`pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full blur-2xl ${TINTS[i % TINTS.length]}`}
+                      />
+                      <div className="relative flex flex-1 flex-col">
+                        <div className="mb-4 flex items-center justify-between gap-2">
+                          <span className="rounded-[4px] bg-[#eaf1fd] px-3 py-1.5 text-xs font-semibold text-[#0b5bd3]">
+                            {product.form}
                           </span>
-                        ))}
+                          <span className="text-xs font-medium text-slate-500">{product.packingType}</span>
+                        </div>
+
+                        <h3 className="text-xl font-extrabold uppercase tracking-tight text-[#0a1f44] transition-colors group-hover:text-[#0b5bd3]">
+                          {product.name}
+                        </h3>
+                        <div className="mt-2 line-clamp-2 min-h-[2.5rem] text-sm font-semibold leading-5 text-[#0b5bd3]">
+                          {product.genericName}
+                        </div>
+                        <p className="mt-3 line-clamp-3 min-h-[3.75rem] text-[13px] leading-relaxed text-slate-500">
+                          {product.description}
+                        </p>
+
+                        <div className="mb-5 mt-4 flex flex-wrap content-start gap-1.5">
+                          {product.indications.slice(0, 3).map((ind) => (
+                            <span
+                              key={ind}
+                              className="rounded-full bg-white px-2.5 py-1 text-[11px] font-medium text-slate-600 ring-1 ring-slate-200"
+                            >
+                              {ind}
+                            </span>
+                          ))}
+                        </div>
+
+                        <div className="mt-auto grid grid-cols-2 gap-3 border-t border-slate-200/70 pt-4">
+                          <div className="flex items-center gap-2.5 border-r border-slate-200/70 pr-3">
+                            <Box className="h-6 w-6 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                            <div className="min-w-0">
+                              <div className="text-[11px] text-slate-400">Packaging</div>
+                              <div className="text-[13px] font-semibold leading-tight text-[#0a1f44]">
+                                {product.packaging}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex min-w-0 items-center gap-2.5">
+                            <Landmark className="h-6 w-6 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                            <div className="min-w-0">
+                              <div className="text-[11px] text-slate-400">Division</div>
+                              <div className="line-clamp-2 text-[13px] font-semibold leading-tight text-[#0a1f44]">
+                                {product.division}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
 
-                      {/* Meta Info */}
-                      <div className="mt-5 pt-3 border-t border-slate-100 space-y-1.5 text-xs">
-                        <div className="flex items-center justify-between text-slate-600">
-                          <span className="text-slate-400">Packaging:</span>
-                          <span className="font-semibold text-slate-800">{product.packaging}</span>
-                        </div>
-                        <div className="flex items-center justify-between text-slate-600">
-                          <span className="text-slate-400">Division:</span>
-                          <span className="font-semibold text-slate-700 truncate max-w-[200px]">
-                            {product.division}
-                          </span>
-                        </div>
+                      <div className="relative mt-6 grid grid-cols-2 gap-3">
+                        <button
+                          type="button"
+                          onClick={() => handleEnquire(product.name)}
+                          className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#0b5bd3] py-3 text-sm font-semibold text-white shadow-[0_6px_18px_rgba(11,91,211,0.3)] transition hover:bg-[#0a4db3] cursor-pointer"
+                        >
+                          Enquire / Quote
+                          <ArrowRight className="h-4 w-4" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setActiveProductDetail(product)}
+                          className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#eef3fb] py-3 text-sm font-semibold text-[#0a1f44] transition hover:bg-[#e3ecfa] cursor-pointer"
+                        >
+                          <FileText className="h-4 w-4 text-[#0b5bd3]" />
+                          Details
+                        </button>
                       </div>
                     </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
 
-                    {/* Card Actions */}
-                    <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-3">
-                      <button
-                        type="button"
-                        onClick={() => handleEnquire(product.name)}
-                        className="flex-1 py-2.5 bg-sky-700 hover:bg-sky-800 text-white text-xs font-bold rounded-lg transition shadow-xs cursor-pointer"
-                      >
-                        Enquire / Quote
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setActiveProductDetail(product)}
-                        className="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition"
-                        title="View Detailed Composition"
-                      >
-                        <Info className="w-4 h-4" />
-                      </button>
+      {/* CTA */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#eaf1fb] via-[#f1f6fd] to-[#f7faff] py-16 lg:py-20">
+        <div className="pointer-events-none absolute -left-32 top-4 hidden h-[420px] w-[420px] overflow-hidden rounded-full border-[14px] border-[#cfe0f7]/70 lg:block xl:-left-20">
+          <Image src="/infra-packs.jpg" alt="" fill sizes="420px" className="object-cover" />
+        </div>
+        <div className="pointer-events-none absolute -right-32 top-10 hidden h-[420px] w-[420px] overflow-hidden rounded-full border-[14px] border-[#cfe0f7]/70 lg:block xl:-right-20">
+          <Image src="/infra-lab.jpg" alt="" fill sizes="420px" className="object-cover" style={{ objectPosition: "40% 50%" }} />
+        </div>
+        <div className="relative mx-auto max-w-3xl px-4 text-center">
+          <Eyebrow center>Partner with Incredible Medicare</Eyebrow>
+          <h2 className="mt-4 text-3xl font-extrabold leading-[1.1] tracking-tight text-[#0a1f44] sm:text-4xl lg:text-5xl">
+            Can&apos;t Find What You{" "}
+            <span className="block text-[#0b5bd3]">Are Looking For?</span>
+          </h2>
+          <p className="mt-5 text-sm leading-relaxed text-slate-600 sm:text-base">
+            Our portfolio spans 650+ approved formulations. Tell us your requirement and our team will share availability, net rates, and custom manufacturing options.
+          </p>
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
+            <button type="button" onClick={() => handleEnquire("Custom Product Requirement")} className={PRIMARY_BTN}>
+              <Handshake className="h-5 w-5" />
+              Request a Product
+              <ArrowRight className="h-4 w-4" />
+            </button>
+            <Link href="/contact" className={OUTLINE_BTN}>
+              <MessageSquareText className="h-5 w-5" />
+              Contact Us Directly
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Detail Modal */}
+      {activeProductDetail && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-[#0a1f44]/60 p-4 backdrop-blur-sm"
+          onClick={() => setActiveProductDetail(null)}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={activeProductDetail.name}
+            className="relative grid w-full max-w-3xl grid-cols-1 overflow-hidden rounded-[4px] bg-white shadow-2xl animate-in fade-in zoom-in-95 duration-200 md:grid-cols-5"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setActiveProductDetail(null)}
+              aria-label="Close"
+              className="absolute right-3 top-3 z-10 rounded-[4px] bg-white/80 p-2 text-slate-500 transition hover:bg-white hover:text-slate-800 cursor-pointer"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            {/* Left summary panel */}
+            <div className="relative overflow-hidden bg-gradient-to-br from-[#04142f] via-[#08234b] to-[#0a2d5e] p-7 text-white md:col-span-2 md:flex md:flex-col">
+              <Image
+                src="/infra-packs.jpg"
+                alt=""
+                fill
+                sizes="300px"
+                className="object-cover opacity-15 mix-blend-luminosity"
+              />
+              <div className="relative">
+                <span className="rounded-full border border-sky-400/30 bg-sky-500/20 px-3 py-1 text-[11px] font-semibold text-sky-300">
+                  {activeProductDetail.form}
+                </span>
+                <h3 className="mt-4 text-2xl font-extrabold uppercase leading-tight">
+                  {activeProductDetail.name}
+                </h3>
+                <p className="mt-2 text-xs text-sky-300">{activeProductDetail.category}</p>
+              </div>
+
+              <div className="relative mt-6 space-y-3 md:mt-auto">
+                {[
+                  { icon: Box, label: "Packaging", value: activeProductDetail.packaging },
+                  { icon: Package, label: "Packing Type", value: activeProductDetail.packingType },
+                  { icon: Landmark, label: "Division", value: activeProductDetail.division },
+                ].map((m) => (
+                  <div key={m.label} className="flex items-center gap-3 rounded-[4px] border border-white/10 bg-white/5 px-4 py-3">
+                    <m.icon className="h-6 w-6 shrink-0 text-sky-300" strokeWidth={1.5} />
+                    <div className="min-w-0 leading-tight">
+                      <div className="text-[11px] text-slate-300">{m.label}</div>
+                      <div className="mt-0.5 text-sm font-bold">{m.value}</div>
                     </div>
                   </div>
                 ))}
               </div>
-            )}
-          </div>
-        </div>
-      </div>
+            </div>
 
-      {/* Product Detail Modal */}
-      {activeProductDetail && (
-        <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="relative bg-white w-full max-w-lg rounded-2xl shadow-2xl border border-slate-100 overflow-hidden animate-in fade-in zoom-in-95 duration-200 p-6 space-y-4">
-            <div className="flex items-start justify-between">
+            {/* Right details */}
+            <div className="space-y-5 p-7 md:col-span-3 md:pt-12">
               <div>
-                <span className="text-[11px] font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded-md border border-sky-100">
-                  {activeProductDetail.form}
+                <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0b5bd3]">
+                  Generic Composition
                 </span>
-                <h3 className="text-xl font-extrabold text-slate-900 mt-2">
-                  {activeProductDetail.name}
-                </h3>
+                <p className="mt-1.5 text-base font-bold leading-snug text-[#0a1f44]">
+                  {activeProductDetail.genericName}
+                </p>
               </div>
-              <button
-                type="button"
-                onClick={() => setActiveProductDetail(null)}
-                className="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
 
-            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs">
-              <span className="font-bold text-slate-700">Generic Composition:</span>
-              <p className="text-slate-900 font-semibold mt-0.5">{activeProductDetail.genericName}</p>
-            </div>
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0b5bd3]">
+                  Therapeutic Overview
+                </span>
+                <p className="mt-1.5 text-sm leading-relaxed text-slate-600">
+                  {activeProductDetail.description}
+                </p>
+              </div>
 
-            <div className="text-xs text-slate-600 leading-relaxed">
-              <span className="font-bold text-slate-800 block mb-1">Therapeutic Overview:</span>
-              {activeProductDetail.description}
-            </div>
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0b5bd3]">
+                  Approved Indications
+                </span>
+                <ul className="mt-2 grid grid-cols-1 gap-x-4 gap-y-2 sm:grid-cols-2">
+                  {activeProductDetail.indications.map((ind) => (
+                    <li key={ind} className="flex items-center gap-2 text-sm text-slate-700">
+                      <CheckCircle2 className="h-4 w-4 shrink-0 text-[#0b5bd3]" strokeWidth={1.8} />
+                      {ind}
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            <div className="text-xs space-y-1">
-              <span className="font-bold text-slate-800 block mb-1">Approved Indications:</span>
-              <div className="flex flex-wrap gap-1.5">
-                {activeProductDetail.indications.map((ind) => (
-                  <span
-                    key={ind}
-                    className="bg-sky-50 text-sky-800 border border-sky-200 px-2 py-0.5 rounded-md text-[11px]"
-                  >
-                    {ind}
+              {activeProductDetail.dosage && (
+                <div className="rounded-[4px] border border-[#cfe0f7] bg-[#eaf1fd] px-4 py-3">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0a2d5e]">
+                    Dosage
                   </span>
-                ))}
-              </div>
-            </div>
+                  <p className="mt-0.5 text-sm font-semibold text-[#0a1f44]">
+                    {activeProductDetail.dosage}
+                  </p>
+                </div>
+              )}
 
-            <div className="grid grid-cols-2 gap-3 pt-2 text-xs border-t border-slate-100">
-              <div>
-                <span className="text-slate-400">Packaging:</span>
-                <div className="font-bold text-slate-800">{activeProductDetail.packaging}</div>
+              <div className="flex flex-col gap-3 border-t border-slate-100 pt-5 sm:flex-row">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const prod = activeProductDetail.name;
+                    setActiveProductDetail(null);
+                    handleEnquire(prod);
+                  }}
+                  className={`${PRIMARY_BTN} flex-1`}
+                >
+                  Request Quotation
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveProductDetail(null)}
+                  className={`${OUTLINE_BTN} sm:px-6`}
+                >
+                  Close
+                </button>
               </div>
-              <div>
-                <span className="text-slate-400">Packing Type:</span>
-                <div className="font-bold text-slate-800">{activeProductDetail.packingType}</div>
-              </div>
-            </div>
-
-            <div className="pt-4 flex items-center gap-3">
-              <button
-                type="button"
-                onClick={() => {
-                  const prod = activeProductDetail.name;
-                  setActiveProductDetail(null);
-                  handleEnquire(prod);
-                }}
-                className="w-full py-2.5 bg-sky-700 hover:bg-sky-800 text-white font-bold text-xs rounded-xl shadow-xs transition"
-              >
-                Request Quotation for {activeProductDetail.name}
-              </button>
             </div>
           </div>
         </div>
       )}
 
-      {/* Global Quote Modal */}
       <EnquiryModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
