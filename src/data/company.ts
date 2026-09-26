@@ -138,6 +138,22 @@ export const BLOG_POSTS = [
     date: "January 2026",
     category: "R&D & Science",
     readTime: "6 min read"
+  },
+  {
+    slug: "growing-demand-for-cardiovascular-and-diabetic-therapies",
+    title: "The Growing Demand for Cardiovascular & Diabetic Therapies in Emerging Markets",
+    excerpt: "Explore key drivers behind the rising demand for innovative cardio and diabetes therapeutics, and how the industry is evolving to meet patient needs in emerging economies.",
+    date: "March 2026",
+    category: "Cardio & Diabetes",
+    readTime: "5 min read"
+  },
+  {
+    slug: "navigating-global-regulatory-landscape-for-pharmaceuticals",
+    title: "Navigating the Evolving Global Regulatory Landscape for Pharmaceuticals",
+    excerpt: "Stay informed about the latest changes in global regulatory frameworks, compliance requirements, and what they mean for pharmaceutical manufacturers and exporters.",
+    date: "February 2026",
+    category: "Regulatory Updates",
+    readTime: "7 min read"
   }
 ];
 

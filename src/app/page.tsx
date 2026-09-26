@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import ClientFeedback from "@/components/ui/testimonial";
 import {
   ShieldCheck,
   Award,
@@ -31,12 +32,23 @@ import {
   Wheat,
   Settings,
   Factory,
+  Shield,
+  Bone,
+  Stethoscope,
+  Leaf,
+  Droplet,
+  Box,
+  Landmark,
+  Users,
+  Brain,
+  HeartPulse,
+  Droplets,
+  Calendar,
 } from "lucide-react";
 import {
   COMPANY_INFO,
   ANNUAL_CAPACITIES,
   DIVISIONS,
-  TESTIMONIALS,
   BLOG_POSTS,
 } from "@/data/company";
 import { PRODUCTS, Product } from "@/data/products";
@@ -48,6 +60,101 @@ const ACCREDITATION_ICONS: (React.ComponentType<{ className?: string; strokeWidt
   FlaskConical,
   FileCheck,
   ShieldCheck,
+];
+
+function GrowthIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 64 64" fill="none" className={className} aria-hidden="true">
+      <path d="M8 34 24 20l10 8 20-18" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M40 10h14v14" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="10" y="42" width="10" height="14" rx="2" fill="currentColor" opacity=".55" />
+      <rect x="27" y="36" width="10" height="20" rx="2" fill="currentColor" opacity=".8" />
+      <rect x="44" y="30" width="10" height="26" rx="2" fill="currentColor" />
+    </svg>
+  );
+}
+
+function FactoryIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" className={className} aria-hidden="true">
+      <path d="M4 27V15l7 4v-4l7 4v-4l6 3V7h4v20z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" strokeLinecap="round" />
+      <path d="M4 27h24" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M9 23h2M15 23h2M21 23h2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M26 4c1 1 1 2 0 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity=".6" />
+    </svg>
+  );
+}
+
+const DIVISION_THEMES = [
+  {
+    icon: PillIcon,
+    card: "bg-white/90",
+    tile: "bg-[#e3edfb] text-[#0b5bd3]",
+    pill: "bg-[#eaf1fd] text-[#0b5bd3]",
+    check: "text-[#0b5bd3]",
+    deco: "text-[#0b5bd3]/10",
+    link: "text-[#0b4a99]",
+    arrow: "bg-[#e6effc] text-[#0b5bd3]",
+  },
+  {
+    icon: Droplets,
+    card: "bg-gradient-to-br from-white/90 to-emerald-50/70",
+    tile: "bg-emerald-50 text-emerald-600",
+    pill: "bg-emerald-50 text-emerald-700",
+    check: "text-emerald-600",
+    deco: "text-emerald-500/10",
+    link: "text-[#0b4a99]",
+    arrow: "bg-emerald-50 text-emerald-600",
+  },
+  {
+    icon: Brain,
+    card: "bg-gradient-to-br from-white/90 to-violet-50/70",
+    tile: "bg-violet-100 text-violet-600",
+    pill: "bg-violet-50 text-violet-700",
+    check: "text-violet-600",
+    deco: "text-violet-500/10",
+    link: "text-violet-700",
+    arrow: "bg-violet-50 text-violet-600",
+  },
+  {
+    icon: HeartPulse,
+    card: "bg-gradient-to-br from-orange-50/80 to-rose-50/60",
+    tile: "bg-orange-100 text-orange-600",
+    pill: "bg-orange-100/70 text-orange-700",
+    check: "text-orange-500",
+    deco: "text-orange-500/10",
+    link: "text-orange-600",
+    arrow: "bg-orange-100/70 text-orange-600",
+  },
+  {
+    icon: Leaf,
+    card: "bg-gradient-to-br from-white/90 to-sky-50/70",
+    tile: "bg-[#e3edfb] text-[#0b5bd3]",
+    pill: "bg-[#eaf1fd] text-[#0b5bd3]",
+    check: "text-[#0b5bd3]",
+    deco: "text-[#0b5bd3]/10",
+    link: "text-[#0b4a99]",
+    arrow: "bg-[#e6effc] text-[#0b5bd3]",
+  },
+];
+
+const BLOG_THEMES = [
+  { icon: FileText, tile: "bg-[#e3edfb] text-[#0b5bd3]", pill: "bg-[#eaf1fd] text-[#0b5bd3]" },
+  { icon: ShieldCheck, tile: "bg-emerald-50 text-emerald-600", pill: "bg-emerald-50 text-emerald-700" },
+  { icon: FlaskConical, tile: "bg-violet-100 text-violet-600", pill: "bg-violet-100/70 text-violet-700" },
+  { icon: HeartPulse, tile: "bg-orange-100 text-orange-600", pill: "bg-orange-100/70 text-orange-700" },
+  { icon: Leaf, tile: "bg-[#e3edfb] text-[#0b5bd3]", pill: "bg-[#eaf1fd] text-[#0b5bd3]" },
+];
+
+const CATEGORY_ICONS = [PillIcon, Shield, Bone, Stethoscope, Leaf, Droplet];
+
+const CARD_TINTS = [
+  "bg-sky-200/60",
+  "bg-emerald-200/50",
+  "bg-violet-200/50",
+  "bg-orange-200/50",
+  "bg-blue-200/60",
+  "bg-rose-200/50",
 ];
 
 const CAPACITY_ICONS = [Tablets, PillIcon, PillBottle, Pipette, Wheat];
@@ -120,7 +227,7 @@ export default function HomePage() {
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Link
                   href="/products"
-                  className="inline-flex items-center gap-3 rounded-lg bg-[#0b4a99] px-6 py-3.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-[#093d80] hover:shadow-lg"
+                  className="inline-flex items-center gap-3 rounded-[4px] bg-[#0b4a99] px-6 py-3.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-[#093d80] hover:shadow-lg"
                 >
                   <Package className="h-4 w-4" />
                   <span>Browse 650+ Products</span>
@@ -133,7 +240,7 @@ export default function HomePage() {
                     setSelectedProduct("");
                     setEnquiryModalOpen(true);
                   }}
-                  className="inline-flex cursor-pointer items-center gap-3 rounded-lg border border-slate-300 bg-white/70 px-6 py-3.5 text-sm font-semibold text-slate-800 backdrop-blur-sm transition-all hover:border-[#0b4a99] hover:bg-white hover:text-[#0b4a99]"
+                  className="inline-flex cursor-pointer items-center gap-3 rounded-[4px] border border-slate-300 bg-white/70 px-6 py-3.5 text-sm font-semibold text-slate-800 backdrop-blur-sm transition-all hover:border-[#0b4a99] hover:bg-white hover:text-[#0b4a99]"
                 >
                   <FileText className="h-4 w-4 text-[#0b4a99]" />
                   <span>Request Franchise Terms</span>
@@ -187,7 +294,7 @@ export default function HomePage() {
           </div>
 
           {/* 650+ card */}
-          <div className="pointer-events-auto absolute left-[54%] top-[26%] w-[300px] rounded-xl border border-white/70 bg-white/70 p-6 shadow-xl backdrop-blur-md">
+          <div className="pointer-events-auto absolute left-[54%] top-[26%] w-[300px] rounded-[4px] border border-white/70 bg-white/70 p-6 shadow-xl backdrop-blur-md">
             <div className="flex items-center gap-4">
               <Pill
                 className="h-12 w-12 shrink-0 text-[#0b4a99]"
@@ -254,7 +361,7 @@ export default function HomePage() {
               return (
                 <div
                   key={item.title}
-                  className="group bg-white/60 backdrop-blur-md p-5 sm:p-6 rounded-2xl border border-white/80 shadow-[0_8px_30px_rgba(30,80,160,0.08)] text-center hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(30,80,160,0.16)] transition-all last:col-span-2 md:last:col-span-1"
+                  className="group bg-white/60 backdrop-blur-md p-5 sm:p-6 rounded-[4px] border border-white/80 shadow-[0_8px_30px_rgba(30,80,160,0.08)] text-center hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(30,80,160,0.16)] transition-all last:col-span-2 md:last:col-span-1"
                 >
                   <div className="w-14 h-14 sm:w-16 sm:h-16 text-[#0b5bd3] flex items-center justify-center mx-auto mb-4">
                     {Icon === "iso" ? (
@@ -284,7 +391,7 @@ export default function HomePage() {
             {/* Visual Box */}
             <div className="lg:col-span-6 relative space-y-4 lg:space-y-0 lg:h-[640px]">
               {/* Photo 1 */}
-              <div className="relative h-56 sm:h-72 lg:absolute lg:left-0 lg:top-0 lg:h-[58%] lg:w-[74%] overflow-hidden rounded-3xl lg:rounded-tl-none lg:rounded-br-none lg:rounded-tr-[3rem] lg:rounded-bl-[3rem] shadow-[0_10px_40px_rgba(30,80,160,0.15)]">
+              <div className="relative h-56 sm:h-72 lg:absolute lg:left-0 lg:top-0 lg:h-[58%] lg:w-[74%] overflow-hidden rounded-[4px] lg:rounded-tl-none lg:rounded-br-none lg:rounded-tr-[3rem] lg:rounded-bl-[3rem] shadow-[0_10px_40px_rgba(30,80,160,0.15)]">
                 <Image
                   src="/herobg.png"
                   alt="Pharmaceutical cleanroom technician"
@@ -317,10 +424,10 @@ export default function HomePage() {
                 ].map((c) => (
                   <div
                     key={c.title}
-                    className="bg-white/95 backdrop-blur rounded-2xl border border-white p-5 shadow-[0_10px_40px_rgba(30,80,160,0.14)]"
+                    className="bg-white/95 backdrop-blur rounded-[4px] border border-white p-5 shadow-[0_10px_40px_rgba(30,80,160,0.14)]"
                   >
                     <div className="flex items-center gap-3 pb-3 border-b border-slate-200/80">
-                      <div className={`w-11 h-11 shrink-0 rounded-xl ${c.tagClass} text-white flex items-center justify-center font-bold text-xs`}>
+                      <div className={`w-11 h-11 shrink-0 rounded-[4px] ${c.tagClass} text-white flex items-center justify-center font-bold text-xs`}>
                         {c.tag}
                       </div>
                       <div className="min-w-0">
@@ -343,7 +450,7 @@ export default function HomePage() {
               </div>
 
               {/* Photo 2 */}
-              <div className="relative h-56 sm:h-72 lg:absolute lg:left-[3%] lg:bottom-0 lg:h-[36%] lg:w-[80%] overflow-hidden rounded-3xl shadow-[0_10px_40px_rgba(30,80,160,0.15)]">
+              <div className="relative h-56 sm:h-72 lg:absolute lg:left-[3%] lg:bottom-0 lg:h-[36%] lg:w-[80%] overflow-hidden rounded-[4px] shadow-[0_10px_40px_rgba(30,80,160,0.15)]">
                 <Image
                   src="/herobg.png"
                   alt="Vial filling line"
@@ -352,8 +459,8 @@ export default function HomePage() {
                   className="object-cover"
                   style={{ objectPosition: "85% 90%" }}
                 />
-                <div className="absolute left-4 bottom-4 flex items-center gap-3 rounded-2xl bg-white/85 backdrop-blur px-4 py-2.5 shadow-lg">
-                  <div className="w-9 h-9 rounded-xl bg-[#e6effc] text-[#0b4a99] flex items-center justify-center">
+                <div className="absolute left-4 bottom-4 flex items-center gap-3 rounded-[4px] bg-white/85 backdrop-blur px-4 py-2.5 shadow-lg">
+                  <div className="w-9 h-9 rounded-[4px] bg-[#e6effc] text-[#0b4a99] flex items-center justify-center">
                     <Building2 className="w-5 h-5" />
                   </div>
                   <span className="text-xs font-medium text-[#0a1f44] leading-tight">
@@ -368,7 +475,7 @@ export default function HomePage() {
             {/* Content Box */}
             <div className="lg:col-span-6 space-y-6">
               <div className="space-y-4">
-                <span className="inline-block rounded-lg border border-[#cfe0f7] bg-white/70 px-4 py-1.5 text-[#0b4a99] text-xs font-bold uppercase tracking-wider">
+                <span className="inline-block rounded-[4px] border border-[#cfe0f7] bg-white/70 px-4 py-1.5 text-[#0b4a99] text-xs font-bold uppercase tracking-wider">
                   About Incredible Medicare
                 </span>
                 <h2 className="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0a1f44] tracking-tight leading-[1.1]">
@@ -423,7 +530,7 @@ export default function HomePage() {
               <div className="pt-4 flex flex-wrap items-center gap-4">
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#0b4a99] hover:bg-[#093d80] text-white text-sm font-semibold rounded-xl shadow-[0_8px_24px_rgba(11,74,153,0.3)] transition"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#0b4a99] hover:bg-[#093d80] text-white text-sm font-semibold rounded-[4px] shadow-[0_8px_24px_rgba(11,74,153,0.3)] transition"
                 >
                   <span>Learn More About Us</span>
                   <ArrowRight className="w-4 h-4" />
@@ -431,7 +538,7 @@ export default function HomePage() {
 
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/80 hover:bg-white text-[#0a1f44] text-sm font-semibold rounded-xl border border-[#cfe0f7] transition"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/80 hover:bg-white text-[#0a1f44] text-sm font-semibold rounded-[4px] border border-[#cfe0f7] transition"
                 >
                   <span>Contact Headquarters</span>
                 </Link>
@@ -469,9 +576,9 @@ export default function HomePage() {
               return (
                 <div
                   key={cap.form}
-                  className="bg-white/85 backdrop-blur rounded-2xl p-5 border border-white shadow-[0_10px_40px_rgba(30,80,160,0.10)] hover:-translate-y-1 hover:shadow-[0_14px_44px_rgba(30,80,160,0.18)] transition-all flex flex-col items-center text-center"
+                  className="bg-white/85 backdrop-blur rounded-[4px] p-5 border border-white shadow-[0_10px_40px_rgba(30,80,160,0.10)] hover:-translate-y-1 hover:shadow-[0_14px_44px_rgba(30,80,160,0.18)] transition-all flex flex-col items-center text-center"
                 >
-                  <span className="inline-block whitespace-nowrap px-3 py-1 rounded-md text-[11px] font-semibold bg-[#eaf1fd] text-[#0b5bd3]">
+                  <span className="inline-block whitespace-nowrap px-3 py-1 rounded-[4px] text-[11px] font-semibold bg-[#eaf1fd] text-[#0b5bd3]">
                     {cap.badge}
                   </span>
                   <div className="w-[72px] h-[72px] rounded-full bg-[#e9f1fc] text-[#0b5bd3] flex items-center justify-center mt-4">
@@ -504,18 +611,23 @@ export default function HomePage() {
       </section>
 
       {/* 5. FEATURED PRODUCT SHOWCASE */}
-      <section className="py-20 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <div>
-              <span className="text-sky-700 text-xs font-bold uppercase tracking-wider">
-                Comprehensive Formulations
-              </span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
-                Featured Pharmaceutical Products
+      <section className="relative overflow-hidden py-16 lg:py-20 bg-gradient-to-b from-white via-[#f6f9fe] to-[#eef4fc] border-b border-slate-200">
+        <div className="pointer-events-none absolute -top-32 -left-32 h-[380px] w-[380px] rounded-full bg-[#dbe8fb]/50 blur-3xl" />
+        <div className="pointer-events-none absolute top-1/2 -right-40 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/50 blur-3xl" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-10">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-4">
+                <span className="text-[#0b4a99] text-xs font-bold uppercase tracking-[0.18em]">
+                  Comprehensive Formulations
+                </span>
+                <span className="hidden sm:block h-px w-14 bg-[#0b4a99]/60" />
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f44] tracking-tight mt-3">
+                Featured{" "}
+                <span className="text-[#0b5bd3]">Pharmaceutical</span> Products
               </h2>
-              <div className="accent-bar mt-2"></div>
-              <p className="text-sm text-slate-600 mt-2 max-w-xl">
+              <p className="text-sm sm:text-base text-slate-600 mt-4 leading-relaxed">
                 High-efficacy medicines produced in accordance with IP/BP/USP
                 standards, offering dependable clinical relief and doctor trust.
               </p>
@@ -523,86 +635,120 @@ export default function HomePage() {
 
             <Link
               href="/products"
-              className="inline-flex items-center gap-1.5 text-sm font-bold text-sky-700 hover:text-sky-900 transition"
+              className="group flex items-center gap-4 lg:w-[480px] rounded-[4px] border border-white bg-gradient-to-r from-[#eaf2fd] to-[#f4f8fe] p-5 shadow-[0_10px_40px_rgba(30,80,160,0.10)] hover:shadow-[0_14px_44px_rgba(30,80,160,0.18)] transition"
             >
-              <span>View All 650+ Formulations</span>
-              <ArrowRight className="w-4 h-4" />
+              <div className="w-14 h-14 shrink-0 rounded-[4px] bg-[#dbe8fb] text-[#0b5bd3] flex items-center justify-center">
+                <Package className="w-7 h-7" strokeWidth={1.6} />
+              </div>
+              <div className="flex-1 min-w-0 border-r border-[#cfe0f7]/70 pr-4">
+                <div className="font-bold text-[#0a1f44] text-base">
+                  View Our Complete Portfolio
+                </div>
+                <p className="text-sm text-slate-500 mt-0.5 leading-snug">
+                  Explore all 650+ formulations across multiple therapeutic
+                  segments.
+                </p>
+              </div>
+              <span className="w-11 h-11 shrink-0 rounded-full bg-[#0b5bd3] text-white flex items-center justify-center shadow-[0_6px_18px_rgba(11,91,211,0.4)] group-hover:translate-x-0.5 transition">
+                <ArrowRight className="w-5 h-5" />
+              </span>
             </Link>
           </div>
 
           {/* Category Filter Tabs */}
-          <div className="flex flex-wrap items-center gap-2 mb-8">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                type="button"
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 text-xs font-semibold rounded-lg transition cursor-pointer ${
-                  activeCategory === cat
-                    ? "bg-sky-700 text-white shadow-xs"
-                    : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+          <div className="flex flex-wrap items-center gap-3 mb-8">
+            {categories.map((cat, i) => {
+              const CatIcon = CATEGORY_ICONS[i] ?? PillIcon;
+              return (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setActiveCategory(cat)}
+                  className={`inline-flex items-center gap-2 px-4 py-2.5 text-[13px] font-medium rounded-[4px] border transition cursor-pointer ${
+                    activeCategory === cat
+                      ? "bg-[#0b5bd3] text-white border-[#0b5bd3] shadow-[0_6px_18px_rgba(11,91,211,0.3)]"
+                      : "bg-white/80 text-[#0a1f44] border-[#e3ecfa] hover:border-[#0b5bd3]/40 hover:bg-white"
+                  }`}
+                >
+                  <CatIcon className={`w-4 h-4 ${activeCategory === cat ? "text-white" : "text-[#0b5bd3]"}`} />
+                  {cat}
+                </button>
+              );
+            })}
           </div>
 
           {/* Product Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProducts.map((product) => (
+            {filteredProducts.map((product, i) => (
               <div
                 key={product.id}
-                className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:shadow-md transition-all flex flex-col justify-between group"
+                className="relative overflow-hidden bg-white/90 rounded-[4px] border border-white p-6 shadow-[0_10px_40px_rgba(30,80,160,0.09)] hover:-translate-y-1 hover:shadow-[0_14px_44px_rgba(30,80,160,0.16)] transition-all flex flex-col justify-between group"
               >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="text-[11px] font-bold text-sky-800 bg-sky-50 px-2.5 py-1 rounded-md border border-sky-100">
+                <div
+                  className={`pointer-events-none absolute -top-16 -right-16 h-44 w-44 rounded-full blur-2xl ${CARD_TINTS[i % CARD_TINTS.length]}`}
+                />
+                <div className="relative">
+                  <div className="flex items-center justify-between gap-2 mb-4">
+                    <span className="text-xs font-semibold text-[#0b5bd3] bg-[#eaf1fd] px-3 py-1.5 rounded-[4px]">
                       {product.form}
                     </span>
-                    <span className="text-[11px] font-semibold text-slate-500">
+                    <span className="text-xs font-medium text-slate-500">
                       {product.packingType}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-sky-700 transition-colors">
+                  <h3 className="text-xl font-extrabold text-[#0a1f44] tracking-tight uppercase group-hover:text-[#0b5bd3] transition-colors">
                     {product.name}
                   </h3>
 
-                  <div className="text-xs font-medium text-slate-600 mt-1 line-clamp-2">
+                  <div className="text-sm font-medium text-slate-700 mt-2 line-clamp-2">
                     {product.genericName}
                   </div>
 
-                  <p className="text-xs text-slate-500 mt-3 leading-relaxed line-clamp-3">
+                  <p className="text-[13px] text-slate-500 mt-3 leading-relaxed line-clamp-3">
                     {product.description}
                   </p>
 
-                  <div className="mt-4 pt-3 border-t border-slate-100 space-y-1 text-xs">
-                    <div className="flex items-center justify-between text-slate-600">
-                      <span className="text-slate-400">Packaging:</span>
-                      <span className="font-semibold">{product.packaging}</span>
+                  <div className="mt-5 pt-4 border-t border-slate-200/70 grid grid-cols-2 gap-3">
+                    <div className="flex items-center gap-2.5 pr-3 border-r border-slate-200/70">
+                      <div className="w-9 h-9 shrink-0 rounded-full bg-[#eaf1fd] text-[#0b5bd3] flex items-center justify-center">
+                        <Box className="w-4 h-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="text-[11px] text-slate-400">Packaging</div>
+                        <div className="text-[13px] font-semibold text-[#0a1f44] leading-tight">
+                          {product.packaging}
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex items-center justify-between text-slate-600">
-                      <span className="text-slate-400">Division:</span>
-                      <span className="font-semibold text-slate-700 truncate max-w-[180px]">
-                        {product.division}
-                      </span>
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="w-9 h-9 shrink-0 rounded-full bg-[#eaf1fd] text-[#0b5bd3] flex items-center justify-center">
+                        <Landmark className="w-4 h-4" />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="text-[11px] text-slate-400">Division</div>
+                        <div className="text-[13px] font-semibold text-[#0a1f44] leading-tight line-clamp-2">
+                          {product.division}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-3 flex items-center gap-3">
+                <div className="relative mt-6 grid grid-cols-2 gap-3">
                   <button
                     type="button"
                     onClick={() => openQuoteForProduct(product.name)}
-                    className="flex-1 py-2 bg-sky-700 hover:bg-sky-800 text-white text-xs font-semibold rounded-lg transition cursor-pointer"
+                    className="inline-flex items-center justify-center gap-2 py-3 bg-[#0b5bd3] hover:bg-[#0a4db3] text-white text-sm font-semibold rounded-[4px] shadow-[0_6px_18px_rgba(11,91,211,0.3)] transition cursor-pointer"
                   >
                     Enquire Now
+                    <ArrowRight className="w-4 h-4" />
                   </button>
                   <Link
                     href={`/products`}
-                    className="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-lg transition"
+                    className="inline-flex items-center justify-center gap-2 py-3 bg-[#eef3fb] hover:bg-[#e3ecfa] text-[#0a1f44] text-sm font-semibold rounded-[4px] transition"
                   >
+                    <FileText className="w-4 h-4 text-[#0b5bd3]" />
                     Details
                   </Link>
                 </div>
@@ -613,7 +759,7 @@ export default function HomePage() {
           <div className="mt-12 text-center">
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm rounded-xl transition shadow-xs"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#0b4a99] hover:bg-[#093d80] text-white font-bold text-sm rounded-[4px] transition shadow-[0_8px_24px_rgba(11,74,153,0.3)]"
             >
               <span>Explore Entire Product Directory</span>
               <ArrowRight className="w-4 h-4" />
@@ -623,150 +769,167 @@ export default function HomePage() {
       </section>
 
       {/* 6. BUSINESS SOLUTIONS: PCD FRANCHISE & THIRD PARTY */}
-      <section className="py-20 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="text-sky-700 text-xs font-bold uppercase tracking-wider">
+      <section className="relative overflow-hidden py-16 lg:py-20 bg-gradient-to-b from-[#f1f6fd] via-[#f6f9fe] to-[#eef4fc] border-b border-slate-200">
+        <div className="pointer-events-none absolute -top-32 -left-40 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 -right-40 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative text-center max-w-3xl mx-auto mb-12 lg:mb-14">
+            <span className="text-[#0b5bd3] text-xs font-bold uppercase tracking-[0.22em]">
               Strategic Partnerships
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Comprehensive Pharmaceutical Solutions
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f44] tracking-tight mt-3 leading-[1.15]">
+              Comprehensive{" "}
+              <span className="block text-[#0b5bd3]">Pharmaceutical Solutions</span>
             </h2>
-            <div className="accent-bar mx-auto"></div>
-            <p className="text-sm sm:text-base text-slate-600">
+            <div className="accent-bar mx-auto mt-5"></div>
+            <p className="text-sm sm:text-base text-slate-600 mt-5 leading-relaxed">
               Whether you are an aspiring pharma entrepreneur looking for an
               exclusive PCD franchise or an established brand requiring reliable
               contract manufacturing, Incredible Medicare delivers.
             </p>
+
+            <div className="hidden xl:flex absolute -right-16 top-0 items-center gap-3 rounded-[4px] bg-white/90 backdrop-blur border border-white px-5 py-4 shadow-[0_10px_40px_rgba(30,80,160,0.12)] text-left">
+              <div className="w-12 h-12 rounded-full bg-[#e9f1fc] text-[#0b5bd3] flex items-center justify-center">
+                <ShieldCheck className="w-6 h-6" strokeWidth={1.6} />
+              </div>
+              <div className="leading-tight">
+                <div className="text-xs text-slate-500">Trusted by</div>
+                <div className="text-base font-bold text-[#0b4a99]">650+ Partners</div>
+                <div className="text-xs text-slate-500">Across India</div>
+              </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-7">
             {/* Box 1: PCD Pharma Franchise */}
-            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-sky-100 text-sky-800 flex items-center justify-center font-bold">
-                  <Award className="w-6 h-6" />
+            <div className="relative overflow-hidden bg-white/90 rounded-[4px] p-7 sm:p-8 border border-white shadow-[0_10px_40px_rgba(30,80,160,0.10)] hover:shadow-[0_14px_44px_rgba(30,80,160,0.16)] transition-all flex flex-col justify-between">
+              <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[#dbe8fb]/70 blur-2xl" />
+              <div className="absolute right-8 top-10 hidden sm:flex w-28 h-28 rounded-full bg-[#e3edfb] text-[#0b5bd3] items-center justify-center">
+                <GrowthIcon className="w-14 h-14" />
+              </div>
+              <div className="relative space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-[4px] bg-[#e3edfb] text-[#0b5bd3] flex items-center justify-center">
+                    <Users className="w-7 h-7" strokeWidth={1.8} />
+                  </div>
+                  <div className="flex items-center gap-3 mt-6">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#0b5bd3]">
+                      Grow Together
+                    </span>
+                    <span className="hidden sm:block h-px w-20 bg-[#cfe0f7]" />
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900">
-                  PCD Pharma Franchise Business
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f44] leading-tight tracking-tight">
+                  PCD Pharma{" "}
+                  <span className="block text-[#0b5bd3]">Franchise Business</span>
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <p className="text-sm sm:text-[15px] text-slate-600 leading-relaxed max-w-md">
                   Join our nationwide franchise network with genuine monopoly
                   rights, attractive net rates, high profit margins, and zero
                   internal competition in your designated territory.
                 </p>
-                <div className="space-y-2 pt-2 text-xs text-slate-700">
-                  <div className="flex items-center gap-2 font-medium">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>
-                      Exclusive district-wise monopoly marketing agreements
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 font-medium">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>
-                      Free promotional inputs: Visual aids, LBLs, catch covers,
-                      MR bags
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 font-medium">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>
-                      Fast pan-India dispatch with stock availability assurance
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 font-medium">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>
-                      Continuous new DCGI approved formulation launches
-                    </span>
-                  </div>
-                </div>
+                <ul className="space-y-2.5 pt-1 text-sm text-slate-700">
+                  {[
+                    "Exclusive district-wise monopoly marketing agreements",
+                    "Free promotional inputs: Visual aids, LBLs, catch covers, MR bags",
+                    "Fast pan-India dispatch with stock availability assurance",
+                    "Continuous new DCGI approved formulation launches",
+                  ].map((t) => (
+                    <li key={t} className="flex items-center gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-[#0b5bd3] shrink-0" strokeWidth={1.8} />
+                      <span>{t}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between">
+              <div className="relative mt-8 flex flex-wrap items-center gap-4">
                 <button
                   type="button"
                   onClick={() => {
                     setSelectedProduct("PCD Franchise Monopoly Application");
                     setEnquiryModalOpen(true);
                   }}
-                  className="px-5 py-2.5 bg-sky-700 hover:bg-sky-800 text-white text-xs font-bold rounded-lg transition"
+                  className="inline-flex items-center gap-6 px-6 py-3.5 bg-[#0b5bd3] hover:bg-[#0a4db3] text-white text-sm font-semibold rounded-[4px] shadow-[0_8px_24px_rgba(11,91,211,0.35)] transition cursor-pointer"
                 >
                   Apply for Franchise
+                  <ArrowRight className="w-4 h-4" />
                 </button>
                 <Link
                   href="/our-services"
-                  className="text-xs font-bold text-slate-700 hover:text-sky-700 flex items-center gap-1"
+                  className="inline-flex items-center gap-6 px-6 py-3.5 bg-white/80 hover:bg-white text-[#0a1f44] text-sm font-semibold rounded-[4px] border border-[#dbe5f5] transition"
                 >
-                  <span>Learn terms</span>
-                  <ChevronRight className="w-4 h-4" />
+                  Learn terms
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
 
             {/* Box 2: Third Party Manufacturing */}
-            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center font-bold">
-                  <Building2 className="w-6 h-6" />
+            <div className="relative overflow-hidden bg-white/90 rounded-[4px] p-7 sm:p-8 border border-white shadow-[0_10px_40px_rgba(30,80,160,0.10)] hover:shadow-[0_14px_44px_rgba(30,80,160,0.16)] transition-all flex flex-col justify-between">
+              <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-emerald-100/70 blur-2xl" />
+              <div className="absolute right-0 top-0 hidden xl:block h-[28%] w-[26%] overflow-hidden rounded-bl-[5rem]">
+                <Image
+                  src="/herobg.png"
+                  alt=""
+                  fill
+                  sizes="240px"
+                  className="object-cover"
+                  style={{ objectPosition: "80% 45%" }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-100/50 via-transparent to-transparent" />
+              </div>
+              <div className="relative space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-[4px] bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                    <FactoryIcon className="w-8 h-8" />
+                  </div>
+                  <span className="mt-6 text-[10px] font-bold uppercase tracking-[0.18em] text-[#0b5bd3]">
+                    Manufacture with Confidence
+                  </span>
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900">
-                  Third-Party Contract Manufacturing
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0a1f44] leading-tight tracking-tight">
+                  Third-Party{" "}
+                  <span className="block text-[#0b5bd3]">Contract Manufacturing</span>
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <p className="text-sm sm:text-[15px] text-slate-600 leading-relaxed max-w-md">
                   Leverage our WHO-GMP certified production units for turnkey
                   manufacturing of your private label medicines with strict
                   quality control and predictable timelines.
                 </p>
-                <div className="space-y-2 pt-2 text-xs text-slate-700">
-                  <div className="flex items-center gap-2 font-medium">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>
-                      Cost-effective contract production without capex
-                      investment
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 font-medium">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>
-                      Custom packaging: Alu-Alu, Blister, Amber Glass,
-                      Lyophilized Vials
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 font-medium">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>
-                      Comprehensive regulatory documentation &amp; analytical
-                      release
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 font-medium">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>
-                      Flexible batch sizes with guaranteed delivery schedules
-                    </span>
-                  </div>
-                </div>
+                <ul className="space-y-2.5 pt-1 text-sm text-slate-700">
+                  {[
+                    "Cost-effective contract production without capex investment",
+                    "Custom packaging: Alu-Alu, Blister, Amber Glass, Lyophilized Vials",
+                    "Comprehensive regulatory documentation & analytical release",
+                    "Flexible batch sizes with guaranteed delivery schedules",
+                  ].map((t) => (
+                    <li key={t} className="flex items-center gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" strokeWidth={1.8} />
+                      <span>{t}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between">
+              <div className="relative mt-8 flex flex-wrap items-center gap-4">
                 <button
                   type="button"
                   onClick={() => {
                     setSelectedProduct("Third Party Manufacturing Contract");
                     setEnquiryModalOpen(true);
                   }}
-                  className="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-lg transition"
+                  className="inline-flex items-center gap-6 px-6 py-3.5 bg-[#0a1f44] hover:bg-[#0f2c59] text-white text-sm font-semibold rounded-[4px] shadow-[0_8px_24px_rgba(10,31,68,0.3)] transition cursor-pointer"
                 >
                   Request Manufacturing Quote
+                  <ArrowRight className="w-4 h-4" />
                 </button>
                 <Link
                   href="/infrastructure"
-                  className="text-xs font-bold text-slate-700 hover:text-sky-700 flex items-center gap-1"
+                  className="inline-flex items-center gap-6 px-6 py-3.5 bg-white/80 hover:bg-white text-[#0a1f44] text-sm font-semibold rounded-[4px] border border-[#dbe5f5] transition"
                 >
-                  <span>View plant specs</span>
-                  <ChevronRight className="w-4 h-4" />
+                  View plant specs
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
@@ -775,233 +938,246 @@ export default function HomePage() {
       </section>
 
       {/* 7. SPECIALIZED DIVISIONS */}
-      <section className="py-20 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <span className="text-sky-700 text-xs font-bold uppercase tracking-wider">
+      <section className="relative overflow-hidden py-16 lg:py-20 bg-gradient-to-b from-white via-[#f6f9fe] to-[#eef4fc] border-b border-slate-200">
+        <div className="pointer-events-none absolute -top-32 -left-40 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
+        <div className="pointer-events-none absolute top-20 -right-40 h-[380px] w-[380px] rounded-full bg-[#dbe8fb]/50 blur-3xl" />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-14">
+            <span className="text-[#0b5bd3] text-xs font-bold uppercase tracking-[0.22em]">
               Focused Market Verticals
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Specialized Business Divisions
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f44] tracking-tight mt-3">
+              Specialized Business{" "}
+              <span className="text-[#0b5bd3]">Divisions</span>
             </h2>
-            <div className="accent-bar mx-auto"></div>
-            <p className="text-sm sm:text-base text-slate-600">
+            <div className="accent-bar mx-auto mt-4"></div>
+            <p className="text-sm sm:text-base text-slate-600 mt-5 leading-relaxed">
               Each division at Incredible Medicare operates with dedicated
               formulation expertise, tailored promotional inputs, and
               specialized clinical focus.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {DIVISIONS.map((div) => (
-              <div
-                key={div.id}
-                className="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-sky-300 transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-[11px] font-bold text-sky-800 uppercase tracking-wider">
-                      {div.category}
-                    </span>
-                    <span className="text-xs font-semibold text-slate-500">
-                      {div.productCount}
-                    </span>
-                  </div>
-                  <h3 className="font-bold text-slate-900 text-lg mb-1">
-                    {div.name}
-                  </h3>
-                  <div className="text-xs font-semibold text-sky-700 mb-2">
-                    {div.tagline}
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                    {div.description}
-                  </p>
-
-                  <div className="space-y-1.5 pt-2 border-t border-slate-200/80">
-                    {div.highlights.map((h) => (
-                      <div
-                        key={h}
-                        className="text-xs text-slate-700 flex items-center gap-1.5"
-                      >
-                        <div className="w-1.5 h-1.5 rounded-full bg-sky-600"></div>
-                        <span>{h}</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5">
+            {DIVISIONS.map((div, i) => {
+              const t = DIVISION_THEMES[i % DIVISION_THEMES.length];
+              const Icon = t.icon;
+              return (
+                <div
+                  key={div.id}
+                  className={`relative overflow-hidden rounded-[4px] p-5 border border-white shadow-[0_8px_30px_rgba(30,80,160,0.09)] flex flex-col justify-between ${t.card} ${i < 3 ? "lg:col-span-2" : "lg:col-span-3"}`}
+                >
+                  <Icon
+                    className={`pointer-events-none absolute -bottom-6 -right-6 w-32 h-32 ${t.deco}`}
+                    strokeWidth={1}
+                  />
+                  <div className="relative">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className={`w-11 h-11 shrink-0 rounded-[4px] flex items-center justify-center ${t.tile}`}>
+                        <Icon className="w-5 h-5" strokeWidth={1.7} />
                       </div>
-                    ))}
+                      <span className={`text-[11px] font-semibold px-2.5 py-1 rounded-full ${t.pill}`}>
+                        {div.productCount}
+                      </span>
+                    </div>
+                    <h3 className="font-extrabold text-[#0a1f44] text-lg tracking-tight leading-snug">
+                      {div.name}
+                    </h3>
+                    <div className="text-xs font-semibold text-[#0b5bd3] mt-0.5 mb-2">
+                      {div.tagline}
+                    </div>
+                    <p className="text-xs text-slate-600 leading-relaxed mb-3 max-w-lg">
+                      {div.description}
+                    </p>
+
+                    <ul className="space-y-1.5 pt-3 border-t border-slate-200/70">
+                      {div.highlights.map((h) => (
+                        <li
+                          key={h}
+                          className="text-xs text-slate-700 flex items-center gap-2"
+                        >
+                          <CheckCircle2 className={`w-4 h-4 shrink-0 ${t.check}`} strokeWidth={1.8} />
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="relative mt-4">
+                    <Link
+                      href="/divisions"
+                      className={`group inline-flex items-center gap-2.5 text-xs font-bold ${t.link}`}
+                    >
+                      <span>Explore Division Details</span>
+                      <span className={`w-8 h-8 rounded-full flex items-center justify-center transition group-hover:translate-x-0.5 ${t.arrow}`}>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </span>
+                    </Link>
                   </div>
                 </div>
-
-                <div className="mt-6 pt-3">
-                  <Link
-                    href="/divisions"
-                    className="w-full flex items-center justify-center gap-1.5 py-2 bg-white hover:bg-sky-50 text-sky-800 border border-slate-200 text-xs font-bold rounded-lg transition"
-                  >
-                    <span>Explore Division Details</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* 8. TESTIMONIALS & TRUST */}
-      <section className="py-20 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <span className="text-sky-700 text-xs font-bold uppercase tracking-wider">
-              Client Relationships
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Trusted by Doctors &amp; Distributors Nationwide
-            </h2>
-            <div className="accent-bar mx-auto"></div>
-            <p className="text-sm sm:text-base text-slate-600">
-              Delivering verifiable quality, ethical supply assurance, and
-              long-term collaborative value across the healthcare ecosystem.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center gap-1 text-amber-500 mb-4">
-                    {[...Array(t.rating)].map((_, i) => (
-                      <span key={i} className="text-lg">
-                        ★
-                      </span>
-                    ))}
-                  </div>
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed italic mb-6">
-                    &ldquo;{t.content}&rdquo;
-                  </p>
-                </div>
-                <div className="pt-4 border-t border-slate-100">
-                  <div className="font-bold text-slate-900 text-sm">
-                    {t.name}
-                  </div>
-                  <div className="text-xs text-sky-700 font-medium">
-                    {t.designation}
-                  </div>
-                  <div className="text-[11px] text-slate-400 mt-0.5">
-                    {t.location}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <div className="bg-white border-b border-slate-200 px-0 sm:px-6">
+        <ClientFeedback />
+      </div>
 
       {/* 9. LATEST BLOG POSTS & PHARMA INSIGHTS */}
-      <section className="py-20 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <div>
-              <span className="text-sky-700 text-xs font-bold uppercase tracking-wider">
-                Industry Knowledge
-              </span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
-                Latest Insights &amp; Market Updates
+      <section className="relative overflow-hidden py-16 lg:py-20 bg-gradient-to-b from-[#f1f6fd] via-[#f6f9fe] to-[#eef4fc]">
+        <div className="pointer-events-none absolute -top-40 -right-32 h-[460px] w-[460px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-40 -left-32 h-[420px] w-[420px] rounded-full bg-[#cfe0f7]/60 blur-3xl" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-4">
+                <span className="text-[#0b4a99]/80 text-xs font-bold uppercase tracking-[0.18em]">
+                  Industry Knowledge
+                </span>
+                <span className="hidden sm:block h-px w-12 bg-[#0b4a99]/50" />
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f44] tracking-tight mt-3">
+                Latest Insights &amp;{" "}
+                <span className="text-[#0b5bd3]">Market Updates</span>
               </h2>
-              <div className="accent-bar mt-2"></div>
+              <p className="text-sm sm:text-base text-slate-500 mt-4 leading-relaxed max-w-xl">
+                Explore expert insights, regulatory updates, and industry trends
+                shaping the future of pharmaceutical healthcare.
+              </p>
             </div>
 
             <Link
               href="/blogs"
-              className="inline-flex items-center gap-1.5 text-sm font-bold text-sky-700 hover:text-sky-900 transition"
+              className="inline-flex items-center gap-3 self-start md:self-center rounded-full border border-[#dbe5f5] bg-white/80 hover:bg-white px-7 py-4 text-sm font-semibold text-[#0b4a99] shadow-[0_6px_20px_rgba(30,80,160,0.08)] transition"
             >
               <span>View All Articles</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {BLOG_POSTS.map((post) => (
-              <div
-                key={post.slug}
-                className="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-slate-300 transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between text-[11px] text-slate-500 mb-3">
-                    <span className="font-semibold text-sky-700 bg-sky-50 px-2 py-0.5 rounded-md border border-sky-100">
-                      {post.category}
-                    </span>
-                    <span>{post.readTime}</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5">
+            {BLOG_POSTS.map((post, i) => {
+              const t = BLOG_THEMES[i % BLOG_THEMES.length];
+              const Icon = t.icon;
+              return (
+                <Link
+                  key={post.slug}
+                  href="/blogs"
+                  className={`group cursor-pointer bg-white/90 rounded-[4px] p-6 border border-white shadow-[0_10px_40px_rgba(30,80,160,0.09)] flex flex-col justify-between focus-visible:outline-2 focus-visible:outline-[#0b5bd3] ${i < 3 ? "lg:col-span-2" : "lg:col-span-3"}`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-3 mb-5">
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div className={`w-14 h-14 shrink-0 rounded-full flex items-center justify-center ${t.tile}`}>
+                          <Icon className="w-6 h-6" strokeWidth={1.6} />
+                        </div>
+                        <span className={`text-xs font-semibold px-3 py-1.5 rounded-full ${t.pill}`}>
+                          {post.category}
+                        </span>
+                      </div>
+                      <span className="inline-flex items-center gap-1.5 text-xs text-slate-400 shrink-0">
+                        <Clock className="w-3.5 h-3.5" />
+                        {post.readTime}
+                      </span>
+                    </div>
+
+                    <h3 className={`font-bold text-[#0a1f44] text-lg leading-snug mb-3`}>
+                      {post.title}
+                    </h3>
+                    <p className="text-sm text-slate-500 leading-relaxed mb-5">
+                      {post.excerpt}
+                    </p>
                   </div>
-                  <h3 className="font-bold text-slate-900 text-base mb-2 hover:text-sky-700 transition">
-                    <Link href="/blogs">{post.title}</Link>
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                    {post.excerpt}
-                  </p>
-                </div>
-                <div className="pt-4 border-t border-slate-200 flex items-center justify-between text-xs">
-                  <span className="text-slate-400">{post.date}</span>
-                  <Link
-                    href="/blogs"
-                    className="font-bold text-sky-700 hover:text-sky-900 flex items-center gap-1"
-                  >
-                    <span>Read Article</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
-            ))}
+
+                  <div className="pt-4 border-t border-slate-200/70 flex items-center justify-between text-xs">
+                    <span className="inline-flex items-center gap-2 text-slate-400">
+                      <Calendar className="w-4 h-4 text-[#0b5bd3]" />
+                      {post.date}
+                    </span>
+                    <span className="font-semibold text-[#0b4a99] group-hover:text-[#0b5bd3] flex items-center gap-1.5">
+                      <span>Read More</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* 10. CALL TO ACTION: READY TO PARTNER */}
-      <section className="py-16 bg-gradient-to-r from-slate-900 via-sky-950 to-slate-900 text-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <span className="text-sky-400 text-xs font-bold uppercase tracking-widest">
-            Unleash Business Growth
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Ready to Partner With Incredible Medicare?
-          </h2>
-          <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            Contact our business development team today to inquire about
-            available district monopoly rights for PCD franchise or discuss
-            third-party contract manufacturing schedules.
-          </p>
+      <section className="relative overflow-hidden py-16 lg:py-20 bg-gradient-to-b from-[#eef4fc] via-[#f6f9fe] to-[#e8f0fc]">
+        <div className="pointer-events-none absolute -top-32 -left-40 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
+        <div className="pointer-events-none absolute top-10 -right-40 h-[380px] w-[380px] rounded-full bg-[#cfe0f7]/60 blur-3xl" />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto">
+            <div className="flex items-center justify-center gap-4">
+              <span className="hidden sm:block h-px w-12 bg-gradient-to-r from-transparent to-[#0b4a99]/50" />
+              <span className="text-[#0b5bd3] text-xs font-bold uppercase tracking-[0.22em]">
+                Unleash Business Growth
+              </span>
+              <span className="hidden sm:block h-px w-12 bg-gradient-to-l from-transparent to-[#0b4a99]/50" />
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-[#0a1f44] tracking-tight mt-4 leading-[1.1]">
+              Ready to Partner With{" "}
+              <span className="block text-[#0b5bd3]">Incredible Medicare?</span>
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base lg:text-lg mt-6 leading-relaxed">
+              Connect with our business development team today to inquire about
+              available district monopoly rights for PCD franchise or discuss
+              third-party contract manufacturing schedules.
+            </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-            <button
-              type="button"
-              onClick={() => {
-                setSelectedProduct("");
-                setEnquiryModalOpen(true);
-              }}
-              className="px-8 py-3.5 bg-sky-600 hover:bg-sky-500 text-white font-bold text-sm rounded-xl shadow-lg transition-all cursor-pointer"
-            >
-              Get Instant Price List &amp; Terms
-            </button>
-            <a
-              href={`tel:${COMPANY_INFO.whatsapp}`}
-              className="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-sm rounded-xl border border-white/20 transition-all flex items-center gap-2"
-            >
-              <PhoneCall className="w-4 h-4 text-sky-400" />
-              <span>Call: {COMPANY_INFO.phone}</span>
-            </a>
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-8">
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedProduct("");
+                  setEnquiryModalOpen(true);
+                }}
+                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#0a4db3] to-[#0b5bd3] text-white font-semibold text-sm sm:text-base rounded-[4px] shadow-[0_10px_28px_rgba(11,91,211,0.35)] transition hover:brightness-110 cursor-pointer"
+              >
+                <FileText className="w-5 h-5" />
+                <span>Get Instant Price List &amp; Terms</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+              <a
+                href={`tel:+${COMPANY_INFO.whatsapp}`}
+                className="inline-flex items-center gap-3 px-8 py-4 bg-white/80 hover:bg-white text-[#0a1f44] font-semibold text-sm sm:text-base rounded-[4px] border border-[#cfe0f7] transition"
+              >
+                <PhoneCall className="w-5 h-5 text-[#0b5bd3]" />
+                <span>Call: {COMPANY_INFO.phone}</span>
+              </a>
+            </div>
           </div>
 
-          <div className="text-xs text-slate-400 pt-4">
-            Official Email:{" "}
-            <a
-              href={`mailto:${COMPANY_INFO.email}`}
-              className="text-white underline hover:text-sky-300"
-            >
-              {COMPANY_INFO.email}
-            </a>{" "}
-            | Head Office: Unicity Business Park, Dhakoli, Zirakpur, Punjab
-            160104
+          {/* Trust row */}
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6">
+            {[
+              { icon: ShieldCheck, a: "WHO-GMP Certified", b: "Manufacturing Facilities" },
+              { icon: Users, a: "Pan-India Presence", b: "Distribution Support" },
+              { icon: Box, a: "Flexible", b: "Packaging Options" },
+              { icon: FileCheck, a: "Transparent", b: "Pricing & Terms" },
+            ].map((f, i) => (
+              <div
+                key={f.a}
+                className={`flex items-center justify-center gap-4 px-4 ${i > 0 ? "lg:border-l lg:border-[#dbe5f5]" : ""}`}
+              >
+                <div className="w-14 h-14 shrink-0 text-[#0b5bd3] flex items-center justify-center">
+                  <f.icon className="w-7 h-7" strokeWidth={1.6} />
+                </div>
+                <div className="leading-snug">
+                  <div className="font-bold text-[#0a1f44] text-sm sm:text-base">{f.a}</div>
+                  <div className="text-slate-500 text-sm sm:text-base">{f.b}</div>
+                </div>
+              </div>
+            ))}
           </div>
+
         </div>
       </section>
 
