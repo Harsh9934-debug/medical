@@ -158,7 +158,7 @@ export default function Header() {
           <div className="flex h-[76px] items-center justify-between gap-4">
             {/* Logo */}
             <Link href="/" className="group flex shrink-0 items-center gap-3">
-              <div className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl bg-white p-1 shadow-xs ring-1 ring-slate-200 transition-all group-hover:ring-sky-500">
+              <div className="relative flex h-12 w-12 items-center justify-center">
                 <Image
                   src="/logo.png"
                   alt="Incredible Medicare Logo"
@@ -217,7 +217,8 @@ export default function Header() {
                 className="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap rounded-lg bg-sky-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-sky-800 hover:shadow focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-700"
               >
                 <FileText className="h-4 w-4" />
-                <span>Request Quotation</span>
+                <span className="2xl:hidden">Get Quote</span>
+                <span className="hidden 2xl:inline">Request Quotation</span>
               </button>
             </div>
 
@@ -374,7 +375,7 @@ function ProductsMegaMenu() {
                   href="/products"
                   className="group/item flex gap-3 rounded-lg p-3 no-underline outline-hidden transition-colors hover:bg-sky-50 focus:bg-sky-50"
                 >
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-sky-50 text-sky-700 ring-1 ring-sky-100 transition-colors group-hover/item:bg-white">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center text-sky-700">
                     <Icon className="h-[18px] w-[18px]" />
                   </span>
                   <span className="min-w-0">

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import {
   MapPin,
   Phone,
@@ -9,12 +8,50 @@ import {
   Clock,
   Send,
   CheckCircle2,
-  Building2,
   MessageSquare,
   ShieldCheck,
-  Calendar
+  Factory,
 } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company";
+import { Button } from "@/components/ui/button";
+import ContactWithGlobe, {
+  type ContactLink,
+} from "@/components/ui/contact-with-globe";
+
+const MAPS_QUERY = "Unicity Business Park Dhakoli Zirakpur Punjab";
+
+const CONTACT_LINKS: ContactLink[] = [
+  {
+    icon: Mail,
+    label: COMPANY_INFO.email,
+    href: `mailto:${COMPANY_INFO.email}`,
+  },
+  {
+    icon: Phone,
+    label: COMPANY_INFO.phone,
+    href: `tel:+${COMPANY_INFO.whatsapp}`,
+  },
+  {
+    icon: Phone,
+    label: `${COMPANY_INFO.altPhone} (Alt)`,
+    href: `tel:${COMPANY_INFO.altPhone.replace(/\s/g, "")}`,
+  },
+  {
+    icon: MapPin,
+    label: COMPANY_INFO.address,
+    href: `https://maps.google.com/?q=${encodeURIComponent(MAPS_QUERY)}`,
+    external: true,
+  },
+  {
+    icon: Clock,
+    label: COMPANY_INFO.workingHours,
+  },
+];
+
+const inputClass =
+  "w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-800 outline-none transition-all duration-200 placeholder:text-slate-400 focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-500/15";
+const labelClass =
+  "mb-1.5 block text-xs font-semibold uppercase tracking-widest text-slate-400";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -24,7 +61,7 @@ export default function ContactPage() {
     city: "",
     state: "",
     subject: "PCD Pharma Franchise Inquiry",
-    message: ""
+    message: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -34,322 +71,256 @@ export default function ContactPage() {
     setSubmitted(true);
   };
 
+  const set =
+    (key: keyof typeof formData) =>
+    (
+      e: React.ChangeEvent<
+        HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+      >,
+    ) =>
+      setFormData({ ...formData, [key]: e.target.value });
+
   return (
-    <div className="w-full bg-slate-50 min-h-screen text-slate-900 pb-20">
-      {/* Top Banner */}
-      <section className="bg-gradient-to-b from-white to-slate-100/70 py-14 sm:py-20 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <nav className="flex items-center justify-center gap-2 text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
-            <Link href="/" className="hover:text-sky-700">Home</Link>
-            <span>/</span>
-            <span className="text-sky-800">Contact Us</span>
-          </nav>
-
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Connect With Incredible Medicare
-          </h1>
-          <div className="accent-bar mx-auto"></div>
-          <p className="max-w-3xl mx-auto text-slate-600 text-sm sm:text-base leading-relaxed">
-            Reach out to our corporate headquarters at Unicity Business Park, Zirakpur, Punjab. Our business development team provides immediate support for PCD franchise, third-party manufacturing, and product inquiries.
-          </p>
-        </div>
-      </section>
-
-      {/* Main Content Area */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Left Column: Official Contact Cards & Locations */}
-          <div className="lg:col-span-5 space-y-6">
-            {/* Primary Corporate Office Card */}
-            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs space-y-6">
-              <div className="flex items-center gap-3 pb-4 border-b border-slate-100">
-                <div className="w-12 h-12 rounded-xl bg-sky-100 text-sky-800 flex items-center justify-center font-bold">
-                  <Building2 className="w-6 h-6" />
-                </div>
-                <div>
-                  <h2 className="text-lg font-bold text-slate-900">Corporate Headquarters</h2>
-                  <p className="text-xs text-sky-700 font-semibold">Incredible Medicare</p>
-                </div>
-              </div>
-
-              <div className="space-y-4 text-xs sm:text-sm text-slate-700">
-                <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-sky-700 shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="block text-slate-900 mb-0.5">Office Address:</strong>
-                    <span>{COMPANY_INFO.address}</span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 text-sky-700 shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="block text-slate-900 mb-0.5">Official Inquiries:</strong>
-                    <a
-                      href={`mailto:${COMPANY_INFO.email}`}
-                      className="text-sky-800 font-semibold hover:underline"
-                    >
-                      {COMPANY_INFO.email}
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 text-sky-700 shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="block text-slate-900 mb-0.5">Direct Commercial Phone:</strong>
-                    <a
-                      href={`tel:${COMPANY_INFO.whatsapp}`}
-                      className="text-sky-800 font-semibold hover:underline"
-                    >
-                      {COMPANY_INFO.phone}
-                    </a>
-                    <div className="text-slate-500 text-xs mt-0.5">
-                      Alt: {COMPANY_INFO.altPhone}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-sky-700 shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="block text-slate-900 mb-0.5">Working Hours:</strong>
-                    <span>{COMPANY_INFO.workingHours}</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-2">
-                <a
-                  href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(
-                    "Hello Incredible Medicare, I would like to inquire about PCD franchise monopoly and products."
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs rounded-xl shadow-xs transition"
-                >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>Chat with Business Representative on WhatsApp</span>
-                </a>
-              </div>
+    <div className="w-full bg-slate-50 pb-20 text-slate-900">
+      <ContactWithGlobe
+        subtitle="Contact Us"
+        title="Connect With Incredible Medicare"
+        description="Reach out to our corporate headquarters at Unicity Business Park, Zirakpur, Punjab. Our business development team provides immediate support for PCD franchise, third-party manufacturing, and product inquiries."
+        contactHeading="Corporate Headquarters"
+        contactDescription="Reach us through any channel below. Our commercial desk replies within 2 business hours."
+        links={CONTACT_LINKS}
+        extra={
+          <a
+            href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(
+              "Hello Incredible Medicare, I would like to inquire about PCD franchise monopoly and products.",
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 py-3 text-xs font-semibold text-white shadow-xs transition hover:bg-emerald-700"
+          >
+            <MessageSquare className="h-4 w-4" />
+            <span>Chat with Business Representative on WhatsApp</span>
+          </a>
+        }
+        formTitle="Request Product Pricing or Franchise Monopoly"
+        formDescription="Fill out the form and our commercial officer will get back to you promptly."
+      >
+        {submitted ? (
+          <div className="space-y-4 py-10 text-center">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+              <CheckCircle2 className="h-10 w-10" />
             </div>
-
-            {/* Manufacturing Complex Card */}
-            <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-slate-800 text-sky-400 flex items-center justify-center font-bold">
-                  <ShieldCheck className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-white text-base">Manufacturing Complex</h3>
-                  <p className="text-xs text-sky-400">WHO-GMP &amp; ISO 9001:2015</p>
-                </div>
-              </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                {COMPANY_INFO.manufacturingUnit}
-              </p>
-              <div className="text-[11px] text-slate-400 pt-2 border-t border-slate-800">
-                Equipped with Class 10,000 cleanrooms and dedicated analytical QA/QC suites.
-              </div>
+            <h3 className="text-2xl font-bold text-slate-900">
+              Message Sent Successfully!
+            </h3>
+            <p className="mx-auto max-w-md text-sm leading-relaxed text-slate-600">
+              Thank you for contacting <strong>Incredible Medicare</strong>. Our
+              commercial officer will review your inquiry and reach out within 2
+              hours.
+            </p>
+            <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 text-xs text-slate-600">
+              Notification routed to official inbox: {COMPANY_INFO.email}
             </div>
+            <Button type="button" onClick={() => setSubmitted(false)}>
+              Send Another Inquiry
+            </Button>
           </div>
-
-          {/* Right Column: Interactive Contact & Inquiry Form */}
-          <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xs space-y-6">
-            <div className="space-y-2">
-              <span className="text-sky-700 text-xs font-bold uppercase tracking-wider">
-                Send Direct Message
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                Request Product Pricing or Franchise Monopoly
-              </h2>
-              <div className="accent-bar"></div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div>
+                <label htmlFor="c-name" className={labelClass}>
+                  Full Name *
+                </label>
+                <input
+                  id="c-name"
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={set("name")}
+                  placeholder="e.g. Dr. Rajesh Sharma"
+                  className={inputClass}
+                />
+              </div>
+              <div>
+                <label htmlFor="c-phone" className={labelClass}>
+                  Phone / WhatsApp *
+                </label>
+                <input
+                  id="c-phone"
+                  type="tel"
+                  required
+                  value={formData.phone}
+                  onChange={set("phone")}
+                  placeholder="+91 98765 43210"
+                  className={inputClass}
+                />
+              </div>
             </div>
 
-            {submitted ? (
-              <div className="py-12 text-center space-y-4">
-                <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
-                  <CheckCircle2 className="w-10 h-10" />
-                </div>
-                <h3 className="text-2xl font-bold text-slate-900">
-                  Message Sent Successfully!
-                </h3>
-                <p className="text-slate-600 max-w-md mx-auto text-sm leading-relaxed">
-                  Thank you for contacting <strong>Incredible Medicare</strong>. Our commercial officer will review your inquiry and reach out within 2 hours.
-                </p>
-                <div className="p-3 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-600">
-                  Notification routed to official inbox: {COMPANY_INFO.email}
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setSubmitted(false)}
-                  className="px-6 py-2.5 bg-sky-700 text-white text-xs font-semibold rounded-lg"
-                >
-                  Send Another Inquiry
-                </button>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div>
+                <label htmlFor="c-email" className={labelClass}>
+                  Email Address *
+                </label>
+                <input
+                  id="c-email"
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={set("email")}
+                  placeholder="name@example.com"
+                  className={inputClass}
+                />
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="e.g. Dr. Rajesh Sharma"
-                      className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-sky-600"
-                    />
-                  </div>
+              <div>
+                <label htmlFor="c-subject" className={labelClass}>
+                  Inquiry Focus
+                </label>
+                <select
+                  id="c-subject"
+                  value={formData.subject}
+                  onChange={set("subject")}
+                  className={inputClass}
+                >
+                  <option value="PCD Pharma Franchise Inquiry">
+                    PCD Pharma Franchise (Monopoly)
+                  </option>
+                  <option value="Third-Party Contract Manufacturing">
+                    Third-Party Contract Manufacturing
+                  </option>
+                  <option value="Bulk Formulation Supply">
+                    Bulk Institutional Supply
+                  </option>
+                  <option value="Export & International Trade">
+                    Global Export Partnership
+                  </option>
+                  <option value="Product Samples & Price List">
+                    Product Price List Request
+                  </option>
+                </select>
+              </div>
+            </div>
 
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      Phone Number / WhatsApp *
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+91 98765 43210"
-                      className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-sky-600"
-                    />
-                  </div>
-                </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div>
+                <label htmlFor="c-city" className={labelClass}>
+                  City / District *
+                </label>
+                <input
+                  id="c-city"
+                  type="text"
+                  required
+                  value={formData.city}
+                  onChange={set("city")}
+                  placeholder="e.g. Ludhiana, Jaipur, Varanasi"
+                  className={inputClass}
+                />
+              </div>
+              <div>
+                <label htmlFor="c-state" className={labelClass}>
+                  State *
+                </label>
+                <input
+                  id="c-state"
+                  type="text"
+                  required
+                  value={formData.state}
+                  onChange={set("state")}
+                  placeholder="e.g. Punjab, Rajasthan, UP"
+                  className={inputClass}
+                />
+              </div>
+            </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="name@example.com"
-                      className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-sky-600"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      Inquiry Focus
-                    </label>
-                    <select
-                      value={formData.subject}
-                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-sky-600 bg-white"
-                    >
-                      <option value="PCD Pharma Franchise Inquiry">PCD Pharma Franchise (Monopoly)</option>
-                      <option value="Third-Party Contract Manufacturing">Third-Party Contract Manufacturing</option>
-                      <option value="Bulk Formulation Supply">Bulk Institutional Supply</option>
-                      <option value="Export & International Trade">Global Export Partnership</option>
-                      <option value="Product Samples & Price List">Product Price List Request</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      City / District *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.city}
-                      onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                      placeholder="e.g. Ludhiana, Jaipur, Varanasi"
-                      className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-sky-600"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      State *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.state}
-                      onChange={(e) => setFormData({ ...formData, state: e.target.value })}
-                      placeholder="e.g. Punjab, Rajasthan, UP"
-                      className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-sky-600"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">
-                    Your Requirements &amp; Message
-                  </label>
-                  <textarea
-                    rows={4}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Provide details on required therapeutic categories, preferred district, or estimated batch volume..."
-                    className="w-full px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-sky-600"
-                  ></textarea>
-                </div>
-
-                <div className="pt-2">
-                  <button
-                    type="submit"
-                    className="w-full flex items-center justify-center gap-2 py-3.5 bg-sky-700 hover:bg-sky-800 text-white font-bold text-sm rounded-xl shadow-xs hover:shadow transition-all cursor-pointer"
-                  >
-                    <Send className="w-4 h-4" />
-                    <span>Submit Inquiry for Immediate Review</span>
-                  </button>
-                </div>
-
-                <div className="flex items-center justify-between text-[11px] text-slate-500 pt-2 border-t border-slate-100">
-                  <div className="flex items-center gap-1">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Verified Commercial Desk</span>
-                  </div>
-                  <span>Response time: &lt; 2 business hours</span>
-                </div>
-              </form>
-            )}
-          </div>
-        </div>
-
-        {/* Embedded Location Map Section */}
-        <div className="mt-16 bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xs">
-          <div className="p-6 border-b border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div>
-              <h3 className="font-bold text-slate-900 text-base">
-                Location Map: Corporate Headquarters
-              </h3>
-              <p className="text-xs text-slate-500">
-                Unicity Business Park, Dhakoli, Zirakpur, Punjab 160104
-              </p>
+              <label htmlFor="c-message" className={labelClass}>
+                Your Requirements &amp; Message
+              </label>
+              <textarea
+                id="c-message"
+                rows={4}
+                value={formData.message}
+                onChange={set("message")}
+                placeholder="Provide details on required therapeutic categories, preferred district, or estimated batch volume..."
+                className={`${inputClass} resize-none`}
+              />
             </div>
-            <a
-              href="https://maps.google.com/?q=Unicity+Business+Park+Dhakoli+Zirakpur+Punjab"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-bold text-sky-700 hover:text-sky-900 hover:underline flex items-center gap-1"
+
+            <Button
+              type="submit"
+              size="lg"
+              className="h-12 w-full rounded-xl text-sm font-bold"
             >
-              <span>Open in Google Maps</span>
-            </a>
+              <Send className="h-4 w-4" />
+              Submit Inquiry for Immediate Review
+            </Button>
+
+            <div className="flex items-center justify-between border-t border-slate-100 pt-3 text-[11px] text-slate-500">
+              <div className="flex items-center gap-1">
+                <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" />
+                <span>Verified Commercial Desk</span>
+              </div>
+              <span>Response time: &lt; 2 business hours</span>
+            </div>
+          </form>
+        )}
+      </ContactWithGlobe>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl space-y-8">
+          {/* Manufacturing Complex */}
+          <div className="flex flex-col gap-4 rounded-3xl bg-slate-900 p-6 text-white sm:flex-row sm:items-center sm:justify-between sm:p-8">
+            <div className="flex items-start gap-4">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-slate-800 text-sky-400">
+                <Factory className="h-5 w-5" />
+              </span>
+              <div>
+                <h3 className="text-base font-bold">Manufacturing Complex</h3>
+                <p className="text-xs text-sky-400">
+                  WHO-GMP &amp; ISO 9001:2015
+                </p>
+                <p className="mt-2 max-w-xl text-xs leading-relaxed text-slate-300">
+                  {COMPANY_INFO.manufacturingUnit}
+                </p>
+              </div>
+            </div>
+            <p className="max-w-xs border-t border-slate-800 pt-3 text-[11px] text-slate-400 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0">
+              Equipped with Class 10,000 cleanrooms and dedicated analytical
+              QA/QC suites.
+            </p>
           </div>
 
-          <div className="w-full h-80 sm:h-96 bg-slate-100">
-            <iframe
-              src="https://maps.google.com/maps?q=Unicity%20Business%20Park,%20Dhakoli,%20Zirakpur,%20Punjab%20160104&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen={false}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Incredible Medicare Location Map"
-            ></iframe>
+          {/* Location Map */}
+          <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xs">
+            <div className="flex flex-col items-start justify-between gap-3 border-b border-slate-200 p-6 sm:flex-row sm:items-center">
+              <div>
+                <h3 className="text-base font-bold text-slate-900">
+                  Location Map: Corporate Headquarters
+                </h3>
+                <p className="text-xs text-slate-500">{COMPANY_INFO.address}</p>
+              </div>
+              <a
+                href={`https://maps.google.com/?q=${encodeURIComponent(MAPS_QUERY)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-xs font-bold text-sky-700 hover:text-sky-900 hover:underline"
+              >
+                Open in Google Maps
+              </a>
+            </div>
+
+            <div className="h-80 w-full bg-slate-100 sm:h-96">
+              <iframe
+                src="https://maps.google.com/maps?q=Unicity%20Business%20Park,%20Dhakoli,%20Zirakpur,%20Punjab%20160104&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Incredible Medicare Location Map"
+              />
+            </div>
           </div>
         </div>
       </div>
