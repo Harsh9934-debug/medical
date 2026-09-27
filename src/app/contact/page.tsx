@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company";
 import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/motion/Reveal";
 import ContactWithGlobe, {
   type ContactLink,
 } from "@/components/ui/contact-with-globe";
@@ -49,7 +50,7 @@ const CONTACT_LINKS: ContactLink[] = [
 ];
 
 const inputClass =
-  "w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-800 outline-none transition-all duration-200 placeholder:text-slate-400 focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-500/15";
+  "w-full rounded-[4px] border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-800 outline-none transition-all duration-200 placeholder:text-slate-400 focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-500/15";
 const labelClass =
   "mb-1.5 block text-xs font-semibold uppercase tracking-widest text-slate-400";
 
@@ -96,7 +97,7 @@ export default function ContactPage() {
             )}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 py-3 text-xs font-semibold text-white shadow-xs transition hover:bg-emerald-700"
+            className="btn-shine flex w-full items-center justify-center gap-2 rounded-[4px] bg-emerald-600 py-3 text-xs font-semibold text-white shadow-xs transition hover:bg-emerald-700"
           >
             <MessageSquare className="h-4 w-4" />
             <span>Chat with Business Representative on WhatsApp</span>
@@ -107,7 +108,7 @@ export default function ContactPage() {
       >
         {submitted ? (
           <div className="space-y-4 py-10 text-center">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+            <div className="mx-auto flex h-16 w-16 animate-in zoom-in-50 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 duration-500">
               <CheckCircle2 className="h-10 w-10" />
             </div>
             <h3 className="text-2xl font-bold text-slate-900">
@@ -118,7 +119,7 @@ export default function ContactPage() {
               commercial officer will review your inquiry and reach out within 2
               hours.
             </p>
-            <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 text-xs text-slate-600">
+            <div className="rounded-[4px] border border-slate-200 bg-slate-50 p-3 text-xs text-slate-600">
               Notification routed to official inbox: {COMPANY_INFO.email}
             </div>
             <Button type="button" onClick={() => setSubmitted(false)}>
@@ -127,7 +128,7 @@ export default function ContactPage() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="animate-in fade-in slide-in-from-bottom-3 fill-mode-backwards duration-500 grid grid-cols-1 gap-4 sm:grid-cols-2" style={{ animationDelay: "0ms" }}>
               <div>
                 <label htmlFor="c-name" className={labelClass}>
                   Full Name *
@@ -158,7 +159,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="animate-in fade-in slide-in-from-bottom-3 fill-mode-backwards duration-500 grid grid-cols-1 gap-4 sm:grid-cols-2" style={{ animationDelay: "120ms" }}>
               <div>
                 <label htmlFor="c-email" className={labelClass}>
                   Email Address *
@@ -202,7 +203,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="animate-in fade-in slide-in-from-bottom-3 fill-mode-backwards duration-500 grid grid-cols-1 gap-4 sm:grid-cols-2" style={{ animationDelay: "240ms" }}>
               <div>
                 <label htmlFor="c-city" className={labelClass}>
                   City / District *
@@ -233,7 +234,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div>
+            <div className="animate-in fade-in slide-in-from-bottom-3 fill-mode-backwards duration-500" style={{ animationDelay: "360ms" }}>
               <label htmlFor="c-message" className={labelClass}>
                 Your Requirements &amp; Message
               </label>
@@ -250,7 +251,7 @@ export default function ContactPage() {
             <Button
               type="submit"
               size="lg"
-              className="h-12 w-full rounded-xl text-sm font-bold"
+              className="btn-shine h-12 w-full rounded-[4px] text-sm font-bold"
             >
               <Send className="h-4 w-4" />
               Submit Inquiry for Immediate Review
@@ -270,9 +271,9 @@ export default function ContactPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl space-y-8">
           {/* Manufacturing Complex */}
-          <div className="flex flex-col gap-4 rounded-3xl bg-slate-900 p-6 text-white sm:flex-row sm:items-center sm:justify-between sm:p-8">
+          <Reveal className="flex flex-col gap-4 rounded-[4px] bg-slate-900 p-6 text-white sm:flex-row sm:items-center sm:justify-between sm:p-8">
             <div className="flex items-start gap-4">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-slate-800 text-sky-400">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[4px] bg-slate-800 text-sky-400">
                 <Factory className="h-5 w-5" />
               </span>
               <div>
@@ -289,10 +290,10 @@ export default function ContactPage() {
               Equipped with Class 10,000 cleanrooms and dedicated analytical
               QA/QC suites.
             </p>
-          </div>
+          </Reveal>
 
           {/* Location Map */}
-          <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xs">
+          <Reveal delay={0.1} className="overflow-hidden rounded-[4px] border border-slate-200 bg-white shadow-xs">
             <div className="flex flex-col items-start justify-between gap-3 border-b border-slate-200 p-6 sm:flex-row sm:items-center">
               <div>
                 <h3 className="text-base font-bold text-slate-900">
@@ -321,7 +322,7 @@ export default function ContactPage() {
                 title="Incredible Medicare Location Map"
               />
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </div>

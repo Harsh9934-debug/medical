@@ -23,6 +23,8 @@ import {
 } from "lucide-react";
 import { DIVISIONS } from "@/data/company";
 import EnquiryModal from "@/components/EnquiryModal";
+import { Reveal } from "@/components/motion/Reveal";
+import { CountUp } from "@/components/motion/CountUp";
 
 const PRIMARY_BTN =
   "inline-flex items-center justify-center gap-3 rounded-[4px] bg-[#0b5bd3] hover:bg-[#0a4db3] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(11,91,211,0.35)] transition cursor-pointer";
@@ -168,13 +170,14 @@ export default function DivisionsPage() {
               const Icon = t.icon;
               const flip = index % 2 === 1;
               return (
-                <div key={div.id} className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <div key={div.id} data-no-reveal className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                   {/* Info */}
-                  <div
+                  <Reveal
+                    direction={flip ? "right" : "left"}
                     className={`relative overflow-hidden lg:col-span-8 rounded-[4px] border border-white bg-gradient-to-br ${t.card} p-7 sm:p-9 shadow-[0_10px_40px_rgba(30,80,160,0.10)] ${flip ? "lg:order-2" : ""}`}
                   >
                     <Icon
-                      className={`pointer-events-none absolute -bottom-8 -right-8 h-56 w-56 ${t.deco}`}
+                      className={`animate-float-slow pointer-events-none absolute -bottom-8 -right-8 h-56 w-56 ${t.deco}`}
                       strokeWidth={1}
                     />
                     <span className="absolute right-7 top-5 text-5xl font-extrabold text-[#0b5bd3]/10">
@@ -188,7 +191,7 @@ export default function DivisionsPage() {
                           {div.category}
                         </span>
                         <span className="text-xs font-semibold text-slate-500">
-                          {div.productCount}
+                          <CountUp value={div.productCount} />
                         </span>
                       </div>
 
@@ -218,10 +221,12 @@ export default function DivisionsPage() {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Reveal>
 
                   {/* Actions */}
-                  <div
+                  <Reveal
+                    direction={flip ? "left" : "right"}
+                    delay={0.12}
                     className={`lg:col-span-4 relative overflow-hidden rounded-[4px] bg-gradient-to-br from-[#04142f] via-[#08234b] to-[#0a2d5e] text-white p-7 sm:p-8 shadow-[0_20px_50px_rgba(10,26,51,0.3)] flex flex-col ${flip ? "lg:order-1" : ""}`}
                   >
                     <Handshake className="pointer-events-none absolute -bottom-8 -right-8 h-48 w-48 text-white/5" strokeWidth={1} />
@@ -253,7 +258,7 @@ export default function DivisionsPage() {
                         </Link>
                       </div>
                     </div>
-                  </div>
+                  </Reveal>
                 </div>
               );
             })}

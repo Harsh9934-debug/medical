@@ -19,7 +19,9 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-const STEPS: { icon: LucideIcon; title: string; desc: string }[] = [
+export type Step = { icon: LucideIcon; title: string; desc: string };
+
+const HOME_STEPS: Step[] = [
   {
     icon: Boxes,
     title: "Raw Material Sourcing",
@@ -54,8 +56,38 @@ const STEPS: { icon: LucideIcon; title: string; desc: string }[] = [
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-/** Six-stage manufacturing journey with a line that draws itself in. */
+const COLS: Record<number, string> = {
+  3: "lg:grid-cols-3",
+  4: "lg:grid-cols-4",
+  5: "lg:grid-cols-5",
+  6: "lg:grid-cols-6",
+};
+
+/** Six-stage manufacturing journey used on the home page. */
 export function ProcessFlow() {
+  return <StepFlow steps={HOME_STEPS} />;
+}
+
+/** Numbered steps joined by a line that draws itself in, with a travelling dot. */
+export function StepFlow({
+  steps = HOME_STEPS,
+  eyebrow = "Batch-to-Shelf Process",
+  icon: EyebrowIcon = Workflow,
+  title = "How Every Batch Is",
+  highlight = "Made & Released",
+  intro = "Six controlled stages, each with documented checks, so what leaves our WHO-GMP plant matches the label every time.",
+  tone = "from-[#eef4fc] via-[#f6f9fe] to-white",
+}: {
+  steps?: Step[];
+  eyebrow?: string;
+  icon?: LucideIcon;
+  title?: string;
+  highlight?: string;
+  intro?: string;
+  tone?: string;
+}) {
+  const STEPS = steps;
+  const edge = `calc((100% - ${(STEPS.length - 1) * 1.25}rem) / ${STEPS.length * 2})`;
   const [active, setActive] = React.useState(0);
 
   // One clock drives both the travelling dot and the highlighted step, so the
@@ -78,7 +110,7 @@ export function ProcessFlow() {
   return (
     <section
       data-no-reveal
-      className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-[#eef4fc] via-[#f6f9fe] to-white py-16 lg:py-20"
+      className={`relative overflow-hidden border-b border-slate-200 bg-gradient-to-b ${tone} py-16 lg:py-20`}
     >
       <div className="pointer-events-none absolute -left-32 top-10 h-[380px] w-[380px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
       <div className="pointer-events-none absolute -right-32 bottom-0 h-[380px] w-[380px] rounded-full bg-[#cfe0f7]/50 blur-3xl" />
@@ -92,23 +124,21 @@ export function ProcessFlow() {
           transition={{ duration: 0.7, ease: EASE }}
         >
           <span className="inline-flex items-center gap-2.5 rounded-full border border-[#e3ecfa] bg-white px-5 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[#0b5bd3] shadow-[0_4px_16px_rgba(30,80,160,0.10)] sm:text-xs">
-            <Workflow className="h-4 w-4" strokeWidth={2} />
-            Batch-to-Shelf Process
+            <EyebrowIcon className="h-4 w-4" strokeWidth={2} />
+            {eyebrow}
           </span>
           <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-[#0a1f44] sm:text-4xl lg:text-5xl">
-            How Every Batch Is{" "}
-            <span className="text-[#0b5bd3]">Made &amp; Released</span>
+            {title} <span className="text-[#0b5bd3]">{highlight}</span>
           </h2>
           <div className="accent-bar mx-auto mt-4" />
           <p className="mt-5 text-sm leading-relaxed text-slate-600 sm:text-base">
-            Six controlled stages, each with documented checks, so what leaves
-            our WHO-GMP plant matches the label every time.
+            {intro}
           </p>
         </motion.div>
 
-        <div className="relative grid gap-8 lg:grid-cols-6 lg:gap-5">
+        <div className={`relative grid gap-8 lg:gap-5 ${COLS[STEPS.length] ?? "lg:grid-cols-6"}`}>
           {/* Desktop connector */}
-          <div className="pointer-events-none absolute left-[calc((100%-6.25rem)/12)] right-[calc((100%-6.25rem)/12)] top-[22px] hidden h-[2px] rounded-full bg-[#dbe6f6] lg:block">
+          <div className="pointer-events-none absolute top-[22px] hidden h-[2px] rounded-full bg-[#dbe6f6] lg:block" style={{ left: edge, right: edge }}>
             <motion.div
               className="h-full origin-left rounded-full bg-gradient-to-r from-[#0b4a99] to-[#3b8ff0]"
               initial={{ scaleX: 0 }}

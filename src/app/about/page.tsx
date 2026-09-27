@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { CountUp } from "@/components/motion/CountUp";
+import { Ticker } from "@/components/motion/Ticker";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -133,6 +134,8 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
+
+      <Ticker />
 
       {/* Corporate Profile Details */}
       <section

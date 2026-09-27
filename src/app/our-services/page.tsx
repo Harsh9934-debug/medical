@@ -26,6 +26,8 @@ import {
   MessageSquareText,
 } from "lucide-react";
 import EnquiryModal from "@/components/EnquiryModal";
+import { StepFlow } from "@/components/motion/ProcessFlow";
+import { CountUp } from "@/components/motion/CountUp";
 
 const PRIMARY_BTN =
   "inline-flex items-center gap-3 rounded-[4px] bg-[#0b5bd3] hover:bg-[#0a4db3] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(11,91,211,0.35)] transition cursor-pointer";
@@ -60,7 +62,7 @@ function StatsBar({
         >
           <st.icon className="w-10 h-10 shrink-0 text-[#0b5bd3]" strokeWidth={1.4} />
           <div className="leading-tight">
-            <div className="text-2xl font-extrabold text-[#0b5bd3]">{st.a}</div>
+            <div className="text-2xl font-extrabold text-[#0b5bd3]"><CountUp value={st.a} /></div>
             <div className="mt-1 text-sm text-slate-500">{st.b}</div>
           </div>
         </div>
@@ -449,6 +451,23 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      {/* Partnership journey */}
+      <StepFlow
+        tone="from-[#f7faff] via-[#f1f6fd] to-[#eaf1fb]"
+        eyebrow="Getting Started"
+        icon={Handshake}
+        title="Your Partnership,"
+        highlight="Step by Step"
+        intro="From first enquiry to first shipment, here is how we onboard PCD franchise and contract manufacturing partners."
+        steps={[
+          { icon: MessageSquareText, title: "Share Your Requirement", desc: "Tell us your territory, product range or manufacturing brief." },
+          { icon: MapPinned, title: "Territory & Product Finalisation", desc: "We confirm monopoly availability and shortlist the right formulations." },
+          { icon: FileText, title: "Agreement & Documentation", desc: "Terms, licences and regulatory paperwork are formalised." },
+          { icon: Boxes, title: "Samples & Batch Approval", desc: "Approve samples, artwork and packaging before commercial batches." },
+          { icon: Truck, title: "Supply & Launch Support", desc: "Dispatch, promotional material and ongoing partner support." },
+        ]}
+      />
 
       {/* 4. CTA */}
       <section className="relative overflow-hidden bg-gradient-to-b from-[#eaf1fb] via-[#f1f6fd] to-[#f7faff] py-16 lg:py-20">

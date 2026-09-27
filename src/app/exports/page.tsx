@@ -24,6 +24,7 @@ import {
   Boxes,
 } from "lucide-react";
 import EnquiryModal from "@/components/EnquiryModal";
+import { ExportRoutes } from "@/components/motion/ExportRoutes";
 
 const PRIMARY_BTN =
   "inline-flex items-center justify-center gap-3 rounded-[4px] bg-[#0b5bd3] hover:bg-[#0a4db3] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(11,91,211,0.35)] transition cursor-pointer";
@@ -256,6 +257,22 @@ export default function ExportsPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Export Lanes */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#eaf1fb] to-[#f1f6fd] py-16 lg:py-20">
+        <div className="pointer-events-none absolute -top-32 -right-32 h-[400px] w-[400px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <Eyebrow center>Global Reach</Eyebrow>
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f44] tracking-tight">
+              Shipping Lanes to{" "}
+              <span className="text-[#0b5bd3]">Emerging Markets</span>
+            </h2>
+            <div className="accent-bar mx-auto mt-4"></div>
+          </div>
+          <ExportRoutes />
         </div>
       </section>
 

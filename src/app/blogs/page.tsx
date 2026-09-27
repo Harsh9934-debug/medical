@@ -119,6 +119,7 @@ export default function BlogsPage() {
         <div className="pointer-events-none absolute -top-32 -left-32 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/70 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-32 -right-32 h-[420px] w-[420px] rounded-full bg-[#cfe0f7]/70 blur-3xl" />
         <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6">
+          <div className="contents">
           <Eyebrow center>Incredible Medicare Knowledge Hub</Eyebrow>
           <h1 className="mt-4 text-4xl font-extrabold leading-[1.08] tracking-tight text-[#0a1f44] sm:text-5xl lg:text-6xl">
             Pharmaceutical Insights,{" "}
@@ -161,6 +162,7 @@ export default function BlogsPage() {
                 {cat}
               </button>
             ))}
+          </div>
           </div>
         </div>
       </section>
@@ -234,7 +236,7 @@ export default function BlogsPage() {
                         className="group flex items-center gap-4 py-4 first:pt-0 last:pb-0"
                       >
                         <span className="relative h-20 w-20 shrink-0 overflow-hidden rounded-[4px]">
-                          <Image src={getArticleImage(a.category)} alt="" fill sizes="80px" className="object-cover" />
+                          <Image src={getArticleImage(a.category)} alt="" fill sizes="80px" className="object-cover transition duration-500 group-hover:scale-110" />
                         </span>
                         <div className="min-w-0 flex-1">
                           <span className={`inline-block rounded-full px-2.5 py-1 text-[11px] font-semibold ${t.pill}`}>

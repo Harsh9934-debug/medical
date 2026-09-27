@@ -28,6 +28,7 @@ import {
   Package,
 } from "lucide-react";
 import EnquiryModal from "@/components/EnquiryModal";
+import { Conveyor } from "@/components/motion/Conveyor";
 
 const PRIMARY_BTN =
   "inline-flex items-center gap-3 rounded-[4px] bg-[#0b5bd3] hover:bg-[#0a4db3] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(11,91,211,0.35)] transition cursor-pointer";
@@ -361,6 +362,16 @@ export default function InfrastructurePage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Production line */}
+      <section data-no-reveal className="relative overflow-hidden bg-gradient-to-b from-[#f7faff] to-[#f7faff] pt-4 pb-14">
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-8 text-center text-xs font-bold uppercase tracking-[0.18em] text-[#0b5bd3]">
+            Every unit inspected before it leaves the line
+          </div>
+          <Conveyor />
         </div>
       </section>
 

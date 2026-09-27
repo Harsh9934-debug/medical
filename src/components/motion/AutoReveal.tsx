@@ -37,6 +37,7 @@ export default function AutoReveal() {
           if (grid.closest("[data-no-reveal]")) return;
           Array.from(grid.children).forEach((child, i) => {
             if (!(child instanceof HTMLElement)) return;
+            if (child.hasAttribute("data-no-reveal")) return;
             if (getComputedStyle(child).position === "absolute") return;
             picked.add(child);
             delays.set(child, Math.min(i, 8) * 0.07);

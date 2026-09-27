@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo, useEffect } from "react";
+import { motion } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -329,10 +330,14 @@ export default function ProductsPage() {
                   </button>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div data-no-reveal className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   {filteredProducts.map((product, i) => (
-                    <div
+                    <motion.div
                       key={product.id}
+                      initial={{ opacity: 0, y: 28, scale: 0.98 }}
+                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                      viewport={{ once: true, margin: "-40px" }}
+                      transition={{ duration: 0.55, delay: (i % 2) * 0.09, ease: [0.22, 1, 0.36, 1] }}
                       className={`${GLASS} group relative flex flex-col justify-between overflow-hidden p-6`}
                     >
                       <div
@@ -407,7 +412,7 @@ export default function ProductsPage() {
                           Details
                         </button>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               )}
