@@ -53,6 +53,11 @@ import {
 } from "@/data/company";
 import { PRODUCTS, Product } from "@/data/products";
 import EnquiryModal from "@/components/EnquiryModal";
+import { Stagger, StaggerItem } from "@/components/motion/Reveal";
+import { CountUp } from "@/components/motion/CountUp";
+import { Ticker } from "@/components/motion/Ticker";
+import { ProcessFlow } from "@/components/motion/ProcessFlow";
+import { Conveyor } from "@/components/motion/Conveyor";
 
 const ACCREDITATION_ICONS: (React.ComponentType<{ className?: string; strokeWidth?: number }> | "iso")[] = [
   Globe2,
@@ -186,48 +191,62 @@ export default function HomePage() {
   return (
     <div className="w-full bg-white text-slate-900">
       {/* 1. HERO SECTION */}
-      <section className="relative isolate overflow-hidden border-b border-slate-200 bg-[#f4f8fd]">
+      <section data-no-reveal className="relative isolate overflow-hidden border-b border-slate-200 bg-[#f4f8fd]">
         {/* Background image, fading into the copy on the left */}
-        <div className="absolute inset-y-0 right-0 -z-10 w-full lg:w-[64%]">
+        <div className="absolute inset-y-0 right-0 -z-10 w-full overflow-hidden lg:w-[64%]">
           <Image
             src="/herobg.png"
             alt="Cleanroom vial filling line at Incredible Medicare"
             fill
             priority
             sizes="(min-width: 1024px) 64vw, 100vw"
-            className="object-cover object-[65%_center] opacity-25 lg:opacity-100 lg:[mask-image:linear-gradient(to_right,transparent_0%,black_38%)]"
+            className="animate-kenburns object-cover object-[65%_center] opacity-25 lg:opacity-100 lg:[mask-image:linear-gradient(to_right,transparent_0%,black_38%)]"
           />
+        </div>
+        {/* Drifting particles */}
+        <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+          {[
+            "left-[6%] top-[18%] h-3 w-3 [animation-delay:0s]",
+            "left-[34%] top-[70%] h-2 w-2 [animation-delay:-4s]",
+            "left-[46%] top-[12%] h-4 w-4 [animation-delay:-8s]",
+            "left-[18%] top-[82%] h-2.5 w-2.5 [animation-delay:-2s]",
+          ].map((c) => (
+            <span
+              key={c}
+              className={`animate-drift absolute rounded-full bg-[#3b8ff0]/30 ${c}`}
+            />
+          ))}
         </div>
         <div className="absolute inset-0 -z-10 bg-linear-to-r from-[#f4f8fd] via-[#f4f8fd]/80 to-transparent lg:from-[#f4f8fd] lg:via-[#f4f8fd]/55 lg:to-transparent lg:w-[55%]" />
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid min-h-0 grid-cols-1 lg:min-h-[740px] lg:grid-cols-12">
             {/* Left Content */}
-            <div className="flex flex-col justify-center py-14 sm:py-20 lg:col-span-7 lg:py-16 lg:pr-10">
-              <div className="flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500 sm:text-xs">
+            <Stagger immediate delay={0.15} gap={0.11} className="flex flex-col justify-center py-14 sm:py-20 lg:col-span-7 lg:py-16 lg:pr-10">
+              <StaggerItem className="flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500 sm:text-xs">
                 <span>WHO-GMP &amp; ISO 9001:2015 Certified</span>
                 <span className="hidden h-px w-24 bg-slate-300 sm:block" />
-              </div>
+              </StaggerItem>
 
-              <h1 className="mt-6 font-serif text-4xl font-medium leading-[1.08] tracking-tight text-[#0b1b3b] sm:text-5xl lg:text-[54px] xl:text-[60px]">
+              <StaggerItem as="h1" className="mt-6 font-serif text-4xl font-medium leading-[1.08] tracking-tight text-[#0b1b3b] sm:text-5xl lg:text-[54px] xl:text-[60px]">
                 Delivering Excellence in{" "}
                 <span className="text-[#1a5fb4]">Pharmaceutical</span>{" "}
                 Manufacturing &amp; PCD Franchise.
-              </h1>
+              </StaggerItem>
 
-              <p className="mt-7 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
+              <StaggerItem as="p" className="mt-7 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
                 <strong className="font-semibold text-slate-700">
                   Incredible Medicare
                 </strong>{" "}
                 delivers high-standard, bioequivalent medicines across India.
                 Backed by state-of-the-art cleanrooms, 650+ approved DCGI
                 formulations, and nationwide franchise monopoly rights.
-              </p>
+              </StaggerItem>
 
-              <div className="mt-8 flex flex-wrap items-center gap-4">
+              <StaggerItem className="mt-8 flex flex-wrap items-center gap-4">
                 <Link
                   href="/products"
-                  className="inline-flex items-center gap-3 rounded-[4px] bg-[#0b4a99] px-6 py-3.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-[#093d80] hover:shadow-lg"
+                  className="btn-shine inline-flex items-center gap-3 rounded-[4px] bg-[#0b4a99] px-6 py-3.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-[#093d80] hover:shadow-lg"
                 >
                   <Package className="h-4 w-4" />
                   <span>Browse 650+ Products</span>
@@ -246,10 +265,10 @@ export default function HomePage() {
                   <span>Request Franchise Terms</span>
                   <ArrowRight className="h-4 w-4" />
                 </button>
-              </div>
+              </StaggerItem>
 
               {/* Trust Indicators */}
-              <div className="mt-12 flex flex-wrap items-center gap-y-5 sm:flex-nowrap">
+              <StaggerItem className="mt-12 flex flex-wrap items-center gap-y-5 sm:flex-nowrap">
                 {[
                   { icon: ShieldCheck, title: "WHO-GMP", sub: "Certified" },
                   { icon: Award, title: "ISO 9001:2015", sub: "Certified" },
@@ -277,24 +296,24 @@ export default function HomePage() {
                     </div>
                   </div>
                 ))}
-              </div>
-            </div>
+              </StaggerItem>
+            </Stagger>
           </div>
         </div>
 
         {/* Floating glass cards (desktop) */}
         <div className="pointer-events-none absolute inset-0 hidden lg:block">
           {/* Tagline */}
-          <div className="absolute right-[4%] top-14 hidden text-[11px] font-medium uppercase leading-relaxed tracking-[0.3em] text-white [text-shadow:0_1px_6px_rgba(11,27,59,0.6)] xl:block">
+          <div className="absolute right-[4%] top-12 hidden rounded-[4px] border border-white/25 bg-[#0a1f44]/70 px-5 py-4 text-[11px] font-semibold uppercase leading-relaxed tracking-[0.3em] text-white shadow-[0_10px_30px_rgba(10,31,68,0.35)] backdrop-blur-md xl:block">
             <div>Better</div>
             <div>Medicines</div>
             <div>Bigger</div>
             <div>Possibilities</div>
-            <div className="mt-3 h-0.5 w-10 bg-white" />
+            <div className="mt-3 h-0.5 w-10 bg-sky-400" />
           </div>
 
           {/* 650+ card */}
-          <div className="pointer-events-auto absolute left-[54%] top-[26%] w-[300px] rounded-[4px] border border-white/70 bg-white/70 p-6 shadow-xl backdrop-blur-md">
+          <div className="animate-float pointer-events-auto absolute left-[54%] top-[26%] w-[300px] rounded-[4px] border border-white/70 bg-white/70 p-6 shadow-xl backdrop-blur-md">
             <div className="flex items-center gap-4">
               <Pill
                 className="h-12 w-12 shrink-0 text-[#0b4a99]"
@@ -302,7 +321,7 @@ export default function HomePage() {
               />
               <div>
                 <div className="font-serif text-5xl font-medium leading-none text-[#0b1b3b]">
-                  650+
+                  <CountUp value="650+" />
                 </div>
                 <div className="mt-1.5 text-sm font-medium text-[#0b1b3b]">
                   Approved Products
@@ -325,6 +344,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <Ticker />
 
       {/* 2. ACCREDITATIONS & QUALITY STANDARDS BANNER */}
       <section className="relative overflow-hidden bg-[#f4f8fd] py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
@@ -588,7 +609,7 @@ export default function HomePage() {
                     {cap.form}
                   </h3>
                   <div className="text-3xl font-extrabold text-[#0b5bd3] mt-2 tracking-tight">
-                    {cap.metric}
+                    <CountUp value={cap.metric} />
                   </div>
                   <p className="text-sm text-slate-500 mt-1">{cap.subtext}</p>
                   <div className="w-full mt-auto pt-5">
@@ -607,8 +628,12 @@ export default function HomePage() {
               );
             })}
           </div>
+
+          <Conveyor className="mx-auto mt-14 max-w-4xl" />
         </div>
       </section>
+
+      <ProcessFlow />
 
       {/* 5. FEATURED PRODUCT SHOWCASE */}
       <section className="relative overflow-hidden py-16 lg:py-20 bg-gradient-to-b from-white via-[#f6f9fe] to-[#eef4fc] border-b border-slate-200">

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { CountUp } from "@/components/motion/CountUp";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -272,7 +273,7 @@ export default function AboutPage() {
               >
                 <st.icon className="w-10 h-10 shrink-0 text-[#0b5bd3]" strokeWidth={1.4} />
                 <div className="leading-tight">
-                  <div className="text-2xl font-extrabold text-[#0b5bd3]">{st.a}</div>
+                  <div className="text-2xl font-extrabold text-[#0b5bd3]"><CountUp value={st.a} /></div>
                   <div className="mt-1 text-sm text-slate-500">{st.b}</div>
                 </div>
               </div>
@@ -507,7 +508,7 @@ export default function AboutPage() {
               >
                 <st.icon className="w-10 h-10 shrink-0 text-[#0b5bd3]" strokeWidth={1.4} />
                 <div className="leading-tight">
-                  <div className="text-2xl font-extrabold text-[#0b5bd3]">{st.a}</div>
+                  <div className="text-2xl font-extrabold text-[#0b5bd3]"><CountUp value={st.a} /></div>
                   <div className="mt-1 text-sm text-slate-500">{st.b}</div>
                 </div>
               </div>

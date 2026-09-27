@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -109,15 +109,36 @@ export default function Header() {
   };
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [enquiryModalOpen, setEnquiryModalOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Collapse the info bar and tighten the nav once the page is scrolled.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 shadow-xs backdrop-blur supports-backdrop-filter:bg-white/85">
+      <header
+        className={cn(
+          "sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur transition-shadow duration-300 supports-backdrop-filter:bg-white/85",
+          scrolled ? "shadow-[0_8px_30px_rgba(10,31,68,0.10)]" : "shadow-xs",
+        )}
+      >
         {/* Top Info Bar */}
-        <div className="border-b border-slate-800 bg-slate-900 px-4 py-2 text-xs text-slate-200 sm:px-6 lg:px-8">
+        <div
+          className={cn(
+            "grid overflow-hidden bg-slate-900 text-xs text-slate-200 transition-[grid-template-rows,opacity] duration-300",
+            scrolled ? "grid-rows-[0fr] opacity-0" : "grid-rows-[1fr] opacity-100",
+          )}
+        >
+        <div className="min-h-0 overflow-hidden">
+        <div className="border-b border-slate-800 px-4 py-2 sm:px-6 lg:px-8">
           <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-4">
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 md:justify-start">
               <a
@@ -152,10 +173,17 @@ export default function Header() {
             </div>
           </div>
         </div>
+        </div>
+        </div>
 
         {/* Main Navigation */}
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
-          <div className="flex h-[76px] items-center justify-between gap-4">
+          <div
+            className={cn(
+              "flex items-center justify-between gap-4 transition-[height] duration-300",
+              scrolled ? "h-[64px]" : "h-[76px]",
+            )}
+          >
             {/* Logo */}
             <Link href="/" className="group flex shrink-0 items-center gap-3">
               <div className="relative flex h-12 w-12 items-center justify-center">
@@ -214,7 +242,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setEnquiryModalOpen(true)}
-                className="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap rounded-lg bg-sky-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-sky-800 hover:shadow focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-700"
+                className="btn-shine inline-flex cursor-pointer items-center gap-2 whitespace-nowrap rounded-[4px] bg-[#0b4a99] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#093d80] hover:shadow"
               >
                 <FileText className="h-4 w-4" />
                 <span className="2xl:hidden">Get Quote</span>
@@ -227,7 +255,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setEnquiryModalOpen(true)}
-                className="rounded-md bg-sky-700 px-3 py-1.5 text-xs font-semibold text-white"
+                className="rounded-[4px] bg-[#0b4a99] px-3 py-1.5 text-xs font-semibold text-white"
               >
                 Quote
               </button>
@@ -323,7 +351,7 @@ export default function Header() {
                   setMobileMenuOpen(false);
                   setEnquiryModalOpen(true);
                 }}
-                className="flex w-full items-center justify-center gap-2 rounded-lg bg-sky-700 py-3 font-semibold text-white shadow-sm"
+                className="flex w-full items-center justify-center gap-2 rounded-[4px] bg-[#0b4a99] py-3 font-semibold text-white shadow-sm"
               >
                 <FileText className="h-4 w-4" />
                 <span>Request Quotation / Franchise Terms</span>
@@ -418,7 +446,7 @@ function ProductsMegaMenu() {
         <NavigationMenuLink asChild>
           <Link
             href="/products"
-            className="mt-auto flex items-center justify-between gap-2 rounded-lg bg-sky-700 px-3.5 py-3 text-sm font-semibold text-white no-underline outline-hidden transition-colors hover:bg-sky-800 focus:bg-sky-800"
+            className="mt-auto flex items-center justify-between gap-2 rounded-[4px] bg-[#0b4a99] px-3.5 py-3 text-sm font-semibold text-white no-underline outline-hidden transition-colors hover:bg-[#093d80] focus:bg-[#093d80]"
           >
             <span className="flex items-center gap-2">
               <Sparkles className="h-4 w-4" />

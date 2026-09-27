@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingAssistant from "@/components/FloatingAssistant";
+import ScrollProgress from "@/components/motion/ScrollProgress";
+import AutoReveal from "@/components/motion/AutoReveal";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -64,6 +66,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${jakarta.className} ${serif.variable}`} data-theme="light">
       <body className="min-h-screen bg-white text-slate-900 flex flex-col antialiased selection:bg-sky-100 selection:text-sky-900">
+        <ScrollProgress />
+        <AutoReveal />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

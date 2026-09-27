@@ -1,5 +1,6 @@
 "use client";
 
+import { CountUp } from "@/components/motion/CountUp";
 import { useRef } from "react";
 import { Star } from "lucide-react";
 import { TimelineContent } from "@/components/ui/timeline-animation";
@@ -71,7 +72,7 @@ function TestimonialBody({ t, big }: { t: Testimonial; big?: boolean }) {
 function StatBody({ value, label }: { value: string; label: string }) {
   return (
     <article className="mt-auto">
-      <div className="text-4xl lg:text-5xl font-extrabold tracking-tight">{value}</div>
+      <div className="text-4xl lg:text-5xl font-extrabold tracking-tight"><CountUp value={value} /></div>
       <p className="text-sm text-white/80 mt-2">{label}</p>
     </article>
   );
