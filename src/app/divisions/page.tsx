@@ -326,7 +326,7 @@ export default function DivisionsPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#04142f] via-[#0a2647] to-[#0a1f44] py-16 lg:py-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0a1f44] via-black to-black py-16 lg:py-20">
         <div className="pointer-events-none absolute -left-32 top-4 hidden h-[420px] w-[420px] overflow-hidden rounded-full border-[14px] border-white/10 opacity-30 lg:block xl:-left-20">
           <Image src="/infra-micro.jpg" alt="" fill sizes="420px" className="object-cover" style={{ objectPosition: "50% 40%" }} />
         </div>

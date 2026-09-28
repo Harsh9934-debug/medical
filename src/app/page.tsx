@@ -1160,7 +1160,7 @@ export default function HomePage() {
       </section>
 
       {/* 10. CALL TO ACTION: READY TO PARTNER */}
-      <section className="relative overflow-hidden py-16 lg:py-20 bg-gradient-to-br from-[#04142f] via-[#0a2647] to-[#0a1f44]">
+      <section className="relative overflow-hidden py-16 lg:py-20 bg-gradient-to-br from-[#0a1f44] via-black to-black">
         <div className="pointer-events-none absolute -top-32 -left-40 h-[420px] w-[420px] rounded-full bg-sky-500/10 blur-3xl" />
         <div className="pointer-events-none absolute top-10 -right-40 h-[380px] w-[380px] rounded-full bg-amber-400/10 blur-3xl" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
