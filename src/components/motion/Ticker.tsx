@@ -20,7 +20,7 @@ export function Ticker() {
           key={t}
           className="flex items-center gap-2.5 whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-200 sm:text-xs"
         >
-          <ShieldCheck className="h-4 w-4 text-sky-400" strokeWidth={1.8} />
+          <ShieldCheck className="h-4 w-4 text-teal-400" strokeWidth={1.8} />
           {t}
         </span>
       ))}
@@ -29,7 +29,7 @@ export function Ticker() {
   return (
     <div
       data-no-reveal
-      className="group relative overflow-hidden bg-[#0a1f44] py-3.5"
+      className="group relative overflow-hidden bg-[#0b192c] py-3.5"
       aria-label="Credentials"
     >
       <div className="animate-marquee flex w-max group-hover:[animation-play-state:paused]">

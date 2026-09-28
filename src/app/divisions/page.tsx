@@ -27,18 +27,18 @@ import { Reveal } from "@/components/motion/Reveal";
 import { CountUp } from "@/components/motion/CountUp";
 
 const PRIMARY_BTN =
-  "inline-flex items-center justify-center gap-3 rounded-[4px] bg-[#0b5bd3] hover:bg-[#0a4db3] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(11,91,211,0.35)] transition cursor-pointer";
+  "inline-flex items-center justify-center gap-3 rounded-[4px] bg-[#0d9488] hover:bg-[#0f766e] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(13,148,136,0.35)] transition cursor-pointer";
 const OUTLINE_BTN =
-  "inline-flex items-center justify-center gap-3 rounded-[4px] border border-[#0b5bd3] bg-white/70 hover:bg-white px-7 py-3.5 text-sm font-semibold text-[#0b5bd3] transition cursor-pointer";
+  "inline-flex items-center justify-center gap-3 rounded-[4px] border border-[#0d9488] bg-white/70 hover:bg-white px-7 py-3.5 text-sm font-semibold text-[#0d9488] transition cursor-pointer";
 const GLASS =
-  "rounded-[4px] border border-white bg-white/80 backdrop-blur shadow-[0_10px_40px_rgba(30,80,160,0.10)]";
+  "rounded-[4px] border border-white bg-white/80 backdrop-blur shadow-[0_10px_40px_rgba(13,148,136,0.10)]";
 
 const THEMES = [
-  { icon: Pill, tone: "text-[#0b5bd3]", pill: "bg-[#eaf1fd] text-[#0b5bd3]", card: "from-white/90 to-[#eaf1fd]/70", deco: "text-[#0b5bd3]/10", check: "text-[#0b5bd3]" },
+  { icon: Pill, tone: "text-[#0d9488]", pill: "bg-[#f0fdfa] text-[#0d9488]", card: "from-white/90 to-[#f0fdfa]/70", deco: "text-[#0d9488]/10", check: "text-[#0d9488]" },
   { icon: Droplets, tone: "text-emerald-600", pill: "bg-emerald-50 text-emerald-700", card: "from-white/90 to-emerald-50/70", deco: "text-emerald-500/10", check: "text-emerald-600" },
   { icon: Brain, tone: "text-violet-600", pill: "bg-violet-50 text-violet-700", card: "from-white/90 to-violet-50/70", deco: "text-violet-500/10", check: "text-violet-600" },
   { icon: HeartPulse, tone: "text-orange-600", pill: "bg-orange-100/70 text-orange-700", card: "from-orange-50/80 to-rose-50/60", deco: "text-orange-500/10", check: "text-orange-500" },
-  { icon: Leaf, tone: "text-[#0b5bd3]", pill: "bg-[#eaf1fd] text-[#0b5bd3]", card: "from-white/90 to-sky-50/70", deco: "text-[#0b5bd3]/10", check: "text-[#0b5bd3]" },
+  { icon: Leaf, tone: "text-[#0d9488]", pill: "bg-[#f0fdfa] text-[#0d9488]", card: "from-white/90 to-teal-50/70", deco: "text-[#0d9488]/10", check: "text-[#0d9488]" },
 ];
 
 function Eyebrow({
@@ -51,8 +51,8 @@ function Eyebrow({
   /** Amber-on-navy variant for CTA sections with a dark background. */
   dark?: boolean;
 }) {
-  const lineClass = dark ? "bg-amber-400/40" : "bg-[#0b5bd3]";
-  const textClass = dark ? "text-amber-400" : "text-[#0b5bd3]";
+  const lineClass = dark ? "bg-amber-400/40" : "bg-[#0d9488]";
+  const textClass = dark ? "text-amber-400" : "text-[#0d9488]";
   return (
     <div className={`flex items-center gap-4 ${center ? "justify-center" : ""}`}>
       <span className={`h-px w-10 ${lineClass}`} />
@@ -76,10 +76,10 @@ export default function DivisionsPage() {
   return (
     <div className="w-full bg-white text-slate-900">
       {/* Hero */}
-      <section className="relative flex items-center overflow-hidden bg-gradient-to-br from-[#f7faff] via-[#eef4fc] to-[#e3edfb] lg:min-h-[max(580px,40vw)]">
-        <div className="pointer-events-none absolute -top-32 -left-32 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
+      <section className="relative flex items-center overflow-hidden bg-gradient-to-br from-[#f0fdfa] via-[#f0fdfa] to-[#ccfbf1] lg:min-h-[max(580px,40vw)]">
+        <div className="pointer-events-none absolute -top-32 -left-32 h-[420px] w-[420px] rounded-full bg-[#ccfbf1]/60 blur-3xl" />
 
-        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[46%] overflow-hidden rounded-bl-[9rem] shadow-[0_20px_60px_rgba(30,80,160,0.25)] lg:block">
+        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[46%] overflow-hidden rounded-bl-[9rem] shadow-[0_20px_60px_rgba(13,148,136,0.25)] lg:block">
           <Image
             src="/infra-packs.jpg"
             alt="Pharmaceutical tablets and capsules in blister packs"
@@ -88,16 +88,16 @@ export default function DivisionsPage() {
             sizes="46vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0b5bd3]/25 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d9488]/25 via-transparent to-transparent" />
         </div>
-        <div className="pointer-events-none absolute right-[42%] top-[18%] hidden h-24 w-24 rounded-full border-[10px] border-[#cfe0f7]/70 lg:block" />
+        <div className="pointer-events-none absolute right-[42%] top-[18%] hidden h-24 w-24 rounded-full border-[10px] border-[#99f6e4]/70 lg:block" />
 
         <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-14">
           <div className="max-w-2xl lg:max-w-[50%]">
             <Eyebrow>Specialized Divisions</Eyebrow>
-            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-[2.6rem] xl:text-[3.25rem] font-extrabold text-[#0a1f44] tracking-tight leading-[1.08]">
+            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-[2.6rem] xl:text-[3.25rem] font-extrabold text-[#0b192c] tracking-tight leading-[1.08]">
               Specialized{" "}
-              <span className="text-[#0b5bd3]">Pharmaceutical Divisions</span>
+              <span className="text-[#0d9488]">Pharmaceutical Divisions</span>
             </h1>
             <p className="mt-5 text-slate-600 text-base leading-relaxed max-w-xl">
               Incredible Medicare features targeted business divisions, each built with deep therapeutic focus, dedicated promotional inputs, and clinical efficacy to empower franchise associates and prescribing clinicians.
@@ -125,11 +125,11 @@ export default function DivisionsPage() {
               ].map((f, i) => (
                 <div
                   key={f.a}
-                  className={`flex items-center gap-2.5 whitespace-nowrap ${i > 0 ? "sm:border-l sm:border-[#cfe0f7] sm:pl-5" : ""}`}
+                  className={`flex items-center gap-2.5 whitespace-nowrap ${i > 0 ? "sm:border-l sm:border-[#99f6e4] sm:pl-5" : ""}`}
                 >
-                  <f.icon className="w-7 h-7 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                  <f.icon className="w-7 h-7 shrink-0 text-[#0d9488]" strokeWidth={1.5} />
                   <div className="leading-tight">
-                    <div className="text-[13px] font-bold text-[#0a1f44]">{f.a}</div>
+                    <div className="text-[13px] font-bold text-[#0b192c]">{f.a}</div>
                     <div className="text-xs text-slate-500">{f.b}</div>
                   </div>
                 </div>
@@ -146,11 +146,11 @@ export default function DivisionsPage() {
           ].map((c) => (
             <div
               key={c.a}
-              className={`absolute ${c.pos} w-[250px] xl:w-[280px] flex items-center gap-4 rounded-[4px] border border-white bg-white/85 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(30,80,160,0.18)]`}
+              className={`absolute ${c.pos} w-[250px] xl:w-[280px] flex items-center gap-4 rounded-[4px] border border-white bg-white/85 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(13,148,136,0.18)]`}
             >
-              <c.icon className="w-9 h-9 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+              <c.icon className="w-9 h-9 shrink-0 text-[#0d9488]" strokeWidth={1.5} />
               <div className="leading-snug">
-                <div className="text-sm font-bold text-[#0a1f44]">{c.a}</div>
+                <div className="text-sm font-bold text-[#0b192c]">{c.a}</div>
                 <div className="text-xs text-slate-500 mt-0.5">{c.b}</div>
               </div>
             </div>
@@ -161,16 +161,16 @@ export default function DivisionsPage() {
       {/* Divisions Showcase */}
       <section
         id="divisions"
-        className="relative overflow-hidden bg-gradient-to-b from-[#f7faff] via-[#f1f6fd] to-[#eaf1fb] py-16 lg:py-20 scroll-mt-24"
+        className="relative overflow-hidden bg-gradient-to-b from-[#f0fdfa] via-[#f0fdfa] to-[#f0fdfa] py-16 lg:py-20 scroll-mt-24"
       >
-        <div className="pointer-events-none absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
-        <div className="pointer-events-none absolute bottom-0 -left-40 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/50 blur-3xl" />
+        <div className="pointer-events-none absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-[#ccfbf1]/60 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 -left-40 h-[420px] w-[420px] rounded-full bg-[#ccfbf1]/50 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-14">
             <Eyebrow center>Focused Market Verticals</Eyebrow>
-            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f44] tracking-tight">
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0b192c] tracking-tight">
               Five Divisions, One{" "}
-              <span className="text-[#0b5bd3]">Trusted Partner</span>
+              <span className="text-[#0d9488]">Trusted Partner</span>
             </h2>
             <div className="accent-bar mx-auto mt-4"></div>
           </div>
@@ -185,13 +185,13 @@ export default function DivisionsPage() {
                   {/* Info */}
                   <Reveal
                     direction={flip ? "right" : "left"}
-                    className={`relative overflow-hidden lg:col-span-8 rounded-[4px] border border-white bg-gradient-to-br ${t.card} p-7 sm:p-9 shadow-[0_10px_40px_rgba(30,80,160,0.10)] ${flip ? "lg:order-2" : ""}`}
+                    className={`relative overflow-hidden lg:col-span-8 rounded-[4px] border border-white bg-gradient-to-br ${t.card} p-7 sm:p-9 shadow-[0_10px_40px_rgba(13,148,136,0.10)] ${flip ? "lg:order-2" : ""}`}
                   >
                     <Icon
                       className={`animate-float-slow pointer-events-none absolute -bottom-8 -right-8 h-56 w-56 ${t.deco}`}
                       strokeWidth={1}
                     />
-                    <span className="absolute right-7 top-5 text-5xl font-extrabold text-[#0b5bd3]/10">
+                    <span className="absolute right-7 top-5 text-5xl font-extrabold text-[#0d9488]/10">
                       {String(index + 1).padStart(2, "0")}
                     </span>
 
@@ -206,20 +206,20 @@ export default function DivisionsPage() {
                         </span>
                       </div>
 
-                      <h3 className="mt-5 text-2xl sm:text-3xl font-extrabold text-[#0a1f44] tracking-tight">
+                      <h3 className="mt-5 text-2xl sm:text-3xl font-extrabold text-[#0b192c] tracking-tight">
                         {div.name}
                       </h3>
-                      <div className="mt-1.5 text-sm font-semibold text-[#0b5bd3]">
+                      <div className="mt-1.5 text-sm font-semibold text-[#0d9488]">
                         {div.tagline}
                       </div>
-                      <div className="mt-3 h-[3px] w-8 rounded-full bg-[#0b5bd3]" />
+                      <div className="mt-3 h-[3px] w-8 rounded-full bg-[#0d9488]" />
 
                       <p className="mt-4 text-[15px] text-slate-600 leading-relaxed max-w-2xl">
                         {div.description}
                       </p>
 
                       <div className="mt-6 border-t border-slate-200/70 pt-5">
-                        <div className="text-xs font-bold text-[#0a1f44] uppercase tracking-[0.12em] mb-3">
+                        <div className="text-xs font-bold text-[#0b192c] uppercase tracking-[0.12em] mb-3">
                           Key Therapeutic Focus Areas
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5">
@@ -238,15 +238,15 @@ export default function DivisionsPage() {
                   <Reveal
                     direction={flip ? "left" : "right"}
                     delay={0.12}
-                    className={`lg:col-span-4 relative overflow-hidden rounded-[4px] bg-gradient-to-br from-[#04142f] via-[#08234b] to-[#0a2d5e] text-white p-7 sm:p-8 shadow-[0_20px_50px_rgba(10,26,51,0.3)] flex flex-col ${flip ? "lg:order-1" : ""}`}
+                    className={`lg:col-span-4 relative overflow-hidden rounded-[4px] bg-gradient-to-br from-[#042f2e] via-[#0b192c] to-[#115e59] text-white p-7 sm:p-8 shadow-[0_20px_50px_rgba(11,25,44,0.3)] flex flex-col ${flip ? "lg:order-1" : ""}`}
                   >
                     <Handshake className="pointer-events-none absolute -bottom-8 -right-8 h-48 w-48 text-white/5" strokeWidth={1} />
                     <div className="relative flex flex-col h-full">
-                      <span className="text-sky-400 text-xs font-bold uppercase tracking-[0.14em]">
+                      <span className="text-teal-400 text-xs font-bold uppercase tracking-[0.14em]">
                         Franchise &amp; Product Inquiry
                       </span>
                       <h4 className="mt-3 text-xl font-bold leading-snug">
-                        Partner with the <span className="text-sky-400">{div.category}</span> division
+                        Partner with the <span className="text-teal-400">{div.category}</span> division
                       </h4>
                       <p className="mt-3 text-sm text-slate-300 leading-relaxed">
                         Monopoly marketing rights and promotional material kits currently available for this division.
@@ -255,7 +255,7 @@ export default function DivisionsPage() {
                         <button
                           type="button"
                           onClick={() => handleEnquireDivision(`${div.name} (Franchise Monopoly)`)}
-                          className="flex w-full items-center justify-center gap-3 rounded-[4px] bg-[#0b5bd3] hover:bg-[#1a6de0] px-6 py-3.5 text-sm font-semibold text-white transition cursor-pointer"
+                          className="flex w-full items-center justify-center gap-3 rounded-[4px] bg-[#0d9488] hover:bg-[#14b8a6] px-6 py-3.5 text-sm font-semibold text-white transition cursor-pointer"
                         >
                           Apply for Division Franchise
                           <ArrowRight className="w-4 h-4" />
@@ -278,15 +278,15 @@ export default function DivisionsPage() {
       </section>
 
       {/* Operational Synergy */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#eaf1fb] to-[#f1f6fd] py-16 lg:py-20">
-        <div className="pointer-events-none absolute -top-24 left-1/3 h-72 w-[500px] rounded-full bg-[#dbe8fb]/50 blur-3xl" />
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f0fdfa] to-[#f0fdfa] py-16 lg:py-20">
+        <div className="pointer-events-none absolute -top-24 left-1/3 h-72 w-[500px] rounded-full bg-[#ccfbf1]/50 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             <div className="lg:col-span-6">
               <Eyebrow>Operational Synergy</Eyebrow>
-              <h2 className="mt-4 text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0a1f44] tracking-tight leading-[1.1]">
+              <h2 className="mt-4 text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0b192c] tracking-tight leading-[1.1]">
                 Why Multi-Division Strategy{" "}
-                <span className="block text-[#0b5bd3]">Accelerates Your ROI</span>
+                <span className="block text-[#0d9488]">Accelerates Your ROI</span>
               </h2>
               <p className="mt-5 text-slate-600 text-[15px] leading-relaxed max-w-xl">
                 By segmenting specialized therapies into focused divisions, Incredible Medicare allows distributors to establish deep doctor-prescriber relationships with distinct promotional material, visual aids, and tailored clinical monographs.
@@ -315,8 +315,8 @@ export default function DivisionsPage() {
                 { icon: ShieldCheck, a: "One Quality Standard", b: "Every division backed by WHO-GMP & ISO 9001:2015." },
               ].map((r) => (
                 <div key={r.a} className={`${GLASS} p-5`}>
-                  <r.icon className="w-8 h-8 text-[#0b5bd3]" strokeWidth={1.5} />
-                  <h4 className="mt-3 text-sm font-bold text-[#0a1f44]">{r.a}</h4>
+                  <r.icon className="w-8 h-8 text-[#0d9488]" strokeWidth={1.5} />
+                  <h4 className="mt-3 text-sm font-bold text-[#0b192c]">{r.a}</h4>
                   <p className="mt-1.5 text-xs text-slate-500 leading-relaxed">{r.b}</p>
                 </div>
               ))}
@@ -326,7 +326,7 @@ export default function DivisionsPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0a1f44] via-black to-black py-16 lg:py-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0b192c] via-black to-black py-16 lg:py-20">
         <div className="pointer-events-none absolute -left-32 top-4 hidden h-[420px] w-[420px] overflow-hidden rounded-full border-[14px] border-white/10 opacity-30 lg:block xl:-left-20">
           <Image src="/infra-micro.jpg" alt="" fill sizes="420px" className="object-cover" style={{ objectPosition: "50% 40%" }} />
         </div>
@@ -338,7 +338,7 @@ export default function DivisionsPage() {
           <Eyebrow center dark>Partner for a Healthier Tomorrow</Eyebrow>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.1]">
             Build Your Franchise Across{" "}
-            <span className="block text-sky-400">Every Therapeutic Division</span>
+            <span className="block text-teal-400">Every Therapeutic Division</span>
           </h2>
           <p className="mt-5 text-slate-300 text-sm sm:text-base leading-relaxed">
             Talk to our commercial desk about territory availability, division-wise portfolios, and promotional support for your district.
@@ -355,7 +355,7 @@ export default function DivisionsPage() {
             </button>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-3 rounded-[4px] border border-[#0b5bd3] bg-white hover:bg-slate-50 px-7 py-3.5 text-sm font-semibold text-[#0b5bd3] transition cursor-pointer"
+              className="inline-flex items-center justify-center gap-3 rounded-[4px] border border-[#0d9488] bg-white hover:bg-slate-50 px-7 py-3.5 text-sm font-semibold text-[#0d9488] transition cursor-pointer"
             >
               <MessageSquareText className="w-5 h-5" />
               Contact Commercial Desk
@@ -376,9 +376,9 @@ export default function DivisionsPage() {
                 key={f.b}
                 className={`flex items-center justify-center gap-3 px-3 ${i > 0 ? "lg:border-l lg:border-white/10" : ""}`}
               >
-                <f.icon className="w-9 h-9 shrink-0 text-sky-400" strokeWidth={1.4} />
+                <f.icon className="w-9 h-9 shrink-0 text-teal-400" strokeWidth={1.4} />
                 <div className="leading-tight">
-                  <div className={`text-xl font-extrabold ${f.blue ? "text-sky-400" : "text-white"}`}>{f.a}</div>
+                  <div className={`text-xl font-extrabold ${f.blue ? "text-teal-400" : "text-white"}`}>{f.a}</div>
                   <div className="mt-0.5 text-xs text-slate-400">{f.b}</div>
                 </div>
               </div>

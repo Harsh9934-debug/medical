@@ -127,7 +127,7 @@ export default function Header() {
       <header
         className={cn(
           "sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur transition-shadow duration-300 supports-backdrop-filter:bg-white/85",
-          scrolled ? "shadow-[0_8px_30px_rgba(10,31,68,0.10)]" : "shadow-xs",
+          scrolled ? "shadow-[0_8px_30px_rgba(15,118,110,0.10)]" : "shadow-xs",
         )}
       >
         {/* Top Info Bar */}
@@ -145,18 +145,18 @@ export default function Header() {
                     href={`mailto:${COMPANY_INFO.email}`}
                     className="flex items-center gap-1.5 transition-colors hover:text-white"
                   >
-                    <Mail className="h-3.5 w-3.5 text-sky-400" />
+                    <Mail className="h-3.5 w-3.5 text-teal-400" />
                     <span>{COMPANY_INFO.email}</span>
                   </a>
                   <a
                     href={`tel:+${COMPANY_INFO.whatsapp}`}
                     className="flex items-center gap-1.5 transition-colors hover:text-white"
                   >
-                    <Phone className="h-3.5 w-3.5 text-sky-400" />
+                    <Phone className="h-3.5 w-3.5 text-teal-400" />
                     <span>{COMPANY_INFO.phone}</span>
                   </a>
                   <div className="hidden items-center gap-1.5 text-slate-400 xl:flex">
-                    <MapPin className="h-3.5 w-3.5 text-sky-400" />
+                    <MapPin className="h-3.5 w-3.5 text-teal-400" />
                     <span>{COMPANY_INFO.address}</span>
                   </div>
                 </div>
@@ -197,9 +197,9 @@ export default function Header() {
                 />
               </div>
               <div className="flex flex-col leading-tight">
-                <div className="flex items-center gap-1 whitespace-nowrap text-xl font-extrabold tracking-tight text-slate-900 transition-colors group-hover:text-sky-800 sm:text-2xl">
+                <div className="flex items-center gap-1 whitespace-nowrap text-xl font-extrabold tracking-tight text-slate-900 transition-colors group-hover:text-teal-800 sm:text-2xl">
                   <span>Incredible</span>
-                  <span className="font-bold text-sky-700">Medicare</span>
+                  <span className="font-bold text-teal-700">Medicare</span>
                 </div>
                 <span className="hidden whitespace-nowrap text-[11px] font-semibold uppercase tracking-widest text-slate-500 2xl:block">
                   Pharma Formulations &amp; Healthcare
@@ -242,7 +242,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setEnquiryModalOpen(true)}
-                className="btn-shine inline-flex cursor-pointer items-center gap-2 whitespace-nowrap rounded-[4px] bg-[#0b4a99] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#093d80] hover:shadow"
+                className="btn-shine inline-flex cursor-pointer items-center gap-2 whitespace-nowrap rounded-[4px] bg-[#0f766e] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#115e59] hover:shadow"
               >
                 <FileText className="h-4 w-4" />
                 <span className="2xl:hidden">Get Quote</span>
@@ -255,7 +255,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setEnquiryModalOpen(true)}
-                className="rounded-[4px] bg-[#0b4a99] px-3 py-1.5 text-xs font-semibold text-white"
+                className="rounded-[4px] bg-[#0f766e] px-3 py-1.5 text-xs font-semibold text-white"
               >
                 Quote
               </button>
@@ -285,7 +285,7 @@ export default function Header() {
                 const itemClass = cn(
                   "rounded-lg px-3 py-2.5 text-base font-semibold transition",
                   active
-                    ? "bg-sky-50 font-bold text-sky-800"
+                    ? "bg-teal-50 font-bold text-teal-800"
                     : "text-slate-700 hover:bg-slate-50",
                 );
 
@@ -315,7 +315,7 @@ export default function Header() {
                             <Link
                               key={item.label}
                               href="/products"
-                              className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-sky-50 hover:text-sky-800"
+                              className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-800"
                             >
                               <span>{item.label}</span>
                               <span className="text-[11px] text-slate-400">
@@ -325,7 +325,7 @@ export default function Header() {
                           ))}
                           <Link
                             href="/products"
-                            className="flex items-center gap-1.5 px-3 py-2 text-sm font-semibold text-sky-700"
+                            className="flex items-center gap-1.5 px-3 py-2 text-sm font-semibold text-teal-700"
                           >
                             View complete catalog
                             <ArrowRight className="h-3.5 w-3.5" />
@@ -351,7 +351,7 @@ export default function Header() {
                   setMobileMenuOpen(false);
                   setEnquiryModalOpen(true);
                 }}
-                className="flex w-full items-center justify-center gap-2 rounded-[4px] bg-[#0b4a99] py-3 font-semibold text-white shadow-sm"
+                className="flex w-full items-center justify-center gap-2 rounded-[4px] bg-[#0f766e] py-3 font-semibold text-white shadow-sm"
               >
                 <FileText className="h-4 w-4" />
                 <span>Request Quotation / Franchise Terms</span>
@@ -359,19 +359,19 @@ export default function Header() {
 
               <div className="space-y-2 px-1 pt-1 text-xs text-slate-600">
                 <div className="flex items-center gap-2">
-                  <Mail className="h-4 w-4 shrink-0 text-sky-600" />
+                  <Mail className="h-4 w-4 shrink-0 text-teal-600" />
                   <a href={`mailto:${COMPANY_INFO.email}`}>
                     {COMPANY_INFO.email}
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Phone className="h-4 w-4 shrink-0 text-sky-600" />
+                  <Phone className="h-4 w-4 shrink-0 text-teal-600" />
                   <a href={`tel:+${COMPANY_INFO.whatsapp}`}>
                     {COMPANY_INFO.phone}
                   </a>
                 </div>
                 <div className="flex items-start gap-2">
-                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-sky-600" />
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-teal-600" />
                   <span>{COMPANY_INFO.address}</span>
                 </div>
               </div>
@@ -401,9 +401,9 @@ function ProductsMegaMenu() {
               <NavigationMenuLink asChild>
                 <Link
                   href="/products"
-                  className="group/item flex gap-3 rounded-lg p-3 no-underline outline-hidden transition-colors hover:bg-sky-50 focus:bg-sky-50"
+                  className="group/item flex gap-3 rounded-lg p-3 no-underline outline-hidden transition-colors hover:bg-teal-50 focus:bg-teal-50"
                 >
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center text-sky-700">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center text-teal-700">
                     <Icon className="h-[18px] w-[18px]" />
                   </span>
                   <span className="min-w-0">
@@ -413,7 +413,7 @@ function ProductsMegaMenu() {
                     <span className="mt-1 block text-xs leading-snug text-slate-500">
                       {desc}
                     </span>
-                    <span className="mt-1.5 block text-[11px] font-semibold text-sky-700">
+                    <span className="mt-1.5 block text-[11px] font-semibold text-teal-700">
                       {count}
                     </span>
                   </span>
@@ -434,7 +434,7 @@ function ProductsMegaMenu() {
               <NavigationMenuLink asChild>
                 <Link
                   href="/products"
-                  className="block rounded-md px-2 py-1.5 text-[13px] font-medium text-slate-700 no-underline outline-hidden transition-colors hover:bg-white hover:text-sky-800 focus:bg-white"
+                  className="block rounded-md px-2 py-1.5 text-[13px] font-medium text-slate-700 no-underline outline-hidden transition-colors hover:bg-white hover:text-teal-800 focus:bg-white"
                 >
                   {area}
                 </Link>
@@ -446,7 +446,7 @@ function ProductsMegaMenu() {
         <NavigationMenuLink asChild>
           <Link
             href="/products"
-            className="mt-auto flex items-center justify-between gap-2 rounded-[4px] bg-[#0b4a99] px-3.5 py-3 text-sm font-semibold text-white no-underline outline-hidden transition-colors hover:bg-[#093d80] focus:bg-[#093d80]"
+            className="mt-auto flex items-center justify-between gap-2 rounded-[4px] bg-[#0f766e] px-3.5 py-3 text-sm font-semibold text-white no-underline outline-hidden transition-colors hover:bg-[#115e59] focus:bg-[#115e59]"
           >
             <span className="flex items-center gap-2">
               <Sparkles className="h-4 w-4" />

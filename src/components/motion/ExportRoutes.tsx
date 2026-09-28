@@ -68,7 +68,7 @@ export function ExportRoutes() {
   }, []);
 
   return (
-    <div className="relative overflow-hidden rounded-[4px] border border-white bg-white/80 p-4 shadow-[0_10px_40px_rgba(30,80,160,0.10)] backdrop-blur sm:p-6">
+    <div className="relative overflow-hidden rounded-[4px] border border-white bg-white/80 p-4 shadow-[0_10px_40px_rgba(13,148,136,0.10)] backdrop-blur sm:p-6">
       <svg
         viewBox={`0 0 ${W} ${H}`}
         className="h-auto w-full"
@@ -77,12 +77,12 @@ export function ExportRoutes() {
       >
         <defs>
           <linearGradient id="lane" x1="0" x2="1">
-            <stop offset="0" stopColor="#0b4a99" />
+            <stop offset="0" stopColor="#0f766e" />
             <stop offset="1" stopColor="#22d3ee" />
           </linearGradient>
         </defs>
 
-        <g fill="#c5d8f2">
+        <g fill="#99f6e4">
           {dots.map(([x, y], i) => (
             <circle key={i} cx={x} cy={y} r={1.7} />
           ))}
@@ -92,7 +92,7 @@ export function ExportRoutes() {
           const d = arc(ORIGIN.pos, l.pos);
           return (
             <g key={l.name}>
-              <path d={d} fill="none" stroke="#0b5bd3" strokeOpacity={0.18} strokeWidth={1.5} />
+              <path d={d} fill="none" stroke="#0d9488" strokeOpacity={0.18} strokeWidth={1.5} />
               <path
                 d={d}
                 fill="none"
@@ -112,7 +112,7 @@ export function ExportRoutes() {
                 )}
               </path>
               {!reduce && (
-                <circle r={4.5} fill="#0a1f44">
+                <circle r={4.5} fill="#0b192c">
                   <animateMotion
                     dur="4.5s"
                     begin={`${i * 0.7}s`}
@@ -124,9 +124,9 @@ export function ExportRoutes() {
                   />
                 </circle>
               )}
-              <circle cx={l.pos[0]} cy={l.pos[1]} r={5} fill="#0b5bd3" />
+              <circle cx={l.pos[0]} cy={l.pos[1]} r={5} fill="#0d9488" />
               {!reduce && (
-                <circle cx={l.pos[0]} cy={l.pos[1]} r={5} fill="none" stroke="#0b5bd3" strokeWidth={2}>
+                <circle cx={l.pos[0]} cy={l.pos[1]} r={5} fill="none" stroke="#0d9488" strokeWidth={2}>
                   <animate attributeName="r" values="5;20" dur="2.4s" begin={`${i * 0.4}s`} repeatCount="indefinite" />
                   <animate attributeName="opacity" values="0.7;0" dur="2.4s" begin={`${i * 0.4}s`} repeatCount="indefinite" />
                 </circle>
@@ -135,7 +135,7 @@ export function ExportRoutes() {
                 x={l.pos[0]}
                 y={l.pos[1] + (l.pos[1] > ORIGIN.pos[1] ? 26 : -14)}
                 textAnchor="middle"
-                className="fill-[#0a1f44]"
+                className="fill-[#0b192c]"
                 style={{ fontSize: 14, fontWeight: 700 }}
               >
                 {l.name}
@@ -145,9 +145,9 @@ export function ExportRoutes() {
         })}
 
         <g>
-          <circle cx={ORIGIN.pos[0]} cy={ORIGIN.pos[1]} r={8} fill="#0a1f44" />
+          <circle cx={ORIGIN.pos[0]} cy={ORIGIN.pos[1]} r={8} fill="#0b192c" />
           {!reduce && (
-            <circle cx={ORIGIN.pos[0]} cy={ORIGIN.pos[1]} r={8} fill="none" stroke="#0a1f44" strokeWidth={2}>
+            <circle cx={ORIGIN.pos[0]} cy={ORIGIN.pos[1]} r={8} fill="none" stroke="#0b192c" strokeWidth={2}>
               <animate attributeName="r" values="8;30" dur="2.4s" repeatCount="indefinite" />
               <animate attributeName="opacity" values="0.6;0" dur="2.4s" repeatCount="indefinite" />
             </circle>
@@ -155,7 +155,7 @@ export function ExportRoutes() {
           <text
             x={ORIGIN.pos[0] + 14}
             y={ORIGIN.pos[1] + 5}
-            className="fill-[#0a1f44]"
+            className="fill-[#0b192c]"
             style={{ fontSize: 15, fontWeight: 800 }}
           >
             {ORIGIN.name}
@@ -164,7 +164,7 @@ export function ExportRoutes() {
       </svg>
 
       <div className="mt-3 flex items-center justify-center gap-2 text-xs font-semibold text-slate-500">
-        <Globe2 className="h-4 w-4 text-[#0b5bd3]" />
+        <Globe2 className="h-4 w-4 text-[#0d9488]" />
         Live export lanes from our Zirakpur head office
       </div>
     </div>

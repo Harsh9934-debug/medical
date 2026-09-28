@@ -26,9 +26,9 @@ export default function FloatingAssistant() {
                 setIsExpanded(false);
                 setOpenModal(true);
               }}
-              className="flex items-center gap-2 bg-white text-slate-800 hover:text-sky-700 px-4 py-2.5 rounded-full shadow-lg border border-slate-200 text-xs font-bold transition hover:shadow-xl group"
+              className="flex items-center gap-2 bg-white text-slate-800 hover:text-teal-700 px-4 py-2.5 rounded-full shadow-lg border border-slate-200 text-xs font-bold transition hover:shadow-xl group"
             >
-              <FileText className="w-4 h-4 text-sky-600 group-hover:scale-110 transition" />
+              <FileText className="w-4 h-4 text-teal-600 group-hover:scale-110 transition" />
               <span>Instant Quotation Form</span>
             </button>
 
@@ -59,7 +59,7 @@ export default function FloatingAssistant() {
           <button
             type="button"
             onClick={() => setIsExpanded(!isExpanded)}
-            className="flex items-center gap-2 bg-sky-700 hover:bg-sky-800 text-white px-4 py-3 rounded-full shadow-xl transition-all hover:scale-105 cursor-pointer ring-4 ring-sky-700/20"
+            className="flex items-center gap-2 bg-teal-700 hover:bg-teal-800 text-white px-4 py-3 rounded-full shadow-xl transition-all hover:scale-105 cursor-pointer ring-4 ring-teal-700/20"
             aria-label="Contact assistance options"
           >
             {isExpanded ? (
@@ -69,7 +69,7 @@ export default function FloatingAssistant() {
               </>
             ) : (
               <>
-                <MessageSquare className="w-5 h-5 text-sky-200" />
+                <MessageSquare className="w-5 h-5 text-teal-200" />
                 <span className="text-xs font-bold">Quick Enquiry</span>
               </>
             )}

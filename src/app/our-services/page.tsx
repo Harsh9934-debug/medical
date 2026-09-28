@@ -30,11 +30,11 @@ import { StepFlow } from "@/components/motion/ProcessFlow";
 import { CountUp } from "@/components/motion/CountUp";
 
 const PRIMARY_BTN =
-  "inline-flex items-center gap-3 rounded-[4px] bg-[#0b5bd3] hover:bg-[#0a4db3] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(11,91,211,0.35)] transition cursor-pointer";
+  "inline-flex items-center gap-3 rounded-[4px] bg-[#0d9488] hover:bg-[#0f766e] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(13,148,136,0.35)] transition cursor-pointer";
 const OUTLINE_BTN =
-  "inline-flex items-center gap-3 rounded-[4px] border border-[#0b5bd3] bg-white/70 hover:bg-white px-7 py-3.5 text-sm font-semibold text-[#0b5bd3] transition cursor-pointer";
+  "inline-flex items-center gap-3 rounded-[4px] border border-[#0d9488] bg-white/70 hover:bg-white px-7 py-3.5 text-sm font-semibold text-[#0d9488] transition cursor-pointer";
 const GLASS =
-  "rounded-[4px] border border-white bg-white/80 backdrop-blur shadow-[0_10px_40px_rgba(30,80,160,0.10)]";
+  "rounded-[4px] border border-white bg-white/80 backdrop-blur shadow-[0_10px_40px_rgba(13,148,136,0.10)]";
 
 function Eyebrow({
   children,
@@ -46,8 +46,8 @@ function Eyebrow({
   /** Amber-on-navy variant for CTA sections with a dark background. */
   dark?: boolean;
 }) {
-  const lineClass = dark ? "bg-amber-400/40" : "bg-[#0b5bd3]";
-  const textClass = dark ? "text-amber-400" : "text-[#0b5bd3]";
+  const lineClass = dark ? "bg-amber-400/40" : "bg-[#0d9488]";
+  const textClass = dark ? "text-amber-400" : "text-[#0d9488]";
   return (
     <div className={`flex items-center gap-4 ${center ? "justify-center" : ""}`}>
       <span className={`h-px w-10 ${lineClass}`} />
@@ -71,9 +71,9 @@ function StatsBar({
           key={st.a}
           className={`flex items-center justify-center gap-4 px-3 ${i > 0 ? "lg:border-l lg:border-slate-200" : ""}`}
         >
-          <st.icon className="w-10 h-10 shrink-0 text-[#0b5bd3]" strokeWidth={1.4} />
+          <st.icon className="w-10 h-10 shrink-0 text-[#0d9488]" strokeWidth={1.4} />
           <div className="leading-tight">
-            <div className="text-2xl font-extrabold text-[#0b5bd3]"><CountUp value={st.a} /></div>
+            <div className="text-2xl font-extrabold text-[#0d9488]"><CountUp value={st.a} /></div>
             <div className="mt-1 text-sm text-slate-500">{st.b}</div>
           </div>
         </div>
@@ -94,7 +94,7 @@ export default function ServicesPage() {
   return (
     <div className="w-full bg-white text-slate-900">
       {/* Hero */}
-      <section className="relative flex items-center overflow-hidden bg-gradient-to-br from-[#f7faff] via-[#eef4fc] to-[#e3edfb] lg:min-h-[max(600px,42vw)]">
+      <section className="relative flex items-center overflow-hidden bg-gradient-to-br from-[#f0fdfa] via-[#f0fdfa] to-[#ccfbf1] lg:min-h-[max(600px,42vw)]">
         <Image
           src="/bg3.png"
           alt=""
@@ -106,9 +106,9 @@ export default function ServicesPage() {
         <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-14">
           <div className="max-w-2xl lg:max-w-[52%]">
             <Eyebrow>Our Services</Eyebrow>
-            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-[2.6rem] xl:text-[3.25rem] font-extrabold text-[#0a1f44] tracking-tight leading-[1.08]">
+            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-[2.6rem] xl:text-[3.25rem] font-extrabold text-[#0b192c] tracking-tight leading-[1.08]">
               PCD Pharma Franchise &amp;{" "}
-              <span className="text-[#0b5bd3]">Third-Party Contract Manufacturing</span>
+              <span className="text-[#0d9488]">Third-Party Contract Manufacturing</span>
             </h1>
             <p className="mt-5 text-slate-600 text-base leading-relaxed max-w-xl">
               Incredible Medicare delivers comprehensive pharmaceutical solutions: from district-wise monopoly PCD franchises to full-scale WHO-GMP contract manufacturing for emerging and established healthcare brands.
@@ -141,11 +141,11 @@ export default function ServicesPage() {
               ].map((f, i) => (
                 <div
                   key={f.a}
-                  className={`flex items-center gap-2.5 whitespace-nowrap ${i > 0 ? "sm:border-l sm:border-[#cfe0f7] sm:pl-4" : ""}`}
+                  className={`flex items-center gap-2.5 whitespace-nowrap ${i > 0 ? "sm:border-l sm:border-[#99f6e4] sm:pl-4" : ""}`}
                 >
-                  <f.icon className="w-7 h-7 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                  <f.icon className="w-7 h-7 shrink-0 text-[#0d9488]" strokeWidth={1.5} />
                   <div className="leading-tight">
-                    <div className="text-[13px] font-bold text-[#0a1f44]">{f.a}</div>
+                    <div className="text-[13px] font-bold text-[#0b192c]">{f.a}</div>
                     <div className="text-xs text-slate-500">{f.b}</div>
                   </div>
                 </div>
@@ -163,13 +163,13 @@ export default function ServicesPage() {
           ].map((c) => (
             <div
               key={c.a}
-              className={`absolute ${c.pos} w-[260px] xl:w-[290px] flex items-center gap-4 rounded-[4px] border border-white bg-white/80 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(30,80,160,0.15)]`}
+              className={`absolute ${c.pos} w-[260px] xl:w-[290px] flex items-center gap-4 rounded-[4px] border border-white bg-white/80 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(13,148,136,0.15)]`}
             >
-              <span className="w-14 h-14 shrink-0 rounded-full bg-[#e3edfb] text-[#0b5bd3] flex items-center justify-center">
+              <span className="w-14 h-14 shrink-0 rounded-full bg-[#ccfbf1] text-[#0d9488] flex items-center justify-center">
                 <c.icon className="w-7 h-7" strokeWidth={1.5} />
               </span>
               <div className="leading-snug">
-                <div className="text-sm font-bold text-[#0a1f44]">{c.a}</div>
+                <div className="text-sm font-bold text-[#0b192c]">{c.a}</div>
                 <div className="text-xs text-slate-500 mt-0.5">{c.b}</div>
               </div>
             </div>
@@ -178,16 +178,16 @@ export default function ServicesPage() {
       </section>
 
       {/* 1. Third Party Manufacturing */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#f7faff] to-[#eef4fc] py-16 lg:py-20">
-        <div className="pointer-events-none absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
-        <div className="pointer-events-none absolute top-1/3 -left-40 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/50 blur-3xl" />
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f0fdfa] to-[#f0fdfa] py-16 lg:py-20">
+        <div className="pointer-events-none absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-[#ccfbf1]/60 blur-3xl" />
+        <div className="pointer-events-none absolute top-1/3 -left-40 h-[420px] w-[420px] rounded-full bg-[#ccfbf1]/50 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             <div className="lg:col-span-7">
               <Eyebrow>Contract Manufacturing</Eyebrow>
-              <h2 className="mt-4 text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0a1f44] tracking-tight leading-[1.1]">
+              <h2 className="mt-4 text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0b192c] tracking-tight leading-[1.1]">
                 Third-Party Pharmaceutical{" "}
-                <span className="block text-[#0b5bd3]">Manufacturing Services</span>
+                <span className="block text-[#0d9488]">Manufacturing Services</span>
               </h2>
               <p className="mt-5 text-slate-600 text-[15px] leading-relaxed max-w-2xl">
                 We offer reliable, end-to-end third-party manufacturing backed by our WHO-GMP certified production facility. Whether you require solid orals (tablets, capsules), liquid syrups, sterile injectables, or topical formulations, we deliver guaranteed quality, rapid turnaround, and competitive commercial pricing.
@@ -201,12 +201,12 @@ export default function ServicesPage() {
                   { icon: Gauge, a: "Timely Dispatch & Bulk Scale", b: "Automated high-capacity lines ensuring on-time batch release and uninterrupted supply chains." },
                 ].map((r) => (
                   <div key={r.a} className={`${GLASS} flex items-center gap-4 px-5 py-3.5`}>
-                    <r.icon className="w-7 h-7 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                    <r.icon className="w-7 h-7 shrink-0 text-[#0d9488]" strokeWidth={1.5} />
                     <div className="min-w-0 flex-1">
-                      <div className="text-sm font-bold text-[#0a1f44]">{r.a}</div>
+                      <div className="text-sm font-bold text-[#0b192c]">{r.a}</div>
                       <div className="text-xs text-slate-500 mt-0.5">{r.b}</div>
                     </div>
-                    <ChevronRight className="w-4 h-4 shrink-0 text-[#0b5bd3]" />
+                    <ChevronRight className="w-4 h-4 shrink-0 text-[#0d9488]" />
                   </div>
                 ))}
               </div>
@@ -226,7 +226,7 @@ export default function ServicesPage() {
             {/* Right: photo + navy credentials card */}
             <div className="lg:col-span-5 relative">
               <div className="relative">
-                <div className="relative h-[280px] sm:h-[340px] overflow-hidden rounded-[4px] shadow-[0_16px_50px_rgba(30,80,160,0.18)]">
+                <div className="relative h-[280px] sm:h-[340px] overflow-hidden rounded-[4px] shadow-[0_16px_50px_rgba(13,148,136,0.18)]">
                   <Image
                     src="/herobg.png"
                     alt="Pharmaceutical manufacturing line"
@@ -236,21 +236,21 @@ export default function ServicesPage() {
                     style={{ objectPosition: "90% 45%" }}
                   />
                 </div>
-                <div className="absolute top-6 -right-2 lg:-right-6 flex items-center gap-4 rounded-[4px] border border-white bg-white/90 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(30,80,160,0.18)]">
-                  <Factory className="w-9 h-9 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                <div className="absolute top-6 -right-2 lg:-right-6 flex items-center gap-4 rounded-[4px] border border-white bg-white/90 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(13,148,136,0.18)]">
+                  <Factory className="w-9 h-9 shrink-0 text-[#0d9488]" strokeWidth={1.5} />
                   <div className="leading-snug">
-                    <div className="text-sm font-bold text-[#0a1f44]">WHO-GMP Certified Plant</div>
+                    <div className="text-sm font-bold text-[#0b192c]">WHO-GMP Certified Plant</div>
                     <div className="text-xs text-slate-500">Backed by global standards.</div>
                   </div>
                 </div>
               </div>
 
-              <div className="relative -mt-10 lg:-mr-4 rounded-[4px] bg-[#0a1a33] text-white p-7 sm:p-8 shadow-[0_20px_50px_rgba(10,26,51,0.4)]">
-                <span className="text-sky-400 text-xs font-bold uppercase tracking-[0.14em]">
+              <div className="relative -mt-10 lg:-mr-4 rounded-[4px] bg-[#0b192c] text-white p-7 sm:p-8 shadow-[0_20px_50px_rgba(11,25,44,0.4)]">
+                <span className="text-teal-400 text-xs font-bold uppercase tracking-[0.14em]">
                   Manufacturing Credentials
                 </span>
                 <h3 className="mt-3 text-xl sm:text-2xl font-bold leading-snug">
-                  SIDCO Industrial Complex, <span className="text-sky-400">Kathua</span>
+                  SIDCO Industrial Complex, <span className="text-teal-400">Kathua</span>
                 </h3>
                 <ul className="mt-4 space-y-2.5 text-sm text-slate-300">
                   {[
@@ -261,7 +261,7 @@ export default function ServicesPage() {
                     "Comprehensive Legal & DCGI Documentation Assistance",
                   ].map((t) => (
                     <li key={t} className="flex items-start gap-3">
-                      <ShieldCheck className="w-4 h-4 shrink-0 text-sky-400 mt-0.5" />
+                      <ShieldCheck className="w-4 h-4 shrink-0 text-teal-400 mt-0.5" />
                       <span>{t}</span>
                     </li>
                   ))}
@@ -272,7 +272,7 @@ export default function ServicesPage() {
                     Direct coordination from our Corporate HQ, Unicity Business Park.
                   </span>
                   <span className="flex items-center gap-1.5 whitespace-nowrap">
-                    <MapPin className="w-4 h-4 text-sky-400" />
+                    <MapPin className="w-4 h-4 text-teal-400" />
                     Zirakpur
                   </span>
                 </div>
@@ -294,13 +294,13 @@ export default function ServicesPage() {
       </section>
 
       {/* 2. PCD Pharma Franchise */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#eef4fc] via-[#f6f9fe] to-[#eaf1fb] py-16 lg:py-20">
-        <div className="pointer-events-none absolute -bottom-32 -right-32 h-[400px] w-[400px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f0fdfa] via-[#f6f9fe] to-[#f0fdfa] py-16 lg:py-20">
+        <div className="pointer-events-none absolute -bottom-32 -right-32 h-[400px] w-[400px] rounded-full bg-[#ccfbf1]/60 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             {/* Left: support kit */}
             <div className="lg:col-span-5 order-2 lg:order-1 relative">
-              <div className="relative h-[220px] sm:h-[260px] overflow-hidden rounded-[4px] shadow-[0_16px_50px_rgba(30,80,160,0.18)]">
+              <div className="relative h-[220px] sm:h-[260px] overflow-hidden rounded-[4px] shadow-[0_16px_50px_rgba(13,148,136,0.18)]">
                 <Image
                   src="/herobg.png"
                   alt="Vial filling line"
@@ -310,10 +310,10 @@ export default function ServicesPage() {
                   style={{ objectPosition: "85% 90%" }}
                 />
               </div>
-              <div className="absolute top-5 -left-2 lg:-left-6 flex items-center gap-4 rounded-[4px] border border-white bg-white/90 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(30,80,160,0.18)]">
-                <Award className="w-9 h-9 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+              <div className="absolute top-5 -left-2 lg:-left-6 flex items-center gap-4 rounded-[4px] border border-white bg-white/90 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(13,148,136,0.18)]">
+                <Award className="w-9 h-9 shrink-0 text-[#0d9488]" strokeWidth={1.5} />
                 <div className="leading-snug">
-                  <div className="text-sm font-bold text-[#0a1f44]">Franchise Support Kit</div>
+                  <div className="text-sm font-bold text-[#0b192c]">Franchise Support Kit</div>
                   <div className="text-xs text-slate-500">Free Promotional Inputs Included</div>
                 </div>
               </div>
@@ -331,15 +331,15 @@ export default function ServicesPage() {
                       key={label}
                       className="flex items-center justify-between gap-3 rounded-[4px] border border-slate-100 bg-white px-4 py-3"
                     >
-                      <span className="text-sm font-semibold text-[#0a1f44]">{label}</span>
+                      <span className="text-sm font-semibold text-[#0b192c]">{label}</span>
                       <span className="shrink-0 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">
                         {tag}
                       </span>
                     </div>
                   ))}
                 </div>
-                <div className="mt-4 flex items-start gap-3 rounded-[4px] bg-[#eaf1fd] px-4 py-3.5 text-sm font-medium text-[#0a2d5e]">
-                  <ShieldCheck className="w-5 h-5 shrink-0 text-[#0b5bd3] mt-0.5" strokeWidth={1.7} />
+                <div className="mt-4 flex items-start gap-3 rounded-[4px] bg-[#f0fdfa] px-4 py-3.5 text-sm font-medium text-[#115e59]">
+                  <ShieldCheck className="w-5 h-5 shrink-0 text-[#0d9488] mt-0.5" strokeWidth={1.7} />
                   Monopoly rights granted with formal legal authorization agreement for your district.
                 </div>
               </div>
@@ -348,9 +348,9 @@ export default function ServicesPage() {
             {/* Right: content */}
             <div className="lg:col-span-7 order-1 lg:order-2">
               <Eyebrow>Franchise Opportunity</Eyebrow>
-              <h2 className="mt-4 text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0a1f44] tracking-tight leading-[1.1]">
+              <h2 className="mt-4 text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0b192c] tracking-tight leading-[1.1]">
                 PCD Pharma Franchise –{" "}
-                <span className="block text-[#0b5bd3]">Grow Your Business with Complete Monopoly</span>
+                <span className="block text-[#0d9488]">Grow Your Business with Complete Monopoly</span>
               </h2>
               <p className="mt-5 text-slate-600 text-[15px] leading-relaxed max-w-2xl">
                 Incredible Medicare invites pharma professionals, medical representatives, distributors, and entrepreneurs to become our exclusive franchise associates. We offer attractive net price rates, wide product availability, zero internal competition, and comprehensive promotional backing.
@@ -365,12 +365,12 @@ export default function ServicesPage() {
                   { icon: Truck, a: "Prompt 24-48h Pan-India Dispatch", b: "Fast logistics handling to prevent chemist stockouts." },
                 ].map((p) => (
                   <div key={p.a} className={`${GLASS} flex items-center gap-4 px-5 py-3.5`}>
-                    <p.icon className="w-7 h-7 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                    <p.icon className="w-7 h-7 shrink-0 text-[#0d9488]" strokeWidth={1.5} />
                     <div className="min-w-0 flex-1">
-                      <div className="text-sm font-bold text-[#0a1f44]">{p.a}</div>
+                      <div className="text-sm font-bold text-[#0b192c]">{p.a}</div>
                       <div className="text-xs text-slate-500 mt-0.5">{p.b}</div>
                     </div>
-                    <ChevronRight className="w-4 h-4 shrink-0 text-[#0b5bd3]" />
+                    <ChevronRight className="w-4 h-4 shrink-0 text-[#0d9488]" />
                   </div>
                 ))}
               </div>
@@ -391,7 +391,7 @@ export default function ServicesPage() {
       </section>
 
       {/* 3. Formulation R&D and Regulatory */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#f7faff] via-[#f1f6fd] to-[#eaf1fb] py-16 lg:py-20">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f0fdfa] via-[#f0fdfa] to-[#f0fdfa] py-16 lg:py-20">
         <div className="pointer-events-none absolute inset-x-0 top-0 hidden h-[460px] overflow-hidden lg:block [mask-image:linear-gradient(to_right,black_0,black_28%,transparent_44%,transparent_62%,black_82%)]">
           <Image src="/bg3.png" alt="" fill sizes="100vw" className="select-none object-cover object-top" />
         </div>
@@ -399,9 +399,9 @@ export default function ServicesPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-14">
             <Eyebrow center>Technical Excellence</Eyebrow>
-            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f44] tracking-tight">
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0b192c] tracking-tight">
               Formulation R&amp;D &amp;{" "}
-              <span className="text-[#0b5bd3]">Regulatory Services</span>
+              <span className="text-[#0d9488]">Regulatory Services</span>
             </h2>
             <div className="accent-bar mx-auto mt-4"></div>
             <p className="mt-5 text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -437,13 +437,13 @@ export default function ServicesPage() {
               },
             ].map((c) => (
               <div key={c.title} className={`${GLASS} relative overflow-hidden p-7 flex flex-col`}>
-                <span className="absolute right-6 top-5 text-5xl font-extrabold text-[#0b5bd3]/10">{c.n}</span>
-                <c.icon className="w-10 h-10 text-[#0b5bd3]" strokeWidth={1.5} />
-                <h3 className="mt-5 text-2xl font-extrabold text-[#0a1f44]">{c.title}</h3>
-                <div className="mt-2 h-[3px] w-8 rounded-full bg-[#0b5bd3]" />
+                <span className="absolute right-6 top-5 text-5xl font-extrabold text-[#0d9488]/10">{c.n}</span>
+                <c.icon className="w-10 h-10 text-[#0d9488]" strokeWidth={1.5} />
+                <h3 className="mt-5 text-2xl font-extrabold text-[#0b192c]">{c.title}</h3>
+                <div className="mt-2 h-[3px] w-8 rounded-full bg-[#0d9488]" />
                 <p className="mt-4 text-sm text-slate-600 leading-relaxed lg:max-w-[64%]">{c.desc}</p>
                 <span className="relative z-10 mt-auto pt-6 self-start">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-[#cfe0f7] bg-white/80 px-4 py-2 text-xs font-semibold text-[#0b4a99]">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-[#99f6e4] bg-white/80 px-4 py-2 text-xs font-semibold text-[#0f766e]">
                     {c.pill}
                     <ArrowRight className="w-3.5 h-3.5" />
                   </span>
@@ -465,7 +465,7 @@ export default function ServicesPage() {
 
       {/* Partnership journey */}
       <StepFlow
-        tone="from-[#f7faff] via-[#f1f6fd] to-[#eaf1fb]"
+        tone="from-[#f0fdfa] via-[#f0fdfa] to-[#f0fdfa]"
         eyebrow="Getting Started"
         icon={Handshake}
         title="Your Partnership,"
@@ -481,7 +481,7 @@ export default function ServicesPage() {
       />
 
       {/* 4. CTA */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0a1f44] via-black to-black py-16 lg:py-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0b192c] via-black to-black py-16 lg:py-20">
         <div
           className="pointer-events-none absolute -left-32 top-4 hidden h-[420px] w-[420px] rounded-full border-[14px] border-white/10 opacity-30 lg:block xl:-left-20"
           style={{
@@ -505,7 +505,7 @@ export default function ServicesPage() {
           <Eyebrow center dark>Partner for a Healthier Tomorrow</Eyebrow>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.1]">
             Ready to Grow with{" "}
-            <span className="block text-sky-400">Incredible Medicare?</span>
+            <span className="block text-teal-400">Incredible Medicare?</span>
           </h2>
           <p className="mt-5 text-slate-300 text-sm sm:text-base leading-relaxed">
             Tell us about your requirement and our team will get back within one working day with rates, terms, and complete support.
@@ -518,7 +518,7 @@ export default function ServicesPage() {
             </button>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-3 rounded-[4px] border border-[#0b5bd3] bg-white hover:bg-slate-50 px-7 py-3.5 text-sm font-semibold text-[#0b5bd3] transition cursor-pointer"
+              className="inline-flex items-center justify-center gap-3 rounded-[4px] border border-[#0d9488] bg-white hover:bg-slate-50 px-7 py-3.5 text-sm font-semibold text-[#0d9488] transition cursor-pointer"
             >
               <MessageSquareText className="w-5 h-5" />
               Contact Us Directly
@@ -539,9 +539,9 @@ export default function ServicesPage() {
                 key={f.a}
                 className={`flex items-center justify-center gap-3 px-3 ${i > 0 ? "lg:border-l lg:border-white/10" : ""}`}
               >
-                <f.icon className="w-9 h-9 shrink-0 text-sky-400" strokeWidth={1.4} />
+                <f.icon className="w-9 h-9 shrink-0 text-teal-400" strokeWidth={1.4} />
                 <div className="leading-tight">
-                  <div className={`text-base font-bold ${f.blue ? "text-sky-400" : "text-white"}`}>{f.a}</div>
+                  <div className={`text-base font-bold ${f.blue ? "text-teal-400" : "text-white"}`}>{f.a}</div>
                   <div className="mt-0.5 text-xs text-slate-400">{f.b}</div>
                 </div>
               </div>

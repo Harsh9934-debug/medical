@@ -2,7 +2,8 @@
 @import "tw-animate-css";
 
 @theme inline {
-  --font-serif: var(--font-serif-display), Georgia, serif;
+  --font-serif: var(--font-serif-display), ui-sans-serif, system-ui, sans-serif;
+  --color-slate-900: #0b192c;
   --animate-marquee: marquee 38s linear infinite;
   --animate-belt: belt 1.2s linear infinite;
   --animate-float: float 6s ease-in-out infinite;
@@ -16,9 +17,9 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0f172a;
-  --primary-navy: #0a2540;
-  --primary-blue: #164e8a;
+  --foreground: #0b192c;
+  --primary-navy: #0b192c;
+  --primary-blue: #0d9488;
   --accent-cyan: #0284c7;
   --surface-muted: #f8fafc;
   --border-subtle: #e2e8f0;
@@ -29,12 +30,12 @@ html {
   color-scheme: light;
   scroll-behavior: smooth;
   background-color: #ffffff;
-  color: #0f172a;
+  color: #0b192c;
 }
 
 body {
   background-color: #ffffff;
-  color: #0f172a;
+  color: #0b192c;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -77,7 +78,7 @@ body {
 .accent-bar {
   height: 3px;
   width: 48px;
-  background: linear-gradient(90deg, #164e8a 0%, #0284c7 100%);
+  background: linear-gradient(90deg, #0d9488 0%, #0284c7 100%);
   border-radius: 9999px;
 }
 
@@ -166,7 +167,7 @@ button:hover .lucide-arrow-up-right {
 
 /* Soft focus ring for keyboard users */
 :focus-visible {
-  outline: 2px solid #0b5bd3;
+  outline: 2px solid #0d9488;
   outline-offset: 3px;
 }
 

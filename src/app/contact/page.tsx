@@ -33,11 +33,6 @@ const CONTACT_LINKS: ContactLink[] = [
     href: `tel:+${COMPANY_INFO.whatsapp}`,
   },
   {
-    icon: Phone,
-    label: `${COMPANY_INFO.altPhone} (Alt)`,
-    href: `tel:${COMPANY_INFO.altPhone.replace(/\s/g, "")}`,
-  },
-  {
     icon: MapPin,
     label: COMPANY_INFO.address,
     href: `https://maps.google.com/?q=${encodeURIComponent(MAPS_QUERY)}`,
@@ -50,7 +45,7 @@ const CONTACT_LINKS: ContactLink[] = [
 ];
 
 const inputClass =
-  "w-full rounded-[4px] border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-800 outline-none transition-all duration-200 placeholder:text-slate-400 focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-500/15";
+  "w-full rounded-[4px] border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-800 outline-none transition-all duration-200 placeholder:text-slate-400 focus:border-teal-500 focus:bg-white focus:ring-2 focus:ring-teal-500/15";
 const labelClass =
   "mb-1.5 block text-xs font-semibold uppercase tracking-widest text-slate-400";
 
@@ -153,7 +148,7 @@ export default function ContactPage() {
                   required
                   value={formData.phone}
                   onChange={set("phone")}
-                  placeholder="+91 98765 43210"
+                  placeholder="+91 90414 13777"
                   className={inputClass}
                 />
               </div>
@@ -273,12 +268,12 @@ export default function ContactPage() {
           {/* Manufacturing Complex */}
           <Reveal className="flex flex-col gap-4 rounded-[4px] bg-slate-900 p-6 text-white sm:flex-row sm:items-center sm:justify-between sm:p-8">
             <div className="flex items-start gap-4">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[4px] bg-slate-800 text-sky-400">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[4px] bg-slate-800 text-teal-400">
                 <Factory className="h-5 w-5" />
               </span>
               <div>
                 <h3 className="text-base font-bold">Manufacturing Complex</h3>
-                <p className="text-xs text-sky-400">
+                <p className="text-xs text-teal-400">
                   WHO-GMP &amp; ISO 9001:2015
                 </p>
                 <p className="mt-2 max-w-xl text-xs leading-relaxed text-slate-300">
@@ -305,7 +300,7 @@ export default function ContactPage() {
                 href={`https://maps.google.com/?q=${encodeURIComponent(MAPS_QUERY)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-xs font-bold text-sky-700 hover:text-sky-900 hover:underline"
+                className="flex items-center gap-1 text-xs font-bold text-teal-700 hover:text-teal-900 hover:underline"
               >
                 Open in Google Maps
               </a>

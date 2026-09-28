@@ -76,7 +76,7 @@ export function StepFlow({
   title = "How Every Batch Is",
   highlight = "Made & Released",
   intro = "Six controlled stages, each with documented checks, so what leaves our WHO-GMP plant matches the label every time.",
-  tone = "from-[#eef4fc] via-[#f6f9fe] to-white",
+  tone = "from-[#f0fdfa] via-[#f6f9fe] to-white",
 }: {
   steps?: Step[];
   eyebrow?: string;
@@ -112,8 +112,8 @@ export function StepFlow({
       data-no-reveal
       className={`relative overflow-hidden border-b border-slate-200 bg-gradient-to-b ${tone} py-16 lg:py-20`}
     >
-      <div className="pointer-events-none absolute -left-32 top-10 h-[380px] w-[380px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 bottom-0 h-[380px] w-[380px] rounded-full bg-[#cfe0f7]/50 blur-3xl" />
+      <div className="pointer-events-none absolute -left-32 top-10 h-[380px] w-[380px] rounded-full bg-[#ccfbf1]/60 blur-3xl" />
+      <div className="pointer-events-none absolute -right-32 bottom-0 h-[380px] w-[380px] rounded-full bg-[#99f6e4]/50 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -123,12 +123,12 @@ export function StepFlow({
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: EASE }}
         >
-          <span className="inline-flex items-center gap-2.5 rounded-full border border-[#e3ecfa] bg-white px-5 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[#0b5bd3] shadow-[0_4px_16px_rgba(30,80,160,0.10)] sm:text-xs">
+          <span className="inline-flex items-center gap-2.5 rounded-full border border-[#ccfbf1] bg-white px-5 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[#0d9488] shadow-[0_4px_16px_rgba(13,148,136,0.10)] sm:text-xs">
             <EyebrowIcon className="h-4 w-4" strokeWidth={2} />
             {eyebrow}
           </span>
-          <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-[#0a1f44] sm:text-4xl lg:text-5xl">
-            {title} <span className="text-[#0b5bd3]">{highlight}</span>
+          <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-[#0b192c] sm:text-4xl lg:text-5xl">
+            {title} <span className="text-[#0d9488]">{highlight}</span>
           </h2>
           <div className="accent-bar mx-auto mt-4" />
           <p className="mt-5 text-sm leading-relaxed text-slate-600 sm:text-base">
@@ -138,9 +138,9 @@ export function StepFlow({
 
         <div className={`relative grid gap-8 lg:gap-5 ${COLS[STEPS.length] ?? "lg:grid-cols-6"}`}>
           {/* Desktop connector */}
-          <div className="pointer-events-none absolute top-[22px] hidden h-[2px] rounded-full bg-[#dbe6f6] lg:block" style={{ left: edge, right: edge }}>
+          <div className="pointer-events-none absolute top-[22px] hidden h-[2px] rounded-full bg-[#ccfbf1] lg:block" style={{ left: edge, right: edge }}>
             <motion.div
-              className="h-full origin-left rounded-full bg-gradient-to-r from-[#0b4a99] to-[#3b8ff0]"
+              className="h-full origin-left rounded-full bg-gradient-to-r from-[#0f766e] to-[#14b8a6]"
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true, margin: "-80px" }}
@@ -153,9 +153,9 @@ export function StepFlow({
             />
           </div>
           {/* Mobile connector */}
-          <div className="pointer-events-none absolute bottom-6 left-[21px] top-6 w-[2px] rounded-full bg-[#dbe6f6] lg:hidden">
+          <div className="pointer-events-none absolute bottom-6 left-[21px] top-6 w-[2px] rounded-full bg-[#ccfbf1] lg:hidden">
             <motion.div
-              className="h-full origin-top rounded-full bg-gradient-to-b from-[#0b4a99] to-[#3b8ff0]"
+              className="h-full origin-top rounded-full bg-gradient-to-b from-[#0f766e] to-[#14b8a6]"
               initial={{ scaleY: 0 }}
               whileInView={{ scaleY: 1 }}
               viewport={{ once: true, margin: "-80px" }}
@@ -177,27 +177,27 @@ export function StepFlow({
               >
                 <div className="relative flex h-11 w-11 shrink-0 items-center justify-center">
                   {isActive && (
-                    <span className="absolute inset-0 animate-ping rounded-full bg-[#0b5bd3]/30" />
+                    <span className="absolute inset-0 animate-ping rounded-full bg-[#0d9488]/30" />
                   )}
                   <span
                     className={`relative flex h-11 w-11 items-center justify-center rounded-full border-2 text-xs font-extrabold transition-colors duration-500 ${
                       isActive
-                        ? "border-[#0b4a99] bg-[#0b4a99] text-white"
-                        : "border-[#b9d0f2] bg-white text-[#0b4a99]"
+                        ? "border-[#0f766e] bg-[#0f766e] text-white"
+                        : "border-[#99f6e4] bg-white text-[#0f766e]"
                     }`}
                   >
                     0{i + 1}
                   </span>
                 </div>
 
-                <div className="min-w-0 flex-1 rounded-[4px] border border-white bg-white/85 p-5 shadow-[0_10px_36px_rgba(30,80,160,0.10)] backdrop-blur lg:w-full lg:flex-1">
+                <div className="min-w-0 flex-1 rounded-[4px] border border-white bg-white/85 p-5 shadow-[0_10px_36px_rgba(13,148,136,0.10)] backdrop-blur lg:w-full lg:flex-1">
                   <Icon
-                    className={`h-8 w-8 text-[#0b5bd3] transition-transform duration-500 lg:mx-auto ${
+                    className={`h-8 w-8 text-[#0d9488] transition-transform duration-500 lg:mx-auto ${
                       isActive ? "scale-110" : ""
                     }`}
                     strokeWidth={1.5}
                   />
-                  <h3 className="mt-3 text-[15px] font-bold leading-snug text-[#0a1f44]">
+                  <h3 className="mt-3 text-[15px] font-bold leading-snug text-[#0b192c]">
                     {s.title}
                   </h3>
                   <p className="mt-2 text-[13px] leading-relaxed text-slate-600">

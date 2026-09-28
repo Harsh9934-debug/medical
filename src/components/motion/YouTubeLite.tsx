@@ -48,9 +48,9 @@ export function YouTubeLite({
         className="object-cover transition duration-500 group-hover:scale-105"
         unoptimized
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#04142f]/70 via-[#04142f]/10 to-transparent transition group-hover:from-[#04142f]/80" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#042f2e]/70 via-[#042f2e]/10 to-transparent transition group-hover:from-[#042f2e]/80" />
       <span className="absolute inset-0 flex items-center justify-center">
-        <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white/95 text-[#0b4a99] shadow-[0_10px_30px_rgba(10,31,68,0.45)] transition-transform duration-300 group-hover:scale-110 sm:h-20 sm:w-20">
+        <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white/95 text-[#0f766e] shadow-[0_10px_30px_rgba(15,118,110,0.45)] transition-transform duration-300 group-hover:scale-110 sm:h-20 sm:w-20">
           <Play className="h-7 w-7 translate-x-0.5 fill-current sm:h-8 sm:w-8" />
         </span>
       </span>

@@ -721,9 +721,9 @@ export default function ContactWithGlobe({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: smoothEase }}
-            className="inline-flex items-center rounded-full border border-sky-200 bg-sky-50 px-4 py-1.5"
+            className="inline-flex items-center rounded-full border border-teal-200 bg-teal-50 px-4 py-1.5"
           >
-            <span className="text-sm font-semibold text-sky-700">
+            <span className="text-sm font-semibold text-teal-700">
               {subtitle}
             </span>
           </motion.div>
@@ -774,8 +774,8 @@ export default function ContactWithGlobe({
               {links.map(({ icon: Icon, label, href, external }, i) => {
                 const inner = (
                   <>
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white transition-all duration-200 group-hover:border-sky-300 group-hover:bg-sky-50">
-                      <Icon className="h-4 w-4 text-slate-500 transition-colors duration-200 group-hover:text-sky-700" />
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white transition-all duration-200 group-hover:border-teal-300 group-hover:bg-teal-50">
+                      <Icon className="h-4 w-4 text-slate-500 transition-colors duration-200 group-hover:text-teal-700" />
                     </span>
                     <span className="leading-snug">{label}</span>
                   </>
@@ -814,7 +814,7 @@ export default function ContactWithGlobe({
 
             {extra}
 
-            <div className="relative h-52 overflow-hidden text-sky-700">
+            <div className="relative h-52 overflow-hidden text-teal-700">
               <GlobeWireframe
                 className="absolute left-0 top-0 aspect-square w-full max-w-full"
                 variant="wireframesolid"

@@ -95,7 +95,7 @@ function ColumnHeading({ children }: { children: React.ReactNode }) {
       <h4 className="text-xs font-bold uppercase tracking-[0.14em] text-white">
         {children}
       </h4>
-      <div className="mt-2 h-[3px] w-8 rounded-full bg-sky-400" />
+      <div className="mt-2 h-[3px] w-8 rounded-full bg-teal-400" />
     </div>
   );
 }
@@ -104,8 +104,8 @@ export default function Footer() {
   return (
     <footer className="text-sm text-slate-400">
       {/* CTA band */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-[#0a1f44] to-black py-6">
-        <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-sky-500/10 blur-2xl" />
+      <div className="relative overflow-hidden bg-gradient-to-b from-[#0b192c] to-black py-6">
+        <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-teal-500/10 blur-2xl" />
         <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-amber-400/10 blur-2xl" />
         <div className={`${container} relative`}>
           <div className="grid grid-cols-1 items-center gap-5 rounded-[4px] border border-white/10 bg-white/5 p-5 shadow-[0_10px_40px_rgba(0,0,0,0.25)] backdrop-blur sm:p-6 lg:grid-cols-12">
@@ -115,7 +115,7 @@ export default function Footer() {
               </span>
               <h3 className="mt-2 text-2xl font-extrabold leading-[1.15] tracking-tight text-white sm:text-3xl">
                 Let&rsquo;s Build a Stronger{" "}
-                <span className="block text-sky-400">
+                <span className="block text-teal-400">
                   Healthcare Future Together
                 </span>
               </h3>
@@ -133,12 +133,12 @@ export default function Footer() {
                   href={href}
                   className={`group flex h-full flex-col items-start gap-1.5 ${i > 0 ? "sm:border-l sm:border-white/10 sm:pl-4" : "lg:border-l lg:border-white/10 lg:pl-4"}`}
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-[4px] bg-white/10 text-sky-400">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-[4px] bg-white/10 text-teal-400">
                     <Icon className="h-5 w-5" strokeWidth={1.6} />
                   </span>
                   <span className="flex items-center gap-2 text-sm font-bold text-white">
                     {title}
-                    <ArrowRight className="h-4 w-4 text-sky-400 transition group-hover:translate-x-1" />
+                    <ArrowRight className="h-4 w-4 text-teal-400 transition group-hover:translate-x-1" />
                   </span>
                   <span className="break-words text-xs leading-snug text-slate-400">
                     {desc}
@@ -166,7 +166,7 @@ export default function Footer() {
                 />
                 <span className="flex flex-col leading-tight">
                   <span className="text-xl font-extrabold tracking-tight text-white">
-                    Incredible <span className="text-sky-400">Medicare</span>
+                    Incredible <span className="text-teal-400">Medicare</span>
                   </span>
                   <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
                     Pharma Formulations &amp; Healthcare
@@ -187,7 +187,7 @@ export default function Footer() {
                     key={s.name}
                     href={s.href}
                     aria-label={s.name}
-                    className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-sky-500 hover:text-white"
+                    className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-teal-500 hover:text-white"
                   >
                     <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
                       <path d={s.path} />
@@ -198,23 +198,23 @@ export default function Footer() {
 
               <ul className="space-y-2 border-t border-white/10 pt-3 text-[13px] text-slate-300">
                 <li className="flex items-start gap-4">
-                  <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-sky-400" strokeWidth={1.7} />
+                  <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-teal-400" strokeWidth={1.7} />
                   <span>{COMPANY_INFO.address}</span>
                 </li>
                 <li className="flex items-center gap-4">
-                  <Mail className="h-5 w-5 shrink-0 text-sky-400" strokeWidth={1.7} />
-                  <a href={`mailto:${COMPANY_INFO.email}`} className="transition-colors hover:text-sky-400">
+                  <Mail className="h-5 w-5 shrink-0 text-teal-400" strokeWidth={1.7} />
+                  <a href={`mailto:${COMPANY_INFO.email}`} className="transition-colors hover:text-teal-400">
                     {COMPANY_INFO.email}
                   </a>
                 </li>
                 <li className="flex items-center gap-4">
-                  <Phone className="h-5 w-5 shrink-0 text-sky-400" strokeWidth={1.7} />
-                  <a href={`tel:+${COMPANY_INFO.whatsapp}`} className="transition-colors hover:text-sky-400">
+                  <Phone className="h-5 w-5 shrink-0 text-teal-400" strokeWidth={1.7} />
+                  <a href={`tel:+${COMPANY_INFO.whatsapp}`} className="transition-colors hover:text-teal-400">
                     {COMPANY_INFO.phone}
                   </a>
                 </li>
                 <li className="flex items-center gap-4">
-                  <Clock className="h-5 w-5 shrink-0 text-sky-400" strokeWidth={1.7} />
+                  <Clock className="h-5 w-5 shrink-0 text-teal-400" strokeWidth={1.7} />
                   <span>{COMPANY_INFO.workingHours}</span>
                 </li>
               </ul>
@@ -228,7 +228,7 @@ export default function Footer() {
                   <li key={item.name}>
                     <Link
                       href={item.href}
-                      className="text-[13px] text-slate-400 transition-colors hover:text-sky-400"
+                      className="text-[13px] text-slate-400 transition-colors hover:text-teal-400"
                     >
                       {item.name}
                     </Link>
@@ -244,7 +244,7 @@ export default function Footer() {
                 {DIVISIONS.map((div) => (
                   <li key={div.id}>
                     <Link href="/divisions" className="group block">
-                      <span className="block text-[13px] font-medium text-white transition-colors group-hover:text-sky-400">
+                      <span className="block text-[13px] font-medium text-white transition-colors group-hover:text-teal-400">
                         {div.name}
                       </span>
                       <span className="text-xs text-slate-500">
@@ -261,7 +261,7 @@ export default function Footer() {
               <div className="rounded-[4px] border border-white/10 bg-white/5 p-4">
                 <ColumnHeading>Business Opportunities</ColumnHeading>
                 <div className="mt-4 flex items-start gap-3">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-sky-400">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-teal-400">
                     <Handshake className="h-5 w-5" strokeWidth={1.6} />
                   </span>
                   <div>
@@ -276,14 +276,14 @@ export default function Footer() {
                 </div>
                 <Link
                   href="/contact"
-                  className="mt-3 flex w-full items-center justify-center gap-2 rounded-[4px] bg-[#0b5bd3] px-4 py-2 text-xs font-bold text-white transition hover:bg-[#0a4db3]"
+                  className="mt-3 flex w-full items-center justify-center gap-2 rounded-[4px] bg-[#0d9488] px-4 py-2 text-xs font-bold text-white transition hover:bg-[#0f766e]"
                 >
                   Check Territory Availability
                   <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
 
                 <div className="mt-3 flex items-start gap-3 border-t border-white/10 pt-3">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-sky-400">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-teal-400">
                     <Factory className="h-5 w-5" strokeWidth={1.6} />
                   </span>
                   <div>
@@ -306,7 +306,7 @@ export default function Footer() {
                 key={title}
                 className={`flex items-center gap-4 lg:justify-center ${i > 0 ? "lg:border-l lg:border-white/10" : ""}`}
               >
-                <Icon className="h-7 w-7 shrink-0 text-sky-400" strokeWidth={1.5} />
+                <Icon className="h-7 w-7 shrink-0 text-teal-400" strokeWidth={1.5} />
                 <div>
                   <div className="text-[13px] font-bold text-white">{title}</div>
                   <div className="text-xs text-slate-400">{desc}</div>
@@ -323,10 +323,10 @@ export default function Footer() {
               All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <Link href="/privacy-policy" className="transition-colors hover:text-sky-400">
+              <Link href="/privacy-policy" className="transition-colors hover:text-teal-400">
                 Privacy Policy
               </Link>
-              <Link href="/terms-conditions" className="transition-colors hover:text-sky-400">
+              <Link href="/terms-conditions" className="transition-colors hover:text-teal-400">
                 Terms &amp; Conditions
               </Link>
             </div>

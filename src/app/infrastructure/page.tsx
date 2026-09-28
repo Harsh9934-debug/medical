@@ -31,11 +31,11 @@ import EnquiryModal from "@/components/EnquiryModal";
 import { Conveyor } from "@/components/motion/Conveyor";
 
 const PRIMARY_BTN =
-  "inline-flex items-center gap-3 rounded-[4px] bg-[#0b5bd3] hover:bg-[#0a4db3] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(11,91,211,0.35)] transition cursor-pointer";
+  "inline-flex items-center gap-3 rounded-[4px] bg-[#0d9488] hover:bg-[#0f766e] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(13,148,136,0.35)] transition cursor-pointer";
 const OUTLINE_BTN =
-  "inline-flex items-center gap-3 rounded-[4px] border border-[#0b5bd3] bg-white/70 hover:bg-white px-7 py-3.5 text-sm font-semibold text-[#0b5bd3] transition cursor-pointer";
+  "inline-flex items-center gap-3 rounded-[4px] border border-[#0d9488] bg-white/70 hover:bg-white px-7 py-3.5 text-sm font-semibold text-[#0d9488] transition cursor-pointer";
 const GLASS =
-  "rounded-[4px] border border-white bg-white/80 backdrop-blur shadow-[0_10px_40px_rgba(30,80,160,0.10)]";
+  "rounded-[4px] border border-white bg-white/80 backdrop-blur shadow-[0_10px_40px_rgba(13,148,136,0.10)]";
 
 function Eyebrow({
   children,
@@ -47,8 +47,8 @@ function Eyebrow({
   /** Amber-on-navy variant for CTA sections with a dark background. */
   dark?: boolean;
 }) {
-  const lineClass = dark ? "bg-amber-400/40" : "bg-[#0b5bd3]";
-  const textClass = dark ? "text-amber-400" : "text-[#0b5bd3]";
+  const lineClass = dark ? "bg-amber-400/40" : "bg-[#0d9488]";
+  const textClass = dark ? "text-amber-400" : "text-[#0d9488]";
   return (
     <div className={`flex items-center gap-4 ${center ? "justify-center" : ""}`}>
       <span className={`h-px w-10 ${lineClass}`} />
@@ -66,11 +66,11 @@ export default function InfrastructurePage() {
   return (
     <div className="w-full bg-white text-slate-900">
       {/* Hero */}
-      <section className="relative flex items-center overflow-hidden bg-gradient-to-br from-[#f7faff] via-[#eef4fc] to-[#e3edfb] lg:min-h-[max(600px,42vw)]">
-        <div className="pointer-events-none absolute -top-32 -left-32 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
+      <section className="relative flex items-center overflow-hidden bg-gradient-to-br from-[#f0fdfa] via-[#f0fdfa] to-[#ccfbf1] lg:min-h-[max(600px,42vw)]">
+        <div className="pointer-events-none absolute -top-32 -left-32 h-[420px] w-[420px] rounded-full bg-[#ccfbf1]/60 blur-3xl" />
 
         {/* Photo panel */}
-        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[46%] overflow-hidden rounded-bl-[9rem] shadow-[0_20px_60px_rgba(30,80,160,0.25)] lg:block">
+        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[46%] overflow-hidden rounded-bl-[9rem] shadow-[0_20px_60px_rgba(13,148,136,0.25)] lg:block">
           <Image
             src="/infra-qc.jpg"
             alt="Quality control analyst pipetting samples"
@@ -80,16 +80,16 @@ export default function InfrastructurePage() {
             className="object-cover"
             style={{ objectPosition: "60% 50%" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0b5bd3]/25 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d9488]/25 via-transparent to-transparent" />
         </div>
-        <div className="pointer-events-none absolute right-[42%] top-[18%] hidden h-24 w-24 rounded-full border-[10px] border-[#cfe0f7]/70 lg:block" />
+        <div className="pointer-events-none absolute right-[42%] top-[18%] hidden h-24 w-24 rounded-full border-[10px] border-[#99f6e4]/70 lg:block" />
 
         <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-14">
           <div className="max-w-2xl lg:max-w-[50%]">
             <Eyebrow>Infrastructure</Eyebrow>
-            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-[2.6rem] xl:text-[3.25rem] font-extrabold text-[#0a1f44] tracking-tight leading-[1.08]">
+            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-[2.6rem] xl:text-[3.25rem] font-extrabold text-[#0b192c] tracking-tight leading-[1.08]">
               Advanced Manufacturing &amp;{" "}
-              <span className="text-[#0b5bd3]">Quality Infrastructure</span>
+              <span className="text-[#0d9488]">Quality Infrastructure</span>
             </h1>
             <p className="mt-5 text-slate-600 text-base leading-relaxed max-w-xl">
               Our state-of-the-art pharmaceutical complex operates under WHO-GMP compliance, equipped with computerized HVAC environmental controls, automated high-speed packaging, and dedicated analytical laboratories.
@@ -113,11 +113,11 @@ export default function InfrastructurePage() {
               ].map((f, i) => (
                 <div
                   key={f.a}
-                  className={`flex items-center gap-2.5 whitespace-nowrap ${i > 0 ? "sm:border-l sm:border-[#cfe0f7] sm:pl-5" : ""}`}
+                  className={`flex items-center gap-2.5 whitespace-nowrap ${i > 0 ? "sm:border-l sm:border-[#99f6e4] sm:pl-5" : ""}`}
                 >
-                  <f.icon className="w-7 h-7 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                  <f.icon className="w-7 h-7 shrink-0 text-[#0d9488]" strokeWidth={1.5} />
                   <div className="leading-tight">
-                    <div className="text-[13px] font-bold text-[#0a1f44]">{f.a}</div>
+                    <div className="text-[13px] font-bold text-[#0b192c]">{f.a}</div>
                     <div className="text-xs text-slate-500">{f.b}</div>
                   </div>
                 </div>
@@ -135,11 +135,11 @@ export default function InfrastructurePage() {
           ].map((c) => (
             <div
               key={c.a}
-              className={`absolute ${c.pos} w-[250px] xl:w-[280px] flex items-center gap-4 rounded-[4px] border border-white bg-white/85 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(30,80,160,0.18)]`}
+              className={`absolute ${c.pos} w-[250px] xl:w-[280px] flex items-center gap-4 rounded-[4px] border border-white bg-white/85 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(13,148,136,0.18)]`}
             >
-              <c.icon className="w-9 h-9 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+              <c.icon className="w-9 h-9 shrink-0 text-[#0d9488]" strokeWidth={1.5} />
               <div className="leading-snug">
-                <div className="text-sm font-bold text-[#0a1f44]">{c.a}</div>
+                <div className="text-sm font-bold text-[#0b192c]">{c.a}</div>
                 <div className="text-xs text-slate-500 mt-0.5">{c.b}</div>
               </div>
             </div>
@@ -148,16 +148,16 @@ export default function InfrastructurePage() {
       </section>
 
       {/* Plant Architecture */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#f7faff] to-[#eef4fc] py-16 lg:py-20">
-        <div className="pointer-events-none absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
-        <div className="pointer-events-none absolute top-1/3 -left-40 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/50 blur-3xl" />
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f0fdfa] to-[#f0fdfa] py-16 lg:py-20">
+        <div className="pointer-events-none absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-[#ccfbf1]/60 blur-3xl" />
+        <div className="pointer-events-none absolute top-1/3 -left-40 h-[420px] w-[420px] rounded-full bg-[#ccfbf1]/50 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             <div className="lg:col-span-7">
               <Eyebrow>Plant Architecture</Eyebrow>
-              <h2 className="mt-4 text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0a1f44] tracking-tight leading-[1.1]">
+              <h2 className="mt-4 text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0b192c] tracking-tight leading-[1.1]">
                 Zero Cross-Contamination{" "}
-                <span className="block text-[#0b5bd3]">Cleanroom Design</span>
+                <span className="block text-[#0d9488]">Cleanroom Design</span>
               </h2>
               <p className="mt-5 text-slate-600 text-[15px] leading-relaxed max-w-2xl">
                 The Incredible Medicare manufacturing facility is engineered in strict conformity with current Good Manufacturing Practices (cGMP) and WHO guidelines. Production areas feature progressive airlocks, dedicated supply/exhaust air filtration, and epoxy flooring to guarantee sterile integrity.
@@ -173,12 +173,12 @@ export default function InfrastructurePage() {
                   { icon: ScanEye, a: "Automated Blister & Alu-Alu Packaging Lines", b: "With optical vision checkers." },
                 ].map((r) => (
                   <div key={r.a} className={`${GLASS} flex items-center gap-4 px-5 py-3.5`}>
-                    <r.icon className="w-7 h-7 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                    <r.icon className="w-7 h-7 shrink-0 text-[#0d9488]" strokeWidth={1.5} />
                     <div className="min-w-0 flex-1">
-                      <div className="text-sm font-bold text-[#0a1f44]">{r.a}</div>
+                      <div className="text-sm font-bold text-[#0b192c]">{r.a}</div>
                       <div className="text-xs text-slate-500 mt-0.5">{r.b}</div>
                     </div>
-                    <ChevronRight className="w-4 h-4 shrink-0 text-[#0b5bd3]" />
+                    <ChevronRight className="w-4 h-4 shrink-0 text-[#0d9488]" />
                   </div>
                 ))}
               </div>
@@ -187,7 +187,7 @@ export default function InfrastructurePage() {
             {/* Right: photo + navy plant card */}
             <div className="lg:col-span-5 relative">
               <div className="relative">
-                <div className="relative h-[280px] sm:h-[340px] overflow-hidden rounded-[4px] shadow-[0_16px_50px_rgba(30,80,160,0.18)]">
+                <div className="relative h-[280px] sm:h-[340px] overflow-hidden rounded-[4px] shadow-[0_16px_50px_rgba(13,148,136,0.18)]">
                   <Image
                     src="/infra-lab.jpg"
                     alt="Analytical laboratory with instruments"
@@ -197,21 +197,21 @@ export default function InfrastructurePage() {
                     style={{ objectPosition: "35% 50%" }}
                   />
                 </div>
-                <div className="absolute top-6 -right-2 lg:-right-6 flex items-center gap-4 rounded-[4px] border border-white bg-white/90 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(30,80,160,0.18)]">
-                  <ShieldCheck className="w-9 h-9 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                <div className="absolute top-6 -right-2 lg:-right-6 flex items-center gap-4 rounded-[4px] border border-white bg-white/90 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(13,148,136,0.18)]">
+                  <ShieldCheck className="w-9 h-9 shrink-0 text-[#0d9488]" strokeWidth={1.5} />
                   <div className="leading-snug">
-                    <div className="text-sm font-bold text-[#0a1f44]">cGMP & WHO Guidelines</div>
+                    <div className="text-sm font-bold text-[#0b192c]">cGMP & WHO Guidelines</div>
                     <div className="text-xs text-slate-500">Engineered for sterile integrity.</div>
                   </div>
                 </div>
               </div>
 
-              <div className="relative -mt-10 lg:-mr-4 rounded-[4px] bg-[#0a1a33] text-white p-7 sm:p-8 shadow-[0_20px_50px_rgba(10,26,51,0.4)]">
+              <div className="relative -mt-10 lg:-mr-4 rounded-[4px] bg-[#0b192c] text-white p-7 sm:p-8 shadow-[0_20px_50px_rgba(11,25,44,0.4)]">
                 <div className="flex items-center gap-3">
-                  <Building2 className="w-9 h-9 text-sky-300" strokeWidth={1.5} />
+                  <Building2 className="w-9 h-9 text-teal-300" strokeWidth={1.5} />
                   <div>
                     <h3 className="font-bold text-white text-lg leading-tight">Incredible Medicare Plant</h3>
-                    <p className="text-xs text-sky-400 mt-0.5">SIDCO Industrial Estate, Kathua, J&amp;K</p>
+                    <p className="text-xs text-teal-400 mt-0.5">SIDCO Industrial Estate, Kathua, J&amp;K</p>
                   </div>
                 </div>
 
@@ -223,7 +223,7 @@ export default function InfrastructurePage() {
                     ["10 Million+", "Annual Ointment Tubes"],
                   ].map(([v, l]) => (
                     <div key={l} className="rounded-[4px] border border-white/10 bg-white/5 p-3">
-                      <div className="text-lg font-extrabold text-sky-400">{v}</div>
+                      <div className="text-lg font-extrabold text-teal-400">{v}</div>
                       <div className="mt-0.5 text-xs text-slate-300">{l}</div>
                     </div>
                   ))}
@@ -239,14 +239,14 @@ export default function InfrastructurePage() {
       </section>
 
       {/* Production & Analytical Suites */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#eef4fc] via-[#f1f6fd] to-[#eaf1fb] py-16 lg:py-20">
-        <div className="pointer-events-none absolute -bottom-32 -left-32 h-[400px] w-[400px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f0fdfa] via-[#f0fdfa] to-[#f0fdfa] py-16 lg:py-20">
+        <div className="pointer-events-none absolute -bottom-32 -left-32 h-[400px] w-[400px] rounded-full bg-[#ccfbf1]/60 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-14">
             <Eyebrow center>Specialized Departments</Eyebrow>
-            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f44] tracking-tight">
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0b192c] tracking-tight">
               Dedicated Production &amp;{" "}
-              <span className="text-[#0b5bd3]">Analytical Suites</span>
+              <span className="text-[#0d9488]">Analytical Suites</span>
             </h2>
             <div className="accent-bar mx-auto mt-4"></div>
           </div>
@@ -282,13 +282,13 @@ export default function InfrastructurePage() {
               },
             ].map((c) => (
               <div key={c.title} className={`${GLASS} relative overflow-hidden p-7 flex flex-col`}>
-                <span className="absolute right-6 top-5 text-5xl font-extrabold text-[#0b5bd3]/10">{c.n}</span>
-                <c.icon className="w-10 h-10 text-[#0b5bd3]" strokeWidth={1.5} />
-                <h3 className="mt-5 text-2xl font-extrabold text-[#0a1f44] leading-tight">{c.title}</h3>
-                <div className="mt-2 h-[3px] w-8 rounded-full bg-[#0b5bd3]" />
+                <span className="absolute right-6 top-5 text-5xl font-extrabold text-[#0d9488]/10">{c.n}</span>
+                <c.icon className="w-10 h-10 text-[#0d9488]" strokeWidth={1.5} />
+                <h3 className="mt-5 text-2xl font-extrabold text-[#0b192c] leading-tight">{c.title}</h3>
+                <div className="mt-2 h-[3px] w-8 rounded-full bg-[#0d9488]" />
                 <p className="mt-4 text-sm text-slate-600 leading-relaxed lg:max-w-[66%]">{c.desc}</p>
                 <span className="relative z-10 mt-auto pt-6 self-start">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-[#cfe0f7] bg-white/80 px-4 py-2 text-xs font-semibold text-[#0b4a99]">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-[#99f6e4] bg-white/80 px-4 py-2 text-xs font-semibold text-[#0f766e]">
                     {c.pill}
                     <ArrowRight className="w-3.5 h-3.5" />
                   </span>
@@ -310,13 +310,13 @@ export default function InfrastructurePage() {
       </section>
 
       {/* Quality Control Laboratory */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#eaf1fb] to-[#f7faff] py-16 lg:py-20">
-        <div className="pointer-events-none absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f0fdfa] to-[#f0fdfa] py-16 lg:py-20">
+        <div className="pointer-events-none absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-[#ccfbf1]/60 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Photo */}
             <div className="lg:col-span-5 relative">
-              <div className="relative h-[340px] sm:h-[460px] overflow-hidden rounded-[4px] rounded-tr-[6rem] shadow-[0_16px_50px_rgba(30,80,160,0.18)]">
+              <div className="relative h-[340px] sm:h-[460px] overflow-hidden rounded-[4px] rounded-tr-[6rem] shadow-[0_16px_50px_rgba(13,148,136,0.18)]">
                 <Image
                   src="/infra-micro.jpg"
                   alt="Microbiologist working at a microscope"
@@ -326,10 +326,10 @@ export default function InfrastructurePage() {
                   style={{ objectPosition: "50% 40%" }}
                 />
               </div>
-              <div className="absolute bottom-6 -right-2 lg:-right-8 flex items-center gap-4 rounded-[4px] border border-white bg-white/90 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(30,80,160,0.18)]">
-                <Microscope className="w-9 h-9 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+              <div className="absolute bottom-6 -right-2 lg:-right-8 flex items-center gap-4 rounded-[4px] border border-white bg-white/90 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(13,148,136,0.18)]">
+                <Microscope className="w-9 h-9 shrink-0 text-[#0d9488]" strokeWidth={1.5} />
                 <div className="leading-snug">
-                  <div className="text-sm font-bold text-[#0a1f44]">GLP Compliant QC Lab</div>
+                  <div className="text-sm font-bold text-[#0b192c]">GLP Compliant QC Lab</div>
                   <div className="text-xs text-slate-500">IP, BP &amp; USP monographs.</div>
                 </div>
               </div>
@@ -338,9 +338,9 @@ export default function InfrastructurePage() {
             {/* Content */}
             <div className="lg:col-span-7">
               <Eyebrow>GLP Compliant QC Lab</Eyebrow>
-              <h2 className="mt-4 text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0a1f44] tracking-tight leading-[1.1]">
+              <h2 className="mt-4 text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0b192c] tracking-tight leading-[1.1]">
                 Analytical Instrumentation &amp;{" "}
-                <span className="block text-[#0b5bd3]">Microbiological Validation</span>
+                <span className="block text-[#0d9488]">Microbiological Validation</span>
               </h2>
               <p className="mt-5 text-slate-600 text-[15px] leading-relaxed max-w-2xl">
                 Our in-house Quality Control department ensures that every single raw material and finished medicine meets strict IP, BP, and USP pharmacopeial monographs prior to commercial release.
@@ -354,8 +354,8 @@ export default function InfrastructurePage() {
                   { icon: ThermometerSnowflake, title: "Stability Chambers", desc: "Calibrated walk-in stability chambers testing real-time and accelerated shelf life under Zone IVb climatic conditions." },
                 ].map((item) => (
                   <div key={item.title} className={`${GLASS} p-5`}>
-                    <item.icon className="w-8 h-8 text-[#0b5bd3]" strokeWidth={1.5} />
-                    <h4 className="mt-3 font-bold text-[#0a1f44] text-sm">{item.title}</h4>
+                    <item.icon className="w-8 h-8 text-[#0d9488]" strokeWidth={1.5} />
+                    <h4 className="mt-3 font-bold text-[#0b192c] text-sm">{item.title}</h4>
                     <p className="mt-1.5 text-xs text-slate-500 leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
@@ -377,9 +377,9 @@ export default function InfrastructurePage() {
       </section>
 
       {/* Production line */}
-      <section data-no-reveal className="relative overflow-hidden bg-gradient-to-b from-[#f7faff] to-[#f7faff] pt-4 pb-14">
+      <section data-no-reveal className="relative overflow-hidden bg-gradient-to-b from-[#f0fdfa] to-[#f0fdfa] pt-4 pb-14">
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8 text-center text-xs font-bold uppercase tracking-[0.18em] text-[#0b5bd3]">
+          <div className="mb-8 text-center text-xs font-bold uppercase tracking-[0.18em] text-[#0d9488]">
             Every unit inspected before it leaves the line
           </div>
           <Conveyor />
@@ -387,7 +387,7 @@ export default function InfrastructurePage() {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0a1f44] via-black to-black py-16 lg:py-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0b192c] via-black to-black py-16 lg:py-20">
         <div className="pointer-events-none absolute -left-32 top-4 hidden h-[420px] w-[420px] overflow-hidden rounded-full border-[14px] border-white/10 opacity-30 lg:block xl:-left-20">
           <Image src="/infra-vial.jpg" alt="" fill sizes="420px" className="object-cover" style={{ objectPosition: "30% 50%" }} />
         </div>
@@ -399,7 +399,7 @@ export default function InfrastructurePage() {
           <Eyebrow center dark>Partner for a Healthier Tomorrow</Eyebrow>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.1]">
             See Our Plant{" "}
-            <span className="block text-sky-400">Before You Partner With Us</span>
+            <span className="block text-teal-400">Before You Partner With Us</span>
           </h2>
           <p className="mt-5 text-slate-300 text-sm sm:text-base leading-relaxed">
             Schedule a plant audit at our WHO-GMP facility in Kathua or meet our team at the Corporate HQ in Zirakpur to discuss contract manufacturing requirements.
@@ -412,7 +412,7 @@ export default function InfrastructurePage() {
             </button>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-3 rounded-[4px] border border-[#0b5bd3] bg-white hover:bg-slate-50 px-7 py-3.5 text-sm font-semibold text-[#0b5bd3] transition cursor-pointer"
+              className="inline-flex items-center justify-center gap-3 rounded-[4px] border border-[#0d9488] bg-white hover:bg-slate-50 px-7 py-3.5 text-sm font-semibold text-[#0d9488] transition cursor-pointer"
             >
               <MessageSquareText className="w-5 h-5" />
               Contact Us Directly
@@ -433,9 +433,9 @@ export default function InfrastructurePage() {
                 key={f.a}
                 className={`flex items-center justify-center gap-3 px-3 ${i > 0 ? "lg:border-l lg:border-white/10" : ""}`}
               >
-                <f.icon className="w-9 h-9 shrink-0 text-sky-400" strokeWidth={1.4} />
+                <f.icon className="w-9 h-9 shrink-0 text-teal-400" strokeWidth={1.4} />
                 <div className="leading-tight">
-                  <div className={`text-base font-bold ${f.blue ? "text-sky-400" : "text-white"}`}>{f.a}</div>
+                  <div className={`text-base font-bold ${f.blue ? "text-teal-400" : "text-white"}`}>{f.a}</div>
                   <div className="mt-0.5 text-xs text-slate-400">{f.b}</div>
                 </div>
               </div>

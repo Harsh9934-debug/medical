@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Source_Serif_4 } from "next/font/google";
+import { Manrope, Public_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingAssistant from "@/components/FloatingAssistant";
 import AutoReveal from "@/components/motion/AutoReveal";
 
-const jakarta = Plus_Jakarta_Sans({
+const jakarta = Public_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
   variable: "--font-jakarta",
 });
 
-const serif = Source_Serif_4({
+const serif = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
   variable: "--font-serif-display",
 });
@@ -64,7 +64,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${jakarta.className} ${serif.variable}`} data-theme="light">
-      <body className="min-h-screen bg-white text-slate-900 flex flex-col antialiased selection:bg-sky-100 selection:text-sky-900">
+      <body className="min-h-screen bg-white text-slate-900 flex flex-col antialiased selection:bg-teal-100 selection:text-teal-900">
         <AutoReveal />
         <Header />
         <main className="flex-1">{children}</main>

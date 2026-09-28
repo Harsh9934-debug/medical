@@ -94,7 +94,7 @@ export default function ClientFeedback() {
         <article className="max-w-screen-md mx-auto text-center space-y-2 px-4">
           <TimelineContent
             as="span"
-            className="block text-[#0b5bd3] text-xs font-bold uppercase tracking-[0.22em]"
+            className="block text-[#0d9488] text-xs font-bold uppercase tracking-[0.22em]"
             animationNum={0}
             customVariants={revealVariants}
             timelineRef={testimonialRef}
@@ -103,7 +103,7 @@ export default function ClientFeedback() {
           </TimelineContent>
           <TimelineContent
             as="h2"
-            className="xl:text-4xl text-3xl font-extrabold text-[#0a1f44] tracking-tight"
+            className="xl:text-4xl text-3xl font-extrabold text-[#0b192c] tracking-tight"
             animationNum={0}
             customVariants={revealVariants}
             timelineRef={testimonialRef}
@@ -129,7 +129,7 @@ export default function ClientFeedback() {
               animationNum={0}
               customVariants={revealVariants}
               timelineRef={testimonialRef}
-              className={`${CARD} lg:flex-[7] flex-[6] bg-[#0a1f44]`}
+              className={`${CARD} lg:flex-[7] flex-[6] bg-[#0b192c]`}
             >
               <div className={GRID_BG}></div>
               <TestimonialBody t={t1} big />
@@ -138,7 +138,7 @@ export default function ClientFeedback() {
               animationNum={1}
               customVariants={revealVariants}
               timelineRef={testimonialRef}
-              className={`${CARD} lg:flex-[3] flex-[4] lg:h-fit lg:shrink-0 bg-[#0b5bd3]`}
+              className={`${CARD} lg:flex-[3] flex-[4] lg:h-fit lg:shrink-0 bg-[#0d9488]`}
             >
               <StatBody value={stats.approvedFormulations} label="DCGI approved formulations" />
             </TimelineContent>
@@ -150,7 +150,7 @@ export default function ClientFeedback() {
               animationNum={2}
               customVariants={revealVariants}
               timelineRef={testimonialRef}
-              className={`${CARD} bg-[#0f2c59]`}
+              className={`${CARD} bg-[#115e59]`}
             >
               <TestimonialBody t={t2} />
             </TimelineContent>
@@ -158,7 +158,7 @@ export default function ClientFeedback() {
               animationNum={3}
               customVariants={revealVariants}
               timelineRef={testimonialRef}
-              className={`${CARD} bg-[#0f2c59]`}
+              className={`${CARD} bg-[#115e59]`}
             >
               <StatBody value={stats.distributionPartners} label="Distribution & franchise partners" />
             </TimelineContent>
@@ -166,7 +166,7 @@ export default function ClientFeedback() {
               animationNum={4}
               customVariants={revealVariants}
               timelineRef={testimonialRef}
-              className={`${CARD} bg-[#0f2c59]`}
+              className={`${CARD} bg-[#115e59]`}
             >
               <StatBody value={stats.statesCovered} label="States & UTs served across India" />
             </TimelineContent>
@@ -178,7 +178,7 @@ export default function ClientFeedback() {
               animationNum={5}
               customVariants={revealVariants}
               timelineRef={testimonialRef}
-              className={`${CARD} lg:flex-[3] flex-[4] bg-[#0b5bd3]`}
+              className={`${CARD} lg:flex-[3] flex-[4] bg-[#0d9488]`}
             >
               <StatBody value="WHO-GMP" label="& ISO 9001:2015 certified manufacturing" />
             </TimelineContent>
@@ -186,7 +186,7 @@ export default function ClientFeedback() {
               animationNum={6}
               customVariants={revealVariants}
               timelineRef={testimonialRef}
-              className={`${CARD} lg:flex-[7] flex-[6] bg-[#0a1f44]`}
+              className={`${CARD} lg:flex-[7] flex-[6] bg-[#0b192c]`}
             >
               <div className={GRID_BG}></div>
               <TestimonialBody t={t3} big />

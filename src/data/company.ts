@@ -5,9 +5,8 @@ export const COMPANY_INFO = {
   description:
     "Incredible Medicare is an ISO 9001:2015 & WHO-GMP compliant pharmaceutical enterprise dedicated to manufacturing and distributing premium pharmaceutical formulations across pan-India and global healthcare markets.",
   email: "incredible@groups.org.in",
-  phone: "+91 98888 0388",
-  altPhone: "+91 98765 43210",
-  whatsapp: "91988880388",
+  phone: "+91 90414 13777",
+  whatsapp: "919041413777",
   address: "Unicity Business Park, Dhakoli, Zirakpur, Punjab 160104",
   corporateAddress: "Unicity Business Park, Dhakoli, Zirakpur, Punjab 160104",
   hqCity: "Zirakpur, Punjab (Chandigarh Tricity)",

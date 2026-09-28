@@ -1,7 +1,7 @@
 import * as React from "react";
 
-const BLUE = "#0b5bd3";
-const NAVY = "#0a1f44";
+const BLUE = "#0d9488";
+const NAVY = "#0b192c";
 
 function Tablet() {
   return (
@@ -24,8 +24,8 @@ function Vial() {
   return (
     <svg viewBox="0 0 24 44" className="h-11 w-6" aria-hidden>
       <rect x="6" y="1" width="12" height="7" rx="2" fill={BLUE} />
-      <path d="M7 8h10v4l2 3v24a3 3 0 01-3 3H8a3 3 0 01-3-3V15l2-3z" fill="#eaf3ff" stroke={NAVY} strokeWidth="2" strokeLinejoin="round" />
-      <rect x="7" y="24" width="10" height="9" fill="#9cc4f5" />
+      <path d="M7 8h10v4l2 3v24a3 3 0 01-3 3H8a3 3 0 01-3-3V15l2-3z" fill="#f0fdfa" stroke={NAVY} strokeWidth="2" strokeLinejoin="round" />
+      <rect x="7" y="24" width="10" height="9" fill="#99f6e4" />
     </svg>
   );
 }
@@ -34,7 +34,7 @@ function Bottle() {
     <svg viewBox="0 0 28 48" className="h-12 w-7" aria-hidden>
       <rect x="9" y="1" width="10" height="7" rx="1.5" fill={NAVY} />
       <path d="M10 8h8v4c4 2 6 4 6 8v22a4 4 0 01-4 4H8a4 4 0 01-4-4V20c0-4 2-6 6-8z" fill="#fff" stroke={BLUE} strokeWidth="2" strokeLinejoin="round" />
-      <rect x="7" y="26" width="14" height="10" rx="1" fill="#dbe8fb" />
+      <rect x="7" y="26" width="14" height="10" rx="1" fill="#ccfbf1" />
     </svg>
   );
 }
@@ -73,14 +73,14 @@ export function Conveyor({ className = "" }: { className?: string }) {
       </div>
 
       {/* belt */}
-      <div className="relative -mt-0.5 h-3 rounded-full bg-[#0a1f44]">
-        <div className="animate-belt absolute inset-x-0 top-1/2 h-1 -translate-y-1/2 opacity-70 [background-image:repeating-linear-gradient(90deg,#3b8ff0_0_10px,transparent_10px_24px)]" />
+      <div className="relative -mt-0.5 h-3 rounded-full bg-[#0b192c]">
+        <div className="animate-belt absolute inset-x-0 top-1/2 h-1 -translate-y-1/2 opacity-70 [background-image:repeating-linear-gradient(90deg,#14b8a6_0_10px,transparent_10px_24px)]" />
       </div>
 
       {/* QC scanner gate */}
       <div className="pointer-events-none absolute inset-y-0 left-1/2 w-0 -translate-x-1/2">
         <div className="absolute -top-1 bottom-2 -left-px w-[2px] bg-gradient-to-b from-transparent via-[#22d3ee] to-transparent shadow-[0_0_18px_6px_rgba(34,211,238,0.45)] animate-scan-pulse" />
-        <div className="absolute -left-14 -top-2 whitespace-nowrap rounded-[4px] bg-[#0a1f44] px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[#22d3ee]">
+        <div className="absolute -left-14 -top-2 whitespace-nowrap rounded-[4px] bg-[#0b192c] px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[#22d3ee]">
           QC Scan · Pass
         </div>
       </div>

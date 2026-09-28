@@ -57,7 +57,7 @@ export default function AboutPage() {
       {/* Full-screen parallax video hero */}
       <section
         ref={heroRef}
-        className="relative isolate h-[100svh] w-full overflow-hidden bg-[#04142f]"
+        className="relative isolate h-[100svh] w-full overflow-hidden bg-[#042f2e]"
       >
         <motion.div style={{ y: videoY }} className="absolute inset-x-0 -top-[10%] h-[120%]">
           <YouTubeCoverBackground
@@ -66,7 +66,7 @@ export default function AboutPage() {
             className="h-full w-full"
           />
         </motion.div>
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#04142f]/70 via-[#04142f]/15 to-[#04142f]/80" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#042f2e]/70 via-[#042f2e]/15 to-[#042f2e]/80" />
 
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -74,14 +74,14 @@ export default function AboutPage() {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="relative flex h-full flex-col items-center justify-center px-4 text-center text-white"
         >
-          <span className="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.22em] text-sky-300">
-            <span className="h-px w-10 bg-sky-300" />
+          <span className="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.22em] text-teal-300">
+            <span className="h-px w-10 bg-teal-300" />
             About Us
-            <span className="h-px w-10 bg-sky-300" />
+            <span className="h-px w-10 bg-teal-300" />
           </span>
           <h1 className="mt-5 max-w-4xl text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
             Driving Pharmaceutical Excellence &amp;{" "}
-            <span className="text-sky-400">Ethical Healthcare</span>
+            <span className="text-teal-400">Ethical Healthcare</span>
           </h1>
         </motion.div>
 
@@ -97,7 +97,7 @@ export default function AboutPage() {
       </section>
 
       {/* Intro content (moved below the video) */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#f7faff] via-[#eef4fc] to-[#e3edfb] py-14 lg:py-16">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#f0fdfa] via-[#f0fdfa] to-[#ccfbf1] py-14 lg:py-16">
         <Image
           src="/bg3.png"
           alt=""
@@ -116,14 +116,14 @@ export default function AboutPage() {
           <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
             <a
               href="#corporate-overview"
-              className="inline-flex items-center gap-3 rounded-[4px] bg-[#0b5bd3] hover:bg-[#0a4db3] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(11,91,211,0.35)] transition"
+              className="inline-flex items-center gap-3 rounded-[4px] bg-[#0d9488] hover:bg-[#0f766e] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(13,148,136,0.35)] transition"
             >
               Our Corporate Journey
               <ArrowRight className="w-4 h-4" />
             </a>
             <Link
               href="/infrastructure"
-              className="inline-flex items-center gap-3 rounded-[4px] border border-[#0b5bd3] bg-white/70 hover:bg-white px-7 py-3.5 text-sm font-semibold text-[#0b5bd3] transition"
+              className="inline-flex items-center gap-3 rounded-[4px] border border-[#0d9488] bg-white/70 hover:bg-white px-7 py-3.5 text-sm font-semibold text-[#0d9488] transition"
             >
               Our Infrastructure
               <ArrowRight className="w-4 h-4" />
@@ -139,11 +139,11 @@ export default function AboutPage() {
             ].map((f, i) => (
               <div
                 key={f.a}
-                className={`flex items-center gap-2.5 whitespace-nowrap ${i > 0 ? "sm:border-l sm:border-[#cfe0f7] sm:pl-4" : ""}`}
+                className={`flex items-center gap-2.5 whitespace-nowrap ${i > 0 ? "sm:border-l sm:border-[#99f6e4] sm:pl-4" : ""}`}
               >
-                <f.icon className="w-7 h-7 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                <f.icon className="w-7 h-7 shrink-0 text-[#0d9488]" strokeWidth={1.5} />
                 <div className="text-left leading-tight">
-                  <div className="text-[13px] font-bold text-[#0a1f44]">{f.a}</div>
+                  <div className="text-[13px] font-bold text-[#0b192c]">{f.a}</div>
                   <div className="text-xs text-slate-500">{f.b}</div>
                 </div>
               </div>
@@ -151,21 +151,21 @@ export default function AboutPage() {
           </div>
 
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-            <div className="flex items-center gap-3 rounded-[4px] border border-white bg-white/80 backdrop-blur px-4 py-3 shadow-[0_10px_30px_rgba(30,80,160,0.10)]">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#e3edfb] text-[#0b5bd3]">
+            <div className="flex items-center gap-3 rounded-[4px] border border-white bg-white/80 backdrop-blur px-4 py-3 shadow-[0_10px_30px_rgba(13,148,136,0.10)]">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#ccfbf1] text-[#0d9488]">
                 <FlaskConical className="h-5 w-5" strokeWidth={1.5} />
               </span>
               <div className="text-left leading-snug">
-                <div className="text-sm font-bold text-[#0a1f44]">High-Quality Formulations</div>
+                <div className="text-sm font-bold text-[#0b192c]">High-Quality Formulations</div>
                 <div className="text-xs text-slate-500">For a healthier tomorrow</div>
               </div>
             </div>
-            <div className="flex items-center gap-3 rounded-[4px] border border-white bg-white/80 backdrop-blur px-4 py-3 shadow-[0_10px_30px_rgba(30,80,160,0.10)]">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#e3edfb] text-[#0b5bd3]">
+            <div className="flex items-center gap-3 rounded-[4px] border border-white bg-white/80 backdrop-blur px-4 py-3 shadow-[0_10px_30px_rgba(13,148,136,0.10)]">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#ccfbf1] text-[#0d9488]">
                 <Handshake className="h-5 w-5" strokeWidth={1.5} />
               </span>
               <div className="text-left leading-snug">
-                <div className="text-sm font-bold text-[#0a1f44]">Trusted by Healthcare Partners</div>
+                <div className="text-sm font-bold text-[#0b192c]">Trusted by Healthcare Partners</div>
                 <div className="text-xs text-slate-500">Across India &amp; Global Markets</div>
               </div>
             </div>
@@ -178,7 +178,7 @@ export default function AboutPage() {
       {/* Corporate Profile Details */}
       <section
         id="corporate-overview"
-        className="relative overflow-hidden bg-gradient-to-br from-[#f7faff] via-[#eef4fc] to-[#e3edfb] py-16 lg:py-20 scroll-mt-24"
+        className="relative overflow-hidden bg-gradient-to-br from-[#f0fdfa] via-[#f0fdfa] to-[#ccfbf1] py-16 lg:py-20 scroll-mt-24"
       >
         <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[52%] lg:block [mask-image:linear-gradient(to_right,transparent,black_40%)]">
           <Image
@@ -194,39 +194,39 @@ export default function AboutPage() {
             {/* Left Content */}
             <div className="lg:col-span-7">
               <div className="flex items-center gap-4">
-                <span className="h-px w-10 bg-[#0b5bd3]" />
-                <span className="text-[#0b5bd3] text-xs font-bold uppercase tracking-[0.12em]">
+                <span className="h-px w-10 bg-[#0d9488]" />
+                <span className="text-[#0d9488] text-xs font-bold uppercase tracking-[0.12em]">
                   Corporate Overview
                 </span>
               </div>
-              <h2 className="mt-4 text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0a1f44] tracking-tight leading-[1.1]">
+              <h2 className="mt-4 text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0b192c] tracking-tight leading-[1.1]">
                 Pioneering High-Quality Formulations for{" "}
-                <span className="text-[#0b5bd3]">Pan-India &amp; Global Healthcare</span>
+                <span className="text-[#0d9488]">Pan-India &amp; Global Healthcare</span>
               </h2>
 
               <div className="mt-6 space-y-4 text-slate-600 text-[15px] leading-relaxed max-w-2xl">
                 <p>
-                  At <strong className="text-[#0a1f44]">Incredible Medicare</strong>, we believe that access to high-potency, safe, and cost-effective pharmaceutical formulations is fundamental to advancing human health. Our corporate journey has evolved from a targeted regional distributor to a full-spectrum formulation enterprise commanding over 650+ DCGI-approved formulations.
+                  At <strong className="text-[#0b192c]">Incredible Medicare</strong>, we believe that access to high-potency, safe, and cost-effective pharmaceutical formulations is fundamental to advancing human health. Our corporate journey has evolved from a targeted regional distributor to a full-spectrum formulation enterprise commanding over 650+ DCGI-approved formulations.
                 </p>
                 <p>
-                  Headquartered at <strong className="text-[#0a1f44]">Unicity Business Park, Dhakoli, Zirakpur (Punjab)</strong>, our executive leadership oversees a multidisciplinary supply chain, rigorous quality audits, pan-India franchise enablement, and international export dossiers.
+                  Headquartered at <strong className="text-[#0b192c]">Unicity Business Park, Dhakoli, Zirakpur (Punjab)</strong>, our executive leadership oversees a multidisciplinary supply chain, rigorous quality audits, pan-India franchise enablement, and international export dossiers.
                 </p>
                 <p>
-                  Our primary manufacturing facility operates at the <strong className="text-[#0a1f44]">SIDCO Industrial Complex, Ghatti, Kathua (J&amp;K)</strong>, in strict compliance with current Good Manufacturing Practices (cGMP), ISO 9001:2015, and WHO-GMP specifications.
+                  Our primary manufacturing facility operates at the <strong className="text-[#0b192c]">SIDCO Industrial Complex, Ghatti, Kathua (J&amp;K)</strong>, in strict compliance with current Good Manufacturing Practices (cGMP), ISO 9001:2015, and WHO-GMP specifications.
                 </p>
               </div>
 
               <div className="mt-7 flex flex-wrap items-center gap-4">
                 <a
                   href="#strategic-foundation"
-                  className="inline-flex items-center gap-3 rounded-[4px] bg-[#0b5bd3] hover:bg-[#0a4db3] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(11,91,211,0.35)] transition"
+                  className="inline-flex items-center gap-3 rounded-[4px] bg-[#0d9488] hover:bg-[#0f766e] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(13,148,136,0.35)] transition"
                 >
                   Explore Our Journey
                   <ArrowRight className="w-4 h-4" />
                 </a>
                 <Link
                   href="/infrastructure"
-                  className="inline-flex items-center gap-3 rounded-[4px] border border-[#0b5bd3] bg-white/70 hover:bg-white px-7 py-3.5 text-sm font-semibold text-[#0b5bd3] transition"
+                  className="inline-flex items-center gap-3 rounded-[4px] border border-[#0d9488] bg-white/70 hover:bg-white px-7 py-3.5 text-sm font-semibold text-[#0d9488] transition"
                 >
                   Our Infrastructure
                   <ArrowRight className="w-4 h-4" />
@@ -236,7 +236,7 @@ export default function AboutPage() {
 
             {/* Right Card */}
             <div className="lg:col-span-5">
-              <div className="rounded-[4px] border border-white bg-white/85 backdrop-blur p-6 shadow-[0_16px_50px_rgba(30,80,160,0.14)] space-y-4">
+              <div className="rounded-[4px] border border-white bg-white/85 backdrop-blur p-6 shadow-[0_16px_50px_rgba(13,148,136,0.14)] space-y-4">
                 <div className="flex items-center gap-3">
                   <Image
                     src="/logo.png"
@@ -246,8 +246,8 @@ export default function AboutPage() {
                     className="object-contain"
                   />
                   <div className="leading-tight">
-                    <h3 className="font-extrabold text-[#0a1f44] text-xl">
-                      Incredible <span className="text-[#0b5bd3]">Medicare</span>
+                    <h3 className="font-extrabold text-[#0b192c] text-xl">
+                      Incredible <span className="text-[#0d9488]">Medicare</span>
                     </h3>
                     <p className="text-sm text-slate-500">Quality Assured Healthcare</p>
                   </div>
@@ -275,11 +275,11 @@ export default function AboutPage() {
                       key={f.title}
                       className="flex items-start gap-4 rounded-[4px] border border-slate-100 bg-white px-4 py-4"
                     >
-                      <f.icon className="mt-1 w-8 h-8 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                      <f.icon className="mt-1 w-8 h-8 shrink-0 text-[#0d9488]" strokeWidth={1.5} />
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center justify-between gap-2">
-                          <div className="text-sm font-bold text-[#0a1f44]">{f.title}</div>
-                          <ChevronRight className="w-4 h-4 shrink-0 text-[#0b5bd3]" />
+                          <div className="text-sm font-bold text-[#0b192c]">{f.title}</div>
+                          <ChevronRight className="w-4 h-4 shrink-0 text-[#0d9488]" />
                         </div>
                         <p className="mt-1 text-xs leading-relaxed text-slate-500">{f.desc}</p>
                       </div>
@@ -290,7 +290,7 @@ export default function AboutPage() {
                 <button
                   type="button"
                   onClick={() => setModalOpen(true)}
-                  className="flex w-full items-center justify-center gap-3 rounded-[4px] bg-[#0b4a99] hover:bg-[#093d80] py-3.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(11,74,153,0.3)] transition cursor-pointer"
+                  className="flex w-full items-center justify-center gap-3 rounded-[4px] bg-[#0f766e] hover:bg-[#115e59] py-3.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(15,118,110,0.3)] transition cursor-pointer"
                 >
                   <FileText className="w-4 h-4" />
                   Download Corporate Profile &amp; Product List
@@ -301,7 +301,7 @@ export default function AboutPage() {
           </div>
 
           {/* Stats bar */}
-          <div className="mt-12 grid grid-cols-2 gap-y-6 rounded-[4px] border border-white bg-white/85 backdrop-blur px-4 py-6 shadow-[0_10px_40px_rgba(30,80,160,0.10)] lg:grid-cols-4 lg:gap-y-0">
+          <div className="mt-12 grid grid-cols-2 gap-y-6 rounded-[4px] border border-white bg-white/85 backdrop-blur px-4 py-6 shadow-[0_10px_40px_rgba(13,148,136,0.10)] lg:grid-cols-4 lg:gap-y-0">
             {[
               { icon: Box, a: "650+", b: "Approved Products" },
               { icon: Users, a: "850+", b: "Franchise Associates" },
@@ -312,9 +312,9 @@ export default function AboutPage() {
                 key={st.a}
                 className={`flex items-center justify-center gap-4 px-3 ${i > 0 ? "lg:border-l lg:border-slate-200" : ""}`}
               >
-                <st.icon className="w-10 h-10 shrink-0 text-[#0b5bd3]" strokeWidth={1.4} />
+                <st.icon className="w-10 h-10 shrink-0 text-[#0d9488]" strokeWidth={1.4} />
                 <div className="leading-tight">
-                  <div className="text-2xl font-extrabold text-[#0b5bd3]"><CountUp value={st.a} /></div>
+                  <div className="text-2xl font-extrabold text-[#0d9488]"><CountUp value={st.a} /></div>
                   <div className="mt-1 text-sm text-slate-500">{st.b}</div>
                 </div>
               </div>
@@ -326,7 +326,7 @@ export default function AboutPage() {
       {/* Mission, Vision, and Values */}
       <section
         id="strategic-foundation"
-        className="relative overflow-hidden bg-gradient-to-b from-[#f7faff] via-[#f1f6fd] to-[#eaf1fb] py-16 lg:py-20 scroll-mt-24"
+        className="relative overflow-hidden bg-gradient-to-b from-[#f0fdfa] via-[#f0fdfa] to-[#f0fdfa] py-16 lg:py-20 scroll-mt-24"
       >
         <div className="pointer-events-none absolute inset-x-0 top-0 hidden h-[460px] overflow-hidden lg:block [mask-image:linear-gradient(to_right,black_0,black_28%,transparent_44%,transparent_62%,black_82%)]">
           <Image
@@ -341,15 +341,15 @@ export default function AboutPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-14">
             <div className="flex items-center justify-center gap-4">
-              <span className="hidden sm:block h-px w-14 bg-[#0b4a99]/40" />
-              <span className="text-[#0b5bd3] text-xs font-bold uppercase tracking-[0.18em]">
+              <span className="hidden sm:block h-px w-14 bg-[#0f766e]/40" />
+              <span className="text-[#0d9488] text-xs font-bold uppercase tracking-[0.18em]">
                 Strategic Foundation
               </span>
-              <span className="hidden sm:block h-px w-14 bg-[#0b4a99]/40" />
+              <span className="hidden sm:block h-px w-14 bg-[#0f766e]/40" />
             </div>
-            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f44] tracking-tight">
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0b192c] tracking-tight">
               Mission, Vision &amp;{" "}
-              <span className="text-[#0b5bd3]">Core Philosophy</span>
+              <span className="text-[#0d9488]">Core Philosophy</span>
             </h2>
             <div className="accent-bar mx-auto mt-4"></div>
             <p className="mt-5 text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -361,16 +361,16 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Mission */}
-            <div className="relative overflow-hidden rounded-[4px] border border-white bg-white/75 backdrop-blur p-7 shadow-[0_10px_40px_rgba(30,80,160,0.10)] flex flex-col">
-              <span className="absolute right-6 top-5 text-5xl font-extrabold text-[#0b5bd3]/10">01</span>
-              <Target className="w-10 h-10 text-[#0b5bd3]" strokeWidth={1.5} />
-              <h3 className="mt-5 text-2xl font-extrabold text-[#0a1f44]">Our Mission</h3>
-              <div className="mt-2 h-[3px] w-8 rounded-full bg-[#0b5bd3]" />
+            <div className="relative overflow-hidden rounded-[4px] border border-white bg-white/75 backdrop-blur p-7 shadow-[0_10px_40px_rgba(13,148,136,0.10)] flex flex-col">
+              <span className="absolute right-6 top-5 text-5xl font-extrabold text-[#0d9488]/10">01</span>
+              <Target className="w-10 h-10 text-[#0d9488]" strokeWidth={1.5} />
+              <h3 className="mt-5 text-2xl font-extrabold text-[#0b192c]">Our Mission</h3>
+              <div className="mt-2 h-[3px] w-8 rounded-full bg-[#0d9488]" />
               <p className="mt-4 text-sm text-slate-600 leading-relaxed lg:max-w-[62%] xl:max-w-[66%]">
                 To formulate, manufacture, and distribute globally compliant, cost-effective, and therapeutically superior medicines through structured quality systems, ethical commercial practices, and robust nationwide logistics.
               </p>
-              <span className="relative z-10 mt-auto pt-6 self-start inline-flex items-center gap-2 text-xs font-semibold text-[#0b4a99]">
-                <span className="inline-flex items-center gap-2 rounded-full border border-[#cfe0f7] bg-white/80 px-4 py-2">
+              <span className="relative z-10 mt-auto pt-6 self-start inline-flex items-center gap-2 text-xs font-semibold text-[#0f766e]">
+                <span className="inline-flex items-center gap-2 rounded-full border border-[#99f6e4] bg-white/80 px-4 py-2">
                   Quality Medicines for a Healthier World
                   <ArrowRight className="w-3.5 h-3.5" />
                 </span>
@@ -387,16 +387,16 @@ export default function AboutPage() {
             </div>
 
             {/* Vision */}
-            <div className="relative overflow-hidden rounded-[4px] border border-white bg-white/75 backdrop-blur p-7 shadow-[0_10px_40px_rgba(30,80,160,0.10)] flex flex-col">
-              <span className="absolute right-6 top-5 text-5xl font-extrabold text-[#0b5bd3]/10">02</span>
-              <Eye className="w-10 h-10 text-[#0b5bd3]" strokeWidth={1.5} />
-              <h3 className="mt-5 text-2xl font-extrabold text-[#0a1f44]">Our Vision</h3>
-              <div className="mt-2 h-[3px] w-8 rounded-full bg-[#0b5bd3]" />
+            <div className="relative overflow-hidden rounded-[4px] border border-white bg-white/75 backdrop-blur p-7 shadow-[0_10px_40px_rgba(13,148,136,0.10)] flex flex-col">
+              <span className="absolute right-6 top-5 text-5xl font-extrabold text-[#0d9488]/10">02</span>
+              <Eye className="w-10 h-10 text-[#0d9488]" strokeWidth={1.5} />
+              <h3 className="mt-5 text-2xl font-extrabold text-[#0b192c]">Our Vision</h3>
+              <div className="mt-2 h-[3px] w-8 rounded-full bg-[#0d9488]" />
               <p className="mt-4 text-sm text-slate-600 leading-relaxed lg:max-w-[62%] xl:max-w-[66%]">
                 To emerge as one of India&apos;s most reputable and scientifically dependable pharmaceutical corporations, recognized across domestic and emerging international markets for unyielding formulation integrity.
               </p>
-              <span className="relative z-10 mt-auto pt-6 self-start inline-flex items-center gap-2 text-xs font-semibold text-[#0b4a99]">
-                <span className="inline-flex items-center gap-2 rounded-full border border-[#cfe0f7] bg-white/80 px-4 py-2">
+              <span className="relative z-10 mt-auto pt-6 self-start inline-flex items-center gap-2 text-xs font-semibold text-[#0f766e]">
+                <span className="inline-flex items-center gap-2 rounded-full border border-[#99f6e4] bg-white/80 px-4 py-2">
                   A Trusted Name in Global Healthcare
                   <ArrowRight className="w-3.5 h-3.5" />
                 </span>
@@ -413,22 +413,22 @@ export default function AboutPage() {
             </div>
 
             {/* Values */}
-            <div className="relative overflow-hidden rounded-[4px] border border-white bg-gradient-to-br from-white/75 to-emerald-50/80 backdrop-blur p-7 shadow-[0_10px_40px_rgba(30,80,160,0.10)] flex flex-col">
+            <div className="relative overflow-hidden rounded-[4px] border border-white bg-gradient-to-br from-white/75 to-emerald-50/80 backdrop-blur p-7 shadow-[0_10px_40px_rgba(13,148,136,0.10)] flex flex-col">
               <span className="absolute right-6 top-5 text-5xl font-extrabold text-emerald-600/10">03</span>
               <ShieldCheck className="w-10 h-10 text-emerald-600" strokeWidth={1.5} />
-              <h3 className="mt-5 text-2xl font-extrabold text-[#0a1f44]">Our Values</h3>
+              <h3 className="mt-5 text-2xl font-extrabold text-[#0b192c]">Our Values</h3>
               <div className="mt-2 h-[3px] w-8 rounded-full bg-emerald-500" />
               <Leaf className="pointer-events-none absolute -bottom-6 -right-4 h-48 w-48 text-emerald-300/30" strokeWidth={1} />
               <ul className="relative mt-5 space-y-4">
                 {[
-                  { icon: Gem, tone: "text-[#0b5bd3]", a: "Quality First", b: "Zero compromise on testing." },
+                  { icon: Gem, tone: "text-[#0d9488]", a: "Quality First", b: "Zero compromise on testing." },
                   { icon: Scale, tone: "text-emerald-600", a: "Integrity", b: "Honest batch pricing & monopoly." },
                   { icon: Lightbulb, tone: "text-amber-500", a: "Innovation", b: "Contemporary drug delivery systems." },
                 ].map((v) => (
                   <li key={v.a} className="flex items-center gap-4">
                     <v.icon className={`w-8 h-8 shrink-0 ${v.tone}`} strokeWidth={1.5} />
                     <div className="leading-snug">
-                      <div className="text-sm font-bold text-[#0a1f44]">{v.a}</div>
+                      <div className="text-sm font-bold text-[#0b192c]">{v.a}</div>
                       <div className="text-sm text-slate-600">{v.b}</div>
                     </div>
                   </li>
@@ -440,22 +440,22 @@ export default function AboutPage() {
       </section>
 
       {/* Quality Policy & Analytical Assurance */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#f7faff] to-[#eef4fc] py-16 lg:py-20">
-        <div className="pointer-events-none absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
-        <div className="pointer-events-none absolute top-1/3 -left-40 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/50 blur-3xl" />
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f0fdfa] to-[#f0fdfa] py-16 lg:py-20">
+        <div className="pointer-events-none absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-[#ccfbf1]/60 blur-3xl" />
+        <div className="pointer-events-none absolute top-1/3 -left-40 h-[420px] w-[420px] rounded-full bg-[#ccfbf1]/50 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             {/* Left */}
             <div className="lg:col-span-7">
               <div className="flex items-center gap-4">
-                <span className="h-px w-10 bg-[#0b5bd3]" />
-                <span className="text-[#0b5bd3] text-xs font-bold uppercase tracking-[0.12em]">
+                <span className="h-px w-10 bg-[#0d9488]" />
+                <span className="text-[#0d9488] text-xs font-bold uppercase tracking-[0.12em]">
                   Quality Infrastructure
                 </span>
               </div>
-              <h2 className="mt-4 text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0a1f44] tracking-tight leading-[1.1]">
+              <h2 className="mt-4 text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0b192c] tracking-tight leading-[1.1]">
                 Comprehensive Analytical &amp;{" "}
-                <span className="block text-[#0b5bd3]">Quality Control Systems</span>
+                <span className="block text-[#0d9488]">Quality Control Systems</span>
               </h2>
               <p className="mt-5 text-slate-600 text-[15px] leading-relaxed max-w-2xl">
                 Quality at Incredible Medicare is not merely an inspection step—it is integrated into every phase of our manufacturing cycle. From active pharmaceutical ingredient (API) vendor qualification to in-process compression checks and finished batch stability analysis.
@@ -472,14 +472,14 @@ export default function AboutPage() {
                 ].map((r) => (
                   <div
                     key={r.a}
-                    className="flex items-center gap-4 rounded-[4px] border border-white bg-white/80 px-5 py-3.5 shadow-[0_6px_24px_rgba(30,80,160,0.07)]"
+                    className="flex items-center gap-4 rounded-[4px] border border-white bg-white/80 px-5 py-3.5 shadow-[0_6px_24px_rgba(13,148,136,0.07)]"
                   >
-                    <r.icon className="w-7 h-7 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                    <r.icon className="w-7 h-7 shrink-0 text-[#0d9488]" strokeWidth={1.5} />
                     <div className="min-w-0 flex-1">
-                      <div className="text-sm font-bold text-[#0a1f44]">{r.a}</div>
+                      <div className="text-sm font-bold text-[#0b192c]">{r.a}</div>
                       <div className="text-xs text-slate-500 mt-0.5">{r.b}</div>
                     </div>
-                    <ChevronRight className="w-4 h-4 shrink-0 text-[#0b5bd3]" />
+                    <ChevronRight className="w-4 h-4 shrink-0 text-[#0d9488]" />
                   </div>
                 ))}
               </div>
@@ -488,7 +488,7 @@ export default function AboutPage() {
             {/* Right */}
             <div className="lg:col-span-5 relative">
               <div className="relative">
-                <div className="relative h-[280px] sm:h-[340px] overflow-hidden rounded-[4px] shadow-[0_16px_50px_rgba(30,80,160,0.18)]">
+                <div className="relative h-[280px] sm:h-[340px] overflow-hidden rounded-[4px] shadow-[0_16px_50px_rgba(13,148,136,0.18)]">
                   <Image
                     src="/herobg.png"
                     alt="Quality control laboratory"
@@ -498,22 +498,22 @@ export default function AboutPage() {
                     style={{ objectPosition: "90% 45%" }}
                   />
                 </div>
-                <div className="absolute top-6 -right-2 lg:-right-6 flex items-center gap-4 rounded-[4px] border border-white bg-white/90 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(30,80,160,0.18)]">
-                  <ShieldCheck className="w-9 h-9 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                <div className="absolute top-6 -right-2 lg:-right-6 flex items-center gap-4 rounded-[4px] border border-white bg-white/90 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(13,148,136,0.18)]">
+                  <ShieldCheck className="w-9 h-9 shrink-0 text-[#0d9488]" strokeWidth={1.5} />
                   <div className="leading-snug">
-                    <div className="text-sm font-bold text-[#0a1f44]">Quality You Can Trust</div>
+                    <div className="text-sm font-bold text-[#0b192c]">Quality You Can Trust</div>
                     <div className="text-xs text-slate-500">Backed by global standards and scientific rigor.</div>
                   </div>
                 </div>
               </div>
 
-              <div className="relative -mt-10 mx-0 lg:-mr-4 rounded-[4px] bg-[#0a1a33] text-white p-7 sm:p-8 shadow-[0_20px_50px_rgba(10,26,51,0.4)]">
-                <span className="text-sky-400 text-xs font-bold uppercase tracking-[0.14em]">
+              <div className="relative -mt-10 mx-0 lg:-mr-4 rounded-[4px] bg-[#0b192c] text-white p-7 sm:p-8 shadow-[0_20px_50px_rgba(11,25,44,0.4)]">
+                <span className="text-teal-400 text-xs font-bold uppercase tracking-[0.14em]">
                   Leadership Philosophy
                 </span>
                 <h3 className="mt-3 text-2xl sm:text-[1.7rem] font-bold leading-snug">
                   &ldquo;A Patient-First Commitment Behind{" "}
-                  <span className="text-sky-400">Every Dose</span>&rdquo;
+                  <span className="text-teal-400">Every Dose</span>&rdquo;
                 </h3>
                 <p className="mt-4 text-slate-300 text-sm leading-relaxed">
                   When a doctor prescribes an Incredible Medicare medicine, they place their clinical trust in our science. We honor that trust through unyielding consistency, absolute bio-equivalence, and honest commercial partnerships with every distributor across the nation.
@@ -523,11 +523,11 @@ export default function AboutPage() {
                     <Image src="/logo.png" alt="Incredible Medicare" width={40} height={40} className="object-contain" />
                     <div>
                       <div className="font-bold text-white text-sm">Commercial Directorate</div>
-                      <div className="text-xs text-sky-400">Incredible Medicare</div>
+                      <div className="text-xs text-teal-400">Incredible Medicare</div>
                     </div>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-slate-300">
-                    <MapPin className="w-4 h-4 text-sky-400" />
+                    <MapPin className="w-4 h-4 text-teal-400" />
                     Zirakpur, Punjab
                   </div>
                 </div>
@@ -536,7 +536,7 @@ export default function AboutPage() {
           </div>
 
           {/* Stats bar */}
-          <div className="mt-10 grid grid-cols-2 gap-y-6 rounded-[4px] border border-white bg-white/85 backdrop-blur px-4 py-6 shadow-[0_10px_40px_rgba(30,80,160,0.10)] lg:grid-cols-4 lg:gap-y-0">
+          <div className="mt-10 grid grid-cols-2 gap-y-6 rounded-[4px] border border-white bg-white/85 backdrop-blur px-4 py-6 shadow-[0_10px_40px_rgba(13,148,136,0.10)] lg:grid-cols-4 lg:gap-y-0">
             {[
               { icon: Building2, a: "6+", b: "Analytical Labs" },
               { icon: Users, a: "100+", b: "Quality Experts" },
@@ -547,9 +547,9 @@ export default function AboutPage() {
                 key={st.a}
                 className={`flex items-center justify-center gap-4 px-3 ${i > 0 ? "lg:border-l lg:border-slate-200" : ""}`}
               >
-                <st.icon className="w-10 h-10 shrink-0 text-[#0b5bd3]" strokeWidth={1.4} />
+                <st.icon className="w-10 h-10 shrink-0 text-[#0d9488]" strokeWidth={1.4} />
                 <div className="leading-tight">
-                  <div className="text-2xl font-extrabold text-[#0b5bd3]"><CountUp value={st.a} /></div>
+                  <div className="text-2xl font-extrabold text-[#0d9488]"><CountUp value={st.a} /></div>
                   <div className="mt-1 text-sm text-slate-500">{st.b}</div>
                 </div>
               </div>
@@ -559,7 +559,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Box */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0a1f44] via-black to-black py-16 lg:py-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0b192c] via-black to-black py-16 lg:py-20">
         {/* Left art */}
         <div
           className="pointer-events-none absolute -left-32 top-4 hidden h-[420px] w-[420px] rounded-full border-[14px] border-white/10 opacity-30 lg:block xl:-left-20"
@@ -592,7 +592,7 @@ export default function AboutPage() {
           </div>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.1]">
             Explore Opportunities with{" "}
-            <span className="block text-sky-400">Incredible Medicare</span>
+            <span className="block text-teal-400">Incredible Medicare</span>
           </h2>
           <p className="mt-5 text-slate-300 text-sm sm:text-base leading-relaxed">
             Discover our complete product directory or connect with our corporate team at Unicity Business Park, Zirakpur for business collaborations, distribution partnerships, and global healthcare solutions.
@@ -600,7 +600,7 @@ export default function AboutPage() {
           <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/products"
-              className="inline-flex items-center gap-3 rounded-[4px] bg-[#0b5bd3] hover:bg-[#0a4db3] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(11,91,211,0.35)] transition"
+              className="inline-flex items-center gap-3 rounded-[4px] bg-[#0d9488] hover:bg-[#0f766e] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(13,148,136,0.35)] transition"
             >
               <Box className="w-5 h-5" />
               View Products (650+)
@@ -608,7 +608,7 @@ export default function AboutPage() {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 rounded-[4px] border border-[#0b5bd3] bg-white hover:bg-slate-50 px-7 py-3.5 text-sm font-semibold text-[#0b5bd3] transition"
+              className="inline-flex items-center gap-3 rounded-[4px] border border-[#0d9488] bg-white hover:bg-slate-50 px-7 py-3.5 text-sm font-semibold text-[#0d9488] transition"
             >
               <MessageSquareText className="w-5 h-5" />
               Contact Us Directly
@@ -629,9 +629,9 @@ export default function AboutPage() {
                 key={f.a}
                 className={`flex items-center justify-center gap-3 px-3 ${i > 0 ? "lg:border-l lg:border-white/10" : ""}`}
               >
-                <f.icon className="w-9 h-9 shrink-0 text-sky-400" strokeWidth={1.4} />
+                <f.icon className="w-9 h-9 shrink-0 text-teal-400" strokeWidth={1.4} />
                 <div className="leading-tight">
-                  <div className={`text-base font-bold ${f.blue ? "text-sky-400" : "text-white"}`}>{f.a}</div>
+                  <div className={`text-base font-bold ${f.blue ? "text-teal-400" : "text-white"}`}>{f.a}</div>
                   <div className="mt-0.5 text-xs text-slate-400">{f.b}</div>
                 </div>
               </div>
