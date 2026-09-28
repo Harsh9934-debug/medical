@@ -67,6 +67,16 @@ const ACCREDITATION_ICONS: (React.ComponentType<{ className?: string; strokeWidt
   ShieldCheck,
 ];
 
+// A different accent per accreditation instead of one flat blue, so the row
+// reads as five distinct credentials rather than five repeats of one icon.
+const ACCREDITATION_TINTS = [
+  "#0b5bd3",
+  "#d97706",
+  "#0d9488",
+  "#7c3aed",
+  "#059669",
+];
+
 function GrowthIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 64 64" fill="none" className={className} aria-hidden="true">
@@ -378,12 +388,16 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-5 lg:mt-24">
             {COMPANY_INFO.accreditations.map((item, i) => {
               const Icon = ACCREDITATION_ICONS[i] ?? Award;
+              const tint = ACCREDITATION_TINTS[i % ACCREDITATION_TINTS.length];
               return (
                 <div
                   key={item.title}
                   className="group bg-white/60 backdrop-blur-md p-5 sm:p-6 rounded-[4px] border border-white/80 shadow-[0_8px_30px_rgba(30,80,160,0.08)] text-center hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(30,80,160,0.16)] transition-all last:col-span-2 md:last:col-span-1"
                 >
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 text-[#0b5bd3] flex items-center justify-center mx-auto mb-4">
+                  <div
+                    className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-4"
+                    style={{ color: tint }}
+                  >
                     {Icon === "iso" ? (
                       <span className="text-sm font-black tracking-tight">ISO</span>
                     ) : (
@@ -391,7 +405,10 @@ export default function HomePage() {
                     )}
                   </div>
                   <div className="font-bold text-[#0a1f44] text-base">{item.title}</div>
-                  <div className="h-[3px] w-9 rounded-full bg-gradient-to-r from-[#0b4a99] to-[#3b8ff0] mx-auto my-3" />
+                  <div
+                    className="h-[3px] w-9 rounded-full mx-auto my-3"
+                    style={{ background: `linear-gradient(90deg, ${tint}, ${tint}99)` }}
+                  />
                   <div className="text-[13px] text-slate-600 leading-snug">
                     {item.desc}
                   </div>
@@ -599,22 +616,31 @@ export default function HomePage() {
                   key={cap.form}
                   className="bg-white/85 backdrop-blur rounded-[4px] p-5 border border-white shadow-[0_10px_40px_rgba(30,80,160,0.10)] hover:-translate-y-1 hover:shadow-[0_14px_44px_rgba(30,80,160,0.18)] transition-all flex flex-col items-center text-center"
                 >
-                  <span className="inline-block whitespace-nowrap px-3 py-1 rounded-[4px] text-[11px] font-semibold bg-[#eaf1fd] text-[#0b5bd3]">
+                  <span
+                    className="inline-block whitespace-nowrap px-3 py-1 rounded-[4px] text-[11px] font-semibold"
+                    style={{ background: `${cap.color}14`, color: cap.color }}
+                  >
                     {cap.badge}
                   </span>
-                  <div className="w-[72px] h-[72px] rounded-full bg-[#e9f1fc] text-[#0b5bd3] flex items-center justify-center mt-4">
+                  <div
+                    className="w-[72px] h-[72px] rounded-full flex items-center justify-center mt-4"
+                    style={{ background: `${cap.color}14`, color: cap.color }}
+                  >
                     <Icon className="w-8 h-8" strokeWidth={1.5} />
                   </div>
                   <h3 className="font-bold text-[#0a1f44] text-base mt-4 min-h-[1.5rem] leading-snug">
                     {cap.form}
                   </h3>
-                  <div className="text-3xl font-extrabold text-[#0b5bd3] mt-2 tracking-tight">
+                  <div className="text-3xl font-extrabold mt-2 tracking-tight" style={{ color: cap.color }}>
                     <CountUp value={cap.metric} />
                   </div>
                   <p className="text-sm text-slate-500 mt-1">{cap.subtext}</p>
                   <div className="w-full mt-auto pt-5">
                     <div className="border-t border-slate-200/80 pt-4 flex items-center justify-center gap-3 text-xs text-slate-500 font-medium text-left">
-                      <div className="w-9 h-9 shrink-0 rounded-full bg-[#e9f1fc] text-[#0b5bd3] flex items-center justify-center">
+                      <div
+                        className="w-9 h-9 shrink-0 rounded-full flex items-center justify-center"
+                        style={{ background: `${cap.color}14`, color: cap.color }}
+                      >
                         <Settings className="w-4 h-4" />
                       </div>
                       <span className="leading-tight">
@@ -1134,23 +1160,23 @@ export default function HomePage() {
       </section>
 
       {/* 10. CALL TO ACTION: READY TO PARTNER */}
-      <section className="relative overflow-hidden py-16 lg:py-20 bg-gradient-to-b from-[#eef4fc] via-[#f6f9fe] to-[#e8f0fc]">
-        <div className="pointer-events-none absolute -top-32 -left-40 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/60 blur-3xl" />
-        <div className="pointer-events-none absolute top-10 -right-40 h-[380px] w-[380px] rounded-full bg-[#cfe0f7]/60 blur-3xl" />
+      <section className="relative overflow-hidden py-16 lg:py-20 bg-gradient-to-br from-[#04142f] via-[#0a2647] to-[#0a1f44]">
+        <div className="pointer-events-none absolute -top-32 -left-40 h-[420px] w-[420px] rounded-full bg-sky-500/10 blur-3xl" />
+        <div className="pointer-events-none absolute top-10 -right-40 h-[380px] w-[380px] rounded-full bg-amber-400/10 blur-3xl" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <div className="flex items-center justify-center gap-4">
-              <span className="hidden sm:block h-px w-12 bg-gradient-to-r from-transparent to-[#0b4a99]/50" />
-              <span className="text-[#0b5bd3] text-xs font-bold uppercase tracking-[0.22em]">
+              <span className="hidden sm:block h-px w-12 bg-gradient-to-r from-transparent to-amber-400/60" />
+              <span className="text-amber-400 text-xs font-bold uppercase tracking-[0.22em]">
                 Unleash Business Growth
               </span>
-              <span className="hidden sm:block h-px w-12 bg-gradient-to-l from-transparent to-[#0b4a99]/50" />
+              <span className="hidden sm:block h-px w-12 bg-gradient-to-l from-transparent to-amber-400/60" />
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-[#0a1f44] tracking-tight mt-4 leading-[1.1]">
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-white tracking-tight mt-4 leading-[1.1]">
               Ready to Partner With{" "}
-              <span className="block text-[#0b5bd3]">Incredible Medicare?</span>
+              <span className="block text-sky-400">Incredible Medicare?</span>
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base lg:text-lg mt-6 leading-relaxed">
+            <p className="text-slate-300 text-sm sm:text-base lg:text-lg mt-6 leading-relaxed">
               Connect with our business development team today to inquire about
               available district monopoly rights for PCD franchise or discuss
               third-party contract manufacturing schedules.
@@ -1163,7 +1189,7 @@ export default function HomePage() {
                   setSelectedProduct("");
                   setEnquiryModalOpen(true);
                 }}
-                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#0a4db3] to-[#0b5bd3] text-white font-semibold text-sm sm:text-base rounded-[4px] shadow-[0_10px_28px_rgba(11,91,211,0.35)] transition hover:brightness-110 cursor-pointer"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-400 text-[#0a1f44] font-semibold text-sm sm:text-base rounded-[4px] shadow-[0_10px_28px_rgba(251,191,36,0.25)] transition hover:brightness-105 cursor-pointer"
               >
                 <FileText className="w-5 h-5" />
                 <span>Get Instant Price List &amp; Terms</span>
@@ -1171,9 +1197,9 @@ export default function HomePage() {
               </button>
               <a
                 href={`tel:+${COMPANY_INFO.whatsapp}`}
-                className="inline-flex items-center gap-3 px-8 py-4 bg-white/80 hover:bg-white text-[#0a1f44] font-semibold text-sm sm:text-base rounded-[4px] border border-[#cfe0f7] transition"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 hover:bg-white/15 text-white font-semibold text-sm sm:text-base rounded-[4px] border border-white/15 backdrop-blur transition"
               >
-                <PhoneCall className="w-5 h-5 text-[#0b5bd3]" />
+                <PhoneCall className="w-5 h-5 text-sky-400" />
                 <span>Call: {COMPANY_INFO.phone}</span>
               </a>
             </div>
@@ -1189,14 +1215,14 @@ export default function HomePage() {
             ].map((f, i) => (
               <div
                 key={f.a}
-                className={`flex items-center justify-center gap-4 px-4 ${i > 0 ? "lg:border-l lg:border-[#dbe5f5]" : ""}`}
+                className={`flex items-center justify-center gap-4 px-4 ${i > 0 ? "lg:border-l lg:border-white/10" : ""}`}
               >
-                <div className="w-14 h-14 shrink-0 text-[#0b5bd3] flex items-center justify-center">
+                <div className="w-14 h-14 shrink-0 text-sky-400 flex items-center justify-center">
                   <f.icon className="w-7 h-7" strokeWidth={1.6} />
                 </div>
                 <div className="leading-snug">
-                  <div className="font-bold text-[#0a1f44] text-sm sm:text-base">{f.a}</div>
-                  <div className="text-slate-500 text-sm sm:text-base">{f.b}</div>
+                  <div className="font-bold text-white text-sm sm:text-base">{f.a}</div>
+                  <div className="text-slate-400 text-sm sm:text-base">{f.b}</div>
                 </div>
               </div>
             ))}

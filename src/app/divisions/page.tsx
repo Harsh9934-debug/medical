@@ -41,14 +41,25 @@ const THEMES = [
   { icon: Leaf, tone: "text-[#0b5bd3]", pill: "bg-[#eaf1fd] text-[#0b5bd3]", card: "from-white/90 to-sky-50/70", deco: "text-[#0b5bd3]/10", check: "text-[#0b5bd3]" },
 ];
 
-function Eyebrow({ children, center }: { children: React.ReactNode; center?: boolean }) {
+function Eyebrow({
+  children,
+  center,
+  dark,
+}: {
+  children: React.ReactNode;
+  center?: boolean;
+  /** Amber-on-navy variant for CTA sections with a dark background. */
+  dark?: boolean;
+}) {
+  const lineClass = dark ? "bg-amber-400/40" : "bg-[#0b5bd3]";
+  const textClass = dark ? "text-amber-400" : "text-[#0b5bd3]";
   return (
     <div className={`flex items-center gap-4 ${center ? "justify-center" : ""}`}>
-      <span className="h-px w-10 bg-[#0b5bd3]" />
-      <span className="text-[#0b5bd3] text-xs font-bold uppercase tracking-[0.14em]">
+      <span className={`h-px w-10 ${lineClass}`} />
+      <span className={`${textClass} text-xs font-bold uppercase tracking-[0.14em]`}>
         {children}
       </span>
-      {center && <span className="h-px w-10 bg-[#0b5bd3]" />}
+      {center && <span className={`h-px w-10 ${lineClass}`} />}
     </div>
   );
 }
@@ -315,20 +326,21 @@ export default function DivisionsPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#f1f6fd] via-[#f4f8fe] to-[#eaf1fb] py-16 lg:py-20">
-        <div className="pointer-events-none absolute -left-32 top-4 hidden h-[420px] w-[420px] overflow-hidden rounded-full border-[14px] border-[#cfe0f7]/70 lg:block xl:-left-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#04142f] via-[#0a2647] to-[#0a1f44] py-16 lg:py-20">
+        <div className="pointer-events-none absolute -left-32 top-4 hidden h-[420px] w-[420px] overflow-hidden rounded-full border-[14px] border-white/10 opacity-30 lg:block xl:-left-20">
           <Image src="/infra-micro.jpg" alt="" fill sizes="420px" className="object-cover" style={{ objectPosition: "50% 40%" }} />
         </div>
-        <div className="pointer-events-none absolute -right-32 top-10 hidden h-[420px] w-[420px] overflow-hidden rounded-full border-[14px] border-[#cfe0f7]/70 lg:block xl:-right-20">
+        <div className="pointer-events-none absolute -right-32 top-10 hidden h-[420px] w-[420px] overflow-hidden rounded-full border-[14px] border-white/10 opacity-30 lg:block xl:-right-20">
           <Image src="/infra-lab.jpg" alt="" fill sizes="420px" className="object-cover" style={{ objectPosition: "40% 50%" }} />
         </div>
+        <div className="pointer-events-none absolute -bottom-24 right-1/4 h-64 w-96 rounded-full bg-amber-400/10 blur-3xl" />
         <div className="relative max-w-3xl mx-auto px-4 text-center">
-          <Eyebrow center>Partner for a Healthier Tomorrow</Eyebrow>
-          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0a1f44] tracking-tight leading-[1.1]">
+          <Eyebrow center dark>Partner for a Healthier Tomorrow</Eyebrow>
+          <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.1]">
             Build Your Franchise Across{" "}
-            <span className="block text-[#0b5bd3]">Every Therapeutic Division</span>
+            <span className="block text-sky-400">Every Therapeutic Division</span>
           </h2>
-          <p className="mt-5 text-slate-600 text-sm sm:text-base leading-relaxed">
+          <p className="mt-5 text-slate-300 text-sm sm:text-base leading-relaxed">
             Talk to our commercial desk about territory availability, division-wise portfolios, and promotional support for your district.
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
@@ -341,7 +353,10 @@ export default function DivisionsPage() {
               Request Multi-Division Portfolio
               <ArrowRight className="w-4 h-4" />
             </button>
-            <Link href="/contact" className={OUTLINE_BTN}>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-3 rounded-[4px] border border-[#0b5bd3] bg-white hover:bg-slate-50 px-7 py-3.5 text-sm font-semibold text-[#0b5bd3] transition cursor-pointer"
+            >
               <MessageSquareText className="w-5 h-5" />
               Contact Commercial Desk
               <ArrowRight className="w-4 h-4" />
@@ -359,12 +374,12 @@ export default function DivisionsPage() {
             ].map((f, i) => (
               <div
                 key={f.b}
-                className={`flex items-center justify-center gap-3 px-3 ${i > 0 ? "lg:border-l lg:border-[#cfe0f7]" : ""}`}
+                className={`flex items-center justify-center gap-3 px-3 ${i > 0 ? "lg:border-l lg:border-white/10" : ""}`}
               >
-                <f.icon className="w-9 h-9 shrink-0 text-[#0b5bd3]" strokeWidth={1.4} />
+                <f.icon className="w-9 h-9 shrink-0 text-sky-400" strokeWidth={1.4} />
                 <div className="leading-tight">
-                  <div className={`text-xl font-extrabold ${f.blue ? "text-[#0b5bd3]" : "text-[#0a1f44]"}`}>{f.a}</div>
-                  <div className="mt-0.5 text-xs text-slate-500">{f.b}</div>
+                  <div className={`text-xl font-extrabold ${f.blue ? "text-sky-400" : "text-white"}`}>{f.a}</div>
+                  <div className="mt-0.5 text-xs text-slate-400">{f.b}</div>
                 </div>
               </div>
             ))}

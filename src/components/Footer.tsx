@@ -92,34 +92,34 @@ const container = "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8";
 function ColumnHeading({ children }: { children: React.ReactNode }) {
   return (
     <div>
-      <h4 className="text-xs font-bold uppercase tracking-[0.14em] text-[#0a1f44]">
+      <h4 className="text-xs font-bold uppercase tracking-[0.14em] text-white">
         {children}
       </h4>
-      <div className="mt-2 h-[3px] w-8 rounded-full bg-[#0b5bd3]" />
+      <div className="mt-2 h-[3px] w-8 rounded-full bg-sky-400" />
     </div>
   );
 }
 
 export default function Footer() {
   return (
-    <footer className="text-sm text-slate-600">
+    <footer className="text-sm text-slate-400">
       {/* CTA band */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-[#e8f0fc] to-white py-6">
-        <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-[#cfe0f7]/70 blur-2xl" />
-        <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-[#cfe0f7]/70 blur-2xl" />
+      <div className="relative overflow-hidden bg-gradient-to-b from-[#0a1f44] to-black py-6">
+        <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-sky-500/10 blur-2xl" />
+        <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-amber-400/10 blur-2xl" />
         <div className={`${container} relative`}>
-          <div className="grid grid-cols-1 items-center gap-5 rounded-[4px] border border-white bg-white/70 p-5 shadow-[0_10px_40px_rgba(30,80,160,0.10)] backdrop-blur sm:p-6 lg:grid-cols-12">
+          <div className="grid grid-cols-1 items-center gap-5 rounded-[4px] border border-white/10 bg-white/5 p-5 shadow-[0_10px_40px_rgba(0,0,0,0.25)] backdrop-blur sm:p-6 lg:grid-cols-12">
             <div className="lg:col-span-6">
-              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500">
+              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber-400">
                 Partner for a Healthier Tomorrow
               </span>
-              <h3 className="mt-2 text-2xl font-extrabold leading-[1.15] tracking-tight text-[#0a1f44] sm:text-3xl">
+              <h3 className="mt-2 text-2xl font-extrabold leading-[1.15] tracking-tight text-white sm:text-3xl">
                 Let&rsquo;s Build a Stronger{" "}
-                <span className="block text-[#0b5bd3]">
+                <span className="block text-sky-400">
                   Healthcare Future Together
                 </span>
               </h3>
-              <p className="mt-2 max-w-lg text-sm leading-relaxed text-slate-600">
+              <p className="mt-2 max-w-lg text-sm leading-relaxed text-slate-400">
                 Explore PCD franchise opportunities or third-party manufacturing
                 with Incredible Medicare. Get complete support, transparent
                 terms, and reliable supply.
@@ -131,16 +131,16 @@ export default function Footer() {
                 <Link
                   key={title}
                   href={href}
-                  className={`group flex h-full flex-col items-start gap-1.5 ${i > 0 ? "sm:border-l sm:border-[#dbe5f5] sm:pl-4" : "lg:border-l lg:border-[#dbe5f5] lg:pl-4"}`}
+                  className={`group flex h-full flex-col items-start gap-1.5 ${i > 0 ? "sm:border-l sm:border-white/10 sm:pl-4" : "lg:border-l lg:border-white/10 lg:pl-4"}`}
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#e3edfb] text-[#0b5bd3]">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-[4px] bg-white/10 text-sky-400">
                     <Icon className="h-5 w-5" strokeWidth={1.6} />
                   </span>
-                  <span className="flex items-center gap-2 text-sm font-bold text-[#0a1f44]">
+                  <span className="flex items-center gap-2 text-sm font-bold text-white">
                     {title}
-                    <ArrowRight className="h-4 w-4 text-[#0b5bd3] transition group-hover:translate-x-1" />
+                    <ArrowRight className="h-4 w-4 text-sky-400 transition group-hover:translate-x-1" />
                   </span>
-                  <span className="break-words text-xs leading-snug text-slate-500">
+                  <span className="break-words text-xs leading-snug text-slate-400">
                     {desc}
                   </span>
                 </Link>
@@ -151,7 +151,7 @@ export default function Footer() {
       </div>
 
       {/* Main columns */}
-      <div className="bg-white">
+      <div className="bg-black">
         <div className={`${container} py-8`}>
           <div className="grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-12">
             {/* Brand */}
@@ -165,16 +165,16 @@ export default function Footer() {
                   className="object-contain"
                 />
                 <span className="flex flex-col leading-tight">
-                  <span className="text-xl font-extrabold tracking-tight text-[#0a1f44]">
-                    Incredible <span className="text-[#0b5bd3]">Medicare</span>
+                  <span className="text-xl font-extrabold tracking-tight text-white">
+                    Incredible <span className="text-sky-400">Medicare</span>
                   </span>
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
                     Pharma Formulations &amp; Healthcare
                   </span>
                 </span>
               </Link>
 
-              <p className="max-w-md text-[13px] leading-relaxed text-slate-600">
+              <p className="max-w-md text-[13px] leading-relaxed text-slate-400">
                 Accredited pharmaceutical manufacturer and PCD franchise company
                 based in Zirakpur, Punjab. We formulate and distribute ethical
                 medicines, antibiotics, analgesics, nutraceuticals and
@@ -187,7 +187,7 @@ export default function Footer() {
                     key={s.name}
                     href={s.href}
                     aria-label={s.name}
-                    className="flex h-8 w-8 items-center justify-center rounded-full bg-[#eef3fb] text-[#0a1f44] transition hover:bg-[#0b5bd3] hover:text-white"
+                    className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-sky-500 hover:text-white"
                   >
                     <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
                       <path d={s.path} />
@@ -196,39 +196,39 @@ export default function Footer() {
                 ))}
               </div>
 
-              <ul className="space-y-2 border-t border-slate-200 pt-3 text-[13px] text-[#0a1f44]">
+              <ul className="space-y-2 border-t border-white/10 pt-3 text-[13px] text-slate-300">
                 <li className="flex items-start gap-4">
-                  <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-[#0b5bd3]" strokeWidth={1.7} />
+                  <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-sky-400" strokeWidth={1.7} />
                   <span>{COMPANY_INFO.address}</span>
                 </li>
                 <li className="flex items-center gap-4">
-                  <Mail className="h-5 w-5 shrink-0 text-[#0b5bd3]" strokeWidth={1.7} />
-                  <a href={`mailto:${COMPANY_INFO.email}`} className="transition-colors hover:text-[#0b5bd3]">
+                  <Mail className="h-5 w-5 shrink-0 text-sky-400" strokeWidth={1.7} />
+                  <a href={`mailto:${COMPANY_INFO.email}`} className="transition-colors hover:text-sky-400">
                     {COMPANY_INFO.email}
                   </a>
                 </li>
                 <li className="flex items-center gap-4">
-                  <Phone className="h-5 w-5 shrink-0 text-[#0b5bd3]" strokeWidth={1.7} />
-                  <a href={`tel:+${COMPANY_INFO.whatsapp}`} className="transition-colors hover:text-[#0b5bd3]">
+                  <Phone className="h-5 w-5 shrink-0 text-sky-400" strokeWidth={1.7} />
+                  <a href={`tel:+${COMPANY_INFO.whatsapp}`} className="transition-colors hover:text-sky-400">
                     {COMPANY_INFO.phone}
                   </a>
                 </li>
                 <li className="flex items-center gap-4">
-                  <Clock className="h-5 w-5 shrink-0 text-[#0b5bd3]" strokeWidth={1.7} />
+                  <Clock className="h-5 w-5 shrink-0 text-sky-400" strokeWidth={1.7} />
                   <span>{COMPANY_INFO.workingHours}</span>
                 </li>
               </ul>
             </div>
 
             {/* Quick links */}
-            <div className="lg:col-span-2 lg:border-l lg:border-slate-200 lg:pl-8">
+            <div className="lg:col-span-2 lg:border-l lg:border-white/10 lg:pl-8">
               <ColumnHeading>Quick Links</ColumnHeading>
               <ul className="mt-4 space-y-2">
                 {COMPANY_LINKS.map((item) => (
                   <li key={item.name}>
                     <Link
                       href={item.href}
-                      className="text-[13px] text-slate-600 transition-colors hover:text-[#0b5bd3]"
+                      className="text-[13px] text-slate-400 transition-colors hover:text-sky-400"
                     >
                       {item.name}
                     </Link>
@@ -238,13 +238,13 @@ export default function Footer() {
             </div>
 
             {/* Divisions */}
-            <div className="lg:col-span-3 lg:border-l lg:border-slate-200 lg:pl-8">
+            <div className="lg:col-span-3 lg:border-l lg:border-white/10 lg:pl-8">
               <ColumnHeading>Specialized Divisions</ColumnHeading>
               <ul className="mt-4 space-y-2.5">
                 {DIVISIONS.map((div) => (
                   <li key={div.id}>
                     <Link href="/divisions" className="group block">
-                      <span className="block text-[13px] font-medium text-[#0a1f44] transition-colors group-hover:text-[#0b5bd3]">
+                      <span className="block text-[13px] font-medium text-white transition-colors group-hover:text-sky-400">
                         {div.name}
                       </span>
                       <span className="text-xs text-slate-500">
@@ -258,17 +258,17 @@ export default function Footer() {
 
             {/* Business opportunities */}
             <div className="lg:col-span-3">
-              <div className="rounded-[4px] bg-[#eef4fc] p-4">
+              <div className="rounded-[4px] border border-white/10 bg-white/5 p-4">
                 <ColumnHeading>Business Opportunities</ColumnHeading>
                 <div className="mt-4 flex items-start gap-3">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#dbe8fb] text-[#0b5bd3]">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-sky-400">
                     <Handshake className="h-5 w-5" strokeWidth={1.6} />
                   </span>
                   <div>
-                    <div className="text-sm font-bold leading-snug text-[#0a1f44]">
+                    <div className="text-sm font-bold leading-snug text-white">
                       PCD Franchise Monopoly Available
                     </div>
-                    <p className="mt-1 text-xs leading-relaxed text-slate-500">
+                    <p className="mt-1 text-xs leading-relaxed text-slate-400">
                       Vacant territories open across all Indian states and Union
                       Territories, with promotional support kits.
                     </p>
@@ -282,15 +282,15 @@ export default function Footer() {
                   <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
 
-                <div className="mt-3 flex items-start gap-3 border-t border-[#d5e2f6] pt-3">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#dbe8fb] text-[#0b5bd3]">
+                <div className="mt-3 flex items-start gap-3 border-t border-white/10 pt-3">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-sky-400">
                     <Factory className="h-5 w-5" strokeWidth={1.6} />
                   </span>
                   <div>
-                    <div className="text-sm font-bold text-[#0a1f44]">
+                    <div className="text-sm font-bold text-white">
                       Manufacturing Unit
                     </div>
-                    <div className="mt-1 text-xs leading-relaxed text-slate-500">
+                    <div className="mt-1 text-xs leading-relaxed text-slate-400">
                       {COMPANY_INFO.manufacturingUnit}
                     </div>
                   </div>
@@ -300,33 +300,33 @@ export default function Footer() {
           </div>
 
           {/* Assurance ribbon */}
-          <div className="mt-6 grid grid-cols-1 gap-3 rounded-[4px] border border-slate-200 bg-white px-5 py-3 shadow-[0_6px_24px_rgba(30,80,160,0.06)] sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+          <div className="mt-6 grid grid-cols-1 gap-3 rounded-[4px] border border-white/10 bg-white/5 px-5 py-3 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
             {ASSURANCES.map(({ icon: Icon, title, desc }, i) => (
               <div
                 key={title}
-                className={`flex items-center gap-4 lg:justify-center ${i > 0 ? "lg:border-l lg:border-slate-200" : ""}`}
+                className={`flex items-center gap-4 lg:justify-center ${i > 0 ? "lg:border-l lg:border-white/10" : ""}`}
               >
-                <Icon className="h-7 w-7 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                <Icon className="h-7 w-7 shrink-0 text-sky-400" strokeWidth={1.5} />
                 <div>
-                  <div className="text-[13px] font-bold text-[#0a1f44]">{title}</div>
-                  <div className="text-xs text-[#0b5bd3]">{desc}</div>
+                  <div className="text-[13px] font-bold text-white">{title}</div>
+                  <div className="text-xs text-slate-400">{desc}</div>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Legal row */}
-          <div className="mt-5 flex flex-col items-center justify-between gap-2 border-t border-slate-200 pt-4 text-xs text-slate-500 sm:flex-row lg:pr-48">
+          <div className="mt-5 flex flex-col items-center justify-between gap-2 border-t border-white/10 pt-4 text-xs text-slate-500 sm:flex-row lg:pr-48">
             <p>
               &copy; {new Date().getFullYear()}{" "}
-              <strong className="text-[#0a1f44]">Incredible Medicare</strong>.
+              <strong className="text-white">Incredible Medicare</strong>.
               All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <Link href="/privacy-policy" className="transition-colors hover:text-[#0b5bd3]">
+              <Link href="/privacy-policy" className="transition-colors hover:text-sky-400">
                 Privacy Policy
               </Link>
-              <Link href="/terms-conditions" className="transition-colors hover:text-[#0b5bd3]">
+              <Link href="/terms-conditions" className="transition-colors hover:text-sky-400">
                 Terms &amp; Conditions
               </Link>
             </div>

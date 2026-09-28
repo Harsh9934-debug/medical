@@ -39,14 +39,25 @@ const TINTS = [
   "bg-rose-200/50",
 ];
 
-function Eyebrow({ children, center }: { children: React.ReactNode; center?: boolean }) {
+function Eyebrow({
+  children,
+  center,
+  dark,
+}: {
+  children: React.ReactNode;
+  center?: boolean;
+  /** Amber-on-navy variant for CTA sections with a dark background. */
+  dark?: boolean;
+}) {
+  const lineClass = dark ? "bg-amber-400/40" : "bg-[#0b5bd3]";
+  const textClass = dark ? "text-amber-400" : "text-[#0b5bd3]";
   return (
     <div className={`flex items-center gap-4 ${center ? "justify-center" : ""}`}>
-      <span className="h-px w-10 bg-[#0b5bd3]" />
-      <span className="text-[#0b5bd3] text-xs font-bold uppercase tracking-[0.14em]">
+      <span className={`h-px w-10 ${lineClass}`} />
+      <span className={`${textClass} text-xs font-bold uppercase tracking-[0.14em]`}>
         {children}
       </span>
-      {center && <span className="h-px w-10 bg-[#0b5bd3]" />}
+      {center && <span className={`h-px w-10 ${lineClass}`} />}
     </div>
   );
 }
@@ -422,20 +433,21 @@ export default function ProductsPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#eaf1fb] via-[#f1f6fd] to-[#f7faff] py-16 lg:py-20">
-        <div className="pointer-events-none absolute -left-32 top-4 hidden h-[420px] w-[420px] overflow-hidden rounded-full border-[14px] border-[#cfe0f7]/70 lg:block xl:-left-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#04142f] via-[#0a2647] to-[#0a1f44] py-16 lg:py-20">
+        <div className="pointer-events-none absolute -left-32 top-4 hidden h-[420px] w-[420px] overflow-hidden rounded-full border-[14px] border-white/10 opacity-30 lg:block xl:-left-20">
           <Image src="/infra-packs.jpg" alt="" fill sizes="420px" className="object-cover" />
         </div>
-        <div className="pointer-events-none absolute -right-32 top-10 hidden h-[420px] w-[420px] overflow-hidden rounded-full border-[14px] border-[#cfe0f7]/70 lg:block xl:-right-20">
+        <div className="pointer-events-none absolute -right-32 top-10 hidden h-[420px] w-[420px] overflow-hidden rounded-full border-[14px] border-white/10 opacity-30 lg:block xl:-right-20">
           <Image src="/infra-lab.jpg" alt="" fill sizes="420px" className="object-cover" style={{ objectPosition: "40% 50%" }} />
         </div>
+        <div className="pointer-events-none absolute -bottom-24 right-1/4 h-64 w-96 rounded-full bg-amber-400/10 blur-3xl" />
         <div className="relative mx-auto max-w-3xl px-4 text-center">
-          <Eyebrow center>Partner with Incredible Medicare</Eyebrow>
-          <h2 className="mt-4 text-3xl font-extrabold leading-[1.1] tracking-tight text-[#0a1f44] sm:text-4xl lg:text-5xl">
+          <Eyebrow center dark>Partner with Incredible Medicare</Eyebrow>
+          <h2 className="mt-4 text-3xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-5xl">
             Can&apos;t Find What You{" "}
-            <span className="block text-[#0b5bd3]">Are Looking For?</span>
+            <span className="block text-sky-400">Are Looking For?</span>
           </h2>
-          <p className="mt-5 text-sm leading-relaxed text-slate-600 sm:text-base">
+          <p className="mt-5 text-sm leading-relaxed text-slate-300 sm:text-base">
             Our portfolio spans 650+ approved formulations. Tell us your requirement and our team will share availability, net rates, and custom manufacturing options.
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
@@ -444,7 +456,10 @@ export default function ProductsPage() {
               Request a Product
               <ArrowRight className="h-4 w-4" />
             </button>
-            <Link href="/contact" className={OUTLINE_BTN}>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-3 rounded-[4px] border border-[#0b5bd3] bg-white hover:bg-slate-50 px-7 py-3.5 text-sm font-semibold text-[#0b5bd3] transition cursor-pointer"
+            >
               <MessageSquareText className="h-5 w-5" />
               Contact Us Directly
               <ArrowRight className="h-4 w-4" />
