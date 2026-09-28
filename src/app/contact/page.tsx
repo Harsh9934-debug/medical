@@ -74,12 +74,12 @@ export default function ContactPage() {
 
   const set =
     (key: keyof typeof formData) =>
-    (
-      e: React.ChangeEvent<
-        HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-      >,
-    ) =>
-      setFormData({ ...formData, [key]: e.target.value });
+      (
+        e: React.ChangeEvent<
+          HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+        >,
+      ) =>
+        setFormData({ ...formData, [key]: e.target.value });
 
   return (
     <div className="w-full bg-slate-50 pb-20 text-slate-900">

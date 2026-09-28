@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { CountUp } from "@/components/motion/CountUp";
 import { Ticker } from "@/components/motion/Ticker";
+import { YouTubeCoverBackground } from "@/components/motion/YouTubeCoverBackground";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -15,6 +17,7 @@ import {
   Users,
   FileText,
   ArrowRight,
+  ChevronDown,
   Sparkles,
   PhoneCall,
   Check,
@@ -41,97 +44,132 @@ import EnquiryModal from "@/components/EnquiryModal";
 
 export default function AboutPage() {
   const [modalOpen, setModalOpen] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  // Video drifts down slower than the page scrolls, the classic parallax feel.
+  const videoY = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
 
   return (
     <div className="w-full bg-white text-slate-900">
-      {/* Page Header Banner */}
-      <section className="relative flex items-center overflow-hidden bg-gradient-to-br from-[#f7faff] via-[#eef4fc] to-[#e3edfb] lg:min-h-[max(600px,42vw)]">
+      {/* Full-screen parallax video hero */}
+      <section
+        ref={heroRef}
+        className="relative isolate h-[100svh] w-full overflow-hidden bg-[#04142f]"
+      >
+        <motion.div style={{ y: videoY }} className="absolute inset-x-0 -top-[10%] h-[120%]">
+          <YouTubeCoverBackground
+            id="4zCSgGybRcg"
+            title="Incredible Medicare — Corporate Overview"
+            className="h-full w-full"
+          />
+        </motion.div>
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#04142f]/70 via-[#04142f]/15 to-[#04142f]/80" />
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="relative flex h-full flex-col items-center justify-center px-4 text-center text-white"
+        >
+          <span className="flex items-center gap-4 text-xs font-bold uppercase tracking-[0.22em] text-sky-300">
+            <span className="h-px w-10 bg-sky-300" />
+            About Us
+            <span className="h-px w-10 bg-sky-300" />
+          </span>
+          <h1 className="mt-5 max-w-4xl text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+            Driving Pharmaceutical Excellence &amp;{" "}
+            <span className="text-sky-400">Ethical Healthcare</span>
+          </h1>
+        </motion.div>
+
+        <motion.a
+          href="#corporate-overview"
+          aria-label="Scroll to content"
+          className="absolute inset-x-0 bottom-8 mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white backdrop-blur transition hover:bg-white/20"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ChevronDown className="h-5 w-5" />
+        </motion.a>
+      </section>
+
+      {/* Intro content (moved below the video) */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#f7faff] via-[#eef4fc] to-[#e3edfb] py-14 lg:py-16">
         <Image
           src="/bg3.png"
           alt=""
           fill
-          priority
           sizes="100vw"
-          className="pointer-events-none select-none object-cover object-right opacity-30 lg:opacity-100"
+          className="pointer-events-none select-none object-cover object-right opacity-[0.06]"
         />
-        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-14">
-          <div className="max-w-2xl lg:max-w-[52%]">
-            <div className="flex items-center gap-4">
-              <span className="h-px w-12 bg-[#0b5bd3]" />
-              <span className="text-[#0b5bd3] text-sm font-bold uppercase tracking-[0.12em]">
-                About Us
-              </span>
-            </div>
-            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-[2.6rem] xl:text-[3.25rem] font-extrabold text-[#0a1f44] tracking-tight leading-[1.08]">
-              Driving Pharmaceutical Excellence &amp; Ethical{" "}
-              <span className="text-[#0b5bd3]">Healthcare</span>
-            </h1>
-            <p className="mt-5 text-slate-600 text-base leading-relaxed max-w-xl">
-              Incredible Medicare is an ISO 9001:2015 &amp; WHO-GMP accredited
-              pharmaceutical company based in Zirakpur, Punjab. Founded on the
-              principles of therapeutic bioequivalence, scientific rigor, and
-              partner trust.
-            </p>
+        <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6">
+          <p className="text-slate-600 text-base leading-relaxed sm:text-lg">
+            Incredible Medicare is an ISO 9001:2015 &amp; WHO-GMP accredited
+            pharmaceutical company based in Zirakpur, Punjab. Founded on the
+            principles of therapeutic bioequivalence, scientific rigor, and
+            partner trust.
+          </p>
 
-            <div className="mt-7 flex flex-wrap items-center gap-4">
-              <a
-                href="#corporate-overview"
-                className="inline-flex items-center gap-3 rounded-[4px] bg-[#0b5bd3] hover:bg-[#0a4db3] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(11,91,211,0.35)] transition"
-              >
-                Our Corporate Journey
-                <ArrowRight className="w-4 h-4" />
-              </a>
-              <Link
-                href="/infrastructure"
-                className="inline-flex items-center gap-3 rounded-[4px] border border-[#0b5bd3] bg-white/70 hover:bg-white px-7 py-3.5 text-sm font-semibold text-[#0b5bd3] transition"
-              >
-                Our Infrastructure
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-5 sm:flex sm:flex-wrap sm:items-center sm:gap-y-4 lg:flex-nowrap lg:w-[min(58vw,54rem)]">
-              {[
-                { icon: ShieldCheck, a: "WHO-GMP", b: "Accredited" },
-                { icon: FileText, a: "ISO 9001:2015", b: "Certified" },
-                { icon: Users, a: "650+", b: "Approved Formulations" },
-                { icon: Globe2, a: "Pan-India & Global", b: "Distribution Network" },
-              ].map((f, i) => (
-                <div
-                  key={f.a}
-                  className={`flex items-center gap-2.5 whitespace-nowrap ${i > 0 ? "sm:border-l sm:border-[#cfe0f7] sm:pl-4" : ""}`}
-                >
-                  <f.icon className="w-7 h-7 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
-                  <div className="leading-tight">
-                    <div className="text-[13px] font-bold text-[#0a1f44]">{f.a}</div>
-                    <div className="text-xs text-slate-500">{f.b}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="#corporate-overview"
+              className="inline-flex items-center gap-3 rounded-[4px] bg-[#0b5bd3] hover:bg-[#0a4db3] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(11,91,211,0.35)] transition"
+            >
+              Our Corporate Journey
+              <ArrowRight className="w-4 h-4" />
+            </a>
+            <Link
+              href="/infrastructure"
+              className="inline-flex items-center gap-3 rounded-[4px] border border-[#0b5bd3] bg-white/70 hover:bg-white px-7 py-3.5 text-sm font-semibold text-[#0b5bd3] transition"
+            >
+              Our Infrastructure
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
 
-        </div>
-          {/* Floating cards (desktop) */}
-        <div className="hidden lg:block absolute inset-0 pointer-events-none">
-          {[
-            { icon: FlaskConical, a: "High-Quality Formulations", b: "For a healthier tomorrow", pos: "right-[5%] top-[13%]" },
-            { icon: Handshake, a: "Trusted by Healthcare Partners", b: "Across India & Global Markets", pos: "left-[57%] top-[55%]" },
-            { icon: Users, a: "Ethical & Patient-Centric", b: "Committed to Better Lives", pos: "right-[3%] bottom-[12%]" },
-          ].map((c) => (
-            <div
-              key={c.a}
-              className={`absolute ${c.pos} w-[260px] xl:w-[290px] flex items-center gap-4 rounded-[4px] border border-white bg-white/80 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(30,80,160,0.15)]`}
-            >
-              <span className="w-14 h-14 shrink-0 rounded-full bg-[#e3edfb] text-[#0b5bd3] flex items-center justify-center">
-                <c.icon className="w-7 h-7" strokeWidth={1.5} />
+          <div className="mt-9 grid grid-cols-2 gap-x-6 gap-y-5 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-y-4">
+            {[
+              { icon: ShieldCheck, a: "WHO-GMP", b: "Accredited" },
+              { icon: FileText, a: "ISO 9001:2015", b: "Certified" },
+              { icon: Users, a: "650+", b: "Approved Formulations" },
+              { icon: Globe2, a: "Pan-India & Global", b: "Distribution Network" },
+            ].map((f, i) => (
+              <div
+                key={f.a}
+                className={`flex items-center gap-2.5 whitespace-nowrap ${i > 0 ? "sm:border-l sm:border-[#cfe0f7] sm:pl-4" : ""}`}
+              >
+                <f.icon className="w-7 h-7 shrink-0 text-[#0b5bd3]" strokeWidth={1.5} />
+                <div className="text-left leading-tight">
+                  <div className="text-[13px] font-bold text-[#0a1f44]">{f.a}</div>
+                  <div className="text-xs text-slate-500">{f.b}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+            <div className="flex items-center gap-3 rounded-[4px] border border-white bg-white/80 backdrop-blur px-4 py-3 shadow-[0_10px_30px_rgba(30,80,160,0.10)]">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#e3edfb] text-[#0b5bd3]">
+                <FlaskConical className="h-5 w-5" strokeWidth={1.5} />
               </span>
-              <div className="leading-snug">
-                <div className="text-sm font-bold text-[#0a1f44]">{c.a}</div>
-                <div className="text-xs text-slate-500 mt-0.5">{c.b}</div>
+              <div className="text-left leading-snug">
+                <div className="text-sm font-bold text-[#0a1f44]">High-Quality Formulations</div>
+                <div className="text-xs text-slate-500">For a healthier tomorrow</div>
               </div>
             </div>
-          ))}
+            <div className="flex items-center gap-3 rounded-[4px] border border-white bg-white/80 backdrop-blur px-4 py-3 shadow-[0_10px_30px_rgba(30,80,160,0.10)]">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#e3edfb] text-[#0b5bd3]">
+                <Handshake className="h-5 w-5" strokeWidth={1.5} />
+              </span>
+              <div className="text-left leading-snug">
+                <div className="text-sm font-bold text-[#0a1f44]">Trusted by Healthcare Partners</div>
+                <div className="text-xs text-slate-500">Across India &amp; Global Markets</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

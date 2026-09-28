@@ -56,43 +56,43 @@ const DOSAGE_FORMS: {
   count: string;
   icon: LucideIcon;
 }[] = [
-  {
-    label: "Tablets & Dispersibles",
-    desc: "Film-coated, SR, MR and dispersible tablets.",
-    count: "120+ Brands",
-    icon: Tablets,
-  },
-  {
-    label: "Capsules & Pellets",
-    desc: "Hard gelatin capsules and enteric pellets.",
-    count: "65+ Brands",
-    icon: Pill,
-  },
-  {
-    label: "Softgel Formulations",
-    desc: "Fast-absorbing softgels for higher bioavailability.",
-    count: "35+ Brands",
-    icon: Droplets,
-  },
-  {
-    label: "Injectables & Lyophilized",
-    desc: "Sterile vials, ampoules and lyophilized powders.",
-    count: "40+ Brands",
-    icon: Syringe,
-  },
-  {
-    label: "Oral Liquids & Syrups",
-    desc: "Syrups, suspensions and paediatric drops.",
-    count: "55+ Brands",
-    icon: FlaskConical,
-  },
-  {
-    label: "Sachets & Dry Syrups",
-    desc: "Ready-to-reconstitute powders and sachets.",
-    count: "25+ Brands",
-    icon: Package,
-  },
-];
+    {
+      label: "Tablets & Dispersibles",
+      desc: "Film-coated, SR, MR and dispersible tablets.",
+      count: "120+ Brands",
+      icon: Tablets,
+    },
+    {
+      label: "Capsules & Pellets",
+      desc: "Hard gelatin capsules and enteric pellets.",
+      count: "65+ Brands",
+      icon: Pill,
+    },
+    {
+      label: "Softgel Formulations",
+      desc: "Fast-absorbing softgels for higher bioavailability.",
+      count: "35+ Brands",
+      icon: Droplets,
+    },
+    {
+      label: "Injectables & Lyophilized",
+      desc: "Sterile vials, ampoules and lyophilized powders.",
+      count: "40+ Brands",
+      icon: Syringe,
+    },
+    {
+      label: "Oral Liquids & Syrups",
+      desc: "Syrups, suspensions and paediatric drops.",
+      count: "55+ Brands",
+      icon: FlaskConical,
+    },
+    {
+      label: "Sachets & Dry Syrups",
+      desc: "Ready-to-reconstitute powders and sachets.",
+      count: "25+ Brands",
+      icon: Package,
+    },
+  ];
 
 const THERAPEUTIC_AREAS = PRODUCT_CATEGORIES.filter(
   (c) => c !== "All Categories",
@@ -137,43 +137,43 @@ export default function Header() {
             scrolled ? "grid-rows-[0fr] opacity-0" : "grid-rows-[1fr] opacity-100",
           )}
         >
-        <div className="min-h-0 overflow-hidden">
-        <div className="border-b border-slate-800 px-4 py-2 sm:px-6 lg:px-8">
-          <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-4">
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 md:justify-start">
-              <a
-                href={`mailto:${COMPANY_INFO.email}`}
-                className="flex items-center gap-1.5 transition-colors hover:text-white"
-              >
-                <Mail className="h-3.5 w-3.5 text-sky-400" />
-                <span>{COMPANY_INFO.email}</span>
-              </a>
-              <a
-                href={`tel:+${COMPANY_INFO.whatsapp}`}
-                className="flex items-center gap-1.5 transition-colors hover:text-white"
-              >
-                <Phone className="h-3.5 w-3.5 text-sky-400" />
-                <span>{COMPANY_INFO.phone}</span>
-              </a>
-              <div className="hidden items-center gap-1.5 text-slate-400 xl:flex">
-                <MapPin className="h-3.5 w-3.5 text-sky-400" />
-                <span>{COMPANY_INFO.address}</span>
-              </div>
-            </div>
+          <div className="min-h-0 overflow-hidden">
+            <div className="border-b border-slate-800 px-4 py-2 sm:px-6 lg:px-8">
+              <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-4">
+                <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 md:justify-start">
+                  <a
+                    href={`mailto:${COMPANY_INFO.email}`}
+                    className="flex items-center gap-1.5 transition-colors hover:text-white"
+                  >
+                    <Mail className="h-3.5 w-3.5 text-sky-400" />
+                    <span>{COMPANY_INFO.email}</span>
+                  </a>
+                  <a
+                    href={`tel:+${COMPANY_INFO.whatsapp}`}
+                    className="flex items-center gap-1.5 transition-colors hover:text-white"
+                  >
+                    <Phone className="h-3.5 w-3.5 text-sky-400" />
+                    <span>{COMPANY_INFO.phone}</span>
+                  </a>
+                  <div className="hidden items-center gap-1.5 text-slate-400 xl:flex">
+                    <MapPin className="h-3.5 w-3.5 text-sky-400" />
+                    <span>{COMPANY_INFO.address}</span>
+                  </div>
+                </div>
 
-            <div className="hidden items-center gap-5 md:flex">
-              <div className="flex items-center gap-1.5 font-medium text-emerald-400">
-                <ShieldCheck className="h-3.5 w-3.5" />
-                <span>WHO-GMP &amp; ISO 9001:2015 Accredited</span>
-              </div>
-              <div className="hidden items-center gap-1.5 text-slate-400 lg:flex">
-                <Clock className="h-3.5 w-3.5" />
-                <span>Mon - Sat: 9am - 6:30pm</span>
+                <div className="hidden items-center gap-5 md:flex">
+                  <div className="flex items-center gap-1.5 font-medium text-emerald-400">
+                    <ShieldCheck className="h-3.5 w-3.5" />
+                    <span>WHO-GMP &amp; ISO 9001:2015 Accredited</span>
+                  </div>
+                  <div className="hidden items-center gap-1.5 text-slate-400 lg:flex">
+                    <Clock className="h-3.5 w-3.5" />
+                    <span>Mon - Sat: 9am - 6:30pm</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        </div>
         </div>
 
         {/* Main Navigation */}

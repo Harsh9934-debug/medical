@@ -276,11 +276,10 @@ export default function HomePage() {
                 ].map(({ icon: Icon, title, sub }, i) => (
                   <div
                     key={title}
-                    className={`flex items-center gap-3 pr-5 sm:pr-6 xl:pr-8 ${
-                      i > 0
+                    className={`flex items-center gap-3 pr-5 sm:pr-6 xl:pr-8 ${i > 0
                         ? "sm:border-l sm:border-slate-300/80 sm:pl-5 xl:pl-8"
                         : ""
-                    }`}
+                      }`}
                   >
                     <Icon
                       className="h-9 w-9 shrink-0 text-[#0b4a99]"
@@ -404,9 +403,10 @@ export default function HomePage() {
       </section>
 
       {/* 3. ABOUT INCREDIBLE MEDICARE SNAPSHOT */}
-      <section className="relative overflow-hidden py-16 lg:py-20 bg-gradient-to-br from-white via-[#f6f9fe] to-[#eaf1fb] border-b border-slate-200">
-        <div className="pointer-events-none absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/50 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-40 left-1/3 h-[420px] w-[420px] rounded-full bg-[#dbe8fb]/40 blur-3xl" />
+      <section className="relative overflow-hidden py-16 lg:py-20 bg-gradient-to-br from-[#dce8fa] via-[#e5eefc] to-[#d3e3f9] border-b border-slate-200">
+        <div className="pointer-events-none absolute -top-32 -right-32 h-[460px] w-[460px] rounded-full bg-[#bcd3f3]/60 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-40 left-1/3 h-[460px] w-[460px] rounded-full bg-[#c9dcf6]/60 blur-3xl" />
+        <div className="pointer-events-none absolute top-1/3 -left-40 h-[380px] w-[380px] rounded-full bg-[#e9f2ff]/70 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Visual Box */}
@@ -689,11 +689,10 @@ export default function HomePage() {
                   key={cat}
                   type="button"
                   onClick={() => setActiveCategory(cat)}
-                  className={`inline-flex items-center gap-2 px-4 py-2.5 text-[13px] font-medium rounded-[4px] border transition cursor-pointer ${
-                    activeCategory === cat
+                  className={`inline-flex items-center gap-2 px-4 py-2.5 text-[13px] font-medium rounded-[4px] border transition cursor-pointer ${activeCategory === cat
                       ? "bg-[#0b5bd3] text-white border-[#0b5bd3] shadow-[0_6px_18px_rgba(11,91,211,0.3)]"
                       : "bg-white/80 text-[#0a1f44] border-[#e3ecfa] hover:border-[#0b5bd3]/40 hover:bg-white"
-                  }`}
+                    }`}
                 >
                   <CatIcon className={`w-4 h-4 ${activeCategory === cat ? "text-white" : "text-[#0b5bd3]"}`} />
                   {cat}
