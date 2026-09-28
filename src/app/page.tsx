@@ -210,7 +210,7 @@ export default function HomePage() {
 
         {/* Centered copy */}
         <div className="relative mx-auto max-w-7xl px-4 pt-16 sm:px-6 sm:pt-20 lg:px-8 lg:pt-24">
-          <Stagger immediate delay={0.15} gap={0.11} className="mx-auto flex max-w-3xl flex-col items-center text-center">
+          <Stagger immediate delay={0.15} gap={0.11} className="mx-auto flex max-w-5xl flex-col items-center text-center">
             <StaggerItem className="inline-flex items-center gap-2.5 rounded-full border border-teal-200 bg-white/80 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.22em] text-teal-700 shadow-sm backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
               WHO-GMP &amp; ISO 9001:2015 Certified &middot; DCGI Cleared
@@ -235,8 +235,9 @@ export default function HomePage() {
                     strokeDasharray="0.5 9"
                   />
                 </svg>
-              </span>{" "}
-              &amp; PCD Franchise
+              </span>
+              <br />
+              <span className="whitespace-nowrap">&amp; PCD Franchise</span>
             </StaggerItem>
 
             <StaggerItem as="p" className="mt-7 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
