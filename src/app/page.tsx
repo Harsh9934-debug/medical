@@ -320,8 +320,10 @@ export default function HomePage() {
               alt="High-speed blister packaging line at Incredible Medicare"
               fill
               sizes="(min-width:1024px) 1200px, 100vw"
-              className="object-cover opacity-70"
+              className="object-cover"
             />
+            {/* Neutral scrim, bottom-only, so the overlay copy stays readable without tinting the photo */}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
 
             {/* Top badges */}
             <div className="relative flex items-center justify-between px-5 pt-5 sm:px-8 sm:pt-8">
