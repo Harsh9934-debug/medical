@@ -58,7 +58,7 @@ export function Conveyor({ className = "" }: { className?: string }) {
   return (
     <div
       aria-hidden
-      className={`relative overflow-hidden ${className}`}
+      className={`relative overflow-hidden pt-9 ${className}`}
       style={{
         maskImage:
           "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
@@ -79,8 +79,8 @@ export function Conveyor({ className = "" }: { className?: string }) {
 
       {/* QC scanner gate */}
       <div className="pointer-events-none absolute inset-y-0 left-1/2 w-0 -translate-x-1/2">
-        <div className="absolute -top-1 bottom-2 -left-px w-[2px] bg-gradient-to-b from-transparent via-[#22d3ee] to-transparent shadow-[0_0_18px_6px_rgba(34,211,238,0.45)] animate-scan-pulse" />
-        <div className="absolute -left-14 -top-2 whitespace-nowrap rounded-[4px] bg-[#0b192c] px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[#22d3ee]">
+        <div className="absolute top-6 bottom-2 -left-px w-[2px] bg-gradient-to-b from-transparent via-[#22d3ee] to-transparent shadow-[0_0_18px_6px_rgba(34,211,238,0.45)] animate-scan-pulse" />
+        <div className="absolute left-0 top-0 -translate-x-1/2 whitespace-nowrap rounded-[4px] bg-[#0b192c] px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[#22d3ee]">
           QC Scan · Pass
         </div>
       </div>

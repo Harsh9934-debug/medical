@@ -57,7 +57,9 @@ export function YouTubeCoverBackground({
     <div
       aria-hidden
       onClick={() => sendCommand(iframeRef.current?.contentWindow, "playVideo")}
-      className={`absolute inset-0 overflow-hidden ${className}`}
+      className={`absolute inset-0 overflow-hidden bg-cover bg-center ${className}`}
+      // Poster shows while the player loads, or if the browser blocks it.
+      style={{ backgroundImage: `url(https://i.ytimg.com/vi/${id}/maxresdefault.jpg)` }}
     >
       <iframe
         ref={iframeRef}

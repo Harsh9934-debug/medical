@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { SectionBg } from "@/components/motion/SectionBg";
+import HeroCarousel from "@/components/motion/HeroCarousel";
 import { useRouter } from "next/navigation";
 import ClientFeedback from "@/components/ui/testimonial";
 import {
@@ -206,14 +208,18 @@ export default function HomePage() {
     <div className="w-full bg-white text-slate-900">
       {/* 1. HERO SECTION */}
       <section data-no-reveal className="relative isolate overflow-hidden border-b border-slate-200 bg-gradient-to-b from-[#eef7f5] via-[#f5faf9] to-white">
+        <HeroCarousel />
         <div className="hero-pattern pointer-events-none absolute inset-0 -z-10 opacity-40 [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,black,transparent)]" />
 
         {/* Centered copy */}
         <div className="relative mx-auto max-w-7xl px-4 pt-16 sm:px-6 sm:pt-20 lg:px-8 lg:pt-24">
           <Stagger immediate delay={0.15} gap={0.11} className="mx-auto flex max-w-5xl flex-col items-center text-center">
-            <StaggerItem className="inline-flex items-center gap-2.5 rounded-full border border-teal-200 bg-white/80 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.22em] text-teal-700 shadow-sm backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
-              WHO-GMP &amp; ISO 9001:2015 Certified &middot; DCGI Cleared
+            <StaggerItem className="inline-flex items-center gap-3 rounded-full border border-teal-200 bg-white/85 py-1.5 pl-1.5 pr-5 text-[11px] font-bold uppercase tracking-[0.22em] text-teal-700 shadow-sm backdrop-blur">
+              <span className="relative flex h-9 w-9 shrink-0 items-center justify-center">
+                <span className="absolute inset-0 animate-ping rounded-full bg-teal-400/30" />
+                <Image src="/logo.png" alt="Incredible Medicare" width={36} height={36} className="relative h-9 w-9 rounded-full object-cover" />
+              </span>
+              <span className="ml-1">WHO-GMP &amp; ISO 9001:2015 Certified &middot; DCGI Cleared</span>
             </StaggerItem>
 
             <StaggerItem as="h1" className="mt-7 font-serif text-4xl font-semibold leading-[1.12] tracking-tight text-[#0b192c] sm:text-5xl lg:text-[56px]">
@@ -420,15 +426,20 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="mx-auto grid max-w-7xl grid-cols-2 gap-y-6 px-4 py-8 sm:grid-cols-3 sm:px-6 lg:grid-cols-5 lg:px-8">
+          <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 gap-y-6 px-6 py-8 sm:grid-cols-3 sm:px-6 lg:grid-cols-5 lg:px-8">
             {[
               { icon: ShieldCheck, a: "WHO-GMP", b: "Certified Facilities" },
               { icon: Award, a: "ISO 9001:2015", b: "Quality Assured" },
               { icon: FileCheck, a: "650+ Formulations", b: "DCGI Approved" },
               { icon: Globe2, a: "28+ States", b: "Pan-India Coverage" },
               { icon: PhoneCall, a: "Prompt Dispatch", b: "Consignment Tracking" },
-            ].map((f) => (
-              <div key={f.a} className="flex items-center justify-center gap-3 sm:justify-start">
+            ].map((f, i, arr) => (
+              <div
+                key={f.a}
+                className={`flex items-center gap-3 ${
+                  i === arr.length - 1 ? "col-span-2 justify-center sm:col-span-1 sm:justify-start" : "justify-start"
+                }`}
+              >
                 <f.icon className="h-6 w-6 shrink-0 text-[#0D9488]" strokeWidth={1.6} />
                 <div className="text-left leading-tight">
                   <div className="text-sm font-bold text-[#0b192c]">{f.a}</div>
@@ -517,12 +528,12 @@ export default function HomePage() {
               {/* Photo 1 */}
               <div className="relative h-56 sm:h-72 lg:absolute lg:left-0 lg:top-0 lg:h-[58%] lg:w-[74%] overflow-hidden rounded-[4px] lg:rounded-tl-none lg:rounded-br-none lg:rounded-tr-[3rem] lg:rounded-bl-[3rem] shadow-[0_10px_40px_rgba(13,148,136,0.15)]">
                 <Image
-                  src="/herobg.png"
-                  alt="Pharmaceutical cleanroom technician"
+                  src="/about-cleanroom.jpg"
+                  alt="Technician in cleanroom gowning reviewing batch data"
                   fill
                   sizes="(min-width:1024px) 40vw, 100vw"
-                  className="object-cover scale-125 origin-[45%_35%]"
-                  style={{ objectPosition: "45% 35%" }}
+                  className="object-cover"
+                  style={{ objectPosition: "35% 40%" }}
                 />
               </div>
 
@@ -533,7 +544,7 @@ export default function HomePage() {
                     tag: "HQ",
                     tagClass: "bg-[#0f766e]",
                     title: "Corporate Headquarters",
-                    addr: "Unicity Business Park, Dhakoli, Zirakpur, Punjab 160104",
+                    addr: ["Unicity Business Park, Dhakoli,", "Zirakpur, Punjab - 160104, India"],
                     body: "Strategically located in the Chandigarh Tricity industrial corridor, our corporate headquarters coordinates pan-India distribution, partner logistics, regulatory documentation, and strategic expansions.",
                     href: "/contact",
                   },
@@ -541,7 +552,7 @@ export default function HomePage() {
                     tag: "PLAN",
                     tagClass: "bg-[#0b192c]",
                     title: "Manufacturing Unit",
-                    addr: "SIDCO Industrial Complex, Ghatti, Kathua, J&K 184143",
+                    addr: ["SIDCO Industrial Complex, Ghatti,", "Kathua, Jammu & Kashmir - 184143, India"],
                     body: "Operates under WHO-GMP compliance, equipped with high-speed automated blister packing, liquid bottle lines, Class 10,000 cleanrooms, and dedicated QA/QC analytical suites.",
                     href: "/infrastructure",
                   },
@@ -556,7 +567,14 @@ export default function HomePage() {
                       </div>
                       <div className="min-w-0">
                         <h3 className="font-bold text-[#0b192c] text-base">{c.title}</h3>
-                        <p className="text-xs text-slate-500">{c.addr}</p>
+                        <address className="mt-1 flex items-start gap-1.5 text-xs not-italic leading-snug text-slate-600">
+                          <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#0f766e]" />
+                          <span>
+                            {c.addr.map((l) => (
+                              <span key={l} className="block">{l}</span>
+                            ))}
+                          </span>
+                        </address>
                       </div>
                     </div>
                     <div className="flex items-end gap-3 pt-3">
@@ -576,12 +594,12 @@ export default function HomePage() {
               {/* Photo 2 */}
               <div className="relative h-56 sm:h-72 lg:absolute lg:left-[3%] lg:bottom-0 lg:h-[36%] lg:w-[80%] overflow-hidden rounded-[4px] shadow-[0_10px_40px_rgba(13,148,136,0.15)]">
                 <Image
-                  src="/herobg.png"
-                  alt="Vial filling line"
+                  src="/about-qc-lab.jpg"
+                  alt="QA/QC scientists testing samples in a laminar flow hood"
                   fill
                   sizes="(min-width:1024px) 40vw, 100vw"
                   className="object-cover"
-                  style={{ objectPosition: "85% 90%" }}
+                  style={{ objectPosition: "50% 45%" }}
                 />
                 <div className="absolute left-4 bottom-4 flex items-center gap-3 rounded-[4px] bg-white/85 backdrop-blur px-4 py-2.5 shadow-lg">
                   <div className="w-9 h-9 rounded-[4px] bg-[#f0fdfa] text-[#0f766e] flex items-center justify-center">
@@ -651,10 +669,10 @@ export default function HomePage() {
                 ))}
               </div>
 
-              <div className="pt-4 flex flex-wrap items-center gap-4">
+              <div className="pt-4 grid grid-cols-2 gap-3 sm:flex sm:items-center sm:gap-4">
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#0f766e] hover:bg-[#115e59] text-white text-sm font-semibold rounded-[4px] shadow-[0_8px_24px_rgba(15,118,110,0.3)] transition"
+                  className="inline-flex items-center justify-center gap-2 px-3 sm:px-7 py-3.5 bg-[#0f766e] hover:bg-[#115e59] text-white text-xs sm:text-sm whitespace-nowrap font-semibold rounded-[4px] shadow-[0_8px_24px_rgba(15,118,110,0.3)] transition"
                 >
                   <span>Learn More About Us</span>
                   <ArrowRight className="w-4 h-4" />
@@ -662,7 +680,7 @@ export default function HomePage() {
 
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/80 hover:bg-white text-[#0b192c] text-sm font-semibold rounded-[4px] border border-[#99f6e4] transition"
+                  className="inline-flex items-center justify-center gap-2 px-3 sm:px-7 py-3.5 bg-white/80 hover:bg-white text-[#0b192c] text-xs sm:text-sm whitespace-nowrap font-semibold rounded-[4px] border border-[#99f6e4] transition"
                 >
                   <span>Contact Headquarters</span>
                 </Link>
@@ -673,7 +691,8 @@ export default function HomePage() {
       </section>
 
       {/* 4. ANNUAL MANUFACTURING CAPACITY */}
-      <section className="relative overflow-hidden py-16 lg:py-20 bg-gradient-to-b from-white via-[#f5f9ff] to-[#f0fdfa] border-b border-slate-200">
+      <section className="relative isolate overflow-hidden py-16 lg:py-20 border-b border-slate-200">
+        <SectionBg src="/infra-lab.jpg" />
         <div className="pointer-events-none absolute -top-40 -right-40 h-[460px] w-[460px] rounded-full bg-[#ccfbf1]/60 blur-3xl" />
         <div className="pointer-events-none absolute top-40 -left-40 h-[380px] w-[380px] rounded-full bg-[#99f6e4]/50 blur-3xl" />
         <div className="pointer-events-none absolute bottom-0 left-1/3 h-[300px] w-[600px] rounded-full bg-[#ccfbf1]/40 blur-3xl" />
@@ -748,7 +767,8 @@ export default function HomePage() {
       <ProcessFlow />
 
       {/* 5. FEATURED PRODUCT SHOWCASE */}
-      <section className="relative overflow-hidden py-16 lg:py-20 bg-gradient-to-b from-white via-[#f6f9fe] to-[#f0fdfa] border-b border-slate-200">
+      <section className="relative isolate overflow-hidden py-16 lg:py-20 border-b border-slate-200">
+        <SectionBg src="/infra-packs.jpg" />
         <div className="pointer-events-none absolute -top-32 -left-32 h-[380px] w-[380px] rounded-full bg-[#ccfbf1]/50 blur-3xl" />
         <div className="pointer-events-none absolute top-1/2 -right-40 h-[420px] w-[420px] rounded-full bg-[#ccfbf1]/50 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -793,7 +813,7 @@ export default function HomePage() {
           </div>
 
           {/* Category Filter Tabs */}
-          <div className="flex flex-wrap items-center gap-3 mb-8">
+          <div className="grid grid-cols-2 gap-2.5 mb-8 sm:flex sm:flex-wrap sm:items-center sm:gap-3">
             {categories.map((cat, i) => {
               const CatIcon = CATEGORY_ICONS[i] ?? PillIcon;
               return (
@@ -801,12 +821,12 @@ export default function HomePage() {
                   key={cat}
                   type="button"
                   onClick={() => setActiveCategory(cat)}
-                  className={`inline-flex items-center gap-2 px-4 py-2.5 text-[13px] font-medium rounded-[4px] border transition cursor-pointer ${activeCategory === cat
+                  className={`inline-flex items-center justify-start gap-2 px-3 sm:px-4 py-2.5 text-xs sm:text-[13px] text-left leading-tight font-medium rounded-[4px] border transition cursor-pointer ${activeCategory === cat
                       ? "bg-[#0d9488] text-white border-[#0d9488] shadow-[0_6px_18px_rgba(13,148,136,0.3)]"
                       : "bg-white/80 text-[#0b192c] border-[#ccfbf1] hover:border-[#0d9488]/40 hover:bg-white"
                     }`}
                 >
-                  <CatIcon className={`w-4 h-4 ${activeCategory === cat ? "text-white" : "text-[#0d9488]"}`} />
+                  <CatIcon className={`w-4 h-4 shrink-0 ${activeCategory === cat ? "text-white" : "text-[#0d9488]"}`} />
                   {cat}
                 </button>
               );
@@ -905,7 +925,8 @@ export default function HomePage() {
       </section>
 
       {/* 6. BUSINESS SOLUTIONS: PCD FRANCHISE & THIRD PARTY */}
-      <section className="relative overflow-hidden py-16 lg:py-20 bg-gradient-to-b from-[#f0fdfa] via-[#f6f9fe] to-[#f0fdfa] border-b border-slate-200">
+      <section className="relative isolate overflow-hidden py-16 lg:py-20 border-b border-slate-200">
+        <SectionBg src="/infra-qc.jpg" />
         <div className="pointer-events-none absolute -top-32 -left-40 h-[420px] w-[420px] rounded-full bg-[#ccfbf1]/60 blur-3xl" />
         <div className="pointer-events-none absolute bottom-0 -right-40 h-[420px] w-[420px] rounded-full bg-[#ccfbf1]/60 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -979,24 +1000,24 @@ export default function HomePage() {
                 </ul>
               </div>
 
-              <div className="relative mt-8 flex flex-wrap items-center gap-4">
+              <div className="relative mt-8 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:items-center sm:gap-4">
                 <button
                   type="button"
                   onClick={() => {
                     setSelectedProduct("PCD Franchise Monopoly Application");
                     setEnquiryModalOpen(true);
                   }}
-                  className="inline-flex items-center gap-6 px-6 py-3.5 bg-[#0d9488] hover:bg-[#0f766e] text-white text-sm font-semibold rounded-[4px] shadow-[0_8px_24px_rgba(13,148,136,0.35)] transition cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 sm:gap-6 px-3 sm:px-6 py-3.5 text-center leading-tight bg-[#0d9488] hover:bg-[#0f766e] text-white text-xs sm:text-sm font-semibold rounded-[4px] shadow-[0_8px_24px_rgba(13,148,136,0.35)] transition cursor-pointer"
                 >
                   Apply for Franchise
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 shrink-0" />
                 </button>
                 <Link
                   href="/our-services"
-                  className="inline-flex items-center gap-6 px-6 py-3.5 bg-white/80 hover:bg-white text-[#0b192c] text-sm font-semibold rounded-[4px] border border-[#ccfbf1] transition"
+                  className="inline-flex items-center justify-center gap-2 sm:gap-6 px-3 sm:px-6 py-3.5 text-center leading-tight bg-white/80 hover:bg-white text-[#0b192c] text-xs sm:text-sm font-semibold rounded-[4px] border border-[#ccfbf1] transition"
                 >
                   Learn terms
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 shrink-0" />
                 </Link>
               </div>
             </div>
@@ -1048,24 +1069,25 @@ export default function HomePage() {
                 </ul>
               </div>
 
-              <div className="relative mt-8 flex flex-wrap items-center gap-4">
+              <div className="relative mt-8 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:items-center sm:gap-4">
                 <button
                   type="button"
                   onClick={() => {
                     setSelectedProduct("Third Party Manufacturing Contract");
                     setEnquiryModalOpen(true);
                   }}
-                  className="inline-flex items-center gap-6 px-6 py-3.5 bg-[#0b192c] hover:bg-[#115e59] text-white text-sm font-semibold rounded-[4px] shadow-[0_8px_24px_rgba(10,31,68,0.3)] transition cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 sm:gap-6 px-3 sm:px-6 py-3.5 text-center leading-tight bg-[#0b192c] hover:bg-[#115e59] text-white text-xs sm:text-sm font-semibold rounded-[4px] shadow-[0_8px_24px_rgba(10,31,68,0.3)] transition cursor-pointer"
                 >
-                  Request Manufacturing Quote
-                  <ArrowRight className="w-4 h-4" />
+                  <span className="sm:hidden">Get a Quote</span>
+                  <span className="hidden sm:inline">Request Manufacturing Quote</span>
+                  <ArrowRight className="w-4 h-4 shrink-0" />
                 </button>
                 <Link
                   href="/infrastructure"
-                  className="inline-flex items-center gap-6 px-6 py-3.5 bg-white/80 hover:bg-white text-[#0b192c] text-sm font-semibold rounded-[4px] border border-[#ccfbf1] transition"
+                  className="inline-flex items-center justify-center gap-2 sm:gap-6 px-3 sm:px-6 py-3.5 text-center leading-tight bg-white/80 hover:bg-white text-[#0b192c] text-xs sm:text-sm font-semibold rounded-[4px] border border-[#ccfbf1] transition"
                 >
                   View plant specs
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 shrink-0" />
                 </Link>
               </div>
             </div>
@@ -1074,7 +1096,8 @@ export default function HomePage() {
       </section>
 
       {/* 7. SPECIALIZED DIVISIONS */}
-      <section className="relative overflow-hidden py-16 lg:py-20 bg-gradient-to-b from-white via-[#f6f9fe] to-[#f0fdfa] border-b border-slate-200">
+      <section className="relative isolate overflow-hidden py-16 lg:py-20 border-b border-slate-200">
+        <SectionBg src="/infra-micro.jpg" />
         <div className="pointer-events-none absolute -top-32 -left-40 h-[420px] w-[420px] rounded-full bg-[#ccfbf1]/60 blur-3xl" />
         <div className="pointer-events-none absolute top-20 -right-40 h-[380px] w-[380px] rounded-full bg-[#ccfbf1]/50 blur-3xl" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1163,7 +1186,8 @@ export default function HomePage() {
       </div>
 
       {/* 9. LATEST BLOG POSTS & PHARMA INSIGHTS */}
-      <section className="relative overflow-hidden py-16 lg:py-20 bg-gradient-to-b from-[#f0fdfa] via-[#f6f9fe] to-[#f0fdfa]">
+      <section className="relative isolate overflow-hidden py-16 lg:py-20">
+        <SectionBg src="/blog-lab.jpg" />
         <div className="pointer-events-none absolute -top-40 -right-32 h-[460px] w-[460px] rounded-full bg-[#ccfbf1]/60 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-40 -left-32 h-[420px] w-[420px] rounded-full bg-[#99f6e4]/60 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
