@@ -46,7 +46,6 @@ const NAV_LINKS = [
   { name: "Infrastructure", href: "/infrastructure" },
   { name: "Divisions", href: "/divisions" },
   { name: "Global Exports", href: "/exports" },
-  { name: "Insights", href: "/blogs" },
   { name: "Contact Us", href: "/contact" },
 ];
 

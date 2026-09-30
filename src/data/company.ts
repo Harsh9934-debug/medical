@@ -113,47 +113,4 @@ export const TESTIMONIALS = [
   }
 ];
 
-export const BLOG_POSTS = [
-  {
-    slug: "guide-to-pcd-pharma-franchise-in-india",
-    title: "Comprehensive Guide to Starting a Profitable PCD Pharma Franchise in India",
-    excerpt: "Understand market selection, DCGI approvals, monopoly rights, and inventory strategies to maximize your ROI in the booming Indian pharmaceutical sector.",
-    date: "March 2026",
-    category: "Pharma Business",
-    readTime: "5 min read"
-  },
-  {
-    slug: "why-who-gmp-certification-matters-in-third-party-manufacturing",
-    title: "Why WHO-GMP Certification Is the Golden Standard in Contract Manufacturing",
-    excerpt: "Discover the critical regulatory, quality control, and sterility benchmarks that separate premier third-party pharma manufacturers from conventional units.",
-    date: "February 2026",
-    category: "Quality & Compliance",
-    readTime: "4 min read"
-  },
-  {
-    slug: "advancements-in-nanoshot-and-high-absorption-formulations",
-    title: "Nanotechnology & Next-Gen Oral Formulations: The Future of Drug Delivery",
-    excerpt: "Exploring how liquid nanoshots and lipid-based softgel delivery systems dramatically elevate bioavailability and clinical outcomes in preventive care.",
-    date: "January 2026",
-    category: "R&D & Science",
-    readTime: "6 min read"
-  },
-  {
-    slug: "growing-demand-for-cardiovascular-and-diabetic-therapies",
-    title: "The Growing Demand for Cardiovascular & Diabetic Therapies in Emerging Markets",
-    excerpt: "Explore key drivers behind the rising demand for innovative cardio and diabetes therapeutics, and how the industry is evolving to meet patient needs in emerging economies.",
-    date: "March 2026",
-    category: "Cardio & Diabetes",
-    readTime: "5 min read"
-  },
-  {
-    slug: "navigating-global-regulatory-landscape-for-pharmaceuticals",
-    title: "Navigating the Evolving Global Regulatory Landscape for Pharmaceuticals",
-    excerpt: "Stay informed about the latest changes in global regulatory frameworks, compliance requirements, and what they mean for pharmaceutical manufacturers and exporters.",
-    date: "February 2026",
-    category: "Regulatory Updates",
-    readTime: "7 min read"
-  }
-];
-
 export const COMPANY = COMPANY_INFO;
