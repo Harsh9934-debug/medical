@@ -302,21 +302,6 @@ export default function HomePage() {
 
         {/* Certification strip */}
         <div className="relative border-t border-slate-200 bg-white">
-          {/* Looping preview clip, floating over the panel/strip boundary (desktop) */}
-          <div className="pointer-events-none absolute right-[4%] -top-24 hidden w-[220px] xl:block">
-            <div className="animate-float overflow-hidden rounded-[4px] border border-white shadow-xl">
-              <div className="relative h-[130px] w-full">
-                <Image
-                  src="/viseo.gif"
-                  alt="Incredible Medicare production preview"
-                  fill
-                  unoptimized
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          </div>
-
           <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-4 gap-y-6 px-6 py-8 sm:grid-cols-3 sm:px-6 lg:grid-cols-5 lg:px-8">
             {[
               { icon: ShieldCheck, a: "WHO-GMP", b: "Certified Facilities" },
