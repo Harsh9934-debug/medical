@@ -9,7 +9,7 @@ function sendCommand(win: Window | null | undefined, func: string) {
 /**
  * Full-bleed, ambient YouTube background: muted, autoplaying and looping,
  * cropped to always fill its container edge-to-edge (like object-fit: cover),
- * using the oversized-iframe technique since <iframe> has no object-fit.
+ * using the oversized-iframe technique (sized from the container via cq units, so it covers any box) since <iframe> has no object-fit.
  *
  * `controls=0` only hides the scrubber — YouTube still shows its own paused
  * "play / skip" affordance whenever autoplay is blocked by the browser (Brave
@@ -59,7 +59,7 @@ export function YouTubeCoverBackground({
       onClick={() => sendCommand(iframeRef.current?.contentWindow, "playVideo")}
       className={`absolute inset-0 overflow-hidden bg-cover bg-center ${className}`}
       // Poster shows while the player loads, or if the browser blocks it.
-      style={{ backgroundImage: `url(https://i.ytimg.com/vi/${id}/maxresdefault.jpg)` }}
+      style={{ backgroundImage: `url(https://i.ytimg.com/vi/${id}/maxresdefault.jpg)`, containerType: "size" }}
     >
       <iframe
         ref={iframeRef}
@@ -69,7 +69,8 @@ export function YouTubeCoverBackground({
           sendCommand(iframeRef.current?.contentWindow, "mute");
           sendCommand(iframeRef.current?.contentWindow, "playVideo");
         }}
-        className="absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2"
+        style={{ width: "max(100cqw, 177.78cqh)", height: "max(100cqh, 56.25cqw)" }}
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       />
     </div>

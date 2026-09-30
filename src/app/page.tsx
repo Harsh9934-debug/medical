@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { SectionBg } from "@/components/motion/SectionBg";
-import HeroCarousel from "@/components/motion/HeroCarousel";
+import { YouTubeCoverBackground } from "@/components/motion/YouTubeCoverBackground";
 import { useRouter } from "next/navigation";
 import {
   ShieldCheck,
@@ -54,6 +54,7 @@ import { PRODUCTS, Product } from "@/data/products";
 import EnquiryModal from "@/components/EnquiryModal";
 import { Stagger, StaggerItem, Reveal } from "@/components/motion/Reveal";
 import { CountUp } from "@/components/motion/CountUp";
+import { Parallax } from "@/components/motion/Parallax";
 import { Ticker } from "@/components/motion/Ticker";
 import { ProcessFlow } from "@/components/motion/ProcessFlow";
 
@@ -97,21 +98,27 @@ export default function HomePage() {
   return (
     <div className="w-full bg-white text-slate-900">
       {/* 1. HERO SECTION */}
-      <section data-no-reveal className="relative isolate overflow-hidden border-b border-slate-200 bg-gradient-to-b from-[#eef7f5] via-[#f5faf9] to-white">
-        <HeroCarousel />
-        <div className="hero-pattern pointer-events-none absolute inset-0 -z-10 opacity-40 [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,black,transparent)]" />
+      <section data-no-reveal className="relative isolate overflow-hidden bg-[#042f2e]">
+        <div className="pointer-events-none absolute inset-0 -z-20" aria-hidden="true">
+          <YouTubeCoverBackground
+            id="4zCSgGybRcg"
+            title="Incredible Medicare — Corporate Overview"
+            className="h-full w-full"
+          />
+        </div>
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-[#042f2e]/75 via-[#042f2e]/35 to-[#042f2e]/85" />
 
         {/* Centered copy */}
-        <div className="relative mx-auto max-w-7xl px-4 pt-16 sm:px-6 sm:pt-20 lg:px-8 lg:pt-24">
+        <div className="relative mx-auto flex min-h-[560px] max-w-7xl items-center px-4 py-14 sm:px-6 lg:min-h-[calc(100svh-10.1rem)] lg:px-8">
           <Stagger immediate delay={0.15} gap={0.11} className="mx-auto flex max-w-5xl flex-col items-center text-center">
-            <StaggerItem as="h1" className="mt-7 font-serif text-4xl font-semibold leading-[1.12] tracking-tight text-[#0b192c] sm:text-5xl lg:text-[56px]">
+            <StaggerItem as="h1" className="font-serif text-4xl font-semibold leading-[1.12] tracking-tight text-white sm:text-5xl lg:text-[56px]">
               Delivering Excellence in{" "}
-              <span className="relative inline-block text-[#0D9488]">
+              <span className="relative inline-block text-teal-300">
                 Pharmaceutical Manufacturing
                 <svg
                   viewBox="0 0 300 14"
                   preserveAspectRatio="none"
-                  className="pointer-events-none absolute -bottom-2 left-0 h-3 w-full text-[#0D9488]/70"
+                  className="pointer-events-none absolute -bottom-2 left-0 h-3 w-full text-teal-300/70"
                   aria-hidden="true"
                 >
                   <path
@@ -128,8 +135,8 @@ export default function HomePage() {
               <span className="whitespace-nowrap">&amp; PCD Franchise</span>
             </StaggerItem>
 
-            <StaggerItem as="p" className="mt-7 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
-              <strong className="font-semibold text-slate-700">
+            <StaggerItem as="p" className="mt-7 max-w-2xl text-base leading-relaxed text-slate-200 sm:text-lg">
+              <strong className="font-semibold text-white">
                 Incredible Medicare
               </strong>{" "}
               delivers high-standard, bioequivalent medicines across India.
@@ -186,11 +193,11 @@ export default function HomePage() {
                   Search
                 </button>
               </form>
-              <div className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs text-slate-500">
-                <span className="font-semibold text-slate-600">Popular:</span>
+              <div className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs text-slate-300">
+                <span className="font-semibold text-white">Popular:</span>
                 {["CEFIX-200", "PANTO-DSR", "AZITRO-500"].map((term, i) => (
                   <React.Fragment key={term}>
-                    <Link href="/products" className="font-medium text-[#0D9488] hover:underline">
+                    <Link href="/products" className="font-medium text-teal-300 hover:underline">
                       {term}
                     </Link>
                     {i < 2 && <span className="text-slate-300">&middot;</span>}
@@ -201,6 +208,9 @@ export default function HomePage() {
           </Stagger>
         </div>
 
+      </section>
+
+      <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-[#eef7f5] via-[#f5faf9] to-white">
         {/* Operations panel */}
         <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-14 sm:px-6 lg:px-8 lg:pb-20">
           <Reveal direction="up" delay={0.1} className="relative overflow-hidden rounded-[4px] bg-[#04101f] shadow-[0_30px_70px_rgba(4,16,31,0.35)]">
@@ -336,16 +346,16 @@ export default function HomePage() {
       <Ticker />
 
       {/* 3. ABOUT INCREDIBLE MEDICARE SNAPSHOT */}
-      <section className="relative overflow-hidden py-16 lg:py-20 bg-gradient-to-br from-[#ccfbf1] via-[#f0fdfa] to-[#ccfbf1] border-b border-slate-200">
+      <section className="relative overflow-clip py-16 lg:py-20 bg-gradient-to-br from-[#ccfbf1] via-[#f0fdfa] to-[#ccfbf1] border-b border-slate-200">
         <div className="pointer-events-none absolute -top-32 -right-32 h-[460px] w-[460px] rounded-full bg-[#99f6e4]/60 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-40 left-1/3 h-[460px] w-[460px] rounded-full bg-[#99f6e4]/60 blur-3xl" />
         <div className="pointer-events-none absolute top-1/3 -left-40 h-[380px] w-[380px] rounded-full bg-[#f0fdfa]/70 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Visual Box */}
-            <div className="lg:col-span-6 relative space-y-4 lg:space-y-0 lg:h-[640px]">
+            <div className="lg:col-span-6 relative space-y-4 lg:space-y-0 lg:h-[640px] lg:sticky lg:top-40 lg:self-start">
               {/* Photo 1 */}
-              <div className="relative h-56 sm:h-72 lg:absolute lg:left-0 lg:top-0 lg:h-[58%] lg:w-[74%] overflow-hidden rounded-[4px] lg:rounded-tl-none lg:rounded-br-none lg:rounded-tr-[3rem] lg:rounded-bl-[3rem] shadow-[0_10px_40px_rgba(13,148,136,0.15)]">
+              <Parallax speed={45} className="relative h-56 sm:h-72 lg:absolute lg:left-0 lg:top-0 lg:h-[58%] lg:w-[74%] overflow-hidden rounded-[4px] lg:rounded-tl-none lg:rounded-br-none lg:rounded-tr-[3rem] lg:rounded-bl-[3rem] shadow-[0_10px_40px_rgba(13,148,136,0.15)]">
                 <Image
                   src="/about-cleanroom.jpg"
                   alt="Technician in cleanroom gowning reviewing batch data"
@@ -354,10 +364,10 @@ export default function HomePage() {
                   className="object-cover"
                   style={{ objectPosition: "35% 40%" }}
                 />
-              </div>
+              </Parallax>
 
               {/* Cards */}
-              <div className="lg:absolute lg:right-0 lg:top-[19%] lg:w-[70%] lg:z-10 space-y-3">
+              <Parallax speed={-30} className="lg:absolute lg:right-0 lg:top-[19%] lg:w-[70%] lg:z-10 space-y-3">
                 {[
                   {
                     tag: "HQ",
@@ -408,10 +418,10 @@ export default function HomePage() {
                     </div>
                   </div>
                 ))}
-              </div>
+              </Parallax>
 
               {/* Photo 2 */}
-              <div className="relative h-56 sm:h-72 lg:absolute lg:left-[3%] lg:bottom-0 lg:h-[36%] lg:w-[80%] overflow-hidden rounded-[4px] shadow-[0_10px_40px_rgba(13,148,136,0.15)]">
+              <Parallax speed={60} className="relative h-56 sm:h-72 lg:absolute lg:left-[3%] lg:bottom-0 lg:h-[36%] lg:w-[80%] overflow-hidden rounded-[4px] shadow-[0_10px_40px_rgba(13,148,136,0.15)]">
                 <Image
                   src="/about-qc-lab.jpg"
                   alt="QA/QC scientists testing samples in a laminar flow hood"
@@ -430,7 +440,7 @@ export default function HomePage() {
                     Manufacturing Facility
                   </span>
                 </div>
-              </div>
+              </Parallax>
             </div>
 
             {/* Content Box */}

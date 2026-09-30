@@ -125,7 +125,7 @@ export default function Header() {
     <>
       <header
         className={cn(
-          "sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur transition-shadow duration-300 supports-backdrop-filter:bg-white/85",
+          "sticky top-0 z-50 w-full bg-white/95 backdrop-blur transition-shadow duration-300 supports-backdrop-filter:bg-white/85",
           scrolled ? "shadow-[0_8px_30px_rgba(15,118,110,0.10)]" : "shadow-xs",
         )}
       >
