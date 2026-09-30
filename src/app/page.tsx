@@ -1,10 +1,11 @@
 "use client";
 
+import { AmbientVideo } from "@/components/motion/AmbientVideo";
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { SectionBg } from "@/components/motion/SectionBg";
-import { YouTubeCoverBackground } from "@/components/motion/YouTubeCoverBackground";
+import { HeroVideo } from "@/components/motion/HeroVideo";
 import { useRouter } from "next/navigation";
 import {
   ShieldCheck,
@@ -99,10 +100,9 @@ export default function HomePage() {
       {/* 1. HERO SECTION */}
       <section data-no-reveal className="relative isolate overflow-hidden bg-[#042f2e]">
         <div className="pointer-events-none absolute inset-0 -z-20" aria-hidden="true">
-          <YouTubeCoverBackground
-            id="4zCSgGybRcg"
-            title="Incredible Medicare — Corporate Overview"
-            className="h-full w-full"
+          <HeroVideo
+            sources={["/hero-1.mp4", "/hero-2.mp4", "/hero-3.mp4"]}
+            poster="/hero-video-poster.jpg"
           />
         </div>
         <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-[#042f2e]/75 via-[#042f2e]/35 to-[#042f2e]/85" />
@@ -138,9 +138,9 @@ export default function HomePage() {
               <strong className="font-semibold text-white">
                 Incredible Medicare
               </strong>{" "}
-              delivers high-standard, bioequivalent medicines across India.
-              Backed by Class 10,000 cleanrooms, 650+ approved DCGI
-              formulations, and nationwide franchise monopoly rights.
+              delivers high-standard medicines successfully across the
+              country, and as a step ahead, we have now started exporting
+              worldwide.
             </StaggerItem>
 
             <StaggerItem className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -213,13 +213,7 @@ export default function HomePage() {
         {/* Operations panel */}
         <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-14 sm:px-6 lg:px-8 lg:pb-20">
           <Reveal direction="up" delay={0.1} className="relative overflow-hidden rounded-[4px] bg-[#04101f] shadow-[0_30px_70px_rgba(4,16,31,0.35)]">
-            <Image
-              src="/infra-packs.jpg"
-              alt="High-speed blister packaging line at Incredible Medicare"
-              fill
-              sizes="(min-width:1024px) 1200px, 100vw"
-              className="object-cover"
-            />
+            <AmbientVideo src="/hero-4.mp4" poster="/infra-packs.jpg" />
             {/* Neutral scrim, bottom-only, so the overlay copy stays readable without tinting the photo */}
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
 
@@ -634,6 +628,7 @@ export default function HomePage() {
 
       {/* 10. CALL TO ACTION: READY TO PARTNER */}
       <section className="relative overflow-hidden py-16 lg:py-20 bg-gradient-to-br from-[#0b192c] via-black to-black">
+        <AmbientVideo src="/hero-5.mp4" className="opacity-35" />
         <div className="pointer-events-none absolute -top-32 -left-40 h-[420px] w-[420px] rounded-full bg-teal-500/10 blur-3xl" />
         <div className="pointer-events-none absolute top-10 -right-40 h-[380px] w-[380px] rounded-full bg-amber-400/10 blur-3xl" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

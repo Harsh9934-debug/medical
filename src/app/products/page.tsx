@@ -1,5 +1,6 @@
 "use client";
 
+import { AmbientVideo } from "@/components/motion/AmbientVideo";
 import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "motion/react";
 import Link from "next/link";
@@ -805,6 +806,7 @@ export default function ProductsPage() {
 
       {/* CTA */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#0b192c] via-black to-black py-16 lg:py-20">
+        <AmbientVideo src="/hero-2.mp4" className="opacity-35" />
         <div className="pointer-events-none absolute -left-32 top-4 hidden h-[420px] w-[420px] overflow-hidden rounded-full border-[14px] border-white/10 opacity-30 lg:block xl:-left-20">
           <Image src="/infra-packs.jpg" alt="" fill sizes="420px" className="object-cover" />
         </div>

@@ -23,10 +23,13 @@ export function YouTubeCoverBackground({
   id,
   title,
   className = "",
+  start = 0,
 }: {
   id: string;
   title: string;
   className?: string;
+  /** Second to start (and loop back to) */
+  start?: number;
 }) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
@@ -51,7 +54,7 @@ export function YouTubeCoverBackground({
     };
   }, []);
 
-  const src = `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&modestbranding=1&playsinline=1&rel=0&disablekb=1&iv_load_policy=3&fs=0&enablejsapi=1`;
+  const src = `https://www.youtube.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&modestbranding=1&playsinline=1&rel=0&disablekb=1&iv_load_policy=3&fs=0&enablejsapi=1${start ? `&start=${start}` : ""}`;
 
   return (
     <div

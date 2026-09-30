@@ -1,10 +1,11 @@
 "use client";
 
+import { AmbientVideo } from "@/components/motion/AmbientVideo";
 import React, { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { CountUp } from "@/components/motion/CountUp";
 import { Ticker } from "@/components/motion/Ticker";
-import { YouTubeCoverBackground } from "@/components/motion/YouTubeCoverBackground";
+import { HeroVideo } from "@/components/motion/HeroVideo";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -60,10 +61,9 @@ export default function AboutPage() {
         className="relative isolate h-[100svh] w-full overflow-hidden bg-[#042f2e]"
       >
         <motion.div style={{ y: videoY }} className="absolute inset-x-0 -top-[10%] h-[120%]">
-          <YouTubeCoverBackground
-            id="4zCSgGybRcg"
-            title="Incredible Medicare — Corporate Overview"
-            className="h-full w-full"
+          <HeroVideo
+            sources={["/hero-2.mp4", "/hero-4.mp4", "/hero-5.mp4"]}
+            poster="/hero-video-poster.jpg"
           />
         </motion.div>
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#042f2e]/70 via-[#042f2e]/15 to-[#042f2e]/80" />
@@ -560,6 +560,7 @@ export default function AboutPage() {
 
       {/* CTA Box */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#0b192c] via-black to-black py-16 lg:py-20">
+        <AmbientVideo src="/hero-2.mp4" className="opacity-35" />
         {/* Left art */}
         <div
           className="pointer-events-none absolute -left-32 top-4 hidden h-[420px] w-[420px] rounded-full border-[14px] border-white/10 opacity-30 lg:block xl:-left-20"

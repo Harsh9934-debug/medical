@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { AmbientVideo } from "@/components/motion/AmbientVideo";
 import {
   animate,
   motion,
@@ -110,8 +111,10 @@ export function StepFlow({
   return (
     <section
       data-no-reveal
-      className={`relative overflow-hidden border-b border-slate-200 bg-gradient-to-b ${tone} py-16 lg:py-20`}
+      className={`relative isolate overflow-hidden border-b border-slate-200 bg-gradient-to-b ${tone} py-16 lg:py-20`}
     >
+      <AmbientVideo src="/hero-5.mp4" className="-z-20" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-white/80 via-white/70 to-[#f0fdfa]/85" />
       <div className="pointer-events-none absolute -left-32 top-10 h-[380px] w-[380px] rounded-full bg-[#ccfbf1]/60 blur-3xl" />
       <div className="pointer-events-none absolute -right-32 bottom-0 h-[380px] w-[380px] rounded-full bg-[#99f6e4]/50 blur-3xl" />
 
