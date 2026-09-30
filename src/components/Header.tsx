@@ -196,7 +196,7 @@ export default function Header() {
                 />
               </div>
               <div className="flex flex-col leading-tight">
-                <div className="flex items-center gap-1 whitespace-nowrap text-xl font-extrabold tracking-tight text-slate-900 transition-colors group-hover:text-teal-800 sm:text-2xl">
+                <div className="flex items-center gap-1.5 whitespace-nowrap font-extrabold tracking-tight text-slate-900 transition-colors group-hover:text-teal-800 text-2xl sm:text-3xl">
                   <span>Incredible</span>
                   <span className="font-bold text-teal-700">Medicare</span>
                 </div>
