@@ -17,7 +17,6 @@ import {
   Package,
   Layers,
   Sparkles,
-  Building2,
   PhoneCall,
   Clock,
   Compass,
@@ -352,95 +351,64 @@ export default function HomePage() {
         <div className="pointer-events-none absolute top-1/3 -left-40 h-[380px] w-[380px] rounded-full bg-[#f0fdfa]/70 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Visual Box */}
-            <div className="lg:col-span-6 relative space-y-4 lg:space-y-0 lg:h-[640px] lg:sticky lg:top-40 lg:self-start">
-              {/* Photo 1 */}
-              <Parallax speed={45} className="relative h-56 sm:h-72 lg:absolute lg:left-0 lg:top-0 lg:h-[58%] lg:w-[74%] overflow-hidden rounded-[4px] lg:rounded-tl-none lg:rounded-br-none lg:rounded-tr-[3rem] lg:rounded-bl-[3rem] shadow-[0_10px_40px_rgba(13,148,136,0.15)]">
-                <Image
-                  src="/about-cleanroom.jpg"
-                  alt="Technician in cleanroom gowning reviewing batch data"
-                  fill
-                  sizes="(min-width:1024px) 40vw, 100vw"
-                  className="object-cover"
-                  style={{ objectPosition: "35% 40%" }}
-                />
-              </Parallax>
-
-              {/* Cards */}
-              <Parallax speed={-30} className="lg:absolute lg:right-0 lg:top-[19%] lg:w-[70%] lg:z-10 space-y-3">
-                {[
-                  {
-                    tag: "HQ",
-                    tagClass: "bg-[#0f766e]",
-                    title: "Corporate Headquarters",
-                    addr: ["Unicity Business Park, Dhakoli,", "Zirakpur, Punjab - 160104, India"],
-                    body: "Strategically located in the Chandigarh Tricity industrial corridor, our corporate headquarters coordinates pan-India distribution, partner logistics, regulatory documentation, and strategic expansions.",
-                    href: "/contact",
-                  },
-                  {
-                    tag: "PLAN",
-                    tagClass: "bg-[#0b192c]",
-                    title: "Manufacturing Unit",
-                    addr: ["SIDCO Industrial Complex, Ghatti,", "Kathua, Jammu & Kashmir - 184143, India"],
-                    body: "Operates under WHO-GMP compliance, equipped with high-speed automated blister packing, liquid bottle lines, Class 10,000 cleanrooms, and dedicated QA/QC analytical suites.",
-                    href: "/infrastructure",
-                  },
-                ].map((c) => (
-                  <div
-                    key={c.title}
-                    className="bg-white/95 backdrop-blur rounded-[4px] border border-white p-5 shadow-[0_10px_40px_rgba(13,148,136,0.14)]"
-                  >
-                    <div className="flex items-center gap-3 pb-3 border-b border-slate-200/80">
-                      <div className={`w-11 h-11 shrink-0 rounded-[4px] ${c.tagClass} text-white flex items-center justify-center font-bold text-xs`}>
-                        {c.tag}
-                      </div>
-                      <div className="min-w-0">
-                        <h3 className="font-bold text-[#0b192c] text-base">{c.title}</h3>
-                        <address className="mt-1 flex items-start gap-1.5 text-xs not-italic leading-snug text-slate-600">
-                          <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#0f766e]" />
-                          <span>
-                            {c.addr.map((l) => (
-                              <span key={l} className="block">{l}</span>
-                            ))}
-                          </span>
-                        </address>
+            {/* Visual Box: banner + address cards, drifting against each other */}
+            <div className="lg:col-span-6 space-y-16">
+              {[
+                {
+                  img: "/ab1.png",
+                  alt: "Corporate Headquarters, Punjab",
+                  title: "Corporate Headquarters",
+                  addr: ["Unicity Business Park, Dhakoli,", "Zirakpur, Punjab - 160104, India"],
+                  body: "Strategically located in the Chandigarh Tricity industrial corridor, our corporate headquarters coordinates pan-India distribution, partner logistics, regulatory documentation, and strategic expansions.",
+                  href: "/contact",
+                  speed: -45,
+                },
+                {
+                  img: "/ab2.png",
+                  alt: "Manufacturing Unit, Jammu & Kashmir",
+                  title: "Manufacturing Unit",
+                  addr: ["SIDCO Industrial Complex, Ghatti,", "Kathua, Jammu & Kashmir - 184143, India"],
+                  body: "Operates under WHO-GMP compliance, equipped with high-speed automated blister packing, liquid bottle lines, Class 10,000 cleanrooms, and dedicated QA/QC analytical suites.",
+                  href: "/infrastructure",
+                  speed: 45,
+                },
+              ].map((c) => (
+                <Parallax key={c.title} speed={c.speed}>
+                  <div className="overflow-hidden rounded-[4px] border border-white bg-white/95 shadow-[0_10px_40px_rgba(13,148,136,0.14)]">
+                    <div className="relative aspect-[2048/768] w-full overflow-hidden">
+                      <Parallax speed={-22} className="absolute inset-x-0 -top-[8%] h-[116%]">
+                        <Image
+                          src={c.img}
+                          alt={c.alt}
+                          fill
+                          sizes="(min-width:1024px) 50vw, 100vw"
+                          className="object-cover"
+                        />
+                      </Parallax>
+                    </div>
+                    <div className="p-5">
+                      <address className="flex items-start gap-1.5 border-b border-slate-200/80 pb-3 text-xs not-italic leading-snug text-slate-600">
+                        <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#0f766e]" />
+                        <span>
+                          {c.addr.map((l) => (
+                            <span key={l} className="block">{l}</span>
+                          ))}
+                        </span>
+                      </address>
+                      <div className="flex items-end gap-3 pt-3">
+                        <p className="text-[13px] leading-relaxed text-slate-600">{c.body}</p>
+                        <Link
+                          href={c.href}
+                          aria-label={c.title}
+                          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#99f6e4] bg-[#f0fdfa] text-[#0f766e] transition hover:bg-[#0f766e] hover:text-white"
+                        >
+                          <ArrowRight className="h-4 w-4" />
+                        </Link>
                       </div>
                     </div>
-                    <div className="flex items-end gap-3 pt-3">
-                      <p className="text-[13px] text-slate-600 leading-relaxed">{c.body}</p>
-                      <Link
-                        href={c.href}
-                        aria-label={c.title}
-                        className="shrink-0 w-9 h-9 rounded-full bg-[#f0fdfa] text-[#0f766e] border border-[#99f6e4] flex items-center justify-center hover:bg-[#0f766e] hover:text-white transition"
-                      >
-                        <ArrowRight className="w-4 h-4" />
-                      </Link>
-                    </div>
                   </div>
-                ))}
-              </Parallax>
-
-              {/* Photo 2 */}
-              <Parallax speed={60} className="relative h-56 sm:h-72 lg:absolute lg:left-[3%] lg:bottom-0 lg:h-[36%] lg:w-[80%] overflow-hidden rounded-[4px] shadow-[0_10px_40px_rgba(13,148,136,0.15)]">
-                <Image
-                  src="/about-qc-lab.jpg"
-                  alt="QA/QC scientists testing samples in a laminar flow hood"
-                  fill
-                  sizes="(min-width:1024px) 40vw, 100vw"
-                  className="object-cover"
-                  style={{ objectPosition: "50% 45%" }}
-                />
-                <div className="absolute left-4 bottom-4 flex items-center gap-3 rounded-[4px] bg-white/85 backdrop-blur px-4 py-2.5 shadow-lg">
-                  <div className="w-9 h-9 rounded-[4px] bg-[#f0fdfa] text-[#0f766e] flex items-center justify-center">
-                    <Building2 className="w-5 h-5" />
-                  </div>
-                  <span className="text-xs font-medium text-[#0b192c] leading-tight">
-                    State-of-the-Art
-                    <br />
-                    Manufacturing Facility
-                  </span>
-                </div>
-              </Parallax>
+                </Parallax>
+              ))}
             </div>
 
             {/* Content Box */}
