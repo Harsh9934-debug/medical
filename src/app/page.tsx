@@ -104,14 +104,6 @@ export default function HomePage() {
         {/* Centered copy */}
         <div className="relative mx-auto max-w-7xl px-4 pt-16 sm:px-6 sm:pt-20 lg:px-8 lg:pt-24">
           <Stagger immediate delay={0.15} gap={0.11} className="mx-auto flex max-w-5xl flex-col items-center text-center">
-            <StaggerItem className="inline-flex items-center gap-3 rounded-full border border-teal-200 bg-white/85 py-1.5 pl-1.5 pr-5 text-[11px] font-bold uppercase tracking-[0.22em] text-teal-700 shadow-sm backdrop-blur">
-              <span className="relative flex h-9 w-9 shrink-0 items-center justify-center">
-                <span className="absolute inset-0 animate-ping rounded-full bg-teal-400/30" />
-                <Image src="/logo.png" alt="Incredible Medicare" width={36} height={36} className="relative h-9 w-9 rounded-full object-cover" />
-              </span>
-              <span className="ml-1">WHO-GMP &amp; ISO 9001:2015 Certified &middot; DCGI Cleared</span>
-            </StaggerItem>
-
             <StaggerItem as="h1" className="mt-7 font-serif text-4xl font-semibold leading-[1.12] tracking-tight text-[#0b192c] sm:text-5xl lg:text-[56px]">
               Delivering Excellence in{" "}
               <span className="relative inline-block text-[#0D9488]">

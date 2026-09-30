@@ -275,6 +275,16 @@ export default function Header() {
           </div>
         </div>
 
+        {/* Certification strip, stays pinned under the nav */}
+        <div className="relative overflow-hidden border-t border-white/10 bg-gradient-to-r from-[#0f2a3a] via-[#0b192c] to-[#1c1a17]">
+          <div className="pointer-events-none absolute -left-24 -top-16 h-40 w-72 rounded-full bg-teal-500/20 blur-2xl" />
+          <div className="pointer-events-none absolute -right-24 -top-16 h-40 w-72 rounded-full bg-amber-400/15 blur-2xl" />
+          <div className="relative mx-auto flex max-w-[1440px] items-center justify-center gap-2 px-4 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-teal-300 sm:text-[11px] sm:tracking-[0.22em]">
+            <Image src="/who.png" alt="WHO-GMP" width={541} height={462} className="h-9 w-auto shrink-0 object-contain sm:h-11" />
+            <span>WHO-GMP &amp; ISO 9001:2015 Certified &middot; DCGI Cleared</span>
+          </div>
+        </div>
+
         {/* Mobile Drawer */}
         {mobileMenuOpen && (
           <div className="max-h-[calc(100vh-7rem)] overflow-y-auto border-t border-slate-200 bg-white px-4 pb-6 pt-3 shadow-xl animate-in slide-in-from-top-2 duration-200 xl:hidden">
