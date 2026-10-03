@@ -113,7 +113,7 @@ export default function HomePage() {
             <StaggerItem as="h1" className="font-serif text-4xl font-semibold leading-[1.12] tracking-tight text-white sm:text-5xl lg:text-[56px]">
               Delivering Excellence in{" "}
               <span className="relative inline-block text-teal-300">
-                Pharmaceutical Manufacturing
+                Pharmaceutical Formulations & Manufacturing
                 <svg
                   viewBox="0 0 300 14"
                   preserveAspectRatio="none"
@@ -131,16 +131,14 @@ export default function HomePage() {
                 </svg>
               </span>
               <br />
-              <span className="whitespace-nowrap">&amp; PCD Franchise</span>
+              {/* <span className="whitespace-nowrap">&amp; PCD Franchise</span> */}
             </StaggerItem>
 
             <StaggerItem as="p" className="mt-7 max-w-2xl text-base leading-relaxed text-slate-200 sm:text-lg">
               <strong className="font-semibold text-white">
                 Incredible Medicare
               </strong>{" "}
-              delivers high-standard medicines successfully across the
-              country, and as a step ahead, we have now started exporting
-              worldwide.
+              delivers high-standard medicines successfully across the country, and as a step ahead, we have now started exporting worldwide.
             </StaggerItem>
 
             <StaggerItem className="mt-8 flex flex-wrap items-center justify-center gap-4">
