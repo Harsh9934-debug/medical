@@ -808,7 +808,7 @@ export default function ProductsPage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-[#0b192c] via-black to-black py-16 lg:py-20">
         <AmbientVideo src="/hero-2.mp4" className="opacity-35" />
         <div className="pointer-events-none absolute -left-32 top-4 hidden h-[420px] w-[420px] overflow-hidden rounded-full border-[14px] border-white/10 opacity-30 lg:block xl:-left-20">
-          <Image src="/infra-packs.jpg" alt="" fill sizes="420px" className="object-cover" />
+          <Image src="/infra-packs.png" alt="" fill sizes="420px" className="object-cover" />
         </div>
         <div className="pointer-events-none absolute -right-32 top-10 hidden h-[420px] w-[420px] overflow-hidden rounded-full border-[14px] border-white/10 opacity-30 lg:block xl:-right-20">
           <Image src="/infra-lab.jpg" alt="" fill sizes="420px" className="object-cover" style={{ objectPosition: "40% 50%" }} />
@@ -866,7 +866,7 @@ export default function ProductsPage() {
             {/* Left summary panel */}
             <div className="relative overflow-hidden bg-[#0B192C] p-7 text-white md:col-span-2 md:flex md:flex-col">
               <Image
-                src="/infra-packs.jpg"
+                src="/infra-packs.png"
                 alt=""
                 fill
                 sizes="300px"

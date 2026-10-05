@@ -5,7 +5,15 @@ import Image from "next/image";
  * content scrolls over it. clip-path confines the fixed image to the section.
  * Parent must be `relative isolate`.
  */
-export function SectionBg({ src, position = "center" }: { src: string; position?: string }) {
+export function SectionBg({
+  src,
+  position = "center",
+  overlay = "from-white/70 via-white/55 to-[#f0fdfa]/70",
+}: {
+  src: string;
+  position?: string;
+  overlay?: string;
+}) {
   return (
     <>
       <div className="pointer-events-none absolute inset-0 -z-20 [clip-path:inset(0)]" aria-hidden="true">
@@ -18,7 +26,7 @@ export function SectionBg({ src, position = "center" }: { src: string; position?
           style={{ objectPosition: position }}
         />
       </div>
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-white/70 via-white/55 to-[#f0fdfa]/70" />
+      <div className={`pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b ${overlay}`} />
     </>
   );
 }

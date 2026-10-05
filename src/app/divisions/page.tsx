@@ -82,7 +82,7 @@ export default function DivisionsPage() {
 
         <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[46%] overflow-hidden rounded-bl-[9rem] shadow-[0_20px_60px_rgba(13,148,136,0.25)] lg:block">
           <Image
-            src="/infra-packs.jpg"
+            src="/infra-packs.png"
             alt="Pharmaceutical tablets and capsules in blister packs"
             fill
             priority

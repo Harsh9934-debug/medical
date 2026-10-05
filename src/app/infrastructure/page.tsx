@@ -260,7 +260,7 @@ export default function InfrastructurePage() {
                 title: "Solid Orals (Tablets & Capsules)",
                 desc: "Equipped with automatic rapid mixer granulators (RMG), fluid bed dryers (FBD), multi-station rotary tableting presses, and automated capsule filling with weight verification.",
                 pill: "Tablets & Capsules",
-                img: "/infra-packs.jpg",
+                img: "/infra-packs.png",
                 pos: "50% 50%",
               },
               {
@@ -394,7 +394,7 @@ export default function InfrastructurePage() {
           <Image src="/infra-vial.jpg" alt="" fill sizes="420px" className="object-cover" style={{ objectPosition: "30% 50%" }} />
         </div>
         <div className="pointer-events-none absolute -right-32 top-10 hidden h-[420px] w-[420px] overflow-hidden rounded-full border-[14px] border-white/10 opacity-30 lg:block xl:-right-20">
-          <Image src="/infra-packs.jpg" alt="" fill sizes="420px" className="object-cover" />
+          <Image src="/infra-packs.png" alt="" fill sizes="420px" className="object-cover" />
         </div>
         <div className="pointer-events-none absolute -bottom-24 left-1/4 h-64 w-96 rounded-full bg-amber-400/10 blur-3xl" />
         <div className="relative max-w-3xl mx-auto px-4 text-center">

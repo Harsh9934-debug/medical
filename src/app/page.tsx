@@ -144,7 +144,7 @@ export default function HomePage() {
             <StaggerItem className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/products"
-                className="btn-shine inline-flex items-center gap-3 rounded-[4px] bg-[#0D9488] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(13,148,136,0.3)] transition-all hover:bg-[#0f766e] hover:shadow-lg"
+                className="btn-shine inline-flex items-center gap-3 rounded-[40px] bg-[#0D9488] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(13,148,136,0.3)] transition-all hover:bg-[#0f766e] hover:shadow-lg"
               >
                 <Package className="h-4 w-4" />
                 <span>Browse 650+ Products</span>
@@ -157,7 +157,7 @@ export default function HomePage() {
                   setSelectedProduct("");
                   setEnquiryModalOpen(true);
                 }}
-                className="inline-flex cursor-pointer items-center gap-3 rounded-[4px] border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-800 transition-all hover:border-[#0D9488] hover:text-[#0D9488]"
+                className="inline-flex cursor-pointer items-center gap-3 rounded-[40px] border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-800 transition-all hover:border-[#0D9488] hover:text-[#0D9488]"
               >
                 <FileText className="h-4 w-4 text-[#0D9488]" />
                 <span>Request Franchise Terms</span>
@@ -172,7 +172,7 @@ export default function HomePage() {
                   e.preventDefault();
                   router.push("/products");
                 }}
-                className="flex items-center gap-2 rounded-[4px] border border-slate-200 bg-white p-1.5 shadow-[0_10px_30px_rgba(15,50,90,0.08)]"
+                className="flex items-center gap-2 rounded-[40px] border border-slate-200 bg-white p-1.5 shadow-[0_10px_30px_rgba(15,50,90,0.08)]"
               >
                 <Search className="ml-3 h-4 w-4 shrink-0 text-slate-400" />
                 <input
@@ -185,7 +185,7 @@ export default function HomePage() {
                 />
                 <button
                   type="submit"
-                  className="shrink-0 rounded-[4px] bg-[#0b192c] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#115e59]"
+                  className="shrink-0 rounded-[34px] bg-[#0b192c] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#115e59]"
                 >
                   Search
                 </button>
@@ -211,7 +211,7 @@ export default function HomePage() {
         {/* Operations panel */}
         <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-14 sm:px-6 lg:px-8 lg:pb-20">
           <Reveal direction="up" delay={0.1} className="relative overflow-hidden rounded-[4px] bg-[#04101f] shadow-[0_30px_70px_rgba(4,16,31,0.35)]">
-            <AmbientVideo src="/hero-4.mp4" poster="/infra-packs.jpg" />
+            <AmbientVideo src="/hero-4.mp4" poster="/infra-packs.png" />
             {/* Neutral scrim, bottom-only, so the overlay copy stays readable without tinting the photo */}
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
 
@@ -468,7 +468,7 @@ export default function HomePage() {
 
       {/* 5. FEATURED PRODUCT SHOWCASE */}
       <section className="relative isolate overflow-hidden py-16 lg:py-20 border-b border-slate-200">
-        <SectionBg src="/infra-packs.jpg" />
+        <SectionBg src="/infra-packs.png" overlay="from-white/20 via-white/10 to-[#f0fdfa]/25" />
         <div className="pointer-events-none absolute -top-32 -left-32 h-[380px] w-[380px] rounded-full bg-[#ccfbf1]/50 blur-3xl" />
         <div className="pointer-events-none absolute top-1/2 -right-40 h-[420px] w-[420px] rounded-full bg-[#ccfbf1]/50 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
