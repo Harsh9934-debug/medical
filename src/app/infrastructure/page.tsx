@@ -27,9 +27,13 @@ import {
   MessageSquareText,
   FileCheck,
   Package,
+  Cpu,
+  Lightbulb,
+  Handshake,
 } from "lucide-react";
 import EnquiryModal from "@/components/EnquiryModal";
 import { Conveyor } from "@/components/motion/Conveyor";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
 
 const PRIMARY_BTN =
   "inline-flex items-center gap-3 rounded-[4px] bg-[#0d9488] hover:bg-[#0f766e] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(13,148,136,0.35)] transition cursor-pointer";
@@ -246,8 +250,8 @@ export default function InfrastructurePage() {
           <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-14">
             <Eyebrow center>Specialized Departments</Eyebrow>
             <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0b192c] tracking-tight">
-              Dedicated Production &amp;{" "}
-              <span className="text-[#0d9488]">Analytical Suites</span>
+              Equipment, Laboratory &amp;{" "}
+              <span className="text-[#0d9488]">Quality Facilities</span>
             </h2>
             <div className="accent-bar mx-auto mt-4"></div>
           </div>
@@ -256,28 +260,28 @@ export default function InfrastructurePage() {
             {[
               {
                 n: "01",
-                icon: Layers,
-                title: "Solid Orals (Tablets & Capsules)",
-                desc: "Equipped with automatic rapid mixer granulators (RMG), fluid bed dryers (FBD), multi-station rotary tableting presses, and automated capsule filling with weight verification.",
-                pill: "Tablets & Capsules",
+                icon: Cog,
+                title: "Equipment & Machinery",
+                desc: "Our manufacturing facilities are supported by modern machinery for tablet, capsule, ointment, and packaging operations, enabling efficient and high-volume pharmaceutical production.",
+                pill: "Tablet · Capsule · Ointment",
                 img: "/infra-packs.png",
                 pos: "50% 50%",
               },
               {
                 n: "02",
-                icon: Activity,
-                title: "Liquid Orals & Suspensions",
-                desc: "Integrated manufacturing vessels with automated rotary bottle air washing, volumetric liquid filling, nitrogen purging, induction cap sealing, and automated labeling lines.",
-                pill: "Syrups & Suspensions",
+                icon: FlaskConical,
+                title: "Laboratory & Quality Facilities",
+                desc: "Our dedicated laboratories support quality control, quality assurance, analytical testing, and formulation development across key pharmaceutical processes.",
+                pill: "QC · QA · Analytical",
                 img: "/infra-vial.jpg",
                 pos: "30% 55%",
               },
               {
                 n: "03",
-                icon: ThermometerSnowflake,
-                title: "Smart Warehousing & Cold Chain",
-                desc: "Dedicated temperature-controlled storage (2°C – 8°C for biologics & injectables and 15°C – 25°C for standard formulations) with computerized barcode inventory dispatch.",
-                pill: "2°C – 25°C Controlled",
+                icon: Gauge,
+                title: "QC Equipment",
+                desc: "Our QC facilities include advanced instruments such as HPLC, GC, FTIR, UV Spectrophotometer, Dissolution, Disintegration, Friability, Hardness, Karl Fischer, pH, and other analytical testing systems.",
+                pill: "HPLC · GC · FTIR · UV",
                 img: "/infra-lab.jpg",
                 pos: "85% 45%",
               },
@@ -374,6 +378,45 @@ export default function InfrastructurePage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Research & Development */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f0fdfa] to-[#f0fdfa] py-16 lg:py-20">
+        <div className="pointer-events-none absolute -bottom-32 -left-32 h-[400px] w-[400px] rounded-full bg-[#ccfbf1]/60 blur-3xl" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal className="text-center max-w-3xl mx-auto mb-12 lg:mb-14">
+            <Eyebrow center>Innovation</Eyebrow>
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0b192c] tracking-tight">
+              Research &amp;{" "}
+              <span className="text-[#0d9488]">Development</span>
+            </h2>
+            <div className="accent-bar mx-auto mt-4"></div>
+            <p className="mt-5 text-slate-600 text-sm sm:text-base leading-relaxed">
+              Our R&amp;D team focuses on innovative and unique formulations, combining scientific expertise, modern technology, and quality-driven development to meet evolving healthcare needs.
+            </p>
+          </Reveal>
+
+          <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
+            {[
+              { icon: Cpu, title: "Advanced Technology", desc: "Our state-of-the-art facilities are equipped with advanced analytical and manufacturing technologies, including HPLC, FTIR, GC, UV Spectrophotometer, and Dissolution Testers." },
+              { icon: Lightbulb, title: "Innovation & Formulation Development", desc: "We focus on new combinations, improved formulations, and efficient manufacturing solutions with emphasis on quality, efficacy, consistency, and cost-effectiveness." },
+              { icon: Handshake, title: "Strategic Partnerships", desc: "We collaborate with research institutions, technical experts, and industry partners to support innovation, technology advancement, and continuous product development." },
+              { icon: ShieldCheck, title: "Quality Commitment", desc: "Quality is at the core of our operations. Stringent quality controls, advanced laboratories, and experienced technical teams ensure consistent quality, regulatory compliance, and product reliability." },
+            ].map((c, i) => (
+              <StaggerItem key={c.title} className="lg:col-span-6">
+                <div className={`${GLASS} group relative h-full overflow-hidden p-7 transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_18px_50px_rgba(13,148,136,0.2)]`}>
+                  <span className="absolute right-6 top-4 text-5xl font-extrabold text-[#0d9488]/10">0{i + 1}</span>
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#14b8a6] to-[#0f766e] text-white shadow-[0_8px_22px_rgba(13,148,136,0.35)] transition duration-300 group-hover:scale-110 group-hover:rotate-6">
+                    <c.icon className="h-7 w-7" strokeWidth={1.6} />
+                  </div>
+                  <h3 className="mt-5 text-xl font-extrabold text-[#0b192c] leading-tight">{c.title}</h3>
+                  <div className="mt-2 h-[3px] w-8 rounded-full bg-[#0d9488] transition-all duration-300 group-hover:w-16" />
+                  <p className="mt-4 text-sm text-slate-600 leading-relaxed">{c.desc}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </div>
       </section>
 

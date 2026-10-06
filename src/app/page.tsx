@@ -134,11 +134,17 @@ export default function HomePage() {
               {/* <span className="whitespace-nowrap">&amp; PCD Franchise</span> */}
             </StaggerItem>
 
-            <StaggerItem as="p" className="mt-7 max-w-2xl text-base leading-relaxed text-slate-200 sm:text-lg">
-              <strong className="font-semibold text-white">
-                Incredible Medicare
-              </strong>{" "}
-              delivers high-standard medicines successfully across the country, and as a step ahead, we have now started exporting worldwide.
+            <StaggerItem as="div" className="mt-7 max-w-2xl space-y-3 text-base leading-relaxed text-slate-200 sm:text-lg">
+              <p>
+                India’s leading contract manufacturing unit,{" "}
+                <strong className="font-semibold text-white">
+                  Incredible Medicare
+                </strong>
+                , is a WHO-GMP certified company built on a rich heritage of pharmaceutical excellence.
+              </p>
+              <p>
+                Driven by state-of-the-art machinery, premium and unique formulations, dedicated modular laboratories, and highly experienced technical professionals, we transform pharmaceutical expertise into trusted healthcare solutions.
+              </p>
             </StaggerItem>
 
             <StaggerItem className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -403,23 +409,30 @@ export default function HomePage() {
 
               <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
                 <p>
-                  <strong className="text-[#0b192c]">Incredible Medicare</strong> is a distinguished Indian
-                  pharmaceutical enterprise specializing in the development,
-                  manufacture, and distribution of high-grade ethical
-                  formulations across multiple therapeutic segments.
+                  At <strong className="text-[#0b192c]">Incredible Medicare</strong>, we specialize in the
+                  contract manufacturing of pharmaceutical medicines for pharma
+                  marketing companies across India and global markets. As one of
+                  India’s professionally and quality-managed pharmaceutical
+                  companies, we are committed to delivering consistent quality,
+                  innovation, and reliability at every stage of manufacturing.
                 </p>
                 <p>
-                  Built on a foundation of precision, regulatory compliance, and
-                  uncompromising quality benchmarks, we serve hospitals,
-                  clinics, medical institutions, and retail chemists through our
-                  dedicated network of PCD franchise associates and wholesale
-                  partners.
+                  Our business operations are efficiently managed from our head
+                  office in Zirakpur, supported by a dedicated team and modern
+                  manufacturing infrastructure.
                 </p>
                 <p>
-                  Our extensive portfolio covers tablets, capsules, sterile
-                  injectables, oral syrups, topical ointments, and advanced
-                  nutraceuticals formulated to satisfy current DCGI guidelines
-                  and international pharmacopeial standards.
+                  Our vision is to develop and manufacture new and unique
+                  formulation combinations that address evolving healthcare
+                  needs. Every product is manufactured in accordance with
+                  applicable DCGI approvals and required regulatory permissions,
+                  ensuring compliance with established pharmaceutical standards.
+                </p>
+                <p>
+                  Where applicable, clinical studies are conducted to evaluate
+                  the safety, quality, and efficacy of the formulations,
+                  reinforcing our commitment to responsible and reliable
+                  pharmaceutical manufacturing.
                 </p>
               </div>
 

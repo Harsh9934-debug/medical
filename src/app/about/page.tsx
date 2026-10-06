@@ -42,6 +42,7 @@ import {
 } from "lucide-react";
 import { COMPANY_INFO, DIVISIONS } from "@/data/company";
 import EnquiryModal from "@/components/EnquiryModal";
+import { CapacitySection } from "@/components/CapacitySection";
 
 export default function AboutPage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -367,7 +368,7 @@ export default function AboutPage() {
               <h3 className="mt-5 text-2xl font-extrabold text-[#0b192c]">Our Mission</h3>
               <div className="mt-2 h-[3px] w-8 rounded-full bg-[#0d9488]" />
               <p className="mt-4 text-sm text-slate-600 leading-relaxed lg:max-w-[62%] xl:max-w-[66%]">
-                To formulate, manufacture, and distribute globally compliant, cost-effective, and therapeutically superior medicines through structured quality systems, ethical commercial practices, and robust nationwide logistics.
+                At Incredible Medicare, our mission is to deliver high-quality pharmaceutical formulations through advanced manufacturing, scientific excellence, and uncompromising quality standards. We strive to build trusted healthcare solutions for customers across India and global markets.
               </p>
               <span className="relative z-10 mt-auto pt-6 self-start inline-flex items-center gap-2 text-xs font-semibold text-[#0f766e]">
                 <span className="inline-flex items-center gap-2 rounded-full border border-[#99f6e4] bg-white/80 px-4 py-2">
@@ -393,7 +394,7 @@ export default function AboutPage() {
               <h3 className="mt-5 text-2xl font-extrabold text-[#0b192c]">Our Vision</h3>
               <div className="mt-2 h-[3px] w-8 rounded-full bg-[#0d9488]" />
               <p className="mt-4 text-sm text-slate-600 leading-relaxed lg:max-w-[62%] xl:max-w-[66%]">
-                To emerge as one of India&apos;s most reputable and scientifically dependable pharmaceutical corporations, recognized across domestic and emerging international markets for unyielding formulation integrity.
+                Our vision is to emerge as a trusted and globally recognized contract manufacturing partner, known for innovation, quality, reliability, and excellence in pharmaceutical formulations.
               </p>
               <span className="relative z-10 mt-auto pt-6 self-start inline-flex items-center gap-2 text-xs font-semibold text-[#0f766e]">
                 <span className="inline-flex items-center gap-2 rounded-full border border-[#99f6e4] bg-white/80 px-4 py-2">
@@ -557,6 +558,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <CapacitySection />
 
       {/* CTA Box */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#0b192c] via-black to-black py-16 lg:py-20">
