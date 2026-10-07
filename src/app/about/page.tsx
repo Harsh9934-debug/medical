@@ -440,6 +440,8 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <CapacitySection />
+
       {/* Quality Policy & Analytical Assurance */}
       <section className="relative overflow-hidden bg-gradient-to-b from-[#f0fdfa] to-[#f0fdfa] py-16 lg:py-20">
         <div className="pointer-events-none absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-[#ccfbf1]/60 blur-3xl" />
@@ -558,8 +560,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      <CapacitySection />
 
       {/* CTA Box */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#0b192c] via-black to-black py-16 lg:py-20">

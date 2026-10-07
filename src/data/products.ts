@@ -116,7 +116,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "cpod-o",
-    name: "CPOD-O",
+    name: "C-Pod O",
     genericName: "Cefpodoxime + Ofloxacin",
     category: "Antibiotics & Antimicrobials",
     form: "Tablets",
