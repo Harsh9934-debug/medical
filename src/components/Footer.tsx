@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import LogoLink from "@/components/LogoLink";
 import {
   MapPin,
   Phone,
@@ -155,7 +156,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-12">
             {/* Brand */}
             <div className="space-y-3 sm:col-span-2 lg:col-span-4">
-              <Link href="/" className="inline-flex items-center gap-3">
+              <LogoLink className="inline-flex items-center gap-3">
                 <Image
                   src="/logo.png"
                   alt="Incredible Medicare Logo"
@@ -171,7 +172,7 @@ export default function Footer() {
                     Pharma Formulations &amp; Healthcare
                   </span>
                 </span>
-              </Link>
+              </LogoLink>
 
               <p className="max-w-md text-[13px] leading-relaxed text-slate-400">
                 Accredited pharmaceutical manufacturer and PCD franchise company

@@ -1,5 +1,6 @@
 "use client";
 
+import LogoLink from "@/components/LogoLink";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -184,7 +185,7 @@ export default function Header() {
             )}
           >
             {/* Logo */}
-            <Link href="/" className="group flex shrink-0 items-center gap-3">
+            <LogoLink className="group flex shrink-0 items-center gap-3">
               <div className="relative flex h-12 w-12 items-center justify-center">
                 <Image
                   src="/logo.png"
@@ -204,7 +205,7 @@ export default function Header() {
                   Pharma Formulations &amp; Healthcare
                 </span>
               </div>
-            </Link>
+            </LogoLink>
 
             {/* Desktop Navigation */}
             <NavigationMenu className="hidden xl:flex">
