@@ -483,7 +483,7 @@ export default function HomePage() {
 
       {/* 5. FEATURED PRODUCT SHOWCASE */}
       <section className="relative isolate overflow-hidden py-16 lg:py-20 border-b border-slate-200">
-        <SectionBg src="/image2.png" overlay="from-white/85 via-white/75 to-[#f0fdfa]/80" />
+        <SectionBg src="/bg23.png" overlay="from-white/20 via-white/10 to-[#f0fdfa]/50" />
         <div className="pointer-events-none absolute -top-32 -left-32 h-[380px] w-[380px] rounded-full bg-[#ccfbf1]/50 blur-3xl" />
         <div className="pointer-events-none absolute top-1/2 -right-40 h-[420px] w-[420px] rounded-full bg-[#ccfbf1]/50 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
