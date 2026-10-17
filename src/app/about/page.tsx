@@ -353,7 +353,7 @@ export default function AboutPage() {
               <span className="text-[#0d9488]">Core Philosophy</span>
             </h2>
             <div className="accent-bar mx-auto mt-4"></div>
-            <p className="mt-5 text-slate-600 text-sm sm:text-base leading-relaxed">
+            <p className="mt-5 text-slate-800 text-base sm:text-lg font-semibold leading-relaxed">
               Guided by a commitment to quality, integrity, and innovation, we
               strive to create better health outcomes and build a healthier
               tomorrow.
