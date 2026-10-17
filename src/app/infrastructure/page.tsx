@@ -288,25 +288,26 @@ export default function InfrastructurePage() {
             ].map((c) => (
               <div key={c.title} className={`${GLASS} relative overflow-hidden p-7 flex flex-col`}>
                 <span className="absolute right-6 top-5 text-5xl font-extrabold text-[#0d9488]/10">{c.n}</span>
-                <c.icon className="w-10 h-10 text-[#0d9488]" strokeWidth={1.5} />
-                <h3 className="mt-5 text-2xl font-extrabold text-[#0b192c] leading-tight">{c.title}</h3>
-                <div className="mt-2 h-[3px] w-8 rounded-full bg-[#0d9488]" />
-                <p className="mt-4 text-sm text-slate-600 leading-relaxed lg:max-w-[66%]">{c.desc}</p>
+                <c.icon className="relative z-10 w-10 h-10 text-[#0d9488]" strokeWidth={1.5} />
+                <h3 className="relative z-10 mt-5 text-2xl font-extrabold text-[#0b192c] leading-tight">{c.title}</h3>
+                <div className="relative z-10 mt-2 h-[3px] w-8 rounded-full bg-[#0d9488]" />
+                <p className="relative z-10 mt-4 text-sm text-slate-600 leading-relaxed lg:max-w-[62%]">{c.desc}</p>
                 <span className="relative z-10 mt-auto pt-6 self-start">
                   <span className="inline-flex items-center gap-2 rounded-full border border-[#99f6e4] bg-white/80 px-4 py-2 text-xs font-semibold text-[#0f766e]">
                     {c.pill}
                     <ArrowRight className="w-3.5 h-3.5" />
                   </span>
                 </span>
-                <div className="pointer-events-none absolute bottom-0 right-0 hidden h-[200px] w-[200px] overflow-hidden rounded-tl-full lg:block">
+                <div className="pointer-events-none absolute bottom-0 right-0 z-0 hidden h-[180px] w-[180px] overflow-hidden rounded-tl-full lg:block">
                   <Image
                     src={c.img}
                     alt=""
                     fill
-                    sizes="200px"
+                    sizes="180px"
                     className="object-cover"
                     style={{ objectPosition: c.pos }}
                   />
+                  <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-white/40 to-white/85" />
                 </div>
               </div>
             ))}
