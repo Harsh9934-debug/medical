@@ -122,7 +122,7 @@ export default function DivisionsPage() {
               {[
                 { icon: Layers, a: "5", b: "Focused Divisions" },
                 { icon: Boxes, a: "1000+", b: "Formulations" },
-                { icon: MapPinned, a: "Turnkey", b: "Contract Manufacturing" },
+                { icon: MapPinned, a: "Zirakpur", b: "Punjab" },
               ].map((f, i) => (
                 <div
                   key={f.a}
