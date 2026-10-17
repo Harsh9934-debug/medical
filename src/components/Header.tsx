@@ -460,7 +460,7 @@ function ProductsMegaMenu() {
           >
             <span className="flex items-center gap-2">
               <Sparkles className="h-4 w-4" />
-              Full Catalog (650+)
+              Full Catalog (1000+)
             </span>
             <ArrowRight className="h-4 w-4" />
           </Link>

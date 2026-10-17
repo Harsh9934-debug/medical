@@ -136,7 +136,7 @@ export default function ServicesPage() {
             <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-5 sm:flex sm:flex-wrap sm:items-center sm:gap-y-4 lg:flex-nowrap lg:w-[min(58vw,54rem)]">
               {[
                 { icon: ShieldCheck, a: "WHO-GMP", b: "Certified Plant" },
-                { icon: Boxes, a: "650+", b: "DCGI Formulations" },
+                { icon: Boxes, a: "1000+", b: "DCGI Formulations" },
                 { icon: Truck, a: "24–48h", b: "Pan-India Dispatch" },
                 { icon: MapPinned, a: "District-Wise", b: "Monopoly Rights" },
               ].map((f, i) => (
@@ -198,7 +198,7 @@ export default function ServicesPage() {
                 {[
                   { icon: BadgePercent, a: "Cost-Effective Production", b: "Eliminate manufacturing capex and operational overheads while maintaining strict global compliance." },
                   { icon: Tags, a: "Custom Branding & Packaging", b: "Full private labeling in Alu-Alu, Blister, Amber Glass, and tamper-evident mono cartons." },
-                  { icon: Boxes, a: "Broad Formulation Scope", b: "Over 650+ approved DCGI formulations spanning all critical therapeutic areas." },
+                  { icon: Boxes, a: "Broad Formulation Scope", b: "Over 1000+ approved DCGI formulations spanning all critical therapeutic areas." },
                   { icon: Gauge, a: "Timely Dispatch & Bulk Scale", b: "Automated high-capacity lines ensuring on-time batch release and uninterrupted supply chains." },
                 ].map((r) => (
                   <div key={r.a} className={`${GLASS} flex items-center gap-4 px-5 py-3.5`}>
@@ -284,7 +284,7 @@ export default function ServicesPage() {
           <div className="mt-10">
             <StatsBar
               items={[
-                { icon: Boxes, a: "650+", b: "Approved Formulations" },
+                { icon: Boxes, a: "1000+", b: "Approved Formulations" },
                 { icon: Building2, a: "2", b: "Strategic Locations" },
                 { icon: ShieldCheck, a: "100%", b: "cGMP Compliant" },
                 { icon: Truck, a: "24–48h", b: "Pan-India Dispatch" },
@@ -360,7 +360,7 @@ export default function ServicesPage() {
               <div className="mt-6 space-y-3">
                 {[
                   { icon: MapPinned, a: "District-Wise Monopoly Rights", b: "Guaranteed exclusivity in your demarcated territory." },
-                  { icon: Boxes, a: "Over 650+ Fast-Moving Formulations", b: "Antibiotics, Pain, Gastro, Derma, Neuro, Cardiac & Nutra." },
+                  { icon: Boxes, a: "Over 1000+ Fast-Moving Formulations", b: "Antibiotics, Pain, Gastro, Derma, Neuro, Cardiac & Nutra." },
                   { icon: BadgePercent, a: "High Profit Margins", b: "Competitive commercial pricing allowing superior retail returns." },
                   { icon: Users, a: "Zero Minimum Quota Pressure", b: "Realistic, sustainable growth tailored to your local network." },
                   { icon: Truck, a: "Prompt 24-48h Pan-India Dispatch", b: "Fast logistics handling to prevent chemist stockouts." },
@@ -532,7 +532,7 @@ export default function ServicesPage() {
         <div className="relative max-w-5xl mx-auto px-4 mt-12">
           <div className="grid grid-cols-2 gap-y-6 lg:grid-cols-4 lg:gap-y-0">
             {[
-              { icon: Boxes, a: "650+", b: "Approved Products", blue: true },
+              { icon: Boxes, a: "1000+", b: "Approved Products", blue: true },
               { icon: Globe2, a: "Pan-India", b: "Distribution Network" },
               { icon: Handshake, a: "Monopoly", b: "Franchise Rights", blue: true },
               { icon: ShieldCheck, a: "Quality Assured", b: "WHO-GMP & ISO 9001:2015" },

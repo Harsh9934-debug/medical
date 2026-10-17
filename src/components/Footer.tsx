@@ -32,7 +32,7 @@ const COMPANY_LINKS = [
 
 const ASSURANCES: { icon: LucideIcon; title: string; desc: string }[] = [
   { icon: ShieldCheck, title: "WHO-GMP & ISO Certified", desc: "Quality assured production lines" },
-  { icon: Award, title: "650+ Formulations", desc: "DCGI approved portfolio" },
+  { icon: Award, title: "1000+ Formulations", desc: "DCGI approved portfolio" },
   { icon: CheckCircle2, title: "Monopoly PCD Rights", desc: "District-wise exclusivity" },
   { icon: Truck, title: "Pan-India Logistics", desc: "Dispatch within 24–48h" },
 ];

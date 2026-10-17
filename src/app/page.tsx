@@ -155,7 +155,7 @@ export default function HomePage() {
                 className="btn-shine inline-flex items-center gap-3 rounded-[40px] bg-[#0D9488] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(13,148,136,0.3)] transition-all hover:bg-[#0f766e] hover:shadow-lg"
               >
                 <Package className="h-4 w-4" />
-                <span>Browse 650+ Products</span>
+                <span>Browse 1000+ Products</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
 
@@ -187,7 +187,7 @@ export default function HomePage() {
                   type="text"
                   value={heroSearch}
                   onChange={(e) => setHeroSearch(e.target.value)}
-                  placeholder="Search 650+ products (e.g. INAC-SP, PEPS-DSR, C-FIX 200)"
+                  placeholder="Search 1000+ products (e.g. INAC-SP, PEPS-DSR, C-FIX 200)"
                   aria-label="Search products"
                   className="min-w-0 flex-1 bg-transparent px-1 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none"
                 />
@@ -258,7 +258,7 @@ export default function HomePage() {
                 <Pill className="h-10 w-10 shrink-0 text-[#0D9488]" strokeWidth={1.3} />
                 <div>
                   <div className="font-serif text-4xl font-medium leading-none text-[#0b192c]">
-                    <CountUp value="650+" />
+                    <CountUp value="100+" />
                   </div>
                   <div className="mt-1 text-xs font-medium text-[#0b192c]">
                     Approved Products
@@ -283,10 +283,10 @@ export default function HomePage() {
             {/* Stat strip */}
             <div className="relative grid grid-cols-2 gap-px border-t border-white/10 bg-white/10 sm:grid-cols-4">
               {[
-                { icon: Pill, value: "650+", sub: "Approved Molecules" },
+                { icon: Pill, value: "1000+", sub: "Approved Molecules" },
                 { icon: Users, value: "850+", sub: "Distribution Partners" },
                 { icon: Factory, value: "120M+", sub: "Units Produced / Year" },
-                { icon: Clock, value: "15+", sub: "Years of Experience" },
+                { icon: Clock, value: "27+", sub: "Years of Experience" },
               ].map((s) => (
                 <div key={s.sub} className="bg-[#04101f] px-5 py-6 text-center sm:text-left">
                   <s.icon className="mx-auto h-5 w-5 text-emerald-400 sm:mx-0" strokeWidth={1.6} />
@@ -306,7 +306,7 @@ export default function HomePage() {
             {[
               { icon: ShieldCheck, a: "WHO-GMP", b: "Certified Facilities" },
               { icon: Award, a: "ISO 9001:2015", b: "Quality Assured" },
-              { icon: FileCheck, a: "650+ Formulations", b: "DCGI Approved" },
+              { icon: FileCheck, a: "1000+ Formulations", b: "DCGI Approved" },
               { icon: Globe2, a: "28+ States", b: "Pan-India Coverage" },
               { icon: PhoneCall, a: "Prompt Dispatch", b: "Consignment Tracking" },
             ].map((f, i, arr) => (
@@ -443,7 +443,7 @@ export default function HomePage() {
                 {[
                   "100% WHO-GMP & ISO 9001:2015 Compliance",
                   "Monopoly-Backed PCD Pharma Franchise Rights",
-                  "Over 650+ DCGI Approved Formulations",
+                  "Over 1000+ DCGI Approved Formulations",
                   "Complete Promotional Support & Visual Aids",
                   "Turnkey Third-Party Contract Manufacturing",
                   "Prompt Dispatch & Real-Time Consignment Tracking",
@@ -517,7 +517,7 @@ export default function HomePage() {
                   View Our Complete Portfolio
                 </div>
                 <p className="text-sm text-slate-500 mt-0.5 leading-snug">
-                  Explore all 650+ formulations across multiple therapeutic
+                  Explore all 1000+ formulations across multiple therapeutic
                   segments.
                 </p>
               </div>

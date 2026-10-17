@@ -14,8 +14,8 @@ export const COMPANY_INFO = {
   workingHours: "Monday - Saturday: 9:00 AM - 6:30 PM",
   yearEstablished: 2011,
   stats: {
-    experienceYears: "15+",
-    approvedFormulations: "650+",
+    experienceYears: "27+",
+    approvedFormulations: "1000+",
     distributionPartners: "850+",
     annualCapacityUnits: "120M+",
     certificationsCount: "12+",

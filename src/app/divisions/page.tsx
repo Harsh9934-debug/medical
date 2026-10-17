@@ -121,7 +121,7 @@ export default function DivisionsPage() {
             <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-5 sm:flex sm:flex-wrap sm:items-center sm:gap-y-4">
               {[
                 { icon: Layers, a: "5", b: "Focused Divisions" },
-                { icon: Boxes, a: "650+", b: "Formulations" },
+                { icon: Boxes, a: "1000+", b: "Formulations" },
                 { icon: MapPinned, a: "District-Wise", b: "Monopoly Rights" },
               ].map((f, i) => (
                 <div
@@ -370,7 +370,7 @@ export default function DivisionsPage() {
           <div className="grid grid-cols-2 gap-y-6 lg:grid-cols-4 lg:gap-y-0">
             {[
               { icon: Layers, a: "5", b: "Specialized Divisions", blue: true },
-              { icon: Boxes, a: "650+", b: "Approved Formulations" },
+              { icon: Boxes, a: "1000+", b: "Approved Formulations" },
               { icon: Users, a: "850+", b: "Franchise Associates", blue: true },
               { icon: MapPinned, a: "28+", b: "States Covered" },
             ].map((f, i) => (

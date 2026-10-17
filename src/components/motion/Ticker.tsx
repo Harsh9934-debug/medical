@@ -3,7 +3,7 @@ import { ShieldCheck } from "lucide-react";
 const ITEMS = [
   "WHO-GMP Certified Plant",
   "ISO 9001:2015",
-  "650+ DCGI Approved Formulations",
+  "1000+ DCGI Approved Formulations",
   "GLP Compliant Labs",
   "120M+ Units / Year",
   "28+ States Served",

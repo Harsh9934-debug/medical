@@ -135,7 +135,7 @@ export default function AboutPage() {
             {[
               { icon: ShieldCheck, a: "WHO-GMP", b: "Accredited" },
               { icon: FileText, a: "ISO 9001:2015", b: "Certified" },
-              { icon: Users, a: "650+", b: "Approved Formulations" },
+              { icon: Users, a: "1000+", b: "Approved Formulations" },
               { icon: Globe2, a: "Pan-India & Global", b: "Distribution Network" },
             ].map((f, i) => (
               <div
@@ -207,7 +207,7 @@ export default function AboutPage() {
 
               <div className="mt-6 space-y-4 text-slate-600 text-[15px] leading-relaxed max-w-2xl">
                 <p>
-                  At <strong className="text-[#0b192c]">Incredible Medicare</strong>, we believe that access to high-potency, safe, and cost-effective pharmaceutical formulations is fundamental to advancing human health. Our corporate journey has evolved from a targeted regional distributor to a full-spectrum formulation enterprise commanding over 650+ DCGI-approved formulations.
+                  At <strong className="text-[#0b192c]">Incredible Medicare</strong>, we believe that access to high-potency, safe, and cost-effective pharmaceutical formulations is fundamental to advancing human health. Our corporate journey has evolved from a targeted regional distributor to a full-spectrum formulation enterprise commanding over 1000+ DCGI-approved formulations.
                 </p>
                 <p>
                   Headquartered at <strong className="text-[#0b192c]">Plot No 22, Sector 3, Sidcul IIE Pantnagar, Rudrapur (Uttarakhand)</strong>, our executive leadership oversees a multidisciplinary supply chain, rigorous quality audits, pan-India franchise enablement, and international export dossiers.
@@ -304,7 +304,7 @@ export default function AboutPage() {
           {/* Stats bar */}
           <div className="mt-12 grid grid-cols-2 gap-y-6 rounded-[4px] border border-white bg-white/85 backdrop-blur px-4 py-6 shadow-[0_10px_40px_rgba(13,148,136,0.10)] lg:grid-cols-4 lg:gap-y-0">
             {[
-              { icon: Box, a: "650+", b: "Approved Products" },
+              { icon: Box, a: "1000+", b: "Approved Products" },
               { icon: Users, a: "850+", b: "Franchise Associates" },
               { icon: BarChart3, a: "120M+", b: "Annual Units" },
               { icon: Globe2, a: "Pan-India & Global", b: "Serving 20+ Countries" },
@@ -607,7 +607,7 @@ export default function AboutPage() {
               className="inline-flex items-center gap-3 rounded-[4px] bg-[#0d9488] hover:bg-[#0f766e] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(13,148,136,0.35)] transition"
             >
               <Box className="w-5 h-5" />
-              View Products (650+)
+              View Products (1000+)
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
@@ -624,7 +624,7 @@ export default function AboutPage() {
         <div className="relative max-w-5xl mx-auto px-4 mt-12">
           <div className="grid grid-cols-2 gap-y-6 lg:grid-cols-4 lg:gap-y-0">
             {[
-              { icon: Boxes, a: "650+", b: "Approved Products", blue: true },
+              { icon: Boxes, a: "1000+", b: "Approved Products", blue: true },
               { icon: Globe2, a: "Pan-India", b: "Distribution Network" },
               { icon: Handshake, a: "Global", b: "Business Partnerships", blue: true },
               { icon: ShieldCheck, a: "Quality Assured", b: "WHO-GMP & ISO 9001:2015" },

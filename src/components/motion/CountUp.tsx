@@ -6,7 +6,7 @@ import { animate, useInView } from "motion/react";
 const PATTERN = /^(\D*)(\d[\d,]*(?:\.\d+)?)([\s\S]*)$/;
 
 /**
- * Counts a figure like "650+", "70 Million+" or "7.0 Crore Units / Year" up
+ * Counts a figure like "1000+", "70 Million+" or "7.0 Crore Units / Year" up
  * from zero when it scrolls into view. Server render shows the final value so
  * nothing is lost without JS.
  */
