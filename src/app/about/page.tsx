@@ -566,22 +566,22 @@ export default function AboutPage() {
         <AmbientVideo src="/hero-2.mp4" className="opacity-35" />
         {/* Left art */}
         <div
-          className="pointer-events-none absolute -left-32 top-4 hidden h-[420px] w-[420px] rounded-full border-[14px] border-white/10 opacity-30 lg:block xl:-left-20"
+          className="pointer-events-none absolute left-8 top-10 hidden h-[260px] w-[260px] rounded-full border-[10px] border-white/10 opacity-95 lg:block"
           style={{
-            backgroundImage: "url(/herobg.png)",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "1053px auto",
-            backgroundPosition: "-630px -239px",
+            backgroundImage: "url(/about-qc-lab.jpg)",
+            backgroundRepeat: "repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         />
         {/* Right art */}
         <div
-          className="pointer-events-none absolute -right-32 top-10 hidden h-[420px] w-[420px] rounded-full border-[14px] border-white/10 opacity-30 lg:block xl:-right-20"
+          className="pointer-events-none absolute right-8 top-10 hidden h-[260px] w-[260px] rounded-full border-[10px] border-white/20 opacity-60 lg:block"
           style={{
             backgroundImage: "url(/bg3.png)",
             backgroundRepeat: "no-repeat",
-            backgroundSize: "1666px auto",
-            backgroundPosition: "-1050px -126px",
+            backgroundSize: "1031px auto",
+            backgroundPosition: "-650px -78px",
           }}
         />
         <div className="pointer-events-none absolute -bottom-24 left-1/4 h-64 w-96 rounded-full bg-amber-400/10 blur-3xl" />
