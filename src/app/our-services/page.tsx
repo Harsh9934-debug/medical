@@ -506,8 +506,8 @@ export default function ServicesPage() {
         <div className="relative max-w-3xl mx-auto px-4 text-center">
           <Eyebrow center dark>Partner for a Healthier Tomorrow</Eyebrow>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.1]">
-            Ready to Grow with{" "}
-            <span className="block text-teal-400">Incredible Medicare?</span>
+            Build Your Business with{" "}
+            <span className="block text-teal-400">Incredible Medicare</span>
           </h2>
           <p className="mt-5 text-slate-300 text-sm sm:text-base leading-relaxed">
             Tell us about your requirement and our team will get back within one working day with rates, terms, and complete support.
