@@ -900,38 +900,43 @@ export default function ProductsPage() {
             </div>
 
             {/* Right details */}
-            <div className="space-y-5 p-7 md:col-span-3 md:pt-12">
+            <div className="flex flex-col p-7 md:col-span-3 md:pt-12">
+              <div className="flex flex-1 flex-col justify-center gap-5">
               <div>
                 <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0D9488]">
                   Generic Composition
                 </span>
-                <p className="mt-1.5 text-base font-bold leading-snug text-[#0B192C]">
+                <p className="mt-1.5 text-xl font-bold leading-snug text-[#0B192C]">
                   {activeProductDetail.genericName}
                 </p>
               </div>
 
-              <div>
-                <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0D9488]">
-                  Therapeutic Overview
-                </span>
-                <p className="mt-1.5 text-sm leading-relaxed text-[#475569]">
-                  {activeProductDetail.description}
-                </p>
-              </div>
+              {activeProductDetail.description && (
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0D9488]">
+                    Therapeutic Overview
+                  </span>
+                  <p className="mt-1.5 text-sm leading-relaxed text-[#475569]">
+                    {activeProductDetail.description}
+                  </p>
+                </div>
+              )}
 
-              <div>
-                <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0D9488]">
-                  Approved Indications
-                </span>
-                <ul className="mt-2 grid grid-cols-1 gap-x-4 gap-y-2 sm:grid-cols-2">
-                  {activeProductDetail.indications.map((ind) => (
-                    <li key={ind} className="flex items-center gap-2 text-sm text-slate-700">
-                      <CheckCircle2 className="h-4 w-4 shrink-0 text-[#0D9488]" strokeWidth={1.8} />
-                      {ind}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {activeProductDetail.indications.length > 0 && (
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#0D9488]">
+                    Approved Indications
+                  </span>
+                  <ul className="mt-2 grid grid-cols-1 gap-x-4 gap-y-2 sm:grid-cols-2">
+                    {activeProductDetail.indications.map((ind) => (
+                      <li key={ind} className="flex items-center gap-2 text-sm text-slate-700">
+                        <CheckCircle2 className="h-4 w-4 shrink-0 text-[#0D9488]" strokeWidth={1.8} />
+                        {ind}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               {activeProductDetail.dosage && (
                 <div className="rounded-[4px] border border-teal-100 bg-teal-50 px-4 py-3">
@@ -943,8 +948,9 @@ export default function ProductsPage() {
                   </p>
                 </div>
               )}
+              </div>
 
-              <div className="flex flex-col gap-3 border-t border-slate-100 pt-5 sm:flex-row">
+              <div className="mt-6 flex flex-col gap-3 border-t border-slate-100 pt-5 sm:flex-row">
                 <button
                   type="button"
                   onClick={() => {

@@ -46,6 +46,7 @@ import {
   Droplets,
   Calendar,
   MapPin,
+  Baby,
 } from "lucide-react";
 import {
   COMPANY_INFO,
@@ -58,7 +59,7 @@ import { Parallax } from "@/components/motion/Parallax";
 import { Ticker } from "@/components/motion/Ticker";
 import { ProcessFlow } from "@/components/motion/ProcessFlow";
 
-const CATEGORY_ICONS = [PillIcon, Bone, Shield, FlaskConical, Droplet, Stethoscope, Brain, Leaf];
+const CATEGORY_ICONS = [Compass, Shield, Bone, FlaskConical, Stethoscope, HeartPulse, Brain, Leaf, Users, Baby];
 
 const CARD_TINTS = [
   "bg-teal-200/60",
@@ -78,13 +79,15 @@ export default function HomePage() {
 
   const categories = [
     "All",
+    "Antibiotics & Antimicrobials",
     "Pain Management & Orthopaedics",
     "Gastroenterology & Antacids",
-    "Antibiotics & Antimicrobials",
-    "Paediatrics",
     "Respiratory, Cough & Cold",
+    "Cardiac & Diabetic Care",
     "Neuro-Psychiatry",
     "Nutraceuticals & Haematinic",
+    "Gynaecology & Women's Care",
+    "Paediatric Care",
   ];
 
   const filteredProducts =
@@ -186,7 +189,7 @@ export default function HomePage() {
                   type="text"
                   value={heroSearch}
                   onChange={(e) => setHeroSearch(e.target.value)}
-                  placeholder="Search 1000+ products (e.g. INAC-SP, PEPS-DSR, C-FIX 200)"
+                  placeholder="Search products (e.g. Azithromycin, Pantoprazole, Montelukast)"
                   aria-label="Search products"
                   className="min-w-0 flex-1 bg-transparent px-1 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none"
                 />
@@ -199,7 +202,7 @@ export default function HomePage() {
               </form>
               <div className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs text-slate-300">
                 <span className="font-semibold text-white">Popular:</span>
-                {["INAC-SP", "PEPS-DSR", "C-FIX 200"].map((term, i) => (
+                {["Azithromycin", "Pantoprazole", "Montelukast"].map((term, i) => (
                   <React.Fragment key={term}>
                     <Link href="/products" className="font-medium text-teal-300 hover:underline">
                       {term}
