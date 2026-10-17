@@ -133,7 +133,6 @@ export default function HomePage() {
                 </svg>
               </span>
               <br />
-              {/* <span className="whitespace-nowrap">&amp; PCD Franchise</span> */}
             </StaggerItem>
 
             <StaggerItem as="div" className="mt-7 max-w-2xl space-y-3 text-base leading-relaxed text-slate-200 sm:text-lg">
@@ -168,7 +167,7 @@ export default function HomePage() {
                 className="inline-flex cursor-pointer items-center gap-3 rounded-[40px] border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-800 transition-all hover:border-[#0D9488] hover:text-[#0D9488]"
               >
                 <FileText className="h-4 w-4 text-[#0D9488]" />
-                <span>Request Franchise Terms</span>
+                <span>Request Manufacturing Terms</span>
                 <ArrowRight className="h-4 w-4" />
               </button>
             </StaggerItem>
@@ -258,7 +257,7 @@ export default function HomePage() {
                 <Pill className="h-10 w-10 shrink-0 text-[#0D9488]" strokeWidth={1.3} />
                 <div>
                   <div className="font-serif text-4xl font-medium leading-none text-[#0b192c]">
-                    <CountUp value="100+" />
+                    <CountUp value="1000+" />
                   </div>
                   <div className="mt-1 text-xs font-medium text-[#0b192c]">
                     Approved Products
@@ -350,9 +349,9 @@ export default function HomePage() {
                 },
                 {
                   img: "/ab2.png",
-                  alt: "Manufacturing Unit, Uttarakhand",
+                  alt: "Manufacturing Unit, Punjab",
                   title: "Manufacturing Unit",
-                  addr: ["Plot No 22, Sector 3, Sidcul IIE Pantnagar,", "Rudrapur, Udham Singh Nagar, Uttarakhand - 263153, India"],
+                  addr: ["Unicity Business Park, Dhakoli,", "Zirakpur, Punjab - 160104, India"],
                   body: "Operates under WHO-GMP compliance, equipped with high-speed automated blister packing, liquid bottle lines, Class 10,000 cleanrooms, and dedicated QA/QC analytical suites.",
                   href: "/infrastructure",
                   speed: 45,
@@ -442,10 +441,10 @@ export default function HomePage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3.5 pt-2">
                 {[
                   "100% WHO-GMP & ISO 9001:2015 Compliance",
-                  "Monopoly-Backed PCD Pharma Franchise Rights",
                   "Over 1000+ DCGI Approved Formulations",
-                  "Complete Promotional Support & Visual Aids",
                   "Turnkey Third-Party Contract Manufacturing",
+                  "Dedicated Modular Manufacturing Lines",
+                  "End-to-End Packaging & Visual Aids Support",
                   "Prompt Dispatch & Real-Time Consignment Tracking",
                 ].map((feat) => (
                   <div
@@ -658,9 +657,9 @@ export default function HomePage() {
               <span className="block text-teal-400">Incredible Medicare?</span>
             </h2>
             <p className="text-slate-300 text-sm sm:text-base lg:text-lg mt-6 leading-relaxed">
-              Connect with our business development team today to inquire about
-              available district monopoly rights or discuss third-party
-              contract manufacturing schedules.
+              Connect with our business development team today to discuss
+              third-party and contract manufacturing schedules, product
+              requirements, and supply partnerships.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 pt-8">

@@ -46,14 +46,14 @@ export default function PrivacyPolicyPage() {
               1. Overview & Commitment
             </h2>
             <p>
-              Incredible Medicare (&ldquo;Company&rdquo;, &ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;) is committed to maintaining the confidentiality, integrity, and security of personal and corporate information entrusted to us by our business associates, PCD franchise partners, healthcare professionals, and third-party contract manufacturing clients.
+              Incredible Medicare (&ldquo;Company&rdquo;, &ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;) is committed to maintaining the confidentiality, integrity, and security of personal and corporate information entrusted to us by our business associates, distribution partners, healthcare professionals, and third-party contract manufacturing clients.
             </p>
           </div>
 
           <div>
             <h2 className="text-lg font-bold text-slate-900 mb-3">2. Information We Collect</h2>
             <p className="mb-2">
-              We collect information that you voluntarily submit when requesting product price lists, applying for district PCD monopoly rights, submitting contract manufacturing RFQs (Requests for Quotation), or contacting our sales and support teams:
+              We collect information that you voluntarily submit when requesting product price lists, submitting contract manufacturing RFQs (Requests for Quotation), or contacting our sales and support teams:
             </p>
             <ul className="list-disc pl-5 space-y-1.5 text-slate-600">
               <li><strong className="text-slate-800">Contact Details:</strong> Full Name, Corporate Email Address ({COMPANY.email}), Telephone/Mobile Number, and Mailing Address.</li>
@@ -68,8 +68,7 @@ export default function PrivacyPolicyPage() {
             <p className="mb-2">All data collected is used strictly for legitimate commercial and regulatory objectives:</p>
             <ul className="list-disc pl-5 space-y-1.5 text-slate-600">
               <li>Processing product catalogs, wholesale price inquiries, and quotation drafts.</li>
-              <li>Evaluating and awarding exclusive PCD Pharma Franchise territory agreements.</li>
-              <li>Executing contract manufacturing agreements and batch production schedules.</li>
+              <li>Evaluating and executing contract manufacturing agreements and batch production schedules.</li>
               <li>Transmitting regulatory dossiers, Certificates of Analysis (COA), and dispatch tracking notifications.</li>
               <li>Complying with statutory drug regulatory mandates and tax obligations.</li>
             </ul>
@@ -78,7 +77,7 @@ export default function PrivacyPolicyPage() {
           <div>
             <h2 className="text-lg font-bold text-slate-900 mb-3">4. Non-Disclosure & Data Confidentiality</h2>
             <p>
-              Incredible Medicare strictly adheres to commercial non-disclosure practices. We do not sell, lease, barter, or trade our franchise associates&rsquo; or contract clients&rsquo; commercial data, proprietary packaging designs, or customer lists to any third-party marketing entities. Information is disclosed solely to authorized employees, logistics partners, and statutory authorities where mandated by law.
+              Incredible Medicare strictly adheres to commercial non-disclosure practices. We do not sell, lease, barter, or trade our partners&rsquo; or contract clients&rsquo; commercial data, proprietary packaging designs, or customer lists to any third-party marketing entities. Information is disclosed solely to authorized employees, logistics partners, and statutory authorities where mandated by law.
             </p>
           </div>
 

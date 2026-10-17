@@ -101,12 +101,12 @@ export default function DivisionsPage() {
               <span className="text-[#0d9488]">Pharmaceutical Divisions</span>
             </h1>
             <p className="mt-5 text-slate-600 text-base leading-relaxed max-w-xl">
-              Incredible Medicare features targeted business divisions, each built with deep therapeutic focus, dedicated promotional inputs, and clinical efficacy to empower franchise associates and prescribing clinicians.
+              Incredible Medicare features targeted business divisions, each built with deep therapeutic focus, dedicated product development, and clinical efficacy to serve healthcare brands and prescribing clinicians.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <button
                 type="button"
-                onClick={() => handleEnquireDivision("Multi-Division Franchise Partnership")}
+                onClick={() => handleEnquireDivision("Multi-Division Manufacturing Partnership")}
                 className={PRIMARY_BTN}
               >
                 Request Multi-Division Portfolio
@@ -122,7 +122,7 @@ export default function DivisionsPage() {
               {[
                 { icon: Layers, a: "5", b: "Focused Divisions" },
                 { icon: Boxes, a: "1000+", b: "Formulations" },
-                { icon: MapPinned, a: "District-Wise", b: "Monopoly Rights" },
+                { icon: MapPinned, a: "Turnkey", b: "Contract Manufacturing" },
               ].map((f, i) => (
                 <div
                   key={f.a}
@@ -244,21 +244,21 @@ export default function DivisionsPage() {
                     <Handshake className="pointer-events-none absolute -bottom-8 -right-8 h-48 w-48 text-white/5" strokeWidth={1} />
                     <div className="relative flex flex-col h-full">
                       <span className="text-teal-400 text-xs font-bold uppercase tracking-[0.14em]">
-                        Franchise &amp; Product Inquiry
+                        Manufacturing &amp; Product Inquiry
                       </span>
                       <h4 className="mt-3 text-xl font-bold leading-snug">
                         Partner with the <span className="text-teal-400">{div.category}</span> division
                       </h4>
                       <p className="mt-3 text-sm text-slate-300 leading-relaxed">
-                        Monopoly marketing rights and promotional material kits currently available for this division.
+                        Contract manufacturing and full product portfolio currently available for this division.
                       </p>
                       <div className="mt-auto pt-6 space-y-3">
                         <button
                           type="button"
-                          onClick={() => handleEnquireDivision(`${div.name} (Franchise Monopoly)`)}
+                          onClick={() => handleEnquireDivision(`${div.name} (Contract Manufacturing)`)}
                           className="flex w-full items-center justify-center gap-3 rounded-[4px] bg-[#0d9488] hover:bg-[#14b8a6] px-6 py-3.5 text-sm font-semibold text-white transition cursor-pointer"
                         >
-                          Apply for Division Franchise
+                          Enquire for Manufacturing
                           <ArrowRight className="w-4 h-4" />
                         </button>
                         <Link
@@ -295,7 +295,7 @@ export default function DivisionsPage() {
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <button
                   type="button"
-                  onClick={() => handleEnquireDivision("Multi-Division Franchise Partnership")}
+                  onClick={() => handleEnquireDivision("Multi-Division Manufacturing Partnership")}
                   className={PRIMARY_BTN}
                 >
                   Request Multi-Division Portfolio
@@ -312,7 +312,7 @@ export default function DivisionsPage() {
               {[
                 { icon: Stethoscope, a: "Deep Doctor Relationships", b: "Distinct promotional material for every prescriber segment." },
                 { icon: FileText, a: "Tailored Clinical Monographs", b: "Division-specific literature and visual aids." },
-                { icon: Users, a: "Focused Franchise Teams", b: "Build specialist field teams around a single therapy." },
+                { icon: Users, a: "Focused Product Teams", b: "Dedicated specialist focus around a single therapy." },
                 { icon: ShieldCheck, a: "One Quality Standard", b: "Every division backed by WHO-GMP & ISO 9001:2015." },
               ].map((r) => (
                 <div key={r.a} className={`${GLASS} p-5`}>
@@ -339,16 +339,16 @@ export default function DivisionsPage() {
         <div className="relative max-w-3xl mx-auto px-4 text-center">
           <Eyebrow center dark>Partner for a Healthier Tomorrow</Eyebrow>
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.1]">
-            Build Your Franchise Across{" "}
+            Manufacture Across{" "}
             <span className="block text-teal-400">Every Therapeutic Division</span>
           </h2>
           <p className="mt-5 text-slate-300 text-sm sm:text-base leading-relaxed">
-            Talk to our commercial desk about territory availability, division-wise portfolios, and promotional support for your district.
+            Talk to our commercial desk about division-wise portfolios, contract manufacturing, and product availability.
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
             <button
               type="button"
-              onClick={() => handleEnquireDivision("Multi-Division Franchise Partnership")}
+              onClick={() => handleEnquireDivision("Multi-Division Manufacturing Partnership")}
               className={PRIMARY_BTN}
             >
               <Handshake className="w-5 h-5" />
@@ -371,7 +371,7 @@ export default function DivisionsPage() {
             {[
               { icon: Layers, a: "5", b: "Specialized Divisions", blue: true },
               { icon: Boxes, a: "1000+", b: "Approved Formulations" },
-              { icon: Users, a: "850+", b: "Franchise Associates", blue: true },
+              { icon: Users, a: "850+", b: "Distribution Partners", blue: true },
               { icon: MapPinned, a: "28+", b: "States Covered" },
             ].map((f, i) => (
               <div

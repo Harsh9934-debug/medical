@@ -28,7 +28,7 @@ const LABEL = "mb-1.5 block text-xs font-semibold text-[#0b192c]";
 
 const BENEFITS = [
   { icon: Clock, a: "Response in 2 business hours", b: "Direct reply from our commercial desk." },
-  { icon: BadgePercent, a: "Net rates & monopoly terms", b: "Territory-wise rights and batch MOQ details." },
+  { icon: BadgePercent, a: "Net rates & batch terms", b: "Transparent pricing and batch MOQ details." },
   { icon: FileText, a: "Complete catalog pricing", b: "Product list, packaging and samples." },
 ];
 
@@ -43,7 +43,7 @@ export default function EnquiryModal({
     email: "",
     city: "",
     state: "",
-    enquiryType: "PCD Pharma Franchise",
+    enquiryType: "Third Party Manufacturing",
     message: initialProduct ? `Inquiring about ${initialProduct}` : "",
   });
 
@@ -122,7 +122,7 @@ export default function EnquiryModal({
           <div className="relative mt-8">
             <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-teal-400">
               <ShieldCheck className="h-4 w-4" />
-              Official Quotation &amp; Franchise Desk
+              Official Quotation &amp; Manufacturing Desk
             </span>
             <h3 className="mt-3 text-2xl font-extrabold leading-snug">
               Get Your <span className="text-teal-400">Quotation</span> Today
@@ -171,7 +171,7 @@ export default function EnquiryModal({
                 <span className="font-semibold text-[#0b192c]">
                   {formData.phone || formData.email}
                 </span>{" "}
-                with complete catalog pricing, monopoly terms, and batch MOQ details.
+                with complete catalog pricing, manufacturing terms, and batch MOQ details.
               </p>
               <div className="rounded-[4px] border border-[#99f6e4] bg-[#f0fdfa] px-4 py-2.5 text-xs text-[#115e59]">
                 A confirmation has been logged for: {COMPANY_INFO.email}
@@ -232,7 +232,6 @@ export default function EnquiryModal({
                     onChange={(e) => setFormData({ ...formData, enquiryType: e.target.value })}
                     className={INPUT}
                   >
-                    <option value="PCD Pharma Franchise">PCD Pharma Franchise</option>
                     <option value="Third-Party Manufacturing">Third-Party Contract Manufacturing</option>
                     <option value="Product Price List">Product Price List &amp; Samples</option>
                     <option value="Global Exports">Global Export &amp; Institutional Supply</option>
@@ -272,7 +271,7 @@ export default function EnquiryModal({
                   rows={3}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Mention product names, dosage forms, or target territory..."
+                  placeholder="Mention product names, dosage forms, or batch quantities..."
                   className={`${INPUT} resize-none`}
                 ></textarea>
               </div>
@@ -290,7 +289,7 @@ export default function EnquiryModal({
                   <ShieldCheck className="h-4 w-4 text-emerald-600" />
                   <span>100% Confidential &amp; Verified</span>
                 </div>
-                <div>Monopoly rights based on first-come validation</div>
+                <div>Priority response based on first-come validation</div>
               </div>
             </form>
           )}

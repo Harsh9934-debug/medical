@@ -33,7 +33,7 @@ const COMPANY_LINKS = [
 const ASSURANCES: { icon: LucideIcon; title: string; desc: string }[] = [
   { icon: ShieldCheck, title: "WHO-GMP & ISO Certified", desc: "Quality assured production lines" },
   { icon: Award, title: "1000+ Formulations", desc: "DCGI approved portfolio" },
-  { icon: CheckCircle2, title: "Monopoly PCD Rights", desc: "District-wise exclusivity" },
+  { icon: CheckCircle2, title: "Third-Party Manufacturing", desc: "Turnkey contract production" },
   { icon: Truck, title: "Pan-India Logistics", desc: "Dispatch within 24–48h" },
 ];
 
@@ -120,7 +120,7 @@ export default function Footer() {
                 </span>
               </h3>
               <p className="mt-2 max-w-lg text-sm leading-relaxed text-slate-400">
-                Explore PCD franchise opportunities or third-party manufacturing
+                Explore third-party and contract manufacturing opportunities
                 with Incredible Medicare. Get complete support, transparent
                 terms, and reliable supply.
               </p>
@@ -169,14 +169,14 @@ export default function Footer() {
                     Incredible <span className="text-teal-400">Medicare</span>
                   </span>
                   <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-                    Pharma Formulations &amp; Healthcare
+                    Pharma Formulators &amp; Third Party Manufacturer
                   </span>
                 </span>
               </LogoLink>
 
               <p className="max-w-md text-[13px] leading-relaxed text-slate-400">
-                Accredited pharmaceutical manufacturer and PCD franchise company
-                based in Rudrapur, Uttarakhand. We formulate and distribute ethical
+                Accredited pharmaceutical manufacturer and third-party contract
+                manufacturing company based in Rudrapur, Uttarakhand. We formulate and distribute ethical
                 medicines, antibiotics, analgesics, nutraceuticals and
                 injectable therapies across India and export markets.
               </p>
@@ -199,7 +199,7 @@ export default function Footer() {
               <ul className="space-y-2 border-t border-white/10 pt-3 text-[13px] text-slate-300">
                 <li className="flex items-start gap-4">
                   <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-teal-400" strokeWidth={1.7} />
-                  <span>{COMPANY_INFO.address}</span>
+                  <span>Unicity Business Park, Dhakoli, Zirakpur, Punjab 160104</span>
                 </li>
                 <li className="flex items-center gap-4">
                   <Mail className="h-5 w-5 shrink-0 text-teal-400" strokeWidth={1.7} />
@@ -266,11 +266,11 @@ export default function Footer() {
                   </span>
                   <div>
                     <div className="text-sm font-bold leading-snug text-white">
-                      PCD Franchise Monopoly Available
+                      Third-Party Contract Manufacturing
                     </div>
                     <p className="mt-1 text-xs leading-relaxed text-slate-400">
-                      Vacant territories open across all Indian states and Union
-                      Territories, with promotional support kits.
+                      Turnkey WHO-GMP contract manufacturing for established and
+                      emerging healthcare brands across India.
                     </p>
                   </div>
                 </div>
@@ -278,7 +278,7 @@ export default function Footer() {
                   href="/contact"
                   className="mt-3 flex w-full items-center justify-center gap-2 rounded-[4px] bg-[#0d9488] px-4 py-2 text-xs font-bold text-white transition hover:bg-[#0f766e]"
                 >
-                  Check Territory Availability
+                  Discuss Your Project
                   <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
 

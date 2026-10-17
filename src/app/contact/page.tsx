@@ -56,7 +56,7 @@ export default function ContactPage() {
     phone: "",
     city: "",
     state: "",
-    subject: "PCD Pharma Franchise Inquiry",
+    subject: "Third Party Manufacturing Inquiry",
     message: "",
   });
 
@@ -81,14 +81,14 @@ export default function ContactPage() {
       <ContactWithGlobe
         subtitle="Contact Us"
         title="Connect With Incredible Medicare"
-        description="Reach out to our corporate headquarters at Sidcul IIE Pantnagar, Rudrapur, Uttarakhand. Our business development team provides immediate support for PCD franchise, third-party manufacturing, and product inquiries."
+        description="Reach out to our corporate headquarters at Sidcul IIE Pantnagar, Rudrapur, Uttarakhand. Our business development team provides immediate support for third-party contract manufacturing and product inquiries."
         contactHeading="Corporate Headquarters"
         contactDescription="Reach us through any channel below. Our commercial desk replies within 2 business hours."
         links={CONTACT_LINKS}
         extra={
           <a
             href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(
-              "Hello Incredible Medicare, I would like to inquire about PCD franchise monopoly and products.",
+              "Hello Incredible Medicare, I would like to inquire about third-party contract manufacturing and products.",
             )}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -98,7 +98,7 @@ export default function ContactPage() {
             <span>Chat with Business Representative on WhatsApp</span>
           </a>
         }
-        formTitle="Request Product Pricing or Franchise Monopoly"
+        formTitle="Request Product Pricing or Manufacturing Quote"
         formDescription="Fill out the form and our commercial officer will get back to you promptly."
       >
         {submitted ? (
@@ -179,9 +179,6 @@ export default function ContactPage() {
                   onChange={set("subject")}
                   className={inputClass}
                 >
-                  <option value="PCD Pharma Franchise Inquiry">
-                    PCD Pharma Franchise (Monopoly)
-                  </option>
                   <option value="Third-Party Contract Manufacturing">
                     Third-Party Contract Manufacturing
                   </option>

@@ -5,7 +5,7 @@ import { COMPANY } from "@/data/company";
 
 export const metadata = {
   title: "Terms & Conditions | Incredible Medicare",
-  description: "Commercial and contractual terms governing PCD franchise and contract manufacturing with Incredible Medicare.",
+  description: "Commercial and contractual terms governing supply and contract manufacturing with Incredible Medicare.",
 };
 
 export default function TermsConditionsPage() {
@@ -46,7 +46,7 @@ export default function TermsConditionsPage() {
               1. General Commercial Applicability
             </h2>
             <p>
-              These Terms &amp; Conditions govern all transactions, price quotations, orders, PCD pharma franchise relationships, and third-party contract manufacturing agreements entered into with <strong>{COMPANY.legalName}</strong> (&ldquo;Company&rdquo;). By placing a purchase order or signing a commercial agreement with us, the purchaser/franchise associate confirms acceptance of these terms.
+              These Terms &amp; Conditions govern all transactions, price quotations, orders, supply arrangements, and third-party contract manufacturing agreements entered into with <strong>{COMPANY.legalName}</strong> (&ldquo;Company&rdquo;). By placing a purchase order or signing a commercial agreement with us, the purchaser confirms acceptance of these terms.
             </p>
           </div>
 
@@ -58,14 +58,14 @@ export default function TermsConditionsPage() {
           </div>
 
           <div>
-            <h2 className="text-lg font-bold text-slate-900 mb-3">3. PCD Pharma Franchise Monopoly Policy</h2>
+            <h2 className="text-lg font-bold text-slate-900 mb-3">3. Third-Party & Contract Manufacturing Policy</h2>
             <p className="mb-2">
-              For authorized franchise associates granted territorial exclusivity:
+              For authorized contract manufacturing clients:
             </p>
             <ul className="list-disc pl-5 space-y-1.5 text-slate-600">
-              <li>Monopoly rights are conferred specifically for the agreed revenue district or territory delineated in the Franchise Agreement.</li>
-              <li>Associates agree not to supply or promote Incredible Medicare products outside their assigned territory.</li>
-              <li>The associate agrees to meet mutually established quarterly minimum target criteria to retain territorial exclusivity.</li>
+              <li>Manufacturing is undertaken strictly against the specifications, artwork, and documentation approved in the Manufacturing Agreement.</li>
+              <li>Clients must hold valid drug licenses and trademark/brand ownership for the products to be manufactured on their behalf.</li>
+              <li>Batch quantities, timelines, and quality parameters are mutually agreed prior to commencement of commercial production.</li>
             </ul>
           </div>
 
@@ -73,7 +73,7 @@ export default function TermsConditionsPage() {
             <h2 className="text-lg font-bold text-slate-900 mb-3">4. Pricing, Taxes & Payment Terms</h2>
             <ul className="list-disc pl-5 space-y-1.5 text-slate-600">
               <li><strong className="text-slate-800">Price Structure:</strong> Invoices are raised at agreed Net Trade Rates. Maximum Retail Price (MRP) and formulation taxes are applied in compliance with current National Pharmaceutical Pricing Authority (NPPA) and GST guidelines.</li>
-              <li><strong className="text-slate-800">Payment:</strong> Standard terms for PCD franchise dispatch require advance RTGS/NEFT/Cheque clearance before dispatch. For contract manufacturing batches, payments follow agreed milestone schedules (e.g. 50% advance with purchase order, balance against dispatch documents).</li>
+              <li><strong className="text-slate-800">Payment:</strong> Standard terms for product dispatch require advance RTGS/NEFT/Cheque clearance before dispatch. For contract manufacturing batches, payments follow agreed milestone schedules (e.g. 50% advance with purchase order, balance against dispatch documents).</li>
               <li><strong className="text-slate-800">Price Revisions:</strong> Due to volatility in active pharmaceutical ingredients (APIs) and packaging commodities, prices are subject to written notification of adjustments.</li>
             </ul>
           </div>
@@ -81,7 +81,7 @@ export default function TermsConditionsPage() {
           <div>
             <h2 className="text-lg font-bold text-slate-900 mb-3">5. Logistics, Freight & Transit Risk</h2>
             <p>
-              Unless explicitly specified otherwise in writing, all commercial consignments are dispatched on an ex-factory / ex-warehouse basis from our central distribution hubs in Rudrapur (Uttarakhand) or Kathua (J&amp;K). Freight charges are to be borne by the consignee. Consignments are packed with certified tamper-evident corrugated shippers; transit insurance can be arranged on the buyer&rsquo;s request.
+              Unless explicitly specified otherwise in writing, all commercial consignments are dispatched on an ex-factory / ex-warehouse basis from our central distribution hubs in Rudrapur (Uttarakhand) or Zirakpur (Punjab). Freight charges are to be borne by the consignee. Consignments are packed with certified tamper-evident corrugated shippers; transit insurance can be arranged on the buyer&rsquo;s request.
             </p>
           </div>
 

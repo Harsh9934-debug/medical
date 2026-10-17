@@ -300,8 +300,8 @@ export default function ProductsPage() {
   const handleCheckDistrict = () => {
     handleEnquire(
       district.trim()
-        ? `PCD Franchise Monopoly Check — ${district.trim()}`
-        : "PCD Franchise Monopoly Check",
+        ? `Manufacturing Enquiry — ${district.trim()}`
+        : "Manufacturing Enquiry",
     );
   };
 
@@ -335,7 +335,7 @@ export default function ProductsPage() {
               <p className="mt-5 max-w-xl text-base leading-relaxed text-[#475569]">
                 Explore {PRODUCTS.length}+ DCGI-approved formulations manufactured at our
                 WHO-GMP certified facility — with packaging specs, dosage details and
-                instant enquiry for PCD franchise distributors and institutional buyers.
+                instant enquiry for contract manufacturing clients and institutional buyers.
               </p>
 
               <div className="mt-6 flex flex-wrap items-center gap-y-4">
@@ -554,14 +554,14 @@ export default function ProductsPage() {
                 <div className="space-y-1.5 border-t border-slate-100 pt-2.5">
                   <div className="flex items-center gap-1.5 text-[13px] font-bold text-[#0B192C]">
                     <MapPinned className="h-4 w-4 text-[#0D9488]" strokeWidth={1.8} />
-                    Check District Monopoly
+                    Quick Manufacturing Enquiry
                   </div>
                   <div className="flex gap-1.5">
                     <input
                       type="text"
                       value={district}
                       onChange={(e) => setDistrict(e.target.value)}
-                      placeholder="Enter district / city"
+                      placeholder="Your city / requirement"
                       className="min-w-0 flex-1 rounded-[4px] border border-slate-200 bg-slate-50 px-2.5 py-1.5 text-xs text-slate-800 outline-none focus:border-[#0D9488] focus:bg-white"
                     />
                     <button

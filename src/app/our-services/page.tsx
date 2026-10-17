@@ -108,27 +108,27 @@ export default function ServicesPage() {
           <div className="max-w-2xl lg:max-w-[52%]">
             <Eyebrow>Our Services</Eyebrow>
             <h1 className="mt-4 text-4xl sm:text-5xl lg:text-[2.6rem] xl:text-[3.25rem] font-extrabold text-[#0b192c] tracking-tight leading-[1.08]">
-              PCD Pharma Franchise &amp;{" "}
-              <span className="text-[#0d9488]">Third-Party Contract Manufacturing</span>
+              Third-Party &amp;{" "}
+              <span className="text-[#0d9488]">Contract Manufacturing</span>
             </h1>
             <p className="mt-5 text-slate-600 text-base leading-relaxed max-w-xl">
-              Incredible Medicare delivers comprehensive pharmaceutical solutions: from district-wise monopoly PCD franchises to full-scale WHO-GMP contract manufacturing for emerging and established healthcare brands.
+              Incredible Medicare delivers comprehensive pharmaceutical solutions: full-scale WHO-GMP third-party and contract manufacturing for emerging and established healthcare brands.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <button
                 type="button"
-                onClick={() => handleOpenModal("PCD Pharma Franchise Monopoly Rights")}
+                onClick={() => handleOpenModal("Third-Party Contract Manufacturing")}
                 className={PRIMARY_BTN}
               >
-                Apply for Franchise
+                Get Manufacturing Quote
                 <ArrowRight className="w-4 h-4" />
               </button>
               <button
                 type="button"
-                onClick={() => handleOpenModal("Third-Party Contract Manufacturing")}
+                onClick={() => handleOpenModal("Product Price List & Catalogue")}
                 className={OUTLINE_BTN}
               >
-                Get Manufacturing Quote
+                Request Product List
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -138,7 +138,7 @@ export default function ServicesPage() {
                 { icon: ShieldCheck, a: "WHO-GMP", b: "Certified Plant" },
                 { icon: Boxes, a: "1000+", b: "DCGI Formulations" },
                 { icon: Truck, a: "24–48h", b: "Pan-India Dispatch" },
-                { icon: MapPinned, a: "District-Wise", b: "Monopoly Rights" },
+                { icon: MapPinned, a: "End-to-End", b: "Turnkey Production" },
               ].map((f, i) => (
                 <div
                   key={f.a}
@@ -159,7 +159,7 @@ export default function ServicesPage() {
         <div className="hidden lg:block absolute inset-0 pointer-events-none">
           {[
             { icon: Factory, a: "Contract Manufacturing", b: "End-to-end, WHO-GMP backed", pos: "right-[5%] top-[13%]" },
-            { icon: Handshake, a: "Trusted Franchise Network", b: "Across India & Global Markets", pos: "left-[57%] top-[55%]" },
+            { icon: Handshake, a: "Trusted Supply Network", b: "Across India & Global Markets", pos: "left-[57%] top-[55%]" },
             { icon: ShieldCheck, a: "Quality You Can Trust", b: "Committed to Better Lives", pos: "right-[3%] bottom-[12%]" },
           ].map((c) => (
             <div
@@ -251,7 +251,7 @@ export default function ServicesPage() {
                   Manufacturing Credentials
                 </span>
                 <h3 className="mt-3 text-xl sm:text-2xl font-bold leading-snug">
-                  SIDCO Industrial Complex, <span className="text-teal-400">Kathua</span>
+                  Unicity Business Park, <span className="text-teal-400">Zirakpur</span>
                 </h3>
                 <ul className="mt-4 space-y-2.5 text-sm text-slate-300">
                   {[
@@ -294,7 +294,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* 2. PCD Pharma Franchise */}
+      {/* 2. Third-Party & Contract Manufacturing */}
       <section className="relative overflow-hidden bg-gradient-to-b from-[#f0fdfa] via-[#f6f9fe] to-[#f0fdfa] py-16 lg:py-20">
         <div className="pointer-events-none absolute -bottom-32 -right-32 h-[400px] w-[400px] rounded-full bg-[#ccfbf1]/60 blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -314,19 +314,19 @@ export default function ServicesPage() {
               <div className="absolute top-5 -left-2 lg:-left-6 flex items-center gap-4 rounded-[4px] border border-white bg-white/90 backdrop-blur px-5 py-4 shadow-[0_12px_40px_rgba(13,148,136,0.18)]">
                 <Award className="w-9 h-9 shrink-0 text-[#0d9488]" strokeWidth={1.5} />
                 <div className="leading-snug">
-                  <div className="text-sm font-bold text-[#0b192c]">Franchise Support Kit</div>
-                  <div className="text-xs text-slate-500">Free Promotional Inputs Included</div>
+                  <div className="text-sm font-bold text-[#0b192c]">Manufacturing Support</div>
+                  <div className="text-xs text-slate-500">End-to-End Production Services</div>
                 </div>
               </div>
 
               <div className={`${GLASS} relative -mt-8 lg:-ml-4 p-6 sm:p-7 bg-white/95`}>
                 <div className="space-y-2.5">
                   {[
-                    ["Comprehensive Visual Aids", "Provided Free"],
-                    ["Doctor Reminder Cards & LBLs", "Provided Free"],
-                    ["MR Executive Bags & Catch Covers", "Provided Free"],
-                    ["Visiting Cards & Prescription Pads", "Provided Free"],
-                    ["Physician Promotional Samples", "Supported"],
+                    ["Formulation Development & Trials", "Supported"],
+                    ["Custom Packaging & Artwork", "Included"],
+                    ["Alu-Alu, Blister & Bottle Lines", "Available"],
+                    ["Documentation & Batch Records", "Provided"],
+                    ["Stability & QC Analytical Support", "Included"],
                   ].map(([label, tag]) => (
                     <div
                       key={label}
@@ -341,29 +341,29 @@ export default function ServicesPage() {
                 </div>
                 <div className="mt-4 flex items-start gap-3 rounded-[4px] bg-[#f0fdfa] px-4 py-3.5 text-sm font-medium text-[#115e59]">
                   <ShieldCheck className="w-5 h-5 shrink-0 text-[#0d9488] mt-0.5" strokeWidth={1.7} />
-                  Monopoly rights granted with formal legal authorization agreement for your district.
+                  All projects covered under strict confidentiality and formal manufacturing agreements.
                 </div>
               </div>
             </div>
 
             {/* Right: content */}
             <div className="lg:col-span-7 order-1 lg:order-2">
-              <Eyebrow>Franchise Opportunity</Eyebrow>
+              <Eyebrow>Manufacturing Services</Eyebrow>
               <h2 className="mt-4 text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0b192c] tracking-tight leading-[1.1]">
-                PCD Pharma Franchise –{" "}
-                <span className="block text-[#0d9488]">Grow Your Business with Complete Monopoly</span>
+                Third-Party & Contract Manufacturing –{" "}
+                <span className="block text-[#0d9488]">Scale Your Brand with Confidence</span>
               </h2>
               <p className="mt-5 text-slate-600 text-[15px] leading-relaxed max-w-2xl">
-                Incredible Medicare invites pharma professionals, medical representatives, distributors, and entrepreneurs to become our exclusive franchise associates. We offer attractive net price rates, wide product availability, zero internal competition, and comprehensive promotional backing.
+                Incredible Medicare partners with pharma companies, marketers, and healthcare brands for reliable WHO-GMP contract manufacturing. We offer competitive batch pricing, wide formulation scope, strict quality control, and complete packaging support.
               </p>
 
               <div className="mt-6 space-y-3">
                 {[
-                  { icon: MapPinned, a: "District-Wise Monopoly Rights", b: "Guaranteed exclusivity in your demarcated territory." },
+                  { icon: MapPinned, a: "Turnkey End-to-End Production", b: "From formulation development to finished, packed batches." },
                   { icon: Boxes, a: "Over 1000+ Fast-Moving Formulations", b: "Antibiotics, Pain, Gastro, Derma, Neuro, Cardiac & Nutra." },
-                  { icon: BadgePercent, a: "High Profit Margins", b: "Competitive commercial pricing allowing superior retail returns." },
-                  { icon: Users, a: "Zero Minimum Quota Pressure", b: "Realistic, sustainable growth tailored to your local network." },
-                  { icon: Truck, a: "Prompt 24-48h Pan-India Dispatch", b: "Fast logistics handling to prevent chemist stockouts." },
+                  { icon: BadgePercent, a: "Competitive Batch Pricing", b: "Transparent costing with no hidden charges." },
+                  { icon: Users, a: "Flexible Batch Quantities", b: "Scalable production tailored to your volume needs." },
+                  { icon: Truck, a: "Prompt 24-48h Pan-India Dispatch", b: "Fast logistics handling to keep your supply on time." },
                 ].map((p) => (
                   <div key={p.a} className={`${GLASS} flex items-center gap-4 px-5 py-3.5`}>
                     <p.icon className="w-7 h-7 shrink-0 text-[#0d9488]" strokeWidth={1.5} />
@@ -379,10 +379,10 @@ export default function ServicesPage() {
               <div className="mt-8">
                 <button
                   type="button"
-                  onClick={() => handleOpenModal("PCD Pharma Franchise Monopoly Rights")}
+                  onClick={() => handleOpenModal("Third-Party Contract Manufacturing")}
                   className={PRIMARY_BTN}
                 >
-                  Apply for Territory Monopoly Rights
+                  Get a Manufacturing Quote
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
@@ -471,13 +471,13 @@ export default function ServicesPage() {
         icon={Handshake}
         title="Your Partnership,"
         highlight="Step by Step"
-        intro="From first enquiry to first shipment, here is how we onboard PCD franchise and contract manufacturing partners."
+        intro="From first enquiry to first shipment, here is how we onboard third-party and contract manufacturing partners."
         steps={[
-          { icon: MessageSquareText, title: "Share Your Requirement", desc: "Tell us your territory, product range or manufacturing brief." },
-          { icon: MapPinned, title: "Territory & Product Finalisation", desc: "We confirm monopoly availability and shortlist the right formulations." },
+          { icon: MessageSquareText, title: "Share Your Requirement", desc: "Tell us your product range and manufacturing brief." },
+          { icon: MapPinned, title: "Product & Scope Finalisation", desc: "We confirm feasibility and shortlist the right formulations." },
           { icon: FileText, title: "Agreement & Documentation", desc: "Terms, licences and regulatory paperwork are formalised." },
           { icon: Boxes, title: "Samples & Batch Approval", desc: "Approve samples, artwork and packaging before commercial batches." },
-          { icon: Truck, title: "Supply & Launch Support", desc: "Dispatch, promotional material and ongoing partner support." },
+          { icon: Truck, title: "Supply & Launch Support", desc: "Dispatch, packaging and ongoing partner support." },
         ]}
       />
 
@@ -534,7 +534,7 @@ export default function ServicesPage() {
             {[
               { icon: Boxes, a: "1000+", b: "Approved Products", blue: true },
               { icon: Globe2, a: "Pan-India", b: "Distribution Network" },
-              { icon: Handshake, a: "Monopoly", b: "Franchise Rights", blue: true },
+              { icon: Handshake, a: "Turnkey", b: "Contract Manufacturing", blue: true },
               { icon: ShieldCheck, a: "Quality Assured", b: "WHO-GMP & ISO 9001:2015" },
             ].map((f, i) => (
               <div

@@ -22,13 +22,13 @@ const serif = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://incrediblemedicare.com"),
-  title: "Incredible Medicare | Leading Pharmaceutical Company & PCD Franchise",
+  title: "Incredible Medicare | Leading Pharmaceutical Company & Contract Manufacturing",
   description:
-    "Incredible Medicare is an ISO 9001:2015 & WHO-GMP certified pharmaceutical company based at Sidcul IIE Pantnagar, Rudrapur, Uttarakhand. Offering 1000+ formulations, PCD Pharma franchise, and third-party contract manufacturing across India.",
+    "Incredible Medicare is an ISO 9001:2015 & WHO-GMP certified pharmaceutical company based at Sidcul IIE Pantnagar, Rudrapur, Uttarakhand. Offering 1000+ formulations and third-party contract manufacturing across India.",
   keywords: [
     "Incredible Medicare",
-    "PCD Pharma Franchise",
     "Third Party Manufacturing",
+    "Contract Manufacturing Pharma",
     "Pharma Company in Rudrapur Uttarakhand",
     "WHO GMP Certified Pharma",
     "Pharmaceutical Formulations India",
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
     apple: "/logo.png",
   },
   openGraph: {
-    title: "Incredible Medicare | Pharmaceutical Excellence & PCD Franchise",
+    title: "Incredible Medicare | Pharmaceutical Excellence & Contract Manufacturing",
     description:
-      "Partner with Incredible Medicare for lucrative PCD Pharma Franchise and reliable third-party contract manufacturing across India.",
+      "Partner with Incredible Medicare for reliable third-party contract manufacturing across India.",
     url: "https://incrediblemedicare.com",
     siteName: "Incredible Medicare",
     images: [

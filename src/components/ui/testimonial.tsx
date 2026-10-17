@@ -160,7 +160,7 @@ export default function ClientFeedback() {
               timelineRef={testimonialRef}
               className={`${CARD} bg-[#115e59]`}
             >
-              <StatBody value={stats.distributionPartners} label="Distribution & franchise partners" />
+              <StatBody value={stats.distributionPartners} label="Distribution & supply partners" />
             </TimelineContent>
             <TimelineContent
               animationNum={4}

@@ -10,7 +10,7 @@ export const COMPANY_INFO = {
   address: "Plot No 22, Sector 3, Sidcul IIE Pantnagar, Rudrapur, Udham Singh Nagar, Uttarakhand 263153",
   corporateAddress: "Plot No 22, Sector 3, Sidcul IIE Pantnagar, Rudrapur, Udham Singh Nagar, Uttarakhand 263153",
   hqCity: "Rudrapur, Uttarakhand",
-  manufacturingUnit: "Incredible Medicare Industrial Complex, SIDCO Industrial Estate, Kathua, J&K - 184143",
+  manufacturingUnit: "Plot No 22, Sector 3, Sidcul IIE Pantnagar, Rudrapur, Udham Singh Nagar, Uttarakhand - 263153",
   workingHours: "Monday - Saturday: 9:00 AM - 6:30 PM",
   yearEstablished: 2011,
   stats: {
@@ -97,10 +97,10 @@ export const TESTIMONIALS = [
   },
   {
     name: "Vikram Malhotra",
-    designation: "Pharma Distributor & Franchise Partner",
+    designation: "Pharma Distributor & Supply Partner",
     location: "Jaipur, Rajasthan",
     content:
-      "Partnering with Incredible Medicare for PCD franchise in our district has been our best business decision. Transparent billing, timely supply, monopoly protection, and world-class packaging.",
+      "Partnering with Incredible Medicare for contract manufacturing and supply has been our best business decision. Transparent billing, timely supply, consistent quality, and world-class packaging.",
     rating: 5
   },
   {

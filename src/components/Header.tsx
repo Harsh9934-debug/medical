@@ -364,7 +364,7 @@ export default function Header() {
                 className="flex w-full items-center justify-center gap-2 rounded-[4px] bg-[#0f766e] py-3 font-semibold text-white shadow-sm"
               >
                 <FileText className="h-4 w-4" />
-                <span>Request Quotation / Franchise Terms</span>
+                <span>Request Quotation / Manufacturing Terms</span>
               </button>
 
               <div className="space-y-2 px-1 pt-1 text-xs text-slate-600">

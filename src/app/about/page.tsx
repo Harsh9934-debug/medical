@@ -210,10 +210,10 @@ export default function AboutPage() {
                   At <strong className="text-[#0b192c]">Incredible Medicare</strong>, we believe that access to high-potency, safe, and cost-effective pharmaceutical formulations is fundamental to advancing human health. Our corporate journey has evolved from a targeted regional distributor to a full-spectrum formulation enterprise commanding over 1000+ DCGI-approved formulations.
                 </p>
                 <p>
-                  Headquartered at <strong className="text-[#0b192c]">Plot No 22, Sector 3, Sidcul IIE Pantnagar, Rudrapur (Uttarakhand)</strong>, our executive leadership oversees a multidisciplinary supply chain, rigorous quality audits, pan-India franchise enablement, and international export dossiers.
+                  Headquartered at <strong className="text-[#0b192c]">Plot No 22, Sector 3, Sidcul IIE Pantnagar, Rudrapur (Uttarakhand)</strong>, our executive leadership oversees a multidisciplinary supply chain, rigorous quality audits, pan-India distribution enablement, and international export dossiers.
                 </p>
                 <p>
-                  Our primary manufacturing facility operates at the <strong className="text-[#0b192c]">SIDCO Industrial Complex, Ghatti, Kathua (J&amp;K)</strong>, in strict compliance with current Good Manufacturing Practices (cGMP), ISO 9001:2015, and WHO-GMP specifications.
+                  Our primary manufacturing facility operates at the <strong className="text-[#0b192c]">Unicity Business Park, Dhakoli, Zirakpur (Punjab)</strong>, in strict compliance with current Good Manufacturing Practices (cGMP), ISO 9001:2015, and WHO-GMP specifications.
                 </p>
               </div>
 
@@ -264,12 +264,12 @@ export default function AboutPage() {
                     {
                       icon: Building2,
                       title: "Dual Strategic Locations",
-                      desc: "Commercial HQ in Rudrapur (Uttarakhand) + High-capacity Manufacturing Complex in Kathua (J&K).",
+                      desc: "Commercial HQ in Rudrapur (Uttarakhand) + High-capacity Manufacturing Complex in Zirakpur (Punjab).",
                     },
                     {
                       icon: Users,
                       title: "Partner-Centric Growth",
-                      desc: "Monopoly marketing rights, transparent billing, and dedicated relationship managers for all associates.",
+                      desc: "Transparent billing, reliable supply, and dedicated relationship managers for all partners.",
                     },
                   ].map((f) => (
                     <div
@@ -305,7 +305,7 @@ export default function AboutPage() {
           <div className="mt-12 grid grid-cols-2 gap-y-6 rounded-[4px] border border-white bg-white/85 backdrop-blur px-4 py-6 shadow-[0_10px_40px_rgba(13,148,136,0.10)] lg:grid-cols-4 lg:gap-y-0">
             {[
               { icon: Box, a: "1000+", b: "Approved Products" },
-              { icon: Users, a: "850+", b: "Franchise Associates" },
+              { icon: Users, a: "850+", b: "Distribution Partners" },
               { icon: BarChart3, a: "120M+", b: "Annual Units" },
               { icon: Globe2, a: "Pan-India & Global", b: "Serving 20+ Countries" },
             ].map((st, i) => (
@@ -423,7 +423,7 @@ export default function AboutPage() {
               <ul className="relative mt-5 space-y-4">
                 {[
                   { icon: Gem, tone: "text-[#0d9488]", a: "Quality First", b: "Zero compromise on testing." },
-                  { icon: Scale, tone: "text-emerald-600", a: "Integrity", b: "Honest batch pricing & monopoly." },
+                  { icon: Scale, tone: "text-emerald-600", a: "Integrity", b: "Honest batch pricing & transparent terms." },
                   { icon: Lightbulb, tone: "text-amber-500", a: "Innovation", b: "Contemporary drug delivery systems." },
                 ].map((v) => (
                   <li key={v.a} className="flex items-center gap-4">

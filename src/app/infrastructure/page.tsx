@@ -216,7 +216,7 @@ export default function InfrastructurePage() {
                   <Building2 className="w-9 h-9 text-teal-300" strokeWidth={1.5} />
                   <div>
                     <h3 className="font-bold text-white text-lg leading-tight">Incredible Medicare Plant</h3>
-                    <p className="text-xs text-teal-400 mt-0.5">SIDCO Industrial Estate, Kathua, J&amp;K</p>
+                    <p className="text-xs text-teal-400 mt-0.5">Unicity Business Park, Dhakoli, Zirakpur, Punjab</p>
                   </div>
                 </div>
 
@@ -447,7 +447,7 @@ export default function InfrastructurePage() {
             <span className="block text-teal-400">Before You Partner With Us</span>
           </h2>
           <p className="mt-5 text-slate-300 text-sm sm:text-base leading-relaxed">
-            Schedule a plant audit at our WHO-GMP facility in Kathua or meet our team at the Corporate HQ in Rudrapur to discuss contract manufacturing requirements.
+            Schedule a plant audit at our WHO-GMP facility in Zirakpur or meet our team at the Corporate HQ in Rudrapur to discuss contract manufacturing requirements.
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
             <button type="button" onClick={() => setModalOpen(true)} className={PRIMARY_BTN}>

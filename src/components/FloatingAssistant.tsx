@@ -10,7 +10,7 @@ export default function FloatingAssistant() {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const whatsappUrl = `https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(
-    "Hello Incredible Medicare, I would like to inquire about PCD Pharma Franchise and Third Party Manufacturing options."
+    "Hello Incredible Medicare, I would like to inquire about Third Party Contract Manufacturing options."
   )}`;
 
   return (
