@@ -442,7 +442,7 @@ export default function ServicesPage() {
                 <c.icon className="w-10 h-10 text-[#0d9488]" strokeWidth={1.5} />
                 <h3 className="mt-5 text-2xl font-extrabold text-[#0b192c]">{c.title}</h3>
                 <div className="mt-2 h-[3px] w-8 rounded-full bg-[#0d9488]" />
-                <p className="mt-4 text-sm text-slate-600 leading-relaxed lg:max-w-[64%]">{c.desc}</p>
+                <p className="relative z-10 mt-4 text-sm text-slate-600 leading-relaxed lg:max-w-[64%]">{c.desc}</p>
                 <span className="relative z-10 mt-auto pt-6 self-start">
                   <span className="inline-flex items-center gap-2 rounded-full border border-[#99f6e4] bg-white/80 px-4 py-2 text-xs font-semibold text-[#0f766e]">
                     {c.pill}
@@ -450,7 +450,7 @@ export default function ServicesPage() {
                   </span>
                 </span>
                 <div
-                  className="pointer-events-none absolute bottom-0 right-0 hidden h-[230px] w-[230px] rounded-tl-full opacity-90 lg:block"
+                  className="pointer-events-none absolute bottom-0 right-0 hidden h-[230px] w-[230px] rounded-tl-full opacity-30 lg:block"
                   style={{
                     backgroundImage: `url(${c.art.url})`,
                     backgroundRepeat: "no-repeat",
