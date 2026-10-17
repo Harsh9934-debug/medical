@@ -231,7 +231,7 @@ export default function HomePage() {
               </span>
               <span className="hidden items-center gap-2 rounded-full border border-white/15 bg-black/30 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur sm:inline-flex">
                 <MapPin className="h-3.5 w-3.5" />
-                Kathua Manufacturing Campus
+                Pantnagar Manufacturing Campus
               </span>
             </div>
 
@@ -350,9 +350,9 @@ export default function HomePage() {
                 },
                 {
                   img: "/ab2.png",
-                  alt: "Manufacturing Unit, Jammu & Kashmir",
+                  alt: "Manufacturing Unit, Uttarakhand",
                   title: "Manufacturing Unit",
-                  addr: ["SIDCO Industrial Complex, Ghatti,", "Kathua, Jammu & Kashmir - 184143, India"],
+                  addr: ["Plot No 22, Sector 3, Sidcul IIE Pantnagar,", "Rudrapur, Udham Singh Nagar, Uttarakhand - 263153, India"],
                   body: "Operates under WHO-GMP compliance, equipped with high-speed automated blister packing, liquid bottle lines, Class 10,000 cleanrooms, and dedicated QA/QC analytical suites.",
                   href: "/infrastructure",
                   speed: 45,
@@ -659,8 +659,8 @@ export default function HomePage() {
             </h2>
             <p className="text-slate-300 text-sm sm:text-base lg:text-lg mt-6 leading-relaxed">
               Connect with our business development team today to inquire about
-              available district monopoly rights for PCD franchise or discuss
-              third-party contract manufacturing schedules.
+              available district monopoly rights or discuss third-party
+              contract manufacturing schedules.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 pt-8">
