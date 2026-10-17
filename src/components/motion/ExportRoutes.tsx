@@ -16,7 +16,7 @@ const project = (lon: number, lat: number): [number, number] => [
   ((LAT_TOP - lat) / LAT_SPAN) * H,
 ];
 
-const ORIGIN = { name: "Rudrapur, India", pos: project(79.4, 28.98) };
+const ORIGIN = { name: "Zirakpur, India", pos: project(76.82, 30.64) };
 const LANES = [
   { name: "CIS & Central Asia", pos: project(68, 47) },
   { name: "Middle East", pos: project(51, 25) },
@@ -73,7 +73,7 @@ export function ExportRoutes() {
         viewBox={`0 0 ${W} ${H}`}
         className="h-auto w-full"
         role="img"
-        aria-label="Export shipping lanes from Rudrapur, India to CIS, Middle East, Africa, ASEAN and Latin America"
+        aria-label="Export shipping lanes from Zirakpur, India to CIS, Middle East, Africa, ASEAN and Latin America"
       >
         <defs>
           <linearGradient id="lane" x1="0" x2="1">
@@ -165,7 +165,7 @@ export function ExportRoutes() {
 
       <div className="mt-3 flex items-center justify-center gap-2 text-xs font-semibold text-slate-500">
         <Globe2 className="h-4 w-4 text-[#0d9488]" />
-        Live export lanes from our Rudrapur head office
+        Live export lanes from our Zirakpur head office
       </div>
     </div>
   );

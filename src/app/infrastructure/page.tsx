@@ -216,7 +216,7 @@ export default function InfrastructurePage() {
                   <Building2 className="w-9 h-9 text-teal-300" strokeWidth={1.5} />
                   <div>
                     <h3 className="font-bold text-white text-lg leading-tight">Incredible Medicare Plant</h3>
-                    <p className="text-xs text-teal-400 mt-0.5">Unicity Business Park, Dhakoli, Zirakpur, Punjab</p>
+                    <p className="text-xs text-teal-400 mt-0.5">Unicity Business Park, Zirakpur, Punjab</p>
                   </div>
                 </div>
 

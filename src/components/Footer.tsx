@@ -199,7 +199,7 @@ export default function Footer() {
               <ul className="space-y-2 border-t border-white/10 pt-3 text-[13px] text-slate-300">
                 <li className="flex items-start gap-4">
                   <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-teal-400" strokeWidth={1.7} />
-                  <span>Unicity Business Park, Dhakoli, Zirakpur, Punjab 160104</span>
+                  <span>Unicity Business Park, Zirakpur, Punjab 160104</span>
                 </li>
                 <li className="flex items-center gap-4">
                   <Mail className="h-5 w-5 shrink-0 text-teal-400" strokeWidth={1.7} />

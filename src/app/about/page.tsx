@@ -213,7 +213,7 @@ export default function AboutPage() {
                   Headquartered at <strong className="text-[#0b192c]">Plot No 22, Sector 3, Sidcul IIE Pantnagar, Rudrapur (Uttarakhand)</strong>, our executive leadership oversees a multidisciplinary supply chain, rigorous quality audits, pan-India distribution enablement, and international export dossiers.
                 </p>
                 <p>
-                  Our primary manufacturing facility operates at the <strong className="text-[#0b192c]">Unicity Business Park, Dhakoli, Zirakpur (Punjab)</strong>, in strict compliance with current Good Manufacturing Practices (cGMP), ISO 9001:2015, and WHO-GMP specifications.
+                  Our primary manufacturing facility operates at the <strong className="text-[#0b192c]">Unicity Business Park, Zirakpur (Punjab)</strong>, in strict compliance with current Good Manufacturing Practices (cGMP), ISO 9001:2015, and WHO-GMP specifications.
                 </p>
               </div>
 

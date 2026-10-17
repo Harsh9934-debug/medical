@@ -342,7 +342,7 @@ export default function HomePage() {
                   img: "/ab1.png",
                   alt: "Corporate Headquarters, Punjab",
                   title: "Corporate Headquarters",
-                  addr: ["Unicity Business Park, Dhakoli,", "Zirakpur, Punjab - 160104, India"],
+                  addr: ["Unicity Business Park,", "Zirakpur, Punjab - 160104, India"],
                   body: "Strategically located in the Chandigarh Tricity industrial corridor, our corporate headquarters coordinates pan-India distribution, partner logistics, regulatory documentation, and strategic expansions.",
                   href: "/contact",
                   speed: -45,
