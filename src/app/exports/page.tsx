@@ -231,7 +231,7 @@ export default function ExportsPage() {
 
                 <div className="mt-5 pt-4 border-t border-white/10 flex items-start gap-3 text-xs leading-relaxed text-slate-300">
                   <MapPin className="w-4 h-4 shrink-0 text-teal-400 mt-0.5" />
-                  Direct export inquiries supervised by our international trade division at Unicity Business Park, Zirakpur.
+                  Direct export inquiries supervised by our international trade division at Sidcul IIE Pantnagar, Rudrapur.
                 </div>
               </div>
             </div>

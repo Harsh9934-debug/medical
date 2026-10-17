@@ -109,7 +109,7 @@ export default function AboutPage() {
         <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6">
           <p className="text-slate-600 text-base leading-relaxed sm:text-lg">
             Incredible Medicare is an ISO 9001:2015 &amp; WHO-GMP accredited
-            pharmaceutical company based in Zirakpur, Punjab. Founded on the
+            pharmaceutical company based in Rudrapur, Uttarakhand. Founded on the
             principles of therapeutic bioequivalence, scientific rigor, and
             partner trust.
           </p>
@@ -210,7 +210,7 @@ export default function AboutPage() {
                   At <strong className="text-[#0b192c]">Incredible Medicare</strong>, we believe that access to high-potency, safe, and cost-effective pharmaceutical formulations is fundamental to advancing human health. Our corporate journey has evolved from a targeted regional distributor to a full-spectrum formulation enterprise commanding over 650+ DCGI-approved formulations.
                 </p>
                 <p>
-                  Headquartered at <strong className="text-[#0b192c]">Unicity Business Park, Dhakoli, Zirakpur (Punjab)</strong>, our executive leadership oversees a multidisciplinary supply chain, rigorous quality audits, pan-India franchise enablement, and international export dossiers.
+                  Headquartered at <strong className="text-[#0b192c]">Plot No 22, Sector 3, Sidcul IIE Pantnagar, Rudrapur (Uttarakhand)</strong>, our executive leadership oversees a multidisciplinary supply chain, rigorous quality audits, pan-India franchise enablement, and international export dossiers.
                 </p>
                 <p>
                   Our primary manufacturing facility operates at the <strong className="text-[#0b192c]">SIDCO Industrial Complex, Ghatti, Kathua (J&amp;K)</strong>, in strict compliance with current Good Manufacturing Practices (cGMP), ISO 9001:2015, and WHO-GMP specifications.
@@ -264,7 +264,7 @@ export default function AboutPage() {
                     {
                       icon: Building2,
                       title: "Dual Strategic Locations",
-                      desc: "Commercial HQ in Zirakpur (Punjab) + High-capacity Manufacturing Complex in Kathua (J&K).",
+                      desc: "Commercial HQ in Rudrapur (Uttarakhand) + High-capacity Manufacturing Complex in Kathua (J&K).",
                     },
                     {
                       icon: Users,
@@ -367,7 +367,7 @@ export default function AboutPage() {
               <Target className="w-10 h-10 text-[#0d9488]" strokeWidth={1.5} />
               <h3 className="mt-5 text-2xl font-extrabold text-[#0b192c]">Our Mission</h3>
               <div className="mt-2 h-[3px] w-8 rounded-full bg-[#0d9488]" />
-              <p className="mt-4 text-sm text-slate-600 leading-relaxed lg:max-w-[62%] xl:max-w-[66%]">
+              <p className="relative z-10 mt-4 text-sm text-slate-600 leading-relaxed lg:max-w-[62%] xl:max-w-[66%]">
                 At Incredible Medicare, our mission is to deliver high-quality pharmaceutical formulations through advanced manufacturing, scientific excellence, and uncompromising quality standards. We strive to build trusted healthcare solutions for customers across India and global markets.
               </p>
               <span className="relative z-10 mt-auto pt-6 self-start inline-flex items-center gap-2 text-xs font-semibold text-[#0f766e]">
@@ -377,7 +377,7 @@ export default function AboutPage() {
                 </span>
               </span>
               <div
-                className="pointer-events-none absolute bottom-0 right-0 hidden h-[230px] w-[230px] rounded-tl-full opacity-90 lg:block"
+                className="pointer-events-none absolute bottom-0 right-0 hidden h-[230px] w-[230px] rounded-tl-full opacity-30 lg:block"
                 style={{
                   backgroundImage: "url(/bg3.png)",
                   backgroundRepeat: "no-repeat",
@@ -393,7 +393,7 @@ export default function AboutPage() {
               <Eye className="w-10 h-10 text-[#0d9488]" strokeWidth={1.5} />
               <h3 className="mt-5 text-2xl font-extrabold text-[#0b192c]">Our Vision</h3>
               <div className="mt-2 h-[3px] w-8 rounded-full bg-[#0d9488]" />
-              <p className="mt-4 text-sm text-slate-600 leading-relaxed lg:max-w-[62%] xl:max-w-[66%]">
+              <p className="relative z-10 mt-4 text-sm text-slate-600 leading-relaxed lg:max-w-[62%] xl:max-w-[66%]">
                 Our vision is to emerge as a trusted and globally recognized contract manufacturing partner, known for innovation, quality, reliability, and excellence in pharmaceutical formulations.
               </p>
               <span className="relative z-10 mt-auto pt-6 self-start inline-flex items-center gap-2 text-xs font-semibold text-[#0f766e]">
@@ -403,7 +403,7 @@ export default function AboutPage() {
                 </span>
               </span>
               <div
-                className="pointer-events-none absolute bottom-0 right-0 hidden h-[230px] w-[230px] rounded-tl-full opacity-90 lg:block"
+                className="pointer-events-none absolute bottom-0 right-0 hidden h-[230px] w-[230px] rounded-tl-full opacity-30 lg:block"
                 style={{
                   backgroundImage: "url(/bg2.png)",
                   backgroundRepeat: "no-repeat",
@@ -531,7 +531,7 @@ export default function AboutPage() {
                   </div>
                   <div className="flex items-center gap-2 text-xs text-slate-300">
                     <MapPin className="w-4 h-4 text-teal-400" />
-                    Zirakpur, Punjab
+                    Rudrapur, Uttarakhand
                   </div>
                 </div>
               </div>
@@ -599,7 +599,7 @@ export default function AboutPage() {
             <span className="block text-teal-400">Incredible Medicare</span>
           </h2>
           <p className="mt-5 text-slate-300 text-sm sm:text-base leading-relaxed">
-            Discover our complete product directory or connect with our corporate team at Unicity Business Park, Zirakpur for business collaborations, distribution partnerships, and global healthcare solutions.
+            Discover our complete product directory or connect with our corporate team at Sidcul IIE Pantnagar, Rudrapur for business collaborations, distribution partnerships, and global healthcare solutions.
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
             <Link

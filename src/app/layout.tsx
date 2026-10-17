@@ -24,12 +24,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://incrediblemedicare.com"),
   title: "Incredible Medicare | Leading Pharmaceutical Company & PCD Franchise",
   description:
-    "Incredible Medicare is an ISO 9001:2015 & WHO-GMP certified pharmaceutical company based at Unicity Business Park, Zirakpur, Punjab. Offering 650+ formulations, PCD Pharma franchise, and third-party contract manufacturing across India.",
+    "Incredible Medicare is an ISO 9001:2015 & WHO-GMP certified pharmaceutical company based at Sidcul IIE Pantnagar, Rudrapur, Uttarakhand. Offering 650+ formulations, PCD Pharma franchise, and third-party contract manufacturing across India.",
   keywords: [
     "Incredible Medicare",
     "PCD Pharma Franchise",
     "Third Party Manufacturing",
-    "Pharma Company in Chandigarh Zirakpur",
+    "Pharma Company in Rudrapur Uttarakhand",
     "WHO GMP Certified Pharma",
     "Pharmaceutical Formulations India",
     "Pharma Contract Manufacturing"

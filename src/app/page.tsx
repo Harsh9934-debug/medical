@@ -341,10 +341,10 @@ export default function HomePage() {
               {[
                 {
                   img: "/ab1.png",
-                  alt: "Corporate Headquarters, Punjab",
+                  alt: "Corporate Headquarters, Uttarakhand",
                   title: "Corporate Headquarters",
-                  addr: ["Unicity Business Park, Dhakoli,", "Zirakpur, Punjab - 160104, India"],
-                  body: "Strategically located in the Chandigarh Tricity industrial corridor, our corporate headquarters coordinates pan-India distribution, partner logistics, regulatory documentation, and strategic expansions.",
+                  addr: ["Plot No 22, Sector 3, Sidcul IIE Pantnagar,", "Rudrapur, Udham Singh Nagar, Uttarakhand - 263153, India"],
+                  body: "Strategically located in the Sidcul Pantnagar industrial corridor, our corporate headquarters coordinates pan-India distribution, partner logistics, regulatory documentation, and strategic expansions.",
                   href: "/contact",
                   speed: -45,
                 },
@@ -403,7 +403,7 @@ export default function HomePage() {
                   About Incredible Medicare
                 </span>
                 <h2 className="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0b192c] tracking-tight leading-[1.1]">
-                  From Punjab to Nationwide Markets — Expanding with{" "}
+                  From Uttarakhand to Nationwide Markets — Expanding with{" "}
                   <span className="text-[#0d9488]">Clinical Integrity.</span>
                 </h2>
                 <div className="accent-bar"></div>
@@ -420,7 +420,7 @@ export default function HomePage() {
                 </p>
                 <p>
                   Our business operations are efficiently managed from our head
-                  office in Zirakpur, supported by a dedicated team and modern
+                  office in Rudrapur, supported by a dedicated team and modern
                   manufacturing infrastructure.
                 </p>
                 <p>

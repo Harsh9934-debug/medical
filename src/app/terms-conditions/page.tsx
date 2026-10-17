@@ -81,7 +81,7 @@ export default function TermsConditionsPage() {
           <div>
             <h2 className="text-lg font-bold text-slate-900 mb-3">5. Logistics, Freight & Transit Risk</h2>
             <p>
-              Unless explicitly specified otherwise in writing, all commercial consignments are dispatched on an ex-factory / ex-warehouse basis from our central distribution hubs in Zirakpur (Punjab) or Kathua (J&amp;K). Freight charges are to be borne by the consignee. Consignments are packed with certified tamper-evident corrugated shippers; transit insurance can be arranged on the buyer&rsquo;s request.
+              Unless explicitly specified otherwise in writing, all commercial consignments are dispatched on an ex-factory / ex-warehouse basis from our central distribution hubs in Rudrapur (Uttarakhand) or Kathua (J&amp;K). Freight charges are to be borne by the consignee. Consignments are packed with certified tamper-evident corrugated shippers; transit insurance can be arranged on the buyer&rsquo;s request.
             </p>
           </div>
 
@@ -95,7 +95,7 @@ export default function TermsConditionsPage() {
           <div>
             <h2 className="text-lg font-bold text-slate-900 mb-3">7. Jurisdiction</h2>
             <p>
-              Any disputes, claims, or contractual matters arising between the parties shall be subject exclusively to the legal jurisdiction of the competent courts in SAS Nagar (Mohali) / Chandigarh / Punjab, India.
+              Any disputes, claims, or contractual matters arising between the parties shall be subject exclusively to the legal jurisdiction of the competent courts in Rudrapur / Udham Singh Nagar / Uttarakhand, India.
             </p>
           </div>
 

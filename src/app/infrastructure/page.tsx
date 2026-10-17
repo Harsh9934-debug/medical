@@ -373,7 +373,7 @@ export default function InfrastructurePage() {
                 </button>
                 <Link href="/contact" className={OUTLINE_BTN}>
                   <MapPin className="w-4 h-4" />
-                  Visit Headquarters at Zirakpur
+                  Visit Headquarters at Rudrapur
                 </Link>
               </div>
             </div>
@@ -447,7 +447,7 @@ export default function InfrastructurePage() {
             <span className="block text-teal-400">Before You Partner With Us</span>
           </h2>
           <p className="mt-5 text-slate-300 text-sm sm:text-base leading-relaxed">
-            Schedule a plant audit at our WHO-GMP facility in Kathua or meet our team at the Corporate HQ in Zirakpur to discuss contract manufacturing requirements.
+            Schedule a plant audit at our WHO-GMP facility in Kathua or meet our team at the Corporate HQ in Rudrapur to discuss contract manufacturing requirements.
           </p>
           <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
             <button type="button" onClick={() => setModalOpen(true)} className={PRIMARY_BTN}>

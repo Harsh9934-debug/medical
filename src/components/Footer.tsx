@@ -176,7 +176,7 @@ export default function Footer() {
 
               <p className="max-w-md text-[13px] leading-relaxed text-slate-400">
                 Accredited pharmaceutical manufacturer and PCD franchise company
-                based in Zirakpur, Punjab. We formulate and distribute ethical
+                based in Rudrapur, Uttarakhand. We formulate and distribute ethical
                 medicines, antibiotics, analgesics, nutraceuticals and
                 injectable therapies across India and export markets.
               </p>

@@ -73,6 +73,7 @@ const cityCoordinates: Record<string, [number, number]> = {
   sydney: [-33.8688, 151.2093],
   mumbai: [19.076, 72.8777],
   chandigarh: [30.7333, 76.7794],
+  rudrapur: [28.9875, 79.4141],
   "los angeles": [34.0522, -118.2437],
   chicago: [41.8781, -87.6298],
 };
@@ -822,8 +823,8 @@ export default function ContactWithGlobe({
                 autoRotateSpeed={0.45}
                 strokeWidth={0.6}
                 graticuleOpacity={0.12}
-                rotateToLocation="chandigarh"
-                initialRotation={[-76.7, -30.7]}
+                rotateToLocation="rudrapur"
+                initialRotation={[-79.4, -28.99]}
               />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-slate-50 to-transparent" />
             </div>

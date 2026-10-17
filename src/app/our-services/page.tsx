@@ -270,11 +270,11 @@ export default function ServicesPage() {
                 <div className="mt-5 pt-4 border-t border-white/10 flex items-center gap-3 text-xs text-slate-300">
                   <Image src="/logo.png" alt="Incredible Medicare" width={36} height={36} className="object-contain" />
                   <span className="flex-1 leading-snug">
-                    Direct coordination from our Corporate HQ, Unicity Business Park.
+                    Direct coordination from our Corporate HQ, Sidcul IIE Pantnagar.
                   </span>
                   <span className="flex items-center gap-1.5 whitespace-nowrap">
                     <MapPin className="w-4 h-4 text-teal-400" />
-                    Zirakpur
+                    Rudrapur
                   </span>
                 </div>
               </div>
