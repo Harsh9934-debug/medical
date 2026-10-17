@@ -29,9 +29,9 @@ function SachetIcon({ className }: { className?: string }) {
 
 const CAPACITY = [
   { label: "Tablets", value: 21600000, icon: Tablets },
-  { label: "Capsules", value: 3850000, icon: Pill },
-  { label: "Ointment – Tubes", value: 96000, icon: TubeIcon },
-  { label: "Sachets", value: 43500, icon: SachetIcon },
+  { label: "Capsules", value: 11550000, icon: Pill },
+  { label: "Ointment – Tubes", value: 192000, icon: TubeIcon },
+  { label: "Sachets", value: 87000, icon: SachetIcon },
 ];
 
 /** Counts up to `value` on scroll, formatted in the Indian digit grouping (2,16,00,000). */
