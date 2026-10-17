@@ -134,7 +134,7 @@ export default function InfrastructurePage() {
         {/* Floating cards */}
         <div className="hidden lg:block absolute inset-0 pointer-events-none">
           {[
-            { icon: Gauge, a: "70 Million+", b: "Annual Tablet Capacity", pos: "right-[5%] top-[12%]" },
+            { icon: Gauge, a: "788 Crore+", b: "Annual Tablet Capacity", pos: "right-[5%] top-[12%]" },
             { icon: Wind, a: "HEPA Filtered Air", b: "0.3-micron terminal filters", pos: "left-[52%] top-[52%]" },
             { icon: Microscope, a: "GLP Compliant QC Lab", b: "IP, BP & USP verified", pos: "right-[3%] bottom-[11%]" },
           ].map((c) => (
@@ -222,10 +222,10 @@ export default function InfrastructurePage() {
 
                 <div className="mt-5 grid grid-cols-2 gap-3">
                   {[
-                    ["70 Million+", "Annual Tablet Capacity"],
-                    ["25 Million+", "Annual Capsule Capacity"],
-                    ["15 Million+", "Annual Liquid Syrup Bottles"],
-                    ["10 Million+", "Annual Ointment Tubes"],
+                    ["788 Crore+", "Annual Tablet Capacity"],
+                    ["421 Crore+", "Annual Capsule Capacity"],
+                    ["7 Crore+", "Annual Ointment Tubes"],
+                    ["3 Crore+", "Annual Sachet Capacity"],
                   ].map(([v, l]) => (
                     <div key={l} className="rounded-[4px] border border-white/10 bg-white/5 p-3">
                       <div className="text-lg font-extrabold text-teal-400">{v}</div>
@@ -470,7 +470,7 @@ export default function InfrastructurePage() {
         <div className="relative max-w-5xl mx-auto px-4 mt-12">
           <div className="grid grid-cols-2 gap-y-6 lg:grid-cols-4 lg:gap-y-0">
             {[
-              { icon: Boxes, a: "120M+", b: "Annual Units", blue: true },
+              { icon: Boxes, a: "1,220 Crore+", b: "Annual Units", blue: true },
               { icon: ShieldCheck, a: "WHO-GMP", b: "& ISO 9001:2015" },
               { icon: Package, a: "Automated", b: "Packaging Lines", blue: true },
               { icon: Truck, a: "24–48h", b: "Pan-India Dispatch" },
