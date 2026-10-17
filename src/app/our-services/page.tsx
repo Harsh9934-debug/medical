@@ -251,7 +251,7 @@ export default function ServicesPage() {
                   Manufacturing Credentials
                 </span>
                 <h3 className="mt-3 text-xl sm:text-2xl font-bold leading-snug">
-                  Unicity Business Park, <span className="text-teal-400">Zirakpur</span>
+                  Sidcul IIE Pantnagar, <span className="text-teal-400">Rudrapur</span>
                 </h3>
                 <ul className="mt-4 space-y-2.5 text-sm text-slate-300">
                   {[
@@ -270,11 +270,11 @@ export default function ServicesPage() {
                 <div className="mt-5 pt-4 border-t border-white/10 flex items-center gap-3 text-xs text-slate-300">
                   <Image src="/logo.png" alt="Incredible Medicare" width={36} height={36} className="object-contain" />
                   <span className="flex-1 leading-snug">
-                    Direct coordination from our Corporate HQ, Sidcul IIE Pantnagar.
+                    Direct coordination from our Corporate HQ, Unicity Business Park.
                   </span>
                   <span className="flex items-center gap-1.5 whitespace-nowrap">
                     <MapPin className="w-4 h-4 text-teal-400" />
-                    Rudrapur
+                    Zirakpur
                   </span>
                 </div>
               </div>
@@ -285,7 +285,7 @@ export default function ServicesPage() {
             <StatsBar
               items={[
                 { icon: Boxes, a: "1000+", b: "Approved Formulations" },
-                { icon: Building2, a: "2", b: "Strategic Locations" },
+                { icon: Building2, a: "5", b: "Strategic Locations" },
                 { icon: ShieldCheck, a: "100%", b: "cGMP Compliant" },
                 { icon: Truck, a: "24–48h", b: "Pan-India Dispatch" },
               ]}
@@ -442,7 +442,7 @@ export default function ServicesPage() {
                 <c.icon className="w-10 h-10 text-[#0d9488]" strokeWidth={1.5} />
                 <h3 className="mt-5 text-2xl font-extrabold text-[#0b192c]">{c.title}</h3>
                 <div className="mt-2 h-[3px] w-8 rounded-full bg-[#0d9488]" />
-                <p className="relative z-10 mt-4 text-sm text-slate-600 leading-relaxed lg:max-w-[64%]">{c.desc}</p>
+                <p className="relative z-10 mt-4 text-sm font-semibold text-slate-800 leading-relaxed lg:max-w-[64%]">{c.desc}</p>
                 <span className="relative z-10 mt-auto pt-6 self-start">
                   <span className="inline-flex items-center gap-2 rounded-full border border-[#99f6e4] bg-white/80 px-4 py-2 text-xs font-semibold text-[#0f766e]">
                     {c.pill}
@@ -450,7 +450,7 @@ export default function ServicesPage() {
                   </span>
                 </span>
                 <div
-                  className="pointer-events-none absolute bottom-0 right-0 hidden h-[230px] w-[230px] rounded-tl-full opacity-30 lg:block"
+                  className="pointer-events-none absolute bottom-0 right-0 hidden h-[230px] w-[230px] rounded-tl-full opacity-40 lg:block"
                   style={{
                     backgroundImage: `url(${c.art.url})`,
                     backgroundRepeat: "no-repeat",
