@@ -340,18 +340,18 @@ export default function HomePage() {
               {[
                 {
                   img: "/ab1.png",
-                  alt: "Corporate Headquarters, Uttarakhand",
+                  alt: "Corporate Headquarters, Punjab",
                   title: "Corporate Headquarters",
-                  addr: ["Plot No 22, Sector 3, Sidcul IIE Pantnagar,", "Rudrapur, Udham Singh Nagar, Uttarakhand - 263153, India"],
-                  body: "Strategically located in the Sidcul Pantnagar industrial corridor, our corporate headquarters coordinates pan-India distribution, partner logistics, regulatory documentation, and strategic expansions.",
+                  addr: ["Unicity Business Park, Dhakoli,", "Zirakpur, Punjab - 160104, India"],
+                  body: "Strategically located in the Chandigarh Tricity industrial corridor, our corporate headquarters coordinates pan-India distribution, partner logistics, regulatory documentation, and strategic expansions.",
                   href: "/contact",
                   speed: -45,
                 },
                 {
                   img: "/ab2.png",
-                  alt: "Manufacturing Unit, Punjab",
+                  alt: "Manufacturing Unit, Uttarakhand",
                   title: "Manufacturing Unit",
-                  addr: ["Unicity Business Park, Dhakoli,", "Zirakpur, Punjab - 160104, India"],
+                  addr: ["Plot No 22, Sector 3, Sidcul IIE Pantnagar,", "Rudrapur, Udham Singh Nagar, Uttarakhand - 263153, India"],
                   body: "Operates under WHO-GMP compliance, equipped with high-speed automated blister packing, liquid bottle lines, Class 10,000 cleanrooms, and dedicated QA/QC analytical suites.",
                   href: "/infrastructure",
                   speed: 45,
