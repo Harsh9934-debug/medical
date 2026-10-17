@@ -19,7 +19,8 @@ import ContactWithGlobe, {
   type ContactLink,
 } from "@/components/ui/contact-with-globe";
 
-const MAPS_QUERY = "Plot No 22 Sector 3 Sidcul IIE Pantnagar Rudrapur Udham Singh Nagar Uttarakhand 263153";
+const MAPS_QUERY = "Unicity Business Park Zirakpur Punjab 160104";
+const HQ_ADDRESS = "Unicity Business Park, Zirakpur, Punjab 160104";
 
 const CONTACT_LINKS: ContactLink[] = [
   {
@@ -34,7 +35,7 @@ const CONTACT_LINKS: ContactLink[] = [
   },
   {
     icon: MapPin,
-    label: COMPANY_INFO.address,
+    label: HQ_ADDRESS,
     href: `https://maps.google.com/?q=${encodeURIComponent(MAPS_QUERY)}`,
     external: true,
   },
@@ -81,7 +82,7 @@ export default function ContactPage() {
       <ContactWithGlobe
         subtitle="Contact Us"
         title="Connect With Incredible Medicare"
-        description="Reach out to our corporate headquarters at Sidcul IIE Pantnagar, Rudrapur, Uttarakhand. Our business development team provides immediate support for third-party contract manufacturing and product inquiries."
+        description="Reach out to our corporate headquarters at Unicity Business Park, Zirakpur, Punjab. Our business development team provides immediate support for third-party contract manufacturing and product inquiries."
         contactHeading="Corporate Headquarters"
         contactDescription="Reach us through any channel below. Our commercial desk replies within 2 business hours."
         links={CONTACT_LINKS}
@@ -291,7 +292,7 @@ export default function ContactPage() {
                 <h3 className="text-base font-bold text-slate-900">
                   Location Map: Corporate Headquarters
                 </h3>
-                <p className="text-xs text-slate-500">{COMPANY_INFO.address}</p>
+                <p className="text-xs text-slate-500">{HQ_ADDRESS}</p>
               </div>
               <a
                 href={`https://maps.google.com/?q=${encodeURIComponent(MAPS_QUERY)}`}
@@ -305,7 +306,7 @@ export default function ContactPage() {
 
             <div className="h-80 w-full bg-slate-100 sm:h-96">
               <iframe
-                src="https://maps.google.com/maps?q=Plot%20No%2022,%20Sector%203,%20Sidcul%20IIE%20Pantnagar,%20Rudrapur,%20Udham%20Singh%20Nagar,%20Uttarakhand%20263153&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=Unicity%20Business%20Park,%20Zirakpur,%20Punjab%20160104&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
