@@ -423,7 +423,7 @@ export default function HomePage() {
                 </p>
                 <p>
                   Our business operations are efficiently managed from our head
-                  office in Rudrapur, supported by a dedicated team and modern
+                  office in Zirakpur, supported by a dedicated team and modern
                   manufacturing infrastructure.
                 </p>
                 <p>
