@@ -406,7 +406,7 @@ export default function HomePage() {
                   About Incredible Medicare
                 </span>
                 <h2 className="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#0b192c] tracking-tight leading-[1.1]">
-                  From Uttarakhand to Nationwide Markets — Expanding with{" "}
+                  From Punjab to Nationwide Markets — Expanding with{" "}
                   <span className="text-[#0d9488]">Clinical Integrity.</span>
                 </h2>
                 <div className="accent-bar"></div>
